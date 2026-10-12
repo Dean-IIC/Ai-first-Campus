@@ -1,0 +1,8 @@
+[
+  { "slug": "uhv-induction", "activity_type": "Induction", "title": "Student induction programme (UHV-I)", "description": "A guided introduction for every first-year student to self-exploration, relationships and life on campus.", "sort_order": 1 },
+  { "slug": "uhv-course", "activity_type": "Course", "title": "Universal Human Values course (UHV-II)", "description": "A credit course in the curriculum that builds on the induction through discussion and reflection.", "sort_order": 2 },
+  { "slug": "uhv-fdp", "activity_type": "Faculty development", "title": "UHV faculty development programmes", "description": "Workshops that prepare faculty members to mentor students and facilitate UHV sessions.", "sort_order": 3 },
+  { "slug": "reflection-circles", "activity_type": "Mentoring", "title": "Reflection circles", "description": "Small-group conversations led by faculty mentors through the academic year.", "sort_order": 4 },
+  { "slug": "values-and-technology", "activity_type": "Talks", "title": "Values and technology talks", "description": "Sessions on fairness, privacy and responsibility in AI and engineering decisions.", "sort_order": 5 },
+  { "slug": "community-outreach", "activity_type": "Outreach", "title": "Community outreach", "description": "Service activities with nearby schools and neighbourhoods that put values into practice.", "sort_order": 6 }
+]

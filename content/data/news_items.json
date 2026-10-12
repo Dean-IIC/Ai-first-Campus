@@ -1,0 +1,6 @@
+[
+  { "slug": "sample-ai-first-launch", "kind": "event", "title": "AI First campus launch week", "summary": "Talks, demos of the campus assistant and open sessions in the Quantum Lab for students, parents and industry guests.", "published_on": "2026-10-01", "event_date": "2026-11-16", "link_url": null, "is_sample": true },
+  { "slug": "sample-quantum-lab-opens", "kind": "news", "title": "Quantum Lab opens for first-year students", "summary": "First-year students can now run quantum circuits on simulators, with hardware access through faculty-led classroom accounts.", "published_on": "2026-09-22", "event_date": null, "link_url": null, "is_sample": true },
+  { "slug": "sample-training-calendar", "kind": "news", "title": "Corporate training calendar for 2026–27", "summary": "New short programmes in generative AI, quantum computing and post-quantum cryptography for working professionals.", "published_on": "2026-09-10", "event_date": null, "link_url": null, "is_sample": true },
+  { "slug": "sample-uhv-induction", "kind": "event", "title": "UHV induction for the 2026 batch", "summary": "The Universal Human Values induction for all first-year students, led by trained faculty mentors.", "published_on": "2026-08-25", "event_date": "2026-09-01", "link_url": null, "is_sample": true }
+]

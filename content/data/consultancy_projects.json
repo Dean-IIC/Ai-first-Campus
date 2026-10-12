@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "sample-defect-detection",
+    "title": "Computer vision prototype for surface defect detection",
+    "client": "Add client name",
+    "department": "Artificial Intelligence & Machine Learning",
+    "status": "Ongoing",
+    "year": 2026,
+    "summary": "A camera-based model that flags scratches and dents on a production line for manual review.",
+    "is_sample": true,
+    "sort_order": 1
+  },
+  {
+    "slug": "sample-thermal-analysis",
+    "title": "Thermal analysis of an industrial heat exchanger",
+    "client": "Add client name",
+    "department": "Mechanical Engineering",
+    "status": "Completed",
+    "year": 2025,
+    "summary": "Simulation and test data to improve the efficiency of a client's heat exchanger.",
+    "is_sample": true,
+    "sort_order": 2
+  },
+  {
+    "slug": "sample-iot-energy",
+    "title": "IoT energy monitoring for a small factory",
+    "client": "Add client name",
+    "department": "Electronics & Communication Engineering",
+    "status": "Proposal",
+    "year": 2026,
+    "summary": "Wireless sensors and a dashboard that show energy use per machine.",
+    "is_sample": true,
+    "sort_order": 3
+  }
+]

@@ -1,0 +1,119 @@
+[
+  {
+    "slug": "fc-aryalekshmi",
+    "name": "Dr. Aryalekshmi",
+    "role": "Faculty champion",
+    "department": "R&D Chief Coordinator",
+    "bio": "Associate Professor",
+    "photo_url": "/images/champions/aryalekshmi.jpg",
+    "sort_order": 1
+  },
+  {
+    "slug": "fc-noor-ayesha",
+    "name": "Prof. Noor Ayesha",
+    "role": "Faculty champion",
+    "department": "Department of ECE",
+    "bio": "Assistant Professor",
+    "photo_url": "/images/champions/noor-ayesha.jpg",
+    "sort_order": 2
+  },
+  {
+    "slug": "fc-afreen-kubra",
+    "name": "Prof. Afreen Kubra",
+    "role": "Faculty champion",
+    "department": "Department of AIML",
+    "bio": "Assistant Professor",
+    "photo_url": "/images/champions/afreen-kubra.jpg",
+    "sort_order": 3
+  },
+  {
+    "slug": "fc-yousuf-madar",
+    "name": "Dr. Yousuf Madar",
+    "role": "Faculty champion",
+    "department": "Department of ECE",
+    "bio": "Assistant Professor",
+    "photo_url": "/images/champions/yousuf-madar.jpg",
+    "sort_order": 4
+  },
+  {
+    "slug": "fc-shireen-fathima",
+    "name": "Dr. Shireen Fathima",
+    "role": "Faculty champion",
+    "department": "Department of ECE",
+    "bio": "Assistant Professor",
+    "photo_url": "/images/champions/shireen-fathima.jpg",
+    "sort_order": 5
+  },
+  {
+    "slug": "fc-balaji-vijayan",
+    "name": "Dr. Balaji Vijayan",
+    "role": "Faculty champion",
+    "department": "Department of ISE",
+    "bio": "Associate Professor",
+    "photo_url": "/images/champions/balaji-vijayan.jpg",
+    "sort_order": 6
+  },
+  {
+    "slug": "fc-sufia-banu",
+    "name": "Dr. Sufia Banu",
+    "role": "Faculty champion",
+    "department": "Department of ECE",
+    "bio": "Associate Professor",
+    "photo_url": "/images/champions/sufia-banu.jpg",
+    "sort_order": 7
+  },
+  {
+    "slug": "fc-maaz-ahmed",
+    "name": "Dr. Maaz Ahmed",
+    "role": "Faculty champion",
+    "department": "Department of ECE",
+    "bio": "Deputy HOD",
+    "photo_url": "/images/champions/maaz-ahmed.jpg",
+    "sort_order": 8
+  },
+  {
+    "slug": "fc-tahir-naquash",
+    "name": "Prof. Tahir Naquash",
+    "role": "Faculty champion",
+    "department": "Department of CSE",
+    "bio": "Assistant Professor",
+    "photo_url": "/images/champions/tahir-naquash.jpg",
+    "sort_order": 9
+  },
+  {
+    "slug": "fc-deepa-k",
+    "name": "Ms. Deepa K",
+    "role": "Faculty champion",
+    "department": "Department of AIML",
+    "bio": "Teaching Assistant",
+    "photo_url": "/images/champions/deepa-k.jpg",
+    "sort_order": 10
+  },
+  {
+    "slug": "fc-summaiya-almas",
+    "name": "Prof. Summaiya Almas",
+    "role": "Faculty champion",
+    "department": "Department of ECE",
+    "bio": "Assistant Professor",
+    "photo_url": "/images/champions/summaiya-almas.jpg",
+    "sort_order": 11
+  },
+  {
+    "slug": "fc-mohammed-nabeel",
+    "name": "Mr. Mohammed Nabeel",
+    "role": "Faculty champion",
+    "department": "Department of AIML",
+    "bio": "Teaching Assistant",
+    "photo_url": "/images/champions/mohammed-nabeel.jpg",
+    "sort_order": 12
+  },
+  {
+    "slug": "fc-sujhita",
+    "name": "Dr. Sujhita",
+    "role": "Faculty champion",
+    "department": null,
+    "bio": null,
+    "photo_url": "/images/champions/sujhita.jpg",
+    "sort_order": 13
+  }
+]

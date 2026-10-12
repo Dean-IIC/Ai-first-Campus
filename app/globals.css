@@ -1,0 +1,301 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+/* Class-based dark mode, toggled by next-themes on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- Design tokens ----------
+ * shadcn/ui semantic tokens plus HKBK brand and section colours.
+ * Each section colour has three forms:
+ *   t-<name>        solid colour for fills and borders (same in both modes)
+ *   t-<name>-light  text colour on dark backgrounds (dark mode)
+ *   t-<name>-tint   soft background, switches with the theme
+ */
+:root {
+  --background: #ffffff;
+  --foreground: #172033;
+  --card: #ffffff;
+  --card-foreground: #172033;
+  --popover: #ffffff;
+  --popover-foreground: #172033;
+  --primary: #123e7c;
+  --primary-foreground: #ffffff;
+  --secondary: #e8eff9;
+  --secondary-foreground: #0a2a57;
+  --muted: #f5f7fa;
+  --muted-foreground: #5b6576;
+  --accent: #e8eff9;
+  --accent-foreground: #0a2a57;
+  --destructive: #b42318;
+  --border: #e1e6ee;
+  --input: #d5dce7;
+  --ring: #f2a900;
+  --heading: #0a2a57;
+  --brand-tint: #e8eff9;
+
+  --t-blue-tint: #e8eff9;
+  --t-green-tint: #e4f3ea;
+  --t-teal-tint: #e0f2f4;
+  --t-amber-tint: #fcf0da;
+  --t-rose-tint: #fae7eb;
+  --t-violet-tint: #eeeaf8;
+}
+
+.dark {
+  --background: #0b1220;
+  --foreground: #e3e9f3;
+  --card: #111b2e;
+  --card-foreground: #e3e9f3;
+  --popover: #111b2e;
+  --popover-foreground: #e3e9f3;
+  --primary: #8db4ff;
+  --primary-foreground: #0a1730;
+  --secondary: #1a2740;
+  --secondary-foreground: #e3e9f3;
+  --muted: #16223a;
+  --muted-foreground: #9aa8bf;
+  --accent: #1a2740;
+  --accent-foreground: #e3e9f3;
+  --destructive: #f97066;
+  --border: #24324d;
+  --input: #2f3f5e;
+  --ring: #f2a900;
+  --heading: #f1f5fb;
+  --brand-tint: #13213a;
+
+  --t-blue-tint: #15264a;
+  --t-green-tint: #12302a;
+  --t-teal-tint: #0f2d33;
+  --t-amber-tint: #33260f;
+  --t-rose-tint: #3a1720;
+  --t-violet-tint: #241b45;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-heading: var(--heading);
+  --color-brand-tint: var(--brand-tint);
+
+  --color-t-blue-tint: var(--t-blue-tint);
+  --color-t-green-tint: var(--t-green-tint);
+  --color-t-teal-tint: var(--t-teal-tint);
+  --color-t-amber-tint: var(--t-amber-tint);
+  --color-t-rose-tint: var(--t-rose-tint);
+  --color-t-violet-tint: var(--t-violet-tint);
+}
+
+@theme {
+  /* Fixed brand colours (the same in both modes) */
+  --color-brand: #123e7c;
+  --color-brand-dark: #0a2a57;
+  --color-gold: #f2a900;
+  --color-gold-hover: #ffbb1f;
+  --color-gold-dark: #8f6200;
+
+  --color-t-blue: #1a4f9c;
+  --color-t-green: #1e7a4c;
+  --color-t-teal: #0b7480;
+  --color-t-amber: #925700;
+  --color-t-rose: #a3253d;
+  --color-t-violet: #5b3fa6;
+
+  --color-tile-blue-a: #0f2a5c;
+  --color-tile-blue-b: #1a4f9c;
+  --color-tile-green-a: #14552f;
+  --color-tile-green-b: #1e7a4c;
+  --color-tile-amber-a: #9c3f0a;
+  --color-tile-amber-b: #b85410;
+  --color-tile-violet-a: #3f2483;
+  --color-tile-violet-b: #5b3fa6;
+  --color-tile-teal-a: #06505a;
+  --color-tile-teal-b: #0b7480;
+  --color-tile-rose-a: #7a1a2d;
+  --color-tile-rose-b: #a3253d;
+
+  --color-t-blue-light: #8db4ff;
+  --color-t-green-light: #6fd3a0;
+  --color-t-teal-light: #5fd0dc;
+  --color-t-amber-light: #f2b45a;
+  --color-t-rose-light: #f38aa0;
+  --color-t-violet-light: #b9a5ff;
+
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 4.5rem;
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+  * {
+    border-color: var(--border);
+  }
+  a:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--color-brand-dark);
+  color: white;
+  padding: 0.5rem 0.875rem;
+  border-radius: 6px;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Long-form markdown follows the theme */
+.prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--heading);
+  --tw-prose-links: var(--primary);
+  --tw-prose-bold: var(--heading);
+  --tw-prose-bullets: var(--primary);
+  --tw-prose-counters: var(--primary);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--foreground);
+  --tw-prose-quote-borders: var(--color-gold);
+  --tw-prose-code: var(--foreground);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+}
+.prose > :first-child {
+  margin-top: 0;
+}
+/* Headings inside page content get a gold accent */
+.prose h2 {
+  position: relative;
+  padding-left: 0.9rem;
+}
+.prose h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  bottom: 0.2em;
+  width: 4px;
+  border-radius: 4px;
+  background: var(--color-gold);
+}
+.prose h3 {
+  color: var(--heading);
+}
+.prose blockquote {
+  border-left-width: 4px;
+  border-radius: 0 0.75rem 0.75rem 0;
+  background: var(--brand-tint);
+  padding: 0.9rem 1.25rem;
+  font-style: normal;
+}
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after {
+  content: none;
+}
+.prose table {
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+.prose thead {
+  background: var(--muted);
+}
+.prose a {
+  text-underline-offset: 3px;
+}
+
+.letter p {
+  margin: 0 0 1.1em;
+}
+.letter ul {
+  list-style: disc;
+  margin: 0 0 1.1em;
+  padding-left: 1.25rem;
+}
+.letter li {
+  margin: 0.35em 0;
+}
+.letter li::marker {
+  color: var(--primary);
+}
+.letter-dropcap > p:first-child::first-letter {
+  float: left;
+  margin: 0.08em 0.12em 0 0;
+  font-size: 3.6em;
+  line-height: 0.85;
+  font-weight: 600;
+  color: var(--primary);
+}
+.letter strong {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Site admin: only applied to the signed-in admin's browser (classes set by AdminProvider). */
+body.cms-admin {
+  padding-top: 2.5rem;
+}
+body.cms-admin nav[aria-label="Main"] {
+  top: 2.5rem;
+}
+body.cms-edit [data-cms] {
+  outline: 1px dashed transparent;
+  outline-offset: 4px;
+  border-radius: 4px;
+  transition: outline-color 0.15s ease;
+  cursor: text;
+}
+body.cms-edit [data-cms]:hover,
+body.cms-edit [data-cms]:focus {
+  outline-color: var(--color-t-teal);
+}
+body.cms-edit [data-cms]:focus {
+  outline-style: solid;
+}

@@ -1,0 +1,241 @@
+import { toneForCategory } from "./portals";
+import { aiProgramme, images, initiativeItems, isActiveItem, type NavItem } from "./site";
+import type { Tone } from "./ui";
+
+export type MenuColumn = { title: string; links: NavItem[] };
+
+/**
+ * One item in the top menu. Items with `columns` open a dropdown; items with
+ * only `href` are plain links. The same list drives the top menu, the left
+ * panel and the footer, so they always match.
+ */
+export type MenuSection = {
+  label: string;
+  tone: Tone;
+  href?: string;
+  external?: boolean;
+  /** Other routes that belong to this item (for highlighting). */
+  match?: string[];
+  columns?: MenuColumn[];
+  feature?: { title: string; text: string; image?: string; href: string; cta: string };
+};
+
+type Dept = { slug: string; name: string; kind: string; programmes: string | null; has_research_centre: boolean };
+type Leader = { slug: string; designation: string; name: string | null };
+type House = { slug: string; name: string; is_placeholder?: boolean };
+type Initiative = Parameters<typeof initiativeItems>[0][number];
+
+export const IEEE_CHAPTERS = [
+  { id: "cis", label: "Computational Intelligence Society (CIS)" },
+  { id: "wie", label: "Women in Engineering (WIE)" },
+  { id: "information-theory", label: "Information Theory Society" },
+  { id: "education-society", label: "Education Society" },
+];
+
+/** The top menu, in the order requested by the college. */
+export function buildMenu({
+  departments,
+  leaders,
+  aiLeaders,
+  initiatives,
+  houses,
+}: {
+  departments: Dept[];
+  leaders: Leader[];
+  aiLeaders: Leader[];
+  initiatives: Initiative[];
+  houses: House[];
+}): MenuSection[] {
+  const items = initiativeItems(initiatives, toneForCategory);
+  const bySlug = (slug: string) => {
+    const i = initiatives.findIndex((p) => p.slug === slug);
+    return i >= 0 ? items[i] : undefined;
+  };
+  const pick = (...slugs: string[]) => slugs.map(bySlug).filter((x): x is NavItem => Boolean(x));
+
+  const engineering = departments.filter((d) => d.kind === "Engineering");
+  const sciences = departments.filter((d) => d.kind === "Basic sciences and humanities");
+  const physical = departments.filter((d) => d.kind === "Physical education");
+  const programmes = departments.filter((d) => d.programmes === "BE");
+  const centres = departments.filter((d) => d.has_research_centre);
+  const ideaLab = bySlug("idea-lab");
+  const ieeeSite = bySlug("ieee");
+
+  return [
+    { label: "Home", tone: "blue", href: "/" },
+    {
+      label: "About",
+      tone: "blue",
+      columns: [
+        {
+          title: "About HKBK",
+          links: [
+            { label: "Overview", href: "/about" },
+            { label: "Vision and mission", href: "/about#vision-mission" },
+            { label: "Leadership messages", href: "/leadership" },
+          ],
+        },
+        {
+          title: "Leadership",
+          links: leaders.map((l) => ({ label: `${l.designation}'s message`, note: l.name ?? undefined, href: `/leadership#${l.slug}` })),
+        },
+      ],
+      feature: {
+        title: "HKBK College of Engineering",
+        text: "Educating engineers since 1997, affiliated to VTU, Belagavi and approved by AICTE, directly opposite Manyata Tech Park.",
+        image: images.campus.src,
+        href: "/about",
+        cta: "Learn more",
+      },
+    },
+    {
+      label: "Programmes",
+      tone: "green",
+      match: ["/programmes"],
+      columns: [
+        {
+          title: "Bachelor of Engineering (BE)",
+          links: [...programmes.map((d) => ({ label: d.name, href: `/academics/${d.slug}` })), { label: "All programmes", href: "/programmes" }],
+        },
+      ],
+      feature: {
+        title: "Undergraduate programmes",
+        text: `${programmes.length} four-year BE programmes under the VTU curriculum, with AI built into every one.`,
+        href: "/programmes",
+        cta: "View all programmes",
+      },
+    },
+    {
+      label: "Departments",
+      tone: "green",
+      match: ["/academics"],
+      columns: [
+        { title: "Engineering", links: engineering.map((d) => ({ label: d.name, href: `/academics/${d.slug}` })) },
+        { title: "Basic sciences and humanities", links: sciences.map((d) => ({ label: d.name, href: `/academics/${d.slug}` })) },
+        { title: "Physical education", links: [...physical.map((d) => ({ label: d.name, href: `/academics/${d.slug}` })), { label: "All departments", href: "/academics" }] },
+      ],
+      feature: {
+        title: "Departments",
+        text: `${departments.length} departments, each with its own vision and mission.`,
+        href: "/academics",
+        cta: "View all departments",
+      },
+    },
+    {
+      label: "Centre of Excellence",
+      tone: "amber",
+      match: ["/research", "/research/centres", "/consultancy", "/corporate-training", "/initiatives"],
+      columns: [
+        {
+          title: "Research and industry",
+          links: [
+            ...pick("research"),
+            { label: "Research centres", href: "/research/centres" },
+            { label: "Research projects", href: "/research#projects" },
+            { label: "Consultancy projects", href: "/consultancy" },
+            { label: "Corporate training", href: "/corporate-training" },
+          ],
+        },
+        { title: "Research centres", links: centres.map((d) => ({ label: d.name, href: `/academics/${d.slug}#research-centre` })) },
+        { title: "Centres and cells", links: pick("uhv", "skill-development", "equal-opportunity-cell", "alumni") },
+      ],
+      feature: {
+        title: "Centre of Excellence",
+        text: `${centres.length} research centres, dedicated cells and industry partnerships driving excellence at HKBK.`,
+        href: "/research/centres",
+        cta: "Explore research centres",
+      },
+    },
+    {
+      label: "IEEE",
+      tone: "rose",
+      match: ["/ieee", "/initiatives/ieee"],
+      columns: [
+        {
+          title: "IEEE Student Branch",
+          links: [
+            { label: "About the branch", href: "/ieee#about-the-branch" },
+            { label: "Activities", href: "/ieee#activities" },
+            { label: "Membership", href: "/ieee#membership" },
+            ...(ieeeSite?.external ? [{ ...ieeeSite, label: "Branch website" }] : []),
+          ],
+        },
+        { title: "Chapters", links: IEEE_CHAPTERS.map((c) => ({ label: c.label, href: `/ieee#${c.id}` })) },
+      ],
+      feature: {
+        title: "IEEE at HKBK",
+        text: "Join the world's largest technical professional organisation through our student branch and its chapters.",
+        href: "/ieee",
+        cta: "About the branch",
+      },
+    },
+    {
+      label: "Houses",
+      tone: "violet",
+      match: ["/houses"],
+      columns: [{ title: "Our five houses", links: houses.map((h) => ({ label: h.name, href: `/houses#${h.slug}`, note: h.is_placeholder ? "Name coming soon" : undefined })) }],
+      feature: {
+        title: "House system",
+        text: "Every student belongs to one of five houses, which compete in sport, culture and service through the year.",
+        href: "/houses",
+        cta: "Meet the houses",
+      },
+    },
+    { label: "Placements", tone: "blue", href: "/placements" },
+    { label: "MoUs", tone: "amber", href: "/mous" },
+    {
+      label: "AI First Campus",
+      tone: "teal",
+      match: ["/ai-quantum", "/ai-quantum/ai-first"],
+      columns: [
+        {
+          title: "AI First Campus",
+          links: [
+            { label: "AI First Campus", href: "/ai-quantum/ai-first" },
+            ...aiLeaders.map((l) => ({ label: `${l.designation}'s message`, note: l.name ?? undefined, href: "/ai-quantum/ai-first#officer-message" })),
+            { label: "AI Champions and Ambassadors", href: "/ai-quantum/champions" },
+            { label: "Dashboards", href: "/ai-quantum/dashboards" },
+          ],
+        },
+      ],
+      feature: {
+        title: "AI First Campus",
+        text: `${aiProgramme.facultyChampions} AI Faculty Champions and ${aiProgramme.studentAmbassadors} AI Student Ambassadors lead the change.`,
+        image: images.ai.src,
+        href: "/ai-quantum/ai-first",
+        cta: "Learn more",
+      },
+    },
+    { label: "Quantum Ready Campus", tone: "teal", href: "/ai-quantum/quantum-lab" },
+    {
+      label: "IDEA Lab",
+      tone: "amber",
+      href: ideaLab?.href ?? "/initiatives/idea-lab",
+      external: ideaLab?.external,
+      match: ["/initiatives/idea-lab"],
+    },
+    { label: "IQAC", tone: "blue", href: "/iqac" },
+  ];
+}
+
+/** Every link inside a section, in order. */
+export function sectionLinks(section: MenuSection): NavItem[] {
+  return section.columns ? section.columns.flatMap((c) => c.links) : section.href ? [{ label: section.label, href: section.href, external: section.external }] : [];
+}
+
+/** True when `path` is the section's own page or one of its links. */
+function sectionMatches(section: MenuSection, path: string): boolean {
+  if (section.href && section.href === path) return true;
+  if (section.match?.includes(path)) return true;
+  return sectionLinks(section).some((i) => isActiveItem(i, path) || i.href.split("#")[0] === path);
+}
+
+/** The menu section a route belongs to, for highlighting, the banner colour and breadcrumbs. */
+export function sectionFor(path: string, menu: MenuSection[]): MenuSection | undefined {
+  if (path === "/") return menu[0];
+  if (path.startsWith("/academics/")) return menu.find((s) => s.label === "Departments");
+  const direct = menu.slice(1).find((s) => sectionMatches(s, path));
+  if (direct) return direct;
+  if (path.startsWith("/initiatives/")) return menu.find((s) => s.label === "Centre of Excellence");
+  return undefined;
+}

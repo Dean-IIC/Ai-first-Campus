@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "genai-professionals",
+    "title": "Generative AI for working professionals",
+    "track": "Artificial intelligence",
+    "duration": "3 days",
+    "mode": "Campus, office or online",
+    "audience": "Managers and engineers",
+    "summary": "Use language models safely at work: prompting, retrieval, evaluation and data privacy.",
+    "is_sample": true,
+    "sort_order": 1
+  },
+  {
+    "slug": "applied-ml-python",
+    "title": "Applied machine learning with Python",
+    "track": "Artificial intelligence",
+    "duration": "5 days",
+    "mode": "Campus, office or online",
+    "audience": "Developers and analysts",
+    "summary": "Build, evaluate and deploy machine learning models on your own data.",
+    "is_sample": true,
+    "sort_order": 2
+  },
+  {
+    "slug": "quantum-foundations",
+    "title": "Quantum computing foundations with Qiskit",
+    "track": "Quantum computing",
+    "duration": "3 days",
+    "mode": "Campus or online",
+    "audience": "Engineers and researchers",
+    "summary": "Qubits, gates and circuits, with hands-on runs on simulators and real quantum hardware.",
+    "is_sample": true,
+    "sort_order": 3
+  },
+  {
+    "slug": "pqc-security-teams",
+    "title": "Post-quantum cryptography for security teams",
+    "track": "Quantum computing",
+    "duration": "2 days",
+    "mode": "Campus, office or online",
+    "audience": "Security and IT teams",
+    "summary": "The new NIST standards, building a cryptographic inventory, and planning a migration.",
+    "is_sample": true,
+    "sort_order": 4
+  },
+  {
+    "slug": "fullstack-nextjs-supabase",
+    "title": "Full-stack web with Next.js and Supabase",
+    "track": "Software engineering",
+    "duration": "5 days",
+    "mode": "Campus or online",
+    "audience": "Developers",
+    "summary": "Build secure web applications with React Server Components, Postgres and row-level security.",
+    "is_sample": true,
+    "sort_order": 5
+  },
+  {
+    "slug": "embedded-iot",
+    "title": "Embedded systems and IoT",
+    "track": "Core engineering",
+    "duration": "4 days",
+    "mode": "Campus",
+    "audience": "Engineers and technicians",
+    "summary": "Microcontrollers, sensors and connected devices, from prototype to deployment.",
+    "is_sample": true,
+    "sort_order": 6
+  },
+  {
+    "slug": "cad-simulation",
+    "title": "CAD and simulation for mechanical design",
+    "track": "Core engineering",
+    "duration": "3 days",
+    "mode": "Campus",
+    "audience": "Design and production engineers",
+    "summary": "Model parts, run stress and thermal simulations, and prepare designs for manufacture.",
+    "is_sample": true,
+    "sort_order": 7
+  },
+  {
+    "slug": "values-for-leaders",
+    "title": "Human values for team leaders",
+    "track": "Leadership",
+    "duration": "1 day",
+    "mode": "Campus or office",
+    "audience": "Team leads and managers",
+    "summary": "A UHV-based workshop on trust, respect and decision-making in teams.",
+    "is_sample": true,
+    "sort_order": 8
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "ai-assistant-usage",
+    "title": "AI assistant usage",
+    "category": "AI",
+    "description": "Questions asked, answer ratings and usage by department. Shows totals only, never anyone's conversations.",
+    "url": null,
+    "status": "In development",
+    "sort_order": 1
+  },
+  {
+    "slug": "ai-literacy",
+    "title": "AI literacy progress",
+    "category": "AI",
+    "description": "How many students and staff have completed the AI literacy modules, by department.",
+    "url": null,
+    "status": "In development",
+    "sort_order": 2
+  },
+  {
+    "slug": "quantum-lab-jobs",
+    "title": "Quantum Lab jobs",
+    "category": "Quantum",
+    "description": "Circuits run on simulators and real quantum hardware, queue times and hardware minutes used per course.",
+    "url": null,
+    "status": "In development",
+    "sort_order": 3
+  },
+  {
+    "slug": "quantum-safe-readiness",
+    "title": "Quantum-safe security readiness",
+    "category": "Quantum",
+    "description": "Which campus systems already use quantum-safe encryption, and which still need to move.",
+    "url": null,
+    "status": "In development",
+    "sort_order": 4
+  },
+  {
+    "slug": "learning-analytics",
+    "title": "Learning analytics",
+    "category": "Academic",
+    "description": "Attendance, assignment and assessment trends by course, to spot students who need support early.",
+    "url": null,
+    "status": "In development",
+    "sort_order": 5
+  },
+  {
+    "slug": "placement-insights",
+    "title": "Placement insights",
+    "category": "Academic",
+    "description": "Offers, companies and roles by department and year.",
+    "url": null,
+    "status": "In development",
+    "sort_order": 6
+  },
+  {
+    "slug": "research-output",
+    "title": "Research output",
+    "category": "Research",
+    "description": "Publications, patents, funded projects and consultancy by department.",
+    "url": null,
+    "status": "In development",
+    "sort_order": 7
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "uhv",
+    "title": "Universal Human Values",
+    "description": "The UHV Cell: value education, induction programmes, reflection circles and outreach.",
+    "url": null,
+    "category": "Academics and values",
+    "icon": "uhv",
+    "status": "Coming soon",
+    "related_page": "/uhv",
+    "sort_order": 1,
+    "menu_group": "Campus Life"
+  },
+  {
+    "slug": "research",
+    "title": "Research and Development",
+    "description": "Research centres, PhD programmes, publications, patents and funded projects.",
+    "url": null,
+    "category": "Research and innovation",
+    "icon": "research",
+    "status": "Coming soon",
+    "related_page": "/research",
+    "sort_order": 2,
+    "menu_group": "R & D"
+  },
+  {
+    "slug": "ieee",
+    "title": "IEEE Student Branch",
+    "description": "Technical talks, workshops, competitions and IEEE membership for students.",
+    "url": null,
+    "category": "Students and alumni",
+    "icon": "ieee",
+    "status": "Coming soon",
+    "related_page": "/ieee",
+    "sort_order": 3,
+    "menu_group": "Campus Life"
+  },
+  {
+    "slug": "idea-lab",
+    "title": "IDEA Lab",
+    "description": "A making and prototyping lab where students turn ideas into working products.",
+    "url": null,
+    "category": "Research and innovation",
+    "icon": "idea-lab",
+    "status": "Coming soon",
+    "related_page": null,
+    "sort_order": 4,
+    "menu_group": "Labs"
+  },
+  {
+    "slug": "skill-development",
+    "title": "Skill Development Centre",
+    "description": "Industry certifications, workshops and career-ready skills for every student.",
+    "url": null,
+    "category": "Students and alumni",
+    "icon": "skills",
+    "status": "Coming soon",
+    "related_page": null,
+    "sort_order": 5,
+    "menu_group": "Labs"
+  },
+  {
+    "slug": "equal-opportunity-cell",
+    "title": "Equal Opportunity Cell",
+    "description": "Guidance, support and grievance redress so that every student has equal access to education and campus life.",
+    "url": null,
+    "category": "Academics and values",
+    "icon": "equal-opportunity",
+    "status": "Coming soon",
+    "related_page": null,
+    "sort_order": 6,
+    "menu_group": "Campus Life"
+  },
+  {
+    "slug": "alumni",
+    "title": "Alumni Network",
+    "description": "HKBK graduates around the world: reunions, mentoring, careers and giving back.",
+    "url": null,
+    "category": "Students and alumni",
+    "icon": "alumni",
+    "status": "Coming soon",
+    "related_page": null,
+    "sort_order": 7,
+    "menu_group": "Campus Life"
+  }
+]

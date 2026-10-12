@@ -1,0 +1,256 @@
+[
+  {
+    "slug": "jan-feb-2026",
+    "period": "January – February 2026",
+    "icon": "sunrise",
+    "title": "The Awakening — Principal's Vision Sessions",
+    "summary": "Our transformation began with conviction from the top. The Principal conducted multiple intensive awareness sessions with all department heads and faculty members, laying the groundwork for a campus-wide AI revolution.",
+    "points": [
+      "Principal-led awareness sessions with all HoDs and faculty across all departments",
+      "Introduction to AI terminologies: Machine Learning, Deep Learning, Generative AI, Agentic AI, Quantum Computing",
+      "Why AI matters for engineering colleges — impact on admissions, placements, and NAAC",
+      "Demystifying Quantum Computing — what it means for our students' future",
+      "Building a shared vocabulary and urgency across the institution",
+      "Identifying AI champions in each department"
+    ],
+    "badge": null,
+    "photos": [],
+    "sort_order": 1,
+    "layer": null,
+    "status": "completed",
+    "inline_photo": null
+  },
+  {
+    "slug": "mar-2026",
+    "period": "March 2026",
+    "icon": "hammer",
+    "title": "Building AI — From Theory to Working Portals",
+    "summary": "March saw HKBK move from awareness to action. Our AIML department built real, working AI applications — proving that AI is not just for tech giants. This hands-on approach earned us national recognition.",
+    "points": [
+      "AI-powered presentation tools deployed for faculty use",
+      "UHV (Universal Human Values) Portal — first AI-integrated academic portal",
+      "Result Analysis System — automated student performance analysis using AI",
+      "Student IA Marks Chatbot — students can query their marks using natural language",
+      "Faculty Prompt Library — curated academic prompts for teaching, NAAC, research",
+      "HKBK EduStream — YouTube-style college video library with role-based access"
+    ],
+    "badge": "AICTE Recognition: Potential Nodal Center for Universal Human Values",
+    "photos": [],
+    "sort_order": 2,
+    "layer": null,
+    "status": "completed",
+    "inline_photo": null
+  },
+  {
+    "slug": "apr-2026",
+    "period": "April 2026",
+    "icon": "presentation",
+    "title": "6-Month AI Transformation Program — Expert Partnership",
+    "summary": "HKBK partnered with industry expert **Mr. Rocky Jagtiani** to launch a comprehensive 6-month AI transformation program. Three intensive Faculty Development Programs were conducted, covering prompt engineering, hands-on AI tools, and pedagogical innovation.",
+    "points": [
+      "**FDP Cohort 1** — Prompt Engineering Fundamentals: Persona–Context–Task–Output framework",
+      "**FDP Cohort 2** — AI for Academic Work: Lesson plans, question papers, SSR writing, viva questions",
+      "**FDP Cohort 3** — Hands-on AI Tools: Hugging Face, Google Colab, Python, APIs",
+      "25–30 faculty teams formed; 25–30 real-world problems identified",
+      "25–30 prompts built and tested on real documents → Prompt Library v1 created",
+      "Design Thinking workshop for faculty innovation"
+    ],
+    "badge": null,
+    "photos": [
+      {
+        "src": "/images/journey/fdp4.jpg",
+        "alt": "Mission AI-First @HKBK: poster for the 6-month programme and its April cohorts",
+        "fit": "contain"
+      },
+      {
+        "src": "/images/journey/fdp1.jpg",
+        "alt": "Lighting the lamp at the programme inauguration",
+        "fit": "cover"
+      },
+      {
+        "src": "/images/journey/fdp2.jpg",
+        "alt": "Guests and faculty at the programme inauguration",
+        "fit": "cover"
+      },
+      {
+        "src": "/images/journey/fdp3.jpg",
+        "alt": "Presentation of a memento at the inauguration",
+        "fit": "cover"
+      },
+      {
+        "src": "/images/journey/fdp5.jpg",
+        "alt": "Faculty taking part in an FDP session",
+        "fit": "cover"
+      },
+      {
+        "src": "/images/journey/fdp9.jpg",
+        "alt": "Faculty working in teams during an FDP session",
+        "fit": "cover"
+      },
+      {
+        "src": "/images/journey/fdp10.jpg",
+        "alt": "Faculty working on laptops during an FDP session",
+        "fit": "cover"
+      },
+      {
+        "src": "/images/journey/fdp6.jpg",
+        "alt": "Hands-on guidance for a faculty member",
+        "fit": "cover"
+      },
+      {
+        "src": "/images/journey/fdp7.jpg",
+        "alt": "Hands-on guidance during an FDP session",
+        "fit": "cover"
+      },
+      {
+        "src": "/images/journey/fdp8.jpg",
+        "alt": "Faculty practising with AI tools",
+        "fit": "cover"
+      },
+      {
+        "src": "/images/journey/fdp11.jpg",
+        "alt": "FDP session in the seminar hall",
+        "fit": "cover"
+      },
+      {
+        "src": "/images/journey/fdp12.jpg",
+        "alt": "Panel and participants in the seminar hall",
+        "fit": "cover"
+      }
+    ],
+    "sort_order": 3,
+    "layer": null,
+    "status": "completed",
+    "inline_photo": {
+      "src": "/images/journey/apr-2026-expert-partner.jpg",
+      "alt": "Portrait of a man in a blue checked shirt",
+      "caption": ""
+    }
+  },
+  {
+    "slug": "may-2026",
+    "period": "May 2026",
+    "icon": "sprout",
+    "title": "Layer 1 Deployed — Awareness Campus Goes Live",
+    "summary": "May marks the full activation of Layer 1 of the 5-layer AI framework. AI is now being used across departments in teaching, planning, and administration. The transformation is happening at scale.",
+    "points": [
+      "AI-assisted lesson planning deployed across Computer Science, IS, AIML, ECE, MBA",
+      "Automated assessments — AI-generated question papers and viva questions",
+      "AI literacy program for all students (2nd, 3rd, 4th year)",
+      "Multidisciplinary AI projects introduced for 2nd semester students (3 credits)",
+      "AI rubrics integrated into Civil, Mechanical, and Humanities assessments",
+      "Administrative workflow automation — SSR writing, evidence documentation"
+    ],
+    "badge": null,
+    "photos": [],
+    "sort_order": 4,
+    "layer": null,
+    "status": "in_progress",
+    "inline_photo": null
+  },
+  {
+    "slug": "m-2026-06",
+    "period": "June 2026",
+    "title": "",
+    "summary": null,
+    "points": [],
+    "badge": null,
+    "icon": "sparkles",
+    "photos": [],
+    "sort_order": 5,
+    "layer": null,
+    "status": "completed",
+    "inline_photo": null
+  },
+  {
+    "slug": "m-2026-07",
+    "period": "July 2026",
+    "title": "",
+    "summary": null,
+    "points": [],
+    "badge": null,
+    "icon": "sparkles",
+    "photos": [],
+    "sort_order": 6,
+    "layer": null,
+    "status": "completed",
+    "inline_photo": null
+  },
+  {
+    "slug": "m-2026-08",
+    "period": "August – September 2026",
+    "title": "AI in Action — Industry Consultancy: AI Customer-Support Chatbot",
+    "summary": "The AI First initiative moved from the classroom to real-world delivery with an industry consultancy project: an AI-powered customer-support chatbot and Instagram operations system for Camellia Artisanal, a food business. The system answers customer questions using approved business knowledge and hands over to a human whenever a question needs one.",
+    "points": [
+      "AI chatbot built on structured intent understanding with a controlled RAG/LLM layer, designed never to invent prices, stock, shelf life or delivery promises",
+      "Canonical business-knowledge catalogue so every answer comes from one approved source",
+      "Instagram integration: replies that recognise which post, reel or Story the customer is responding to, with Story auto-sync",
+      "Safe human handoff with owner notifications (admin panel, email and web push)",
+      "Privacy safeguards: hashed customer identifiers in logs, with no raw IDs or customer messages stored",
+      "Over 2,400 automated tests passing, with staged releases and live acceptance testing before every production update"
+    ],
+    "badge": null,
+    "icon": "rocket",
+    "photos": [],
+    "sort_order": 7,
+    "layer": 2,
+    "status": "completed",
+    "inline_photo": null
+  },
+  {
+    "slug": "m-2026-09",
+    "period": "September 2026",
+    "title": "",
+    "summary": null,
+    "points": [],
+    "badge": null,
+    "icon": "sparkles",
+    "photos": [],
+    "sort_order": 8,
+    "layer": null,
+    "status": "completed",
+    "inline_photo": null
+  },
+  {
+    "slug": "m-2026-10",
+    "period": "October 2026",
+    "title": "",
+    "summary": null,
+    "points": [],
+    "badge": null,
+    "icon": "sparkles",
+    "photos": [],
+    "sort_order": 9,
+    "layer": null,
+    "status": "upcoming",
+    "inline_photo": null
+  },
+  {
+    "slug": "m-2026-11",
+    "period": "November 2026",
+    "title": "",
+    "summary": null,
+    "points": [],
+    "badge": null,
+    "icon": "sparkles",
+    "photos": [],
+    "sort_order": 10,
+    "layer": null,
+    "status": "upcoming",
+    "inline_photo": null
+  },
+  {
+    "slug": "m-2026-12",
+    "period": "December 2026",
+    "title": "",
+    "summary": null,
+    "points": [],
+    "badge": null,
+    "icon": "sparkles",
+    "photos": [],
+    "sort_order": 11,
+    "layer": null,
+    "status": "upcoming",
+    "inline_photo": null
+  }
+]

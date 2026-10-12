@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "sample-campus-assistant-eval",
+    "title": "Evaluating a bilingual campus assistant for Kannada and English",
+    "investigator": "Department of AI & ML",
+    "funding_agency": "Internal seed grant",
+    "status": "Ongoing",
+    "year": 2026,
+    "summary": "Measures answer accuracy and citation quality of a retrieval-based assistant on real student questions in both languages.",
+    "is_sample": true,
+    "sort_order": 1
+  },
+  {
+    "slug": "sample-pqc-migration",
+    "title": "Post-quantum migration for college information systems",
+    "investigator": "Department of CSE",
+    "funding_agency": "Internal seed grant",
+    "status": "Proposed",
+    "year": 2026,
+    "summary": "Builds a cryptographic inventory of campus systems and tests hybrid ML-KEM key exchange in production services.",
+    "is_sample": true,
+    "sort_order": 2
+  },
+  {
+    "slug": "sample-corrosion-coatings",
+    "title": "Eco-friendly corrosion-resistant coatings for steel",
+    "investigator": "Research Centre, Department of Chemistry",
+    "funding_agency": "Add funding agency",
+    "status": "Completed",
+    "year": 2025,
+    "summary": "Tests plant-based inhibitors that slow corrosion on mild steel used in construction and machinery.",
+    "is_sample": true,
+    "sort_order": 3
+  }
+]

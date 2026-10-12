@@ -1,0 +1,203 @@
+[
+  {
+    "slug": "cse",
+    "name": "Computer Science & Engineering",
+    "short_name": "CSE",
+    "kind": "Engineering",
+    "programmes": "BE",
+    "description": "Software engineering, systems, data and AI, taught with industry tools and real projects.",
+    "vision": "To be a centre of excellence in computer science that produces engineers who build intelligent, secure and responsible software for society.",
+    "mission": [
+      "Teach strong foundations in computing through hands-on, AI-enabled learning.",
+      "Encourage research and innovation in AI, data science, cybersecurity and quantum computing.",
+      "Partner with industry for internships, projects and placements.",
+      "Develop ethical, lifelong learners who serve society."
+    ],
+    "has_research_centre": true,
+    "research_areas": [
+      "Artificial intelligence and machine learning",
+      "Cybersecurity and post-quantum cryptography",
+      "Data science and cloud computing"
+    ],
+    "sort_order": 1
+  },
+  {
+    "slug": "ise",
+    "name": "Information Science & Engineering",
+    "short_name": "ISE",
+    "kind": "Engineering",
+    "programmes": "BE",
+    "description": "Information systems, cloud computing, data engineering and web technologies.",
+    "vision": "To train skilled and ethical professionals with the ability to plan, design, develop, organize, and manage modern and traditional information systems — with comprehensive knowledge of Information Technologies, services, and global organizations.",
+    "mission": [
+      "To impart high-quality engineering education in the field of Information Science & Technology through strong theoretical foundations and extensive practical training methodologies, driven by innovation and research — to produce world-class engineers ready for global challenges."
+    ],
+    "has_research_centre": false,
+    "research_areas": [],
+    "sort_order": 2
+  },
+  {
+    "slug": "aiml",
+    "name": "Artificial Intelligence & Machine Learning",
+    "short_name": "AIML",
+    "kind": "Engineering",
+    "programmes": "BE",
+    "description": "Machine learning, deep learning, language models and responsible AI.",
+    "vision": "To be a leading department in artificial intelligence education, shaping engineers who build AI that is accurate, fair and useful.",
+    "mission": [
+      "Teach machine learning, deep learning and language models on strong mathematical foundations.",
+      "Give every student hands-on experience with real datasets and AI tools.",
+      "Collaborate with industry and research labs on applied AI projects.",
+      "Embed responsible AI, fairness and privacy in every course."
+    ],
+    "has_research_centre": false,
+    "research_areas": [],
+    "sort_order": 3
+  },
+  {
+    "slug": "me",
+    "name": "Mechanical Engineering",
+    "short_name": "ME",
+    "kind": "Engineering",
+    "programmes": "BE",
+    "description": "Design, manufacturing, thermal engineering and robotics.",
+    "vision": "To produce mechanical engineers who design, manufacture and maintain sustainable machines and systems.",
+    "mission": [
+      "Build strong fundamentals in design, thermal, manufacturing and materials engineering.",
+      "Integrate CAD, simulation, robotics and smart manufacturing into the curriculum.",
+      "Encourage research and prototyping through laboratories and the IDEA Lab.",
+      "Prepare graduates for industry, higher studies and entrepreneurship."
+    ],
+    "has_research_centre": true,
+    "research_areas": [
+      "Thermal and energy systems",
+      "Advanced manufacturing and materials",
+      "Robotics and automation"
+    ],
+    "sort_order": 4
+  },
+  {
+    "slug": "ece",
+    "name": "Electronics & Communication Engineering",
+    "short_name": "ECE",
+    "kind": "Engineering",
+    "programmes": "BE",
+    "description": "VLSI, embedded systems, signal processing and communication networks.",
+    "vision": "To be a centre of excellence in electronics and communication engineering that drives innovation in connected and intelligent systems.",
+    "mission": [
+      "Teach core electronics, communication and signal processing with hands-on laboratories.",
+      "Promote research in VLSI, embedded systems, IoT and wireless communication.",
+      "Strengthen industry collaboration for projects, training and placements.",
+      "Develop engineers with integrity and a commitment to society."
+    ],
+    "has_research_centre": true,
+    "research_areas": [
+      "VLSI and embedded systems",
+      "Internet of Things and wireless communication",
+      "Signal and image processing"
+    ],
+    "sort_order": 5
+  },
+  {
+    "slug": "mathematics",
+    "name": "Mathematics",
+    "short_name": "Maths",
+    "kind": "Basic sciences and humanities",
+    "programmes": "Engineering mathematics for all programmes",
+    "description": "Engineering mathematics, statistics and the foundations for AI and quantum computing.",
+    "vision": "To build the mathematical thinking every engineer needs to model, analyse and solve real problems.",
+    "mission": [
+      "Teach engineering mathematics with clarity and real-world applications.",
+      "Support AI, data science and quantum computing with strong foundations in linear algebra, probability and statistics.",
+      "Encourage research in pure and applied mathematics.",
+      "Mentor students who need additional support."
+    ],
+    "has_research_centre": true,
+    "research_areas": [
+      "Applied and computational mathematics",
+      "Graph theory and optimisation",
+      "Statistics and data analysis"
+    ],
+    "sort_order": 6
+  },
+  {
+    "slug": "physics",
+    "name": "Physics",
+    "short_name": "Physics",
+    "kind": "Basic sciences and humanities",
+    "programmes": "Engineering physics for all programmes",
+    "description": "Engineering physics, materials and the quantum mechanics behind quantum computing.",
+    "vision": "To inspire curiosity about the physical world and give engineers the scientific foundation for emerging technologies, including quantum.",
+    "mission": [
+      "Teach engineering physics through experiments and demonstrations.",
+      "Introduce quantum mechanics as the foundation for quantum computing and sensing.",
+      "Promote research in materials, photonics and applied physics.",
+      "Develop scientific temper and careful measurement habits."
+    ],
+    "has_research_centre": true,
+    "research_areas": [
+      "Materials science and thin films",
+      "Photonics and optics",
+      "Quantum physics and sensing"
+    ],
+    "sort_order": 7
+  },
+  {
+    "slug": "chemistry",
+    "name": "Chemistry",
+    "short_name": "Chemistry",
+    "kind": "Basic sciences and humanities",
+    "programmes": "Engineering chemistry for all programmes",
+    "description": "Engineering chemistry for materials, energy and the environment.",
+    "vision": "To give engineers a strong foundation in chemistry for sustainable materials, energy and the environment.",
+    "mission": [
+      "Teach engineering chemistry with a focus on materials, energy and the environment.",
+      "Train students in safe and accurate laboratory practice.",
+      "Promote research in green chemistry, corrosion and energy storage.",
+      "Raise awareness of sustainability and environmental responsibility."
+    ],
+    "has_research_centre": true,
+    "research_areas": [
+      "Green chemistry and sustainable materials",
+      "Corrosion science and surface coatings",
+      "Electrochemistry and energy storage"
+    ],
+    "sort_order": 8
+  },
+  {
+    "slug": "humanities",
+    "name": "Humanities",
+    "short_name": "Humanities",
+    "kind": "Basic sciences and humanities",
+    "programmes": "Courses for all programmes",
+    "description": "Communication, professional ethics, Universal Human Values and the Constitution of India.",
+    "vision": "To develop engineers who communicate clearly, think critically and act with integrity.",
+    "mission": [
+      "Build professional communication, writing and presentation skills.",
+      "Teach Universal Human Values, professional ethics and the Constitution of India.",
+      "Strengthen language, soft skills and career readiness.",
+      "Encourage social awareness and responsible citizenship."
+    ],
+    "has_research_centre": false,
+    "research_areas": [],
+    "sort_order": 9
+  },
+  {
+    "slug": "sports",
+    "name": "Physical Education and Sports",
+    "short_name": "Sports",
+    "kind": "Physical education",
+    "programmes": "Activities for all students",
+    "description": "Indoor and outdoor sports, fitness and inter-college competitions.",
+    "vision": "To promote fitness, teamwork and sporting excellence as part of every student's education.",
+    "mission": [
+      "Provide coaching for indoor and outdoor sports.",
+      "Encourage participation in university, state and national competitions.",
+      "Promote health, fitness and wellbeing for students and staff.",
+      "Build leadership, discipline and team spirit through sport."
+    ],
+    "has_research_centre": false,
+    "research_areas": [],
+    "sort_order": 10
+  }
+]

@@ -1,0 +1,1326 @@
+{
+  "name": "hkbk-campus-website",
+  "version": "0.25.2",
+  "description": "HKBK College of Engineering website: AI First and Quantum Ready campus, built with Next.js and Supabase.",
+  "generated": "2026-10-12",
+  "stack": {
+    "next": "16.3.8",
+    "react": "^19.3.0",
+    "typescript": "^5.9.3",
+    "tailwindcss": "^4.3.3",
+    "@supabase/supabase-js": "^2.117.2",
+    "@supabase/ssr": "^0.12.7",
+    "next-themes": "^0.4.6"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "db:seed": "node --env-file=.env.local scripts/seed.mjs",
+    "db:types": "supabase gen types typescript --project-id \"$SUPABASE_PROJECT_ID\" --schema public > lib/database.types.ts",
+    "db:seed:no-samples": "node --env-file=.env.local scripts/seed.mjs --no-samples",
+    "db:sql": "node scripts/build-setup-sql.mjs > supabase/setup_all.sql",
+    "check:invariants": "node scripts/check-invariants.mjs",
+    "docs:manifest": "node scripts/build-manifest.mjs",
+    "admin:hash": "node scripts/hash-admin-password.mjs"
+  },
+  "env": [
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+    "SUPABASE_SECRET_KEY",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "REVALIDATE_SECRET",
+    "NEXT_PUBLIC_SITE_URL",
+    "ADMIN_EMAIL",
+    "ADMIN_PASSWORD_HASH",
+    "SESSION_SECRET"
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "file": "app/page.tsx",
+      "kind": "Static",
+      "revalidate": null,
+      "data": [
+        "table:departments",
+        "table:news_items",
+        "table:journey_milestones",
+        "page:home-ai-first"
+      ]
+    },
+    {
+      "route": "/about",
+      "file": "app/about/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "page:about"
+      ]
+    },
+    {
+      "route": "/academics",
+      "file": "app/academics/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:departments",
+        "page:academics"
+      ]
+    },
+    {
+      "route": "/academics/[slug]",
+      "file": "app/academics/[slug]/page.tsx",
+      "kind": "Dynamic (pre-rendered)",
+      "revalidate": "300",
+      "data": [
+        "table:departments"
+      ]
+    },
+    {
+      "route": "/admin/login",
+      "file": "app/admin/login/page.tsx",
+      "kind": "Static",
+      "revalidate": null,
+      "data": []
+    },
+    {
+      "route": "/ai-quantum",
+      "file": "app/ai-quantum/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:dashboards",
+        "page:ai-quantum"
+      ]
+    },
+    {
+      "route": "/ai-quantum/ai-first",
+      "file": "app/ai-quantum/ai-first/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "page:ai-first"
+      ]
+    },
+    {
+      "route": "/ai-quantum/champions",
+      "file": "app/ai-quantum/champions/page.tsx",
+      "kind": "Static",
+      "revalidate": null,
+      "data": [
+        "page:ai-champions"
+      ]
+    },
+    {
+      "route": "/ai-quantum/dashboards",
+      "file": "app/ai-quantum/dashboards/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:dashboards",
+        "page:dashboards"
+      ]
+    },
+    {
+      "route": "/ai-quantum/quantum-lab",
+      "file": "app/ai-quantum/quantum-lab/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "page:quantum-lab"
+      ]
+    },
+    {
+      "route": "/api/admin/session",
+      "file": "app/api/admin/session/route.ts",
+      "kind": "API",
+      "revalidate": null,
+      "data": []
+    },
+    {
+      "route": "/api/admin/upload",
+      "file": "app/api/admin/upload/route.ts",
+      "kind": "API",
+      "revalidate": null,
+      "data": []
+    },
+    {
+      "route": "/api/revalidate",
+      "file": "app/api/revalidate/route.ts",
+      "kind": "API",
+      "revalidate": null,
+      "data": []
+    },
+    {
+      "route": "/consultancy",
+      "file": "app/consultancy/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:consultancy_projects",
+        "table:departments",
+        "page:consultancy"
+      ]
+    },
+    {
+      "route": "/contact",
+      "file": "app/contact/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "page:contact"
+      ]
+    },
+    {
+      "route": "/corporate-training",
+      "file": "app/corporate-training/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:training_programs",
+        "page:corporate-training"
+      ]
+    },
+    {
+      "route": "/houses",
+      "file": "app/houses/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:houses",
+        "page:houses"
+      ]
+    },
+    {
+      "route": "/ieee",
+      "file": "app/ieee/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "page:ieee"
+      ]
+    },
+    {
+      "route": "/initiatives",
+      "file": "app/initiatives/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:portals",
+        "page:initiatives"
+      ]
+    },
+    {
+      "route": "/initiatives/[slug]",
+      "file": "app/initiatives/[slug]/page.tsx",
+      "kind": "Dynamic (pre-rendered)",
+      "revalidate": "300",
+      "data": [
+        "table:portals"
+      ]
+    },
+    {
+      "route": "/iqac",
+      "file": "app/iqac/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "page:iqac"
+      ]
+    },
+    {
+      "route": "/leadership",
+      "file": "app/leadership/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": []
+    },
+    {
+      "route": "/leadership/[slug]",
+      "file": "app/leadership/[slug]/page.tsx",
+      "kind": "Dynamic (pre-rendered)",
+      "revalidate": "300",
+      "data": []
+    },
+    {
+      "route": "/mous",
+      "file": "app/mous/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:mous",
+        "table:key_figures",
+        "page:mous"
+      ]
+    },
+    {
+      "route": "/news",
+      "file": "app/news/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:news_items",
+        "page:news"
+      ]
+    },
+    {
+      "route": "/placements",
+      "file": "app/placements/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:key_figures",
+        "page:placements"
+      ]
+    },
+    {
+      "route": "/programmes",
+      "file": "app/programmes/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:departments",
+        "page:programmes"
+      ]
+    },
+    {
+      "route": "/research",
+      "file": "app/research/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:research_projects",
+        "page:research"
+      ]
+    },
+    {
+      "route": "/research/centres",
+      "file": "app/research/centres/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:departments",
+        "page:research-centres"
+      ]
+    },
+    {
+      "route": "/staff/login",
+      "file": "app/staff/login/page.tsx",
+      "kind": "Static",
+      "revalidate": null,
+      "data": []
+    },
+    {
+      "route": "/uhv",
+      "file": "app/uhv/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "table:uhv_activities",
+        "page:uhv"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "file": "components/features/admin/admin-provider.tsx",
+      "lines": 146,
+      "client": true,
+      "summary": "Holds the admin's session, edit mode, the saved overrides and the save status for the whole site."
+    },
+    {
+      "file": "components/features/admin/admin-toolbar.tsx",
+      "lines": 68,
+      "client": true,
+      "summary": "Fixed bar at the top of every page for the signed-in admin. Visitors never see it."
+    },
+    {
+      "file": "components/features/admin/history-panel.tsx",
+      "lines": 51,
+      "client": true,
+      "summary": "The last 30 changes. Restoring one puts back the text, photo or list it set."
+    },
+    {
+      "file": "components/features/admin/login-form.tsx",
+      "lines": 42,
+      "client": true,
+      "summary": "Email and password for the single admin account. Errors are shown in one generic message."
+    },
+    {
+      "file": "components/features/cms/editable-image.tsx",
+      "lines": 121,
+      "client": true,
+      "summary": "A picture that the admin can replace on the page. Visitors see the picture as before. In"
+    },
+    {
+      "file": "components/features/cms/editable-text.tsx",
+      "lines": 85,
+      "client": true,
+      "summary": "Text that the admin can change on the page. Visitors see the text exactly as before. In"
+    },
+    {
+      "file": "components/features/content/bits.tsx",
+      "lines": 83,
+      "client": false,
+      "summary": "Section heading used on the home page."
+    },
+    {
+      "file": "components/features/content/content-tabs.tsx",
+      "lines": 77,
+      "client": true,
+      "summary": "Folder-style tabs built on shadcn/Radix Tabs. Every panel stays in the HTML"
+    },
+    {
+      "file": "components/features/content/image-feature.tsx",
+      "lines": 50,
+      "client": false,
+      "summary": "A large image with a caption panel, used for AI, quantum and campus features."
+    },
+    {
+      "file": "components/features/content/markdown.tsx",
+      "lines": 31,
+      "client": false,
+      "summary": ""
+    },
+    {
+      "file": "components/features/content/panel.tsx",
+      "lines": 49,
+      "client": false,
+      "summary": "A shadcn Card with an optional header. The coloured top edge and icon use"
+    },
+    {
+      "file": "components/features/content/project-list.tsx",
+      "lines": 46,
+      "client": false,
+      "summary": "Project rows for R&D and consultancy, with a coloured edge per section."
+    },
+    {
+      "file": "components/features/content/vision-mission.tsx",
+      "lines": 32,
+      "client": false,
+      "summary": "College vision and mission, from the `vision-mission` page (Supabase or content/pages/vision-mission.md)."
+    },
+    {
+      "file": "components/features/departments/department-facts.tsx",
+      "lines": 40,
+      "client": false,
+      "summary": "Three small information tiles above the department tabs."
+    },
+    {
+      "file": "components/features/departments/department-overview.tsx",
+      "lines": 22,
+      "client": false,
+      "summary": "Key facts about a department."
+    },
+    {
+      "file": "components/features/departments/department-research.tsx",
+      "lines": 35,
+      "client": false,
+      "summary": "The department's research centre and its research areas."
+    },
+    {
+      "file": "components/features/departments/department-vision-mission.tsx",
+      "lines": 40,
+      "client": false,
+      "summary": "A department's vision and mission as two highlighted tiles; several mission points show as a numbered list."
+    },
+    {
+      "file": "components/features/departments/statement-tile.tsx",
+      "lines": 55,
+      "client": false,
+      "summary": "A highlighted statement card (department vision or mission)."
+    },
+    {
+      "file": "components/features/forms/enquiry-form.tsx",
+      "lines": 108,
+      "client": true,
+      "summary": "Enquiry form posting to the `submitEnquiry` Server Action. Works before JavaScript loads."
+    },
+    {
+      "file": "components/features/forms/extra-field-input.tsx",
+      "lines": 37,
+      "client": false,
+      "summary": "Renders one form-specific field; its value is saved in the enquiry's `details`."
+    },
+    {
+      "file": "components/features/forms/form-field.tsx",
+      "lines": 42,
+      "client": false,
+      "summary": "Label, optional marker, hint and error message around one form control."
+    },
+    {
+      "file": "components/features/forms/types.ts",
+      "lines": 10,
+      "client": false,
+      "summary": ""
+    },
+    {
+      "file": "components/features/home/ai-first-section.tsx",
+      "lines": 48,
+      "client": false,
+      "summary": "AI-First Campus: introduction, programme figures, the Chief AI and Quantum Officer's message, and every champion and ambassador."
+    },
+    {
+      "file": "components/features/home/count-up.tsx",
+      "lines": 47,
+      "client": true,
+      "summary": "Counts from 0 to `value` once the number scrolls into view. The final number"
+    },
+    {
+      "file": "components/features/home/departments-panel.tsx",
+      "lines": 38,
+      "client": false,
+      "summary": "Grid of all departments, each linking to its page."
+    },
+    {
+      "file": "components/features/home/explore-section.tsx",
+      "lines": 37,
+      "client": false,
+      "summary": "Research and industry panels."
+    },
+    {
+      "file": "components/features/home/hero.tsx",
+      "lines": 51,
+      "client": false,
+      "summary": "Opening section: headline, key facts and the campus photograph with a frosted location badge."
+    },
+    {
+      "file": "components/features/home/journey-bullets.tsx",
+      "lines": 43,
+      "client": true,
+      "summary": "The bullet points of one month: edit, reorder, remove, and add."
+    },
+    {
+      "file": "components/features/home/journey-edit-button.tsx",
+      "lines": 70,
+      "client": true,
+      "summary": "Edit (filled months) or Add (empty months), plus move up and down. Shown only to signed-in editors."
+    },
+    {
+      "file": "components/features/home/journey-edit-form.tsx",
+      "lines": 138,
+      "client": true,
+      "summary": "The fields of one month. Its photos and badge are kept as they are."
+    },
+    {
+      "file": "components/features/home/journey-entry.tsx",
+      "lines": 135,
+      "client": false,
+      "summary": "Renders **bold** segments in a plain string."
+    },
+    {
+      "file": "components/features/home/journey-photo-editor.tsx",
+      "lines": 140,
+      "client": true,
+      "summary": "The photo block for an editor: Replace or Add, Remove, and the caption and alt text. A month"
+    },
+    {
+      "file": "components/features/home/journey-photo.tsx",
+      "lines": 22,
+      "client": false,
+      "summary": "The photo shown between an entry's first paragraph and its bullet points: centred, at most 400px wide"
+    },
+    {
+      "file": "components/features/home/journey-section.tsx",
+      "lines": 25,
+      "client": false,
+      "summary": "\"Our AI Transformation Journey 2026\". Only the months with content are sent to visitors;"
+    },
+    {
+      "file": "components/features/home/journey-timeline.tsx",
+      "lines": 138,
+      "client": true,
+      "summary": "The timeline. Visitors see the months that have content, as the server sent them. A signed-in"
+    },
+    {
+      "file": "components/features/home/key-figures.tsx",
+      "lines": 62,
+      "client": false,
+      "summary": "Figures the site already knows, so they never drift out of date."
+    },
+    {
+      "file": "components/features/home/leadership-section.tsx",
+      "lines": 20,
+      "client": false,
+      "summary": "All leadership messages in full, one below the other, in the featured message design."
+    },
+    {
+      "file": "components/features/home/news-list.tsx",
+      "lines": 24,
+      "client": false,
+      "summary": "News or events in two columns, each with a calendar-style date."
+    },
+    {
+      "file": "components/features/home/notices-section.tsx",
+      "lines": 37,
+      "client": false,
+      "summary": "Latest news and events in tabs."
+    },
+    {
+      "file": "components/features/home/quick-access.tsx",
+      "lines": 41,
+      "client": false,
+      "summary": "Colour-coded shortcut tiles to the most-used pages."
+    },
+    {
+      "file": "components/features/home/use-journey-drag.ts",
+      "lines": 47,
+      "client": true,
+      "summary": "Drag to reorder for the editor's timeline. Dragging starts from the card's text, not from its"
+    },
+    {
+      "file": "components/features/home/visit-strip.tsx",
+      "lines": 29,
+      "client": false,
+      "summary": "Closing call to visit or contact the college."
+    },
+    {
+      "file": "components/features/infographics/donut-chart.tsx",
+      "lines": 69,
+      "client": false,
+      "summary": "Accessible SVG donut with a legend. Colours follow the section tones; the track and labels follow the theme."
+    },
+    {
+      "file": "components/features/infographics/index.ts",
+      "lines": 4,
+      "client": false,
+      "summary": ""
+    },
+    {
+      "file": "components/features/infographics/milestone-timeline.tsx",
+      "lines": 25,
+      "client": false,
+      "summary": "Horizontal timeline on wide screens, vertical on phones."
+    },
+    {
+      "file": "components/features/infographics/process-steps.tsx",
+      "lines": 39,
+      "client": false,
+      "summary": "Numbered steps; in a row with arrows on wide screens, or a 2-column grid."
+    },
+    {
+      "file": "components/features/initiatives/initiative-callout.tsx",
+      "lines": 37,
+      "client": false,
+      "summary": "Banner at the top of a page whose initiative has (or will have) its own site: UHV, R&D, IEEE."
+    },
+    {
+      "file": "components/features/layout/content-page.tsx",
+      "lines": 70,
+      "client": false,
+      "summary": "Standard inner page: banner, then the content at full width."
+    },
+    {
+      "file": "components/features/layout/footer-brand.tsx",
+      "lines": 62,
+      "client": false,
+      "summary": "Logo, motto, address and contact links at the start of the footer."
+    },
+    {
+      "file": "components/features/layout/footer-columns.ts",
+      "lines": 51,
+      "client": false,
+      "summary": "Short footer labels for the IEEE chapters."
+    },
+    {
+      "file": "components/features/layout/logo.tsx",
+      "lines": 7,
+      "client": false,
+      "summary": "The HKBK College of Engineering crest."
+    },
+    {
+      "file": "components/features/layout/page-banner.tsx",
+      "lines": 71,
+      "client": false,
+      "summary": "Page banner: breadcrumb, title and summary on the section's tint."
+    },
+    {
+      "file": "components/features/layout/site-footer.tsx",
+      "lines": 61,
+      "client": false,
+      "summary": "Site footer: brand and contact block, six link columns, and a slim bottom bar."
+    },
+    {
+      "file": "components/features/layout/site-header.tsx",
+      "lines": 59,
+      "client": false,
+      "summary": "Main menu bar at the very top, then the logo row with contact details and the theme toggle."
+    },
+    {
+      "file": "components/features/layout/theme-provider.tsx",
+      "lines": 13,
+      "client": true,
+      "summary": "Light and dark mode via a `dark` class on <html>, following the visitor's system setting by default."
+    },
+    {
+      "file": "components/features/layout/theme-toggle.tsx",
+      "lines": 26,
+      "client": true,
+      "summary": "Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash."
+    },
+    {
+      "file": "components/features/mous/mou-card.tsx",
+      "lines": 49,
+      "client": false,
+      "summary": "One MoU: partner, type, purpose, dates and a link to the signed document."
+    },
+    {
+      "file": "components/features/mous/mou-directory.tsx",
+      "lines": 47,
+      "client": false,
+      "summary": "All MoUs in tabs by partner type, or an empty state until the list is added."
+    },
+    {
+      "file": "components/features/navigation/main-nav.tsx",
+      "lines": 96,
+      "client": true,
+      "summary": "The main menu bar. Every item is always visible: on wide screens dropdowns"
+    },
+    {
+      "file": "components/features/navigation/mega-menu.tsx",
+      "lines": 75,
+      "client": false,
+      "summary": "The dropdown for one menu item: link columns plus a feature card."
+    },
+    {
+      "file": "components/features/navigation/nav-link.tsx",
+      "lines": 20,
+      "client": false,
+      "summary": "A menu link: internal pages use next/link; live initiative sites open in a new tab."
+    },
+    {
+      "file": "components/features/people/ai-champions.tsx",
+      "lines": 46,
+      "client": false,
+      "summary": "Summary of the AI Champions programme, linking to the full page with every person."
+    },
+    {
+      "file": "components/features/people/ai-people-grid.tsx",
+      "lines": 93,
+      "client": false,
+      "summary": "Puts each student ambassador in the card numbered by their sort_order (the position the"
+    },
+    {
+      "file": "components/features/people/champion-crop-dialog.tsx",
+      "lines": 147,
+      "client": true,
+      "summary": "Circular crop: drag or use the arrow keys to position the picture; the slider zooms."
+    },
+    {
+      "file": "components/features/people/champion-view.tsx",
+      "lines": 91,
+      "client": false,
+      "summary": "One AI Faculty Champion card. A filled card shows the photo with a solid teal ring (or the"
+    },
+    {
+      "file": "components/features/people/editor-bar.tsx",
+      "lines": 35,
+      "client": true,
+      "summary": "Shown above the champions grid only to a signed-in editor."
+    },
+    {
+      "file": "components/features/people/faculty-card.tsx",
+      "lines": 60,
+      "client": false,
+      "summary": "One AI Faculty Champion slot. It uses the same slot markers, Add/Edit button, form and save"
+    },
+    {
+      "file": "components/features/people/featured-message.tsx",
+      "lines": 83,
+      "client": false,
+      "summary": "Splits a leading salutation line (\"Dear students, ...,\") from the rest of the letter."
+    },
+    {
+      "file": "components/features/people/person-edit-button.tsx",
+      "lines": 57,
+      "client": true,
+      "summary": "Add or Edit on one card. Renders nothing unless a signed-in editor is viewing."
+    },
+    {
+      "file": "components/features/people/person-edit-form.tsx",
+      "lines": 142,
+      "client": true,
+      "summary": "The fields for one card. Student Ambassadors: photo, name, department and a short line."
+    },
+    {
+      "file": "components/features/people/person-photo-field.tsx",
+      "lines": 77,
+      "client": true,
+      "summary": "The photo part of the Add/Edit form: preview, choose, and Remove photo. With `crop` on"
+    },
+    {
+      "file": "components/features/people/person-slot.tsx",
+      "lines": 78,
+      "client": false,
+      "summary": "One card in the AI Champions or Ambassadors grid: a real person, or a numbered placeholder."
+    },
+    {
+      "file": "components/features/staff/sign-in-form.tsx",
+      "lines": 39,
+      "client": true,
+      "summary": "Staff sign-in with email and password; the Server Action checks the editors list."
+    },
+    {
+      "file": "components/ui/alert.tsx",
+      "lines": 32,
+      "client": false,
+      "summary": ""
+    },
+    {
+      "file": "components/ui/badge.tsx",
+      "lines": 33,
+      "client": false,
+      "summary": ""
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "lines": 42,
+      "client": false,
+      "summary": ""
+    },
+    {
+      "file": "components/ui/card.tsx",
+      "lines": 41,
+      "client": false,
+      "summary": ""
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "lines": 23,
+      "client": false,
+      "summary": "shadcn-styled checkbox built on the native input, so it submits with the"
+    },
+    {
+      "file": "components/ui/dialog.tsx",
+      "lines": 55,
+      "client": true,
+      "summary": ""
+    },
+    {
+      "file": "components/ui/input.tsx",
+      "lines": 19,
+      "client": false,
+      "summary": ""
+    },
+    {
+      "file": "components/ui/label.tsx",
+      "lines": 18,
+      "client": true,
+      "summary": ""
+    },
+    {
+      "file": "components/ui/native-select.tsx",
+      "lines": 25,
+      "client": false,
+      "summary": "shadcn-styled native select: accessible, submits with the form, works without JavaScript."
+    },
+    {
+      "file": "components/ui/separator.tsx",
+      "lines": 20,
+      "client": true,
+      "summary": ""
+    },
+    {
+      "file": "components/ui/skeleton.tsx",
+      "lines": 9,
+      "client": false,
+      "summary": ""
+    },
+    {
+      "file": "components/ui/tabs.tsx",
+      "lines": 39,
+      "client": true,
+      "summary": ""
+    },
+    {
+      "file": "components/ui/textarea.tsx",
+      "lines": 18,
+      "client": false,
+      "summary": ""
+    }
+  ],
+  "modules": [
+    {
+      "file": "lib/admin/config.ts",
+      "lines": 18,
+      "summary": ""
+    },
+    {
+      "file": "lib/admin/lockout.ts",
+      "lines": 41,
+      "summary": "Minutes left on a lock, or 0 when sign-in is allowed."
+    },
+    {
+      "file": "lib/admin/service.ts",
+      "lines": 31,
+      "summary": "A JSON request to the database REST API. Returns null for 204 responses."
+    },
+    {
+      "file": "lib/admin/session.ts",
+      "lines": 59,
+      "summary": "The signing key: the session secret plus the password hash, so a new password ends all sessions."
+    },
+    {
+      "file": "lib/ai-people.ts",
+      "lines": 24,
+      "summary": "The two groups in the AI programme; values match ai_people.role."
+    },
+    {
+      "file": "lib/areas.tsx",
+      "lines": 177,
+      "summary": ""
+    },
+    {
+      "file": "lib/champion-image.ts",
+      "lines": 64,
+      "summary": "Geometry for the photo crop: a square crop box, a zoom level and a pan offset, all in pixels."
+    },
+    {
+      "file": "lib/cms/client-image.ts",
+      "lines": 29,
+      "summary": "Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload."
+    },
+    {
+      "file": "lib/cms/read.ts",
+      "lines": 22,
+      "summary": ""
+    },
+    {
+      "file": "lib/cms/validate.ts",
+      "lines": 34,
+      "summary": "A photo address the admin may use: one uploaded to our storage, or a file shipped with the site."
+    },
+    {
+      "file": "lib/cms/write.ts",
+      "lines": 83,
+      "summary": "Saves a value (null removes it), and records the change."
+    },
+    {
+      "file": "lib/content.ts",
+      "lines": 160,
+      "summary": "Messages for one place on the site: \"leadership\" (default) or \"ai-first\"."
+    },
+    {
+      "file": "lib/database.types.ts",
+      "lines": 771,
+      "summary": "Supabase database types for the HKBK website."
+    },
+    {
+      "file": "lib/editor.ts",
+      "lines": 84,
+      "summary": "True when a signed-in editor is viewing the page. Checked once per page load."
+    },
+    {
+      "file": "lib/enquiry.ts",
+      "lines": 30,
+      "summary": "Per-field messages, used to mark the matching input as invalid."
+    },
+    {
+      "file": "lib/format.ts",
+      "lines": 28,
+      "summary": "Formats an ISO date (YYYY-MM-DD) as \"3 Oct 2026\" without timezone shifts."
+    },
+    {
+      "file": "lib/journey-model.ts",
+      "lines": 73,
+      "summary": "Shared rules for the AI Transformation Journey timeline (visitors and editors)."
+    },
+    {
+      "file": "lib/markdown.ts",
+      "lines": 16,
+      "summary": "Splits markdown into sections at each \"## Heading\". Text before the first heading is the intro."
+    },
+    {
+      "file": "lib/menu-server.ts",
+      "lines": 15,
+      "summary": "Loads everything the menu needs and builds it. Server components only."
+    },
+    {
+      "file": "lib/menu.ts",
+      "lines": 242,
+      "summary": "One item in the top menu. Items with `columns` open a dropdown; items with"
+    },
+    {
+      "file": "lib/portals.tsx",
+      "lines": 42,
+      "summary": "A portal is clickable once it has an address and is marked Live."
+    },
+    {
+      "file": "lib/site.ts",
+      "lines": 101,
+      "summary": "Opens another site (a live initiative subdomain) in a new tab."
+    },
+    {
+      "file": "lib/supabase/client.ts",
+      "lines": 13,
+      "summary": "Browser client from @supabase/ssr, for Client Components that need live data or auth."
+    },
+    {
+      "file": "lib/supabase/env.ts",
+      "lines": 14,
+      "summary": "Supabase URL and public key from the environment, or null when the project is not connected yet."
+    },
+    {
+      "file": "lib/supabase/public.ts",
+      "lines": 18,
+      "summary": "Cookie-free client for public content (pages, departments, news...)."
+    },
+    {
+      "file": "lib/supabase/server.ts",
+      "lines": 31,
+      "summary": "Server client from @supabase/ssr for Server Actions, Route Handlers and"
+    },
+    {
+      "file": "lib/types.ts",
+      "lines": 44,
+      "summary": ""
+    },
+    {
+      "file": "lib/ui.ts",
+      "lines": 106,
+      "summary": "Wider container for the menu bar and logo row."
+    },
+    {
+      "file": "lib/utils.ts",
+      "lines": 8,
+      "summary": "Merges Tailwind classes, letting later classes override earlier ones."
+    },
+    {
+      "file": "actions/admin.ts",
+      "lines": 100,
+      "summary": "Compares two strings in constant time, so the check does not reveal how much matched."
+    },
+    {
+      "file": "actions/ai-people.ts",
+      "lines": 114,
+      "summary": "The person's slug when editing an existing card; omit to add a new person."
+    },
+    {
+      "file": "actions/auth.ts",
+      "lines": 45,
+      "summary": "Staff sign-in with email and password. Only accounts on the editors list stay signed in."
+    },
+    {
+      "file": "actions/enquiry.ts",
+      "lines": 80,
+      "summary": "Validates an enquiry form and stores it in the `enquiries` table (insert-only under RLS)."
+    },
+    {
+      "file": "actions/journey.ts",
+      "lines": 166,
+      "summary": "A Supabase client for a signed-in editor, or a message explaining why not."
+    },
+    {
+      "file": "scripts/build-manifest.mjs",
+      "lines": 149,
+      "summary": "Generates docs/manifest.md and manifest.json: an inventory of the project"
+    },
+    {
+      "file": "scripts/build-setup-sql.mjs",
+      "lines": 91,
+      "summary": "Builds supabase/setup_all.sql: every migration plus all content from /content,"
+    },
+    {
+      "file": "scripts/check-invariants.mjs",
+      "lines": 163,
+      "summary": "Verifies the automatable invariants in docs/invariants.md."
+    },
+    {
+      "file": "scripts/hash-admin-password.mjs",
+      "lines": 26,
+      "summary": "Creates the bcrypt hash for ADMIN_PASSWORD_HASH. Usage: npm run admin:hash"
+    },
+    {
+      "file": "scripts/seed.mjs",
+      "lines": 91,
+      "summary": "Uploads everything in /content to Supabase."
+    }
+  ],
+  "database": {
+    "migrations": [
+      "supabase/migrations/20261003000000_init.sql",
+      "supabase/migrations/20261003010000_portals.sql",
+      "supabase/migrations/20261003020000_departments_ai_people.sql",
+      "supabase/migrations/20261003030000_message_section.sql",
+      "supabase/migrations/20261003040000_key_figures.sql",
+      "supabase/migrations/20261003050000_initiative_menu_group.sql",
+      "supabase/migrations/20261003060000_houses.sql",
+      "supabase/migrations/20261003070000_mous.sql",
+      "supabase/migrations/20261009000000_journey.sql",
+      "supabase/migrations/20261009010000_editors.sql",
+      "supabase/migrations/20261010000000_admin_cms.sql",
+      "supabase/migrations/20261010020000_journey_editing.sql",
+      "supabase/migrations/20261010030000_journey_inline_photo.sql",
+      "supabase/migrations/20261010040000_august_entry.sql"
+    ],
+    "tables": {
+      "pages": [
+        "slug",
+        "title",
+        "summary",
+        "body_md",
+        "updated_at"
+      ],
+      "leadership_messages": [
+        "slug",
+        "name",
+        "designation",
+        "organisation",
+        "excerpt",
+        "photo_url",
+        "body_md",
+        "sort_order",
+        "section",
+        "updated_at"
+      ],
+      "departments": [
+        "id",
+        "slug",
+        "name",
+        "short_name",
+        "kind",
+        "programmes",
+        "description",
+        "vision",
+        "mission",
+        "has_research_centre",
+        "research_areas",
+        "sort_order",
+        "updated_at"
+      ],
+      "dashboards": [
+        "id",
+        "slug",
+        "title",
+        "category",
+        "description",
+        "url",
+        "status",
+        "sort_order",
+        "updated_at"
+      ],
+      "uhv_activities": [
+        "id",
+        "slug",
+        "activity_type",
+        "title",
+        "description",
+        "sort_order",
+        "updated_at"
+      ],
+      "research_projects": [
+        "id",
+        "slug",
+        "title",
+        "investigator",
+        "funding_agency",
+        "status",
+        "year",
+        "summary",
+        "is_sample",
+        "sort_order",
+        "updated_at"
+      ],
+      "consultancy_projects": [
+        "id",
+        "slug",
+        "title",
+        "client",
+        "department",
+        "status",
+        "year",
+        "summary",
+        "is_sample",
+        "sort_order",
+        "updated_at"
+      ],
+      "training_programs": [
+        "id",
+        "slug",
+        "title",
+        "track",
+        "duration",
+        "mode",
+        "audience",
+        "summary",
+        "is_sample",
+        "sort_order",
+        "updated_at"
+      ],
+      "hostel_facilities": [
+        "id",
+        "slug",
+        "title",
+        "description",
+        "is_sample",
+        "sort_order",
+        "updated_at"
+      ],
+      "news_items": [
+        "id",
+        "slug",
+        "kind",
+        "title",
+        "summary",
+        "published_on",
+        "event_date",
+        "link_url",
+        "is_sample",
+        "updated_at"
+      ],
+      "enquiries": [
+        "id",
+        "type",
+        "name",
+        "email",
+        "phone",
+        "message",
+        "details",
+        "status",
+        "created_at"
+      ],
+      "portals": [
+        "id",
+        "slug",
+        "title",
+        "description",
+        "url",
+        "category",
+        "icon",
+        "status",
+        "related_page",
+        "menu_group",
+        "sort_order",
+        "updated_at"
+      ],
+      "ai_people": [
+        "id",
+        "slug",
+        "name",
+        "role",
+        "department",
+        "bio",
+        "photo_url",
+        "sort_order",
+        "updated_at"
+      ],
+      "key_figures": [
+        "id",
+        "slug",
+        "label",
+        "value",
+        "suffix",
+        "sort_order",
+        "updated_at"
+      ],
+      "houses": [
+        "id",
+        "slug",
+        "name",
+        "namesake",
+        "about",
+        "motto",
+        "is_placeholder",
+        "sort_order",
+        "updated_at"
+      ],
+      "mous": [
+        "id",
+        "slug",
+        "partner",
+        "partner_type",
+        "purpose",
+        "signed_on",
+        "valid_until",
+        "document_url",
+        "logo_url",
+        "sort_order",
+        "updated_at"
+      ],
+      "journey_milestones": [
+        "id",
+        "slug",
+        "period",
+        "title",
+        "summary",
+        "points",
+        "badge",
+        "icon",
+        "inline_photo",
+        "layer",
+        "photos",
+        "sort_order",
+        "status",
+        "updated_at"
+      ],
+      "editors": [
+        "user_id",
+        "email",
+        "role",
+        "created_at"
+      ],
+      "site_content": [
+        "key",
+        "value",
+        "updated_at"
+      ],
+      "site_history": [
+        "id",
+        "key",
+        "label",
+        "old_value",
+        "new_value",
+        "created_at"
+      ],
+      "admin_security": [
+        "id",
+        "failed_attempts",
+        "locked_until"
+      ]
+    }
+  },
+  "content": {
+    "pages": 23,
+    "messages": 4,
+    "data": {
+      "ai_people": 13,
+      "consultancy_projects": 3,
+      "dashboards": 7,
+      "departments": 10,
+      "houses": 5,
+      "journey_milestones": 11,
+      "key_figures": 11,
+      "mous": 0,
+      "news_items": 4,
+      "portals": 7,
+      "research_projects": 3,
+      "training_programs": 8,
+      "uhv_activities": 6
+    }
+  },
+  "docs": [
+    "docs/ADMIN_GUIDE.md",
+    "docs/AGENT_SETUP_PROMPT.md",
+    "docs/ARCHITECTURE.md",
+    "docs/CONTENT_GUIDE.md",
+    "docs/DATABASE.md",
+    "docs/DEPLOYMENT.md",
+    "docs/SETUP.md",
+    "docs/changelog.md",
+    "docs/decision.md",
+    "docs/design.md",
+    "docs/feature-tickets.md",
+    "docs/flow.md",
+    "docs/invariants.md",
+    "docs/manifest.md",
+    "docs/master-spec.md",
+    "docs/prd.md",
+    "docs/roadmap.md",
+    "docs/rules.md",
+    "docs/security.md",
+    "README.md",
+    "AGENTS.md"
+  ]
+}

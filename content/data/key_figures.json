@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "years-of-excellence",
+    "label": "Years of excellence",
+    "value": null,
+    "suffix": "",
+    "sort_order": 1
+  },
+  {
+    "slug": "students",
+    "label": "Students",
+    "value": 2500,
+    "suffix": "+",
+    "sort_order": 2
+  },
+  {
+    "slug": "faculty",
+    "label": "Faculty",
+    "value": 150,
+    "suffix": "+",
+    "sort_order": 3
+  },
+  {
+    "slug": "papers-published",
+    "label": "Papers published",
+    "value": 300,
+    "suffix": "+",
+    "sort_order": 4
+  },
+  {
+    "slug": "patents-filed",
+    "label": "Patents filed",
+    "value": 150,
+    "suffix": "",
+    "sort_order": 5
+  },
+  {
+    "slug": "patents-published",
+    "label": "Patents published",
+    "value": 50,
+    "suffix": "",
+    "sort_order": 6
+  },
+  {
+    "slug": "patents-granted",
+    "label": "Patents granted",
+    "value": 30,
+    "suffix": "",
+    "sort_order": 7
+  },
+  {
+    "slug": "mous",
+    "label": "MoUs signed",
+    "value": 25,
+    "suffix": "",
+    "sort_order": 8
+  },
+  {
+    "slug": "ai-faculty-champions",
+    "label": "AI Faculty Champions",
+    "value": null,
+    "suffix": "",
+    "sort_order": 9
+  },
+  {
+    "slug": "ai-student-ambassadors",
+    "label": "AI Student Ambassadors",
+    "value": null,
+    "suffix": "",
+    "sort_order": 10
+  },
+  {
+    "slug": "students-placed",
+    "label": "Students placed",
+    "value": 200,
+    "suffix": "",
+    "sort_order": 11
+  }
+]

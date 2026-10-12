@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "abdul-kalam",
+    "name": "Dr. A. P. J. Abdul Kalam House",
+    "namesake": "Dr. A. P. J. Abdul Kalam (1931–2015) was an aerospace scientist who led India's satellite launch vehicle and missile programmes, and served as the 11th President of India.",
+    "about": "Abdul Kalam House celebrates curiosity, hard work and service through science. Members are encouraged to dream big and to turn ideas into things that help people.",
+    "motto": null,
+    "is_placeholder": false,
+    "sort_order": 1
+  },
+  {
+    "slug": "mother-teresa",
+    "name": "Mother Teresa House",
+    "namesake": "Mother Teresa (1910–1997) founded the Missionaries of Charity in Kolkata and spent her life caring for the poorest and sickest. She received the Nobel Peace Prize in 1979.",
+    "about": "Mother Teresa House stands for compassion and service. Members lead community outreach and look out for one another on campus.",
+    "motto": null,
+    "is_placeholder": false,
+    "sort_order": 2
+  },
+  {
+    "slug": "rabindranath-tagore",
+    "name": "Rabindranath Tagore House",
+    "namesake": "Rabindranath Tagore (1861–1941) was a poet, writer, composer and educator who wrote India's national anthem and won the Nobel Prize in Literature in 1913.",
+    "about": "Tagore House celebrates creativity, culture and learning without limits. Members lead the arts, literature and music on campus.",
+    "motto": null,
+    "is_placeholder": false,
+    "sort_order": 3
+  },
+  {
+    "slug": "house-4",
+    "name": "House 4",
+    "namesake": null,
+    "about": "The name and namesake of this house will be announced soon.",
+    "motto": null,
+    "is_placeholder": true,
+    "sort_order": 4
+  },
+  {
+    "slug": "house-5",
+    "name": "House 5",
+    "namesake": null,
+    "about": "The name and namesake of this house will be announced soon.",
+    "motto": null,
+    "is_placeholder": true,
+    "sort_order": 5
+  }
+]

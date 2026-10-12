@@ -1,0 +1,105 @@
+// Shared class strings so spacing, buttons and section colours stay consistent.
+export const shell = "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8";
+/** Wider container for the menu bar and logo row. */
+export const barWidth = "mx-auto w-full max-w-[90rem] px-4 lg:px-6";
+
+export const linkText = "font-semibold text-primary underline-offset-4 hover:underline";
+
+export type Tone = "blue" | "green" | "teal" | "amber" | "rose" | "violet";
+
+// Literal class names so Tailwind can find them.
+export const TONE: Record<
+  Tone,
+  { text: string; bg: string; tint: string; borderTop: string; borderLeft: string; tabActive: string; hoverTint: string; activeRow: string; dotActive: string; glow: string; gradientText: string; tile: string; headerGrad: string }
+> = {
+  blue: {
+    text: "text-t-blue dark:text-t-blue-light",
+    bg: "bg-t-blue",
+    tint: "bg-t-blue-tint",
+    borderTop: "border-t-t-blue",
+    borderLeft: "border-l-t-blue",
+    tabActive: "data-[state=active]:border-t-t-blue",
+    hoverTint: "hover:bg-t-blue-tint",
+    activeRow: "bg-gradient-to-r from-t-blue-tint via-t-blue-tint/50 to-transparent ring-1 ring-inset ring-t-blue/15",
+    dotActive: "before:bg-t-blue",
+    glow: "shadow-[0_0_18px_-4px_rgba(26,79,156,0.7)]",
+    gradientText: "bg-gradient-to-r from-t-blue to-t-teal bg-clip-text text-transparent dark:from-t-blue-light dark:to-t-teal-light",
+    tile: "bg-gradient-to-br from-tile-blue-a to-tile-blue-b",
+    headerGrad: "bg-gradient-to-r from-t-blue-tint/80 to-transparent",
+  },
+  green: {
+    text: "text-t-green dark:text-t-green-light",
+    bg: "bg-t-green",
+    tint: "bg-t-green-tint",
+    borderTop: "border-t-t-green",
+    borderLeft: "border-l-t-green",
+    tabActive: "data-[state=active]:border-t-t-green",
+    hoverTint: "hover:bg-t-green-tint",
+    activeRow: "bg-gradient-to-r from-t-green-tint via-t-green-tint/50 to-transparent ring-1 ring-inset ring-t-green/15",
+    dotActive: "before:bg-t-green",
+    glow: "shadow-[0_0_18px_-4px_rgba(30,122,76,0.7)]",
+    gradientText: "bg-gradient-to-r from-t-green to-t-teal bg-clip-text text-transparent dark:from-t-green-light dark:to-t-teal-light",
+    tile: "bg-gradient-to-br from-tile-green-a to-tile-green-b",
+    headerGrad: "bg-gradient-to-r from-t-green-tint/80 to-transparent",
+  },
+  teal: {
+    text: "text-t-teal dark:text-t-teal-light",
+    bg: "bg-t-teal",
+    tint: "bg-t-teal-tint",
+    borderTop: "border-t-t-teal",
+    borderLeft: "border-l-t-teal",
+    tabActive: "data-[state=active]:border-t-t-teal",
+    hoverTint: "hover:bg-t-teal-tint",
+    activeRow: "bg-gradient-to-r from-t-teal-tint via-t-teal-tint/50 to-transparent ring-1 ring-inset ring-t-teal/15",
+    dotActive: "before:bg-t-teal",
+    glow: "shadow-[0_0_18px_-4px_rgba(11,116,128,0.7)]",
+    gradientText: "bg-gradient-to-r from-t-teal to-t-blue bg-clip-text text-transparent dark:from-t-teal-light dark:to-t-blue-light",
+    tile: "bg-gradient-to-br from-tile-teal-a to-tile-teal-b",
+    headerGrad: "bg-gradient-to-r from-t-teal-tint/80 to-transparent",
+  },
+  amber: {
+    text: "text-t-amber dark:text-t-amber-light",
+    bg: "bg-t-amber",
+    tint: "bg-t-amber-tint",
+    borderTop: "border-t-t-amber",
+    borderLeft: "border-l-t-amber",
+    tabActive: "data-[state=active]:border-t-t-amber",
+    hoverTint: "hover:bg-t-amber-tint",
+    activeRow: "bg-gradient-to-r from-t-amber-tint via-t-amber-tint/50 to-transparent ring-1 ring-inset ring-t-amber/15",
+    dotActive: "before:bg-t-amber",
+    glow: "shadow-[0_0_18px_-4px_rgba(146,87,0,0.7)]",
+    gradientText: "bg-gradient-to-r from-t-amber to-t-rose bg-clip-text text-transparent dark:from-t-amber-light dark:to-t-rose-light",
+    tile: "bg-gradient-to-br from-tile-amber-a to-tile-amber-b",
+    headerGrad: "bg-gradient-to-r from-t-amber-tint/80 to-transparent",
+  },
+  violet: {
+    text: "text-t-violet dark:text-t-violet-light",
+    bg: "bg-t-violet",
+    tint: "bg-t-violet-tint",
+    borderTop: "border-t-t-violet",
+    borderLeft: "border-l-t-violet",
+    tabActive: "data-[state=active]:border-t-t-violet",
+    hoverTint: "hover:bg-t-violet-tint",
+    activeRow: "bg-gradient-to-r from-t-violet-tint via-t-violet-tint/50 to-transparent ring-1 ring-inset ring-t-violet/15",
+    dotActive: "before:bg-t-violet",
+    glow: "shadow-[0_0_18px_-4px_rgba(91,63,166,0.7)]",
+    gradientText: "bg-gradient-to-r from-t-violet to-t-blue bg-clip-text text-transparent dark:from-t-violet-light dark:to-t-blue-light",
+    tile: "bg-gradient-to-br from-tile-violet-a to-tile-violet-b",
+    headerGrad: "bg-gradient-to-r from-t-violet-tint/80 to-transparent",
+  },
+  rose: {
+    text: "text-t-rose dark:text-t-rose-light",
+    bg: "bg-t-rose",
+    tint: "bg-t-rose-tint",
+    borderTop: "border-t-t-rose",
+    borderLeft: "border-l-t-rose",
+    tabActive: "data-[state=active]:border-t-t-rose",
+    hoverTint: "hover:bg-t-rose-tint",
+    activeRow: "bg-gradient-to-r from-t-rose-tint via-t-rose-tint/50 to-transparent ring-1 ring-inset ring-t-rose/15",
+    dotActive: "before:bg-t-rose",
+    glow: "shadow-[0_0_18px_-4px_rgba(163,37,61,0.7)]",
+    gradientText: "bg-gradient-to-r from-t-rose to-t-violet bg-clip-text text-transparent dark:from-t-rose-light dark:to-t-violet-light",
+    tile: "bg-gradient-to-br from-tile-rose-a to-tile-rose-b",
+    headerGrad: "bg-gradient-to-r from-t-rose-tint/80 to-transparent",
+  },
+};
