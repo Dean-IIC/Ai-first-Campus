@@ -5,6 +5,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [Unreleased]
 
 ### Changed
+- AI First Campus timeline, September – October 2026 entry (Layer 4): the description now says the Alumni Portal is being developed as part of the HKBK college website (not on Zoho), and the Alumni bullet is reworded to match and moved to the end of the list, after "Secure by design".
 - AI First Campus timeline, June – July 2026 entry: the UHV-2 content is replaced by "AI Faculty Champions Recognised — AI Transformation Workshop" (no workshop length mentioned), with its description and six bullet points as supplied (no personal names). Layer 2, Completed. Icon: trophy (editable).
 - AI First Campus timeline, October entry only: "September – October 2026", Layer 3, In progress (shows "— Present" as the latest in-progress entry), "Smart Campus Operations — Digital Systems on the Zoho Platform", with its description and seven bullet points as supplied. Icon: cpu (editable). September 2026 remains empty and hidden from visitors. A one-time database update applies to the October row only while it is still empty.
 - AI First Campus timeline, June entry only: "June – July 2026", Layer 2, Completed, "Universal Human Values 2 (UHV-2) — Values-Led AI Adoption", with its description and six bullet points as supplied. Icon: users (editable). July 2026 remains empty and hidden from visitors. A one-time database update applies to the June row only while it is still empty.
