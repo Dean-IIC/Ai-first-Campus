@@ -221,6 +221,7 @@ Migrations, applied in order:
 - `supabase/migrations/20261010040000_august_entry.sql`
 - `supabase/migrations/20261013000000_june_entry.sql`
 - `supabase/migrations/20261013010000_october_entry.sql`
+- `supabase/migrations/20261013020000_june_entry_workshop.sql`
 
 | Table | Columns | Column names |
 | --- | --- | --- |
