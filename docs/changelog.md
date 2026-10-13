@@ -6,7 +6,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ### Added
 - Principal's photo (Dr. Mohammed Riyaz Ahmed) replaced with the new supplied portrait, cropped to head and shoulders: `public/images/leaders/principal.jpg`.
-- Director's photo (Shri. C M Faiz Mohammed) replaced with the new supplied portrait, cropped to head and shoulders: `public/images/leaders/director.jpg`.
+- Director's photo (Shri. C M Faiz Mohammed) replaced with the newer supplied portrait (seated at the desk), cropped to head and shoulders: `public/images/leaders/director.jpg`.
 - Chairman's photo (Shri. C M Ibrahim): `public/images/leaders/chairman.jpg`, a portrait crop of the supplied photo, set in `content/messages/chairman.md` and the `leadership_messages` row.
 - AI Faculty Champions and AI Student Ambassadors: one shared card (`PersonCard`) for both sections. The signed-in admin sees ✏️ Edit and 🗑️ Delete on filled cards and ➕ Add on empty ones; Edit and Add turn the card into a form in place (click the photo to upload or replace it with a circular crop, name and details, Save or Cancel). Delete asks "Delete this person?" and returns the card to an empty slot. A ➕ Add new card at the end of each grid adds people beyond the numbered cards, and the heading counts follow. Changes save through the admin content store (`list:ai_people`), show on the live site at once and can be undone. Visitors see the cards as before.
 - The content editor asks for confirmation before saving a list that removes half or more of its items.
