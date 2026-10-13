@@ -220,16 +220,24 @@
   },
   {
     "slug": "m-2026-10",
-    "period": "October 2026",
-    "title": "",
-    "summary": null,
-    "points": [],
+    "period": "September – October 2026",
+    "title": "Smart Campus Operations — Digital Systems on the Zoho Platform",
+    "summary": "September and October took the AI First journey into campus operations. Using the Zoho Creator low-code platform, HKBK began building its own digital systems for the Alumni Portal, Hostel Management and Attendance Management, replacing manual registers and spreadsheets with secure, role-based apps and live dashboards. The systems are being built in-house by HKBK students under faculty mentorship.",
+    "points": [
+      "Hostel Management System for the Boys and Girls hostels: one central app with role-based access for the Principal, Super Admin, Wardens, Operations and Students",
+      "Live hostel dashboards with student search, fee tracking, attendance calendar, memos and quick actions",
+      "Automated account approvals, maintenance and service tickets raised by students and handled by the Operations team, with urgent-ticket flagging by the Principal",
+      "Branded printable reports with one-click PDF and CSV download, carrying the HKBK logo, college name and timestamps",
+      "Attendance Management system to record and track attendance digitally, with summaries for faculty and administrators",
+      "Alumni Portal to build the HKBK alumni network: alumni registration, profiles and a channel to stay connected with the college",
+      "Secure by design: each user sees only the data their role allows"
+    ],
     "badge": null,
-    "icon": "sparkles",
+    "icon": "cpu",
     "photos": [],
     "sort_order": 9,
-    "layer": null,
-    "status": "upcoming",
+    "layer": 3,
+    "status": "in_progress",
     "inline_photo": null
   },
   {
