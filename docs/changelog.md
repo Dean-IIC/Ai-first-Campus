@@ -4,6 +4,9 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Changed
+- AI First Campus timeline, June entry only: "June – July 2026", Layer 2, Completed, "Universal Human Values 2 (UHV-2) — Values-Led AI Adoption", with its description and six bullet points as supplied. Icon: users (editable). July 2026 remains empty and hidden from visitors. A one-time database update applies to the June row only while it is still empty.
+
 ### Added
 - Principal's photo (Dr. Mohammed Riyaz Ahmed) replaced with the new supplied portrait, cropped to head and shoulders: `public/images/leaders/principal.jpg`.
 - Director's photo (Shri. C M Faiz Mohammed) replaced with the newer supplied portrait (seated at the desk), cropped to head and shoulders: `public/images/leaders/director.jpg`.

@@ -150,15 +150,22 @@
   },
   {
     "slug": "m-2026-06",
-    "period": "June 2026",
-    "title": "",
-    "summary": null,
-    "points": [],
+    "period": "June – July 2026",
+    "title": "Universal Human Values 2 (UHV-2) — Values-Led AI Adoption",
+    "summary": "As AI use grew across the campus, June and July focused on making sure it grows with the right values. Through Universal Human Values 2 (UHV-2), HKBK connected the course's ideas of harmony in the self, family, society and nature with responsible, ethical and human-centred use of AI in teaching, learning and administration.",
+    "points": [
+      "UHV-2 sessions for students linking human values with responsible AI use: honesty, fairness, privacy and respect",
+      "Faculty orientation on teaching UHV-2 and guiding students on ethical AI use in coursework",
+      "Responsible AI guidelines introduced for assignments, projects and assessments, covering academic integrity and proper disclosure of AI use",
+      "Discussions and case studies on AI bias, misinformation, data privacy and the human impact of technology",
+      "Student reflection activities on balancing technology with wellbeing, relationships and society",
+      "Value-based AI project ideas encouraged, focusing on problems that benefit the community and environment"
+    ],
     "badge": null,
-    "icon": "sparkles",
+    "icon": "users",
     "photos": [],
     "sort_order": 5,
-    "layer": null,
+    "layer": 2,
     "status": "completed",
     "inline_photo": null
   },
