@@ -88,7 +88,9 @@ function cleanList(table: string, value: unknown): Record<string, unknown>[] {
     for (let n = 2; seen.has(slug); n++) slug = `${base}-${n}`;
     if (!SLUG.test(slug)) throw new Error(`Row ${i + 1} has an address name that is not allowed.`);
     seen.add(slug);
-    return { slug, ...clean, sort_order: i + 1 };
+    // Lists with a "Card number" field keep the number the admin gave; others are numbered in order.
+    const order = typeof clean.sort_order === "number" && clean.sort_order >= 1 ? Math.round(clean.sort_order) : i + 1;
+    return { slug, ...clean, sort_order: order };
   });
 }
 

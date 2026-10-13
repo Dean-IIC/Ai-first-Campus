@@ -180,7 +180,8 @@ async function loadList(table: ListTable): Promise<Record<string, unknown>[]> {
       const { data, error } = await sb.from(table).select("*").order(order.column, { ascending: order.ascending });
       if (error) warn(table, error.message);
       // Rows match the generated Database types; the table name is a runtime value, so narrow explicitly.
-      else if (data) return data as unknown as Record<string, unknown>[];
+      // An empty table (for example one never seeded) falls back to the files, as messages do.
+      else if (data && data.length) return data as unknown as Record<string, unknown>[];
     } catch (err) {
       warn(table, err instanceof Error ? err.message : "network error");
     }

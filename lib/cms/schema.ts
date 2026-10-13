@@ -68,6 +68,7 @@ export const LIST_SPECS: Record<ListTable, ListSpec> = {
   ] },
   ai_people: { label: "AI Champions and Ambassadors", item: "person", title: "name", fields: [
     t("name", "Name", { required: true }), { key: "role", label: "Role", kind: "choice", options: AI_ROLES, required: true }, t("department", "Department"), t("bio", "Designation or year"), { key: "photo_url", label: "Photo", kind: "image" },
+    { key: "sort_order", label: "Card number", kind: "number", hint: "Which numbered card the person fills in their section." },
   ] },
   key_figures: { label: "Key figures", item: "figure", title: "label", fields: [
     t("label", "Label", { required: true }), { key: "value", label: "Number", kind: "number", hint: "Leave empty for figures the site calculates itself." }, t("suffix", "After the number", { hint: "For example: + or %" }),
