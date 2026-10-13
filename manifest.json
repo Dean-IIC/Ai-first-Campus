@@ -2,7 +2,7 @@
   "name": "hkbk-campus-website",
   "version": "0.25.2",
   "description": "HKBK College of Engineering website: AI First and Quantum Ready campus, built with Next.js and Supabase.",
-  "generated": "2026-10-12",
+  "generated": "2026-10-13",
   "stack": {
     "next": "16.3.8",
     "react": "^19.3.0",
@@ -130,6 +130,15 @@
       "revalidate": "300",
       "data": [
         "page:quantum-lab"
+      ]
+    },
+    {
+      "route": "/alumni",
+      "file": "app/alumni/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "page:alumni"
       ]
     },
     {
@@ -326,13 +335,13 @@
   "components": [
     {
       "file": "components/features/admin/admin-provider.tsx",
-      "lines": 146,
+      "lines": 149,
       "client": true,
       "summary": "Holds the admin's session, edit mode, the saved overrides and the save status for the whole site."
     },
     {
       "file": "components/features/admin/admin-toolbar.tsx",
-      "lines": 68,
+      "lines": 75,
       "client": true,
       "summary": "Fixed bar at the top of every page for the signed-in admin. Visitors never see it."
     },
@@ -349,6 +358,12 @@
       "summary": "Email and password for the single admin account. Errors are shown in one generic message."
     },
     {
+      "file": "components/features/cms/content-editor.tsx",
+      "lines": 103,
+      "client": true,
+      "summary": "The admin's editor for everything stored as content: pages, leadership messages, every list and the contact details."
+    },
+    {
       "file": "components/features/cms/editable-image.tsx",
       "lines": 121,
       "client": true,
@@ -359,6 +374,36 @@
       "lines": 85,
       "client": true,
       "summary": "Text that the admin can change on the page. Visitors see the text exactly as before. In"
+    },
+    {
+      "file": "components/features/cms/field-input.tsx",
+      "lines": 66,
+      "client": true,
+      "summary": "One field of the content editor, edited with the control that suits its kind."
+    },
+    {
+      "file": "components/features/cms/image-field.tsx",
+      "lines": 58,
+      "client": true,
+      "summary": "A photo in the content editor: shows the current one, uploads a replacement, or removes it."
+    },
+    {
+      "file": "components/features/cms/list-form.tsx",
+      "lines": 98,
+      "client": true,
+      "summary": "Edits a whole list: change any item, add, delete and reorder. Saved in one go."
+    },
+    {
+      "file": "components/features/cms/record-form.tsx",
+      "lines": 40,
+      "client": true,
+      "summary": "Edits one item: a page, a leadership message or the contact details."
+    },
+    {
+      "file": "components/features/cms/save-bar.tsx",
+      "lines": 23,
+      "client": true,
+      "summary": "The Save button at the foot of the content editor, with the result of the last save."
     },
     {
       "file": "components/features/content/bits.tsx",
@@ -614,7 +659,7 @@
     },
     {
       "file": "components/features/layout/footer-brand.tsx",
-      "lines": 62,
+      "lines": 64,
       "client": false,
       "summary": "Logo, motto, address and contact links at the start of the footer."
     },
@@ -644,7 +689,7 @@
     },
     {
       "file": "components/features/layout/site-header.tsx",
-      "lines": 59,
+      "lines": 61,
       "client": false,
       "summary": "Main menu bar at the very top, then the logo row with contact details and the theme toggle."
     },
@@ -849,12 +894,12 @@
     },
     {
       "file": "lib/admin/lockout.ts",
-      "lines": 41,
+      "lines": 36,
       "summary": "Minutes left on a lock, or 0 when sign-in is allowed."
     },
     {
       "file": "lib/admin/service.ts",
-      "lines": 31,
+      "lines": 37,
       "summary": "A JSON request to the database REST API. Returns null for 204 responses."
     },
     {
@@ -883,24 +928,39 @@
       "summary": "Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload."
     },
     {
+      "file": "lib/cms/paths.ts",
+      "lines": 29,
+      "summary": ""
+    },
+    {
       "file": "lib/cms/read.ts",
-      "lines": 22,
+      "lines": 25,
+      "summary": ""
+    },
+    {
+      "file": "lib/cms/schema.ts",
+      "lines": 105,
+      "summary": ""
+    },
+    {
+      "file": "lib/cms/store.ts",
+      "lines": 26,
       "summary": ""
     },
     {
       "file": "lib/cms/validate.ts",
-      "lines": 34,
+      "lines": 110,
       "summary": "A photo address the admin may use: one uploaded to our storage, or a file shipped with the site."
     },
     {
       "file": "lib/cms/write.ts",
-      "lines": 83,
+      "lines": 69,
       "summary": "Saves a value (null removes it), and records the change."
     },
     {
       "file": "lib/content.ts",
-      "lines": 160,
-      "summary": "Messages for one place on the site: \"leadership\" (default) or \"ai-first\"."
+      "lines": 196,
+      "summary": "A value the admin saved in the content editor (see lib/cms/schema.ts), if any."
     },
     {
       "file": "lib/database.types.ts",
@@ -934,18 +994,23 @@
     },
     {
       "file": "lib/menu-server.ts",
-      "lines": 15,
+      "lines": 17,
       "summary": "Loads everything the menu needs and builds it. Server components only."
     },
     {
       "file": "lib/menu.ts",
-      "lines": 242,
+      "lines": 246,
       "summary": "One item in the top menu. Items with `columns` open a dropdown; items with"
     },
     {
       "file": "lib/portals.tsx",
       "lines": 42,
       "summary": "A portal is clickable once it has an address and is marked Live."
+    },
+    {
+      "file": "lib/site-details.ts",
+      "lines": 36,
+      "summary": "Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only."
     },
     {
       "file": "lib/site.ts",
@@ -1001,6 +1066,11 @@
       "file": "actions/auth.ts",
       "lines": 45,
       "summary": "Staff sign-in with email and password. Only accounts on the editors list stay signed in."
+    },
+    {
+      "file": "actions/content.ts",
+      "lines": 61,
+      "summary": "Every page and leadership message the content editor can open, with readable names."
     },
     {
       "file": "actions/enquiry.ts",
@@ -1282,7 +1352,7 @@
     }
   },
   "content": {
-    "pages": 23,
+    "pages": 24,
     "messages": 4,
     "data": {
       "ai_people": 13,

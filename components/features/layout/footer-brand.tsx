@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { Mail, MapPin, Navigation, Phone, Send } from "lucide-react";
 import { site } from "@/lib/site";
+import { getSiteDetails } from "@/lib/site-details";
 import Logo from "./logo";
 
 /** Logo, motto, address and contact links at the start of the footer. */
-export default function FooterBrand() {
-  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapQuery)}`;
+export default async function FooterBrand() {
+  const details = await getSiteDetails();
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(details.mapQuery)}`;
   return (
     <div>
       <div className="flex items-center gap-3">
@@ -21,24 +23,24 @@ export default function FooterBrand() {
         <li className="flex gap-2.5">
           <MapPin aria-hidden="true" className="mt-0.5 size-3.5 shrink-0 text-gold" />
           <address className="not-italic">
-            {site.address.line1}, {site.address.line2}
+            {details.address.line1}, {details.address.line2}
             <br />
-            {site.address.city} {site.address.pin}, {site.address.state}
+            {details.address.city} {details.address.pin}, {details.address.state}
           </address>
         </li>
-        {site.phone && (
+        {details.phone && (
           <li className="flex gap-2.5">
             <Phone aria-hidden="true" className="mt-0.5 size-3.5 shrink-0 text-gold" />
-            <a className="hover:text-white" href={`tel:${site.phone.replace(/\s+/g, "")}`}>
-              {site.phone}
+            <a className="hover:text-white" href={`tel:${details.phone.replace(/\s+/g, "")}`}>
+              {details.phone}
             </a>
           </li>
         )}
-        {site.email && (
+        {details.email && (
           <li className="flex gap-2.5">
             <Mail aria-hidden="true" className="mt-0.5 size-3.5 shrink-0 text-gold" />
-            <a className="hover:text-white" href={`mailto:${site.email}`}>
-              {site.email}
+            <a className="hover:text-white" href={`mailto:${details.email}`}>
+              {details.email}
             </a>
           </li>
         )}

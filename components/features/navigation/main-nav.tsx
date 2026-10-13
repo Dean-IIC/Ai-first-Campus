@@ -10,7 +10,7 @@ import MegaMenu from "./mega-menu";
 import NavLink from "./nav-link";
 
 const topItem =
-  "relative flex min-h-11 items-center gap-0.5 whitespace-nowrap px-2.5 text-[0.875rem] font-semibold text-white/90 outline-none transition-colors hover:bg-white/10 hover:text-white focus-visible:bg-white/15 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold xl:min-h-12 xl:px-[7px] 2xl:px-2.5";
+  "relative flex min-h-11 items-center gap-0.5 whitespace-nowrap px-2.5 text-[0.875rem] font-semibold text-white/90 outline-none transition-colors hover:bg-white/10 hover:text-white focus-visible:bg-white/15 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold xl:min-h-12 xl:px-1 2xl:px-2.5";
 
 /**
  * The main menu bar. Every item is always visible: on wide screens dropdowns

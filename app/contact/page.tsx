@@ -3,14 +3,16 @@ import ContentPage, { pageMetadata } from "@/components/features/layout/content-
 import EnquiryForm from "@/components/features/forms/enquiry-form";
 import Panel from "@/components/features/content/panel";
 import { site } from "@/lib/site";
+import { getSiteDetails } from "@/lib/site-details";
 import { linkText } from "@/lib/ui";
 
 export const revalidate = 300;
 export const generateMetadata = () => pageMetadata("contact", "Contact");
 
-export default function ContactPage() {
-  const embed = `https://www.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&output=embed`;
-  const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapQuery)}`;
+export default async function ContactPage() {
+  const details = await getSiteDetails();
+  const embed = `https://www.google.com/maps?q=${encodeURIComponent(details.mapQuery)}&output=embed`;
+  const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(details.mapQuery)}`;
 
   return (
     <ContentPage
@@ -25,23 +27,23 @@ export default function ContactPage() {
               <address className="not-italic leading-relaxed">
                 <span className="font-semibold text-heading">{site.name}</span>
                 <br />
-                {site.address.line1}
+                {details.address.line1}
                 <br />
-                {site.address.line2}, {site.address.city} {site.address.pin}
+                {details.address.line2}, {details.address.city} {details.address.pin}
                 <br />
-                {site.address.state}, India
+                {details.address.state}, India
               </address>
               <ul className="mt-4 space-y-2 text-[0.9375rem]">
-                {site.phone && (
+                {details.phone && (
                   <li className="flex items-center gap-2">
                     <Phone aria-hidden="true" className="size-4 text-primary" />
-                    <a className={linkText} href={`tel:${site.phone.replace(/\s+/g, "")}`}>{site.phone}</a>
+                    <a className={linkText} href={`tel:${details.phone.replace(/\s+/g, "")}`}>{details.phone}</a>
                   </li>
                 )}
-                {site.email && (
+                {details.email && (
                   <li className="flex items-center gap-2">
                     <Mail aria-hidden="true" className="size-4 text-primary" />
-                    <a className={linkText} href={`mailto:${site.email}`}>{site.email}</a>
+                    <a className={linkText} href={`mailto:${details.email}`}>{details.email}</a>
                   </li>
                 )}
                 <li className="flex items-center gap-2">

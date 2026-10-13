@@ -4,6 +4,15 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Added
+- **Alumni** in the top menu (desktop and mobile), after Placements. It opens the new `/alumni` page (title "Alumni", line "HKBK Alumni Network — portal coming soon", editable under Edit content → Page text → Alumni) until an **Alumni portal link** is saved under Edit content → Alumni portal link; from then on the menu item opens that link in a new tab. Desktop menu items are 1px closer together on each side at 1280–1535px wide so the menu stays on one line.
+- Site admin: **Edit content** in the admin toolbar opens one editor for everything stored as content: the title, summary and text of all 23 pages, every leadership message (with photo), all 13 lists (departments, news and events, MoUs, AI Champions, key figures, houses, centres and initiatives, dashboards, research and consultancy projects, training programmes, UHV activities, the AI First journey) and the contact details (address, phone, email). Lists support add, delete and reorder. It opens on the content of the page being viewed.
+- Saved values (`page:`, `message:`, `list:`, `site:details`, plus the existing `text:` and `image:`) are laid over the content from Supabase or `/content`, so undo, history and restore work for them as for inline edits. Every field is checked on the server (`lib/cms/schema.ts`, `lib/cms/validate.ts`).
+
+### Changed
+- Admin edits, the change history and the sign-in lock are kept as JSON files in the `site-images` storage bucket (`cms-data/content.json`, `history.json`, `security.json`), read and written only on the server with the secret key (`lib/cms/store.ts`). Editing no longer needs the `site_content`, `site_history` and `admin_security` tables.
+- The header, footer and Contact page read the contact details through `getSiteDetails()`.
+
 ## [0.25.2] - 2026-10-10
 
 ### Changed

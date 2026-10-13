@@ -15,7 +15,7 @@ One person (the site administrator) can sign in on the live site and edit the co
 
 After changing any of these, redeploy so the live site picks them up.
 
-**Database and storage.** Run `supabase/setup_all.sql` in the Supabase SQL Editor (or `npx supabase db push`). This creates the admin tables and copies the current champion cards into the database. Running it again does not overwrite live edits. The `site-images` storage bucket already exists from the earlier setup.
+**Storage.** Edits, the change history and the sign-in lock are kept as small files in the `site-images` storage bucket (folder `cms-data/`), which already exists. No database setup is needed for editing; only `SUPABASE_SECRET_KEY` must be set on the server.
 
 ## 2. Create the admin password
 
@@ -65,13 +65,14 @@ The preview link (claude.ai artifact) is a saved snapshot of the site with no se
 
 ## 5. What can be edited now
 
-| Area | Editable |
+| Area | How |
 | --- | --- |
-| Home page headline, intro paragraph and campus photo (with alt text) | Yes |
-| Section headings and intro lines on every page that uses the section heading | Yes |
-| AI Faculty Champions: intro, names, designations, departments, photos, add, delete, clear, reorder | Yes |
-| Body text of the other pages, menu labels, buttons, link addresses | Not yet |
-| Showing, hiding and moving whole sections | Not yet |
-| Lists such as MoUs, departments, news and houses | Not yet (the champions list is the first) |
+| Home page headline, intro paragraph and campus photo; section headings and intro lines | **Edit page** on, then click the text or **Replace photo** |
+| Title, summary and full text of every page | **Edit content** → Page text |
+| Leadership messages (name, designation, photo, message) | **Edit content** → Leadership messages |
+| Departments, news and events, MoUs, AI Champions, key figures, houses, centres and initiatives, dashboards, research and consultancy projects, training programmes, UHV activities, the AI First journey | **Edit content** → Lists: open an item to change it, add, delete or reorder, then **Save changes** |
+| Address, phone and email (header, footer and Contact page) | **Edit content** → Contact details |
+| Where the **Alumni** menu item goes | **Edit content** → Alumni portal link. Empty: the Alumni page on this site. A saved link: the menu opens it in a new tab |
+| Menu structure, buttons and the short descriptions written into the code | Not yet |
 
-The editing system is the same for all of these; each area needs its text or photo marked as editable. Ask for the next area you want and it can be added in the same way.
+**Edit content** opens on whatever the page you are viewing shows. Page text uses simple formatting: `## Heading`, `- bullet`, `**bold**`, `[link text](/address)`. Every save from **Edit content** also appears in **Undo** and **History**.

@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import { getPublicSupabase as getSupabase } from "./supabase/public";
+import { getContentMap } from "./cms/read";
 import type { LeadershipMessage, ListTable, ListTables, Page } from "./types";
 
 /*
@@ -25,9 +26,20 @@ function warn(scope: string, message: string) {
   console.warn(`[content] ${scope}: ${message}. Using files in /content instead.`);
 }
 
+/** A value the admin saved in the content editor (see lib/cms/schema.ts), if any. */
+async function saved<T>(key: string): Promise<T | null> {
+  const value = (await getContentMap())[key];
+  return value && typeof value === "object" ? (value as T) : null;
+}
+
 // ---------- Pages ----------
 
 export async function getPage(slug: string): Promise<Page | null> {
+  const [page, edit] = await Promise.all([loadPage(slug), saved<Partial<Page>>(`page:${slug}`)]);
+  return page && edit ? { ...page, ...edit, slug } : page;
+}
+
+async function loadPage(slug: string): Promise<Page | null> {
   const sb = getSupabase();
   if (sb) {
     try {
@@ -69,6 +81,14 @@ function messageFromFile(slug: string, file: matter.GrayMatterFile<string>): Lea
 
 /** Messages for one place on the site: "leadership" (default) or "ai-first". */
 export async function getMessages(section = "leadership"): Promise<LeadershipMessage[]> {
+  const [messages, map] = await Promise.all([loadMessages(section), getContentMap()]);
+  return messages.map((m) => {
+    const edit = map[`message:${m.slug}`];
+    return edit && typeof edit === "object" ? { ...m, ...(edit as Partial<LeadershipMessage>), slug: m.slug, section: m.section } : m;
+  });
+}
+
+async function loadMessages(section: string): Promise<LeadershipMessage[]> {
   const sb = getSupabase();
   if (sb) {
     try {
@@ -122,21 +142,45 @@ const ORDER: Record<ListTable, { column: string; ascending: boolean }> = {
   journey_milestones: { column: "sort_order", ascending: true },
 };
 
+function sortRows(rows: Record<string, unknown>[], table: ListTable) {
+  const order = ORDER[table];
+  return rows.sort((a, b) => {
+    const av = a[order.column] as string | number;
+    const bv = b[order.column] as string | number;
+    if (av === bv) return 0;
+    return (av > bv ? 1 : -1) * (order.ascending ? 1 : -1);
+  });
+}
+
+/**
+ * A list, in display order. When the admin has saved the list in the content editor, that
+ * saved list (its rows, their order and their fields) replaces the original; fields the
+ * editor does not cover, such as timeline photos, are kept from the original row.
+ */
 export async function getList<T extends ListTable>(
   table: T,
   options: { limit?: number } = {},
 ): Promise<ListTables[T][]> {
+  const [base, edit] = await Promise.all([loadList(table), saved<Record<string, unknown>[]>(`list:${table}`)]);
+  let rows = base;
+  if (Array.isArray(edit)) {
+    const bySlug = new Map(base.map((r) => [r.slug, r]));
+    rows = sortRows(edit.map((r) => ({ ...(bySlug.get(String(r.slug)) ?? {}), ...r })), table);
+  }
+  const limited = options.limit ? rows.slice(0, options.limit) : rows;
+  return limited as unknown as ListTables[T][];
+}
+
+async function loadList(table: ListTable): Promise<Record<string, unknown>[]> {
   const order = ORDER[table];
   const sb = getSupabase();
 
   if (sb) {
     try {
-      let query = sb.from(table).select("*").order(order.column, { ascending: order.ascending });
-      if (options.limit) query = query.limit(options.limit);
-      const { data, error } = await query;
+      const { data, error } = await sb.from(table).select("*").order(order.column, { ascending: order.ascending });
       if (error) warn(table, error.message);
       // Rows match the generated Database types; the table name is a runtime value, so narrow explicitly.
-      else if (data) return data as unknown as ListTables[T][];
+      else if (data) return data as unknown as Record<string, unknown>[];
     } catch (err) {
       warn(table, err instanceof Error ? err.message : "network error");
     }
@@ -144,15 +188,7 @@ export async function getList<T extends ListTable>(
 
   try {
     const raw = await fs.readFile(path.join(CONTENT_DIR, "data", `${table}.json`), "utf8");
-    const rows = JSON.parse(raw) as Record<string, unknown>[];
-    rows.sort((a, b) => {
-      const av = a[order.column] as string | number;
-      const bv = b[order.column] as string | number;
-      if (av === bv) return 0;
-      return (av > bv ? 1 : -1) * (order.ascending ? 1 : -1);
-    });
-    const limited = options.limit ? rows.slice(0, options.limit) : rows;
-    return limited as unknown as ListTables[T][];
+    return sortRows(JSON.parse(raw) as Record<string, unknown>[], table);
   } catch {
     return [];
   }

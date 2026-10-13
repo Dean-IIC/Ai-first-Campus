@@ -21,6 +21,7 @@ const ROUTES = [
   "/initiatives",
   "/houses",
   "/placements",
+  "/alumni",
   "/mous",
   "/iqac",
   "/ai-quantum/champions",

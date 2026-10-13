@@ -39,12 +39,15 @@ export function buildMenu({
   aiLeaders,
   initiatives,
   houses,
+  alumniUrl = "",
 }: {
   departments: Dept[];
   leaders: Leader[];
   aiLeaders: Leader[];
   initiatives: Initiative[];
   houses: House[];
+  /** The Alumni portal address the admin saved; empty opens the /alumni page. */
+  alumniUrl?: string;
 }): MenuSection[] {
   const items = initiativeItems(initiatives, toneForCategory);
   const bySlug = (slug: string) => {
@@ -182,6 +185,7 @@ export function buildMenu({
       },
     },
     { label: "Placements", tone: "blue", href: "/placements" },
+    { label: "Alumni", tone: "blue", href: alumniUrl || "/alumni", external: /^https?:\/\//i.test(alumniUrl), match: ["/alumni"] },
     { label: "MoUs", tone: "amber", href: "/mous" },
     {
       label: "AI First Campus",

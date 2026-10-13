@@ -3,13 +3,15 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import MainNav from "@/components/features/navigation/main-nav";
 import type { MenuSection } from "@/lib/menu";
 import { site } from "@/lib/site";
+import { getSiteDetails } from "@/lib/site-details";
 import { cn } from "@/lib/utils";
 import { barWidth } from "@/lib/ui";
 import Logo from "./logo";
 import ThemeToggle from "./theme-toggle";
 
 /** Main menu bar at the very top, then the logo row with contact details and the theme toggle. */
-export default function SiteHeader({ menu }: { menu: MenuSection[] }) {
+export default async function SiteHeader({ menu }: { menu: MenuSection[] }) {
+  const details = await getSiteDetails();
   return (
     <>
       <MainNav menu={menu} />
@@ -26,16 +28,16 @@ export default function SiteHeader({ menu }: { menu: MenuSection[] }) {
             <p className="hidden leading-tight lg:block">
               <span className="block font-semibold text-heading">{site.affiliation}</span>
               <span className="block">{site.approval}</span>
-              {site.phone && (
-                <a href={`tel:${site.phone.replace(/\s+/g, "")}`} className="mt-1 flex items-center gap-1.5 hover:text-primary">
+              {details.phone && (
+                <a href={`tel:${details.phone.replace(/\s+/g, "")}`} className="mt-1 flex items-center gap-1.5 hover:text-primary">
                   <Phone aria-hidden="true" className="size-3.5" />
-                  {site.phone}
+                  {details.phone}
                 </a>
               )}
-              {site.email && (
-                <a href={`mailto:${site.email}`} className="mt-1 flex items-center gap-1.5 hover:text-primary">
+              {details.email && (
+                <a href={`mailto:${details.email}`} className="mt-1 flex items-center gap-1.5 hover:text-primary">
                   <Mail aria-hidden="true" className="size-3.5" />
-                  {site.email}
+                  {details.email}
                 </a>
               )}
             </p>
@@ -44,9 +46,9 @@ export default function SiteHeader({ menu }: { menu: MenuSection[] }) {
                 <MapPin aria-hidden="true" className="size-[1.125rem]" />
               </span>
               <span className="leading-tight">
-                {site.address.line1}
+                {details.address.line1}
                 <br />
-                {site.address.line2}, {site.address.city} {site.address.pin}
+                {details.address.line2}, {details.address.city} {details.address.pin}
               </span>
             </p>
             <ThemeToggle />

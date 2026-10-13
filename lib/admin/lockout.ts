@@ -1,19 +1,14 @@
 import { LOCK_MINUTES, MAX_FAILED_ATTEMPTS } from "./config";
-import { restJson } from "./service";
+import { readJson, writeJson } from "@/lib/cms/store";
 
 type LockRow = { failed_attempts: number; locked_until: string | null };
 
 async function readRow(): Promise<LockRow> {
-  const rows = await restJson<LockRow[]>("/rest/v1/admin_security?id=eq.1&select=failed_attempts,locked_until");
-  return rows[0] ?? { failed_attempts: 0, locked_until: null };
+  return readJson<LockRow>("security.json", { failed_attempts: 0, locked_until: null });
 }
 
 async function writeRow(row: LockRow): Promise<void> {
-  await restJson("/rest/v1/admin_security?on_conflict=id", {
-    method: "POST",
-    headers: { Prefer: "resolution=merge-duplicates,return=minimal" },
-    body: JSON.stringify({ id: 1, ...row }),
-  });
+  await writeJson("security.json", row);
 }
 
 /** Minutes left on a lock, or 0 when sign-in is allowed. */

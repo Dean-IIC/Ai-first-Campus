@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { historyAction, restoreAction, saveValueAction, undoAction, type ChangeResult, type HistoryRow } from "@/actions/admin";
 
 export type Status = { kind: "idle" } | { kind: "saving" } | { kind: "saved" } | { kind: "error"; message: string };
@@ -60,6 +60,7 @@ export function AdminProvider({ initialOverrides, children }: { initialOverrides
   const [historyOpen, setHistoryOpen] = useState(false);
 
   const pathname = usePathname();
+  const router = useRouter();
 
   // Checked again on every page change, so signing in or out takes effect at once.
   useEffect(() => {
@@ -96,8 +97,10 @@ export function AdminProvider({ initialOverrides, children }: { initialOverrides
     }
     setOverrides((o) => (r.value === null ? withoutKey(o, r.key) : { ...o, [r.key]: r.value }));
     setStatus({ kind: "saved" });
+    // Pages, messages, lists and contact details are drawn on the server, so fetch the page again.
+    if (!/^(text|image):/.test(r.key)) router.refresh();
     return true;
-  }, []);
+  }, [router]);
 
   const save = useCallback(
     async (key: string, value: unknown, label: string) => {

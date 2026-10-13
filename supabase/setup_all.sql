@@ -618,6 +618,7 @@ The Chief AI Officer leads AI strategy, governance and the [dashboards](/ai-quan
   ('ai-quantum', 'AI and quantum at HKBK', 'Two commitments for the next decade. Every engineer learns to build with AI, and the campus prepares students and systems for quantum computing.', '**AI First** means AI is part of how every programme is taught and how campus services work, with clear rules for privacy, fairness and human judgement.
 
 **Quantum Ready** has two halves. Students learn quantum computing hands-on, from simulators to real quantum hardware. And the systems that hold student and research records move to the new quantum-safe encryption standards, so that data stolen today cannot be decrypted by quantum computers later.'),
+  ('alumni', 'Alumni', 'HKBK Alumni Network — portal coming soon', ''),
   ('consultancy', 'Consultancy projects', 'Faculty-led teams that take on engineering, software and AI problems for industry, government and the community.', '## What we take on
 
 - **AI and software**: prototypes, data analysis, machine learning models and web applications.

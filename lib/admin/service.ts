@@ -28,3 +28,9 @@ export async function restJson<T>(path: string, init: RequestInit = {}): Promise
   const text = await res.text();
   return (text ? JSON.parse(text) : null) as T;
 }
+
+/** Headers for a server-side request with the secret key, for reads that should be cached by Next.js. Null when not configured. */
+export function serviceHeaders(): Record<string, string> | null {
+  const key = process.env.SUPABASE_SECRET_KEY;
+  return key ? { apikey: key, Authorization: `Bearer ${key}` } : null;
+}

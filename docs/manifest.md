@@ -1,6 +1,6 @@
 # Manifest
 
-Inventory of the HKBK College of Engineering website, generated from the source files by `npm run docs:manifest` on 2026-10-12. Do not edit by hand. A machine-readable copy is in `manifest.json`.
+Inventory of the HKBK College of Engineering website, generated from the source files by `npm run docs:manifest` on 2026-10-13. Do not edit by hand. A machine-readable copy is in `manifest.json`.
 
 ## Project
 
@@ -16,7 +16,7 @@ Inventory of the HKBK College of Engineering website, generated from the source 
 | @supabase/ssr | ^0.12.7 |
 | next-themes | ^0.4.6 |
 
-## Routes (31)
+## Routes (32)
 
 Components used by a route may load more data (for example the home page sections); see the components table.
 
@@ -32,6 +32,7 @@ Components used by a route may load more data (for example the home page section
 | `/ai-quantum/champions` | Static | - | `page:ai-champions` | `app/ai-quantum/champions/page.tsx` |
 | `/ai-quantum/dashboards` | Static | 300s | `table:dashboards`, `page:dashboards` | `app/ai-quantum/dashboards/page.tsx` |
 | `/ai-quantum/quantum-lab` | Static | 300s | `page:quantum-lab` | `app/ai-quantum/quantum-lab/page.tsx` |
+| `/alumni` | Static | 300s | `page:alumni` | `app/alumni/page.tsx` |
 | `/api/admin/session` | API | - | - | `app/api/admin/session/route.ts` |
 | `/api/admin/upload` | API | - | - | `app/api/admin/upload/route.ts` |
 | `/api/revalidate` | API | - | - | `app/api/revalidate/route.ts` |
@@ -56,16 +57,22 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (86 files)
+## Components (92 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
-| `components/features/admin/admin-provider.tsx` | 146 | Client | Holds the admin's session, edit mode, the saved overrides and the save status for the whole site. |
-| `components/features/admin/admin-toolbar.tsx` | 68 | Client | Fixed bar at the top of every page for the signed-in admin. Visitors never see it. |
+| `components/features/admin/admin-provider.tsx` | 149 | Client | Holds the admin's session, edit mode, the saved overrides and the save status for the whole site. |
+| `components/features/admin/admin-toolbar.tsx` | 75 | Client | Fixed bar at the top of every page for the signed-in admin. Visitors never see it. |
 | `components/features/admin/history-panel.tsx` | 51 | Client | The last 30 changes. Restoring one puts back the text, photo or list it set. |
 | `components/features/admin/login-form.tsx` | 42 | Client | Email and password for the single admin account. Errors are shown in one generic message. |
+| `components/features/cms/content-editor.tsx` | 103 | Client | The admin's editor for everything stored as content: pages, leadership messages, every list and the contact details. |
 | `components/features/cms/editable-image.tsx` | 121 | Client | A picture that the admin can replace on the page. Visitors see the picture as before. In |
 | `components/features/cms/editable-text.tsx` | 85 | Client | Text that the admin can change on the page. Visitors see the text exactly as before. In |
+| `components/features/cms/field-input.tsx` | 66 | Client | One field of the content editor, edited with the control that suits its kind. |
+| `components/features/cms/image-field.tsx` | 58 | Client | A photo in the content editor: shows the current one, uploads a replacement, or removes it. |
+| `components/features/cms/list-form.tsx` | 98 | Client | Edits a whole list: change any item, add, delete and reorder. Saved in one go. |
+| `components/features/cms/record-form.tsx` | 40 | Client | Edits one item: a page, a leadership message or the contact details. |
+| `components/features/cms/save-bar.tsx` | 23 | Client | The Save button at the foot of the content editor, with the result of the last save. |
 | `components/features/content/bits.tsx` | 83 | Server | Section heading used on the home page. |
 | `components/features/content/content-tabs.tsx` | 77 | Client | Folder-style tabs built on shadcn/Radix Tabs. Every panel stays in the HTML |
 | `components/features/content/image-feature.tsx` | 50 | Server | A large image with a caption panel, used for AI, quantum and campus features. |
@@ -108,12 +115,12 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/infographics/process-steps.tsx` | 39 | Server | Numbered steps; in a row with arrows on wide screens, or a 2-column grid. |
 | `components/features/initiatives/initiative-callout.tsx` | 37 | Server | Banner at the top of a page whose initiative has (or will have) its own site: UHV, R&D, IEEE. |
 | `components/features/layout/content-page.tsx` | 70 | Server | Standard inner page: banner, then the content at full width. |
-| `components/features/layout/footer-brand.tsx` | 62 | Server | Logo, motto, address and contact links at the start of the footer. |
+| `components/features/layout/footer-brand.tsx` | 64 | Server | Logo, motto, address and contact links at the start of the footer. |
 | `components/features/layout/footer-columns.ts` | 51 | Server | Short footer labels for the IEEE chapters. |
 | `components/features/layout/logo.tsx` | 7 | Server | The HKBK College of Engineering crest. |
 | `components/features/layout/page-banner.tsx` | 71 | Server | Page banner: breadcrumb, title and summary on the section's tint. |
 | `components/features/layout/site-footer.tsx` | 61 | Server | Site footer: brand and contact block, six link columns, and a slim bottom bar. |
-| `components/features/layout/site-header.tsx` | 59 | Server | Main menu bar at the very top, then the logo row with contact details and the theme toggle. |
+| `components/features/layout/site-header.tsx` | 61 | Server | Main menu bar at the very top, then the logo row with contact details and the theme toggle. |
 | `components/features/layout/theme-provider.tsx` | 13 | Client | Light and dark mode via a `dark` class on <html>, following the visitor's system setting by default. |
 | `components/features/layout/theme-toggle.tsx` | 26 | Client | Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash. |
 | `components/features/mous/mou-card.tsx` | 49 | Server | One MoU: partner, type, purpose, dates and a link to the signed document. |
@@ -147,31 +154,35 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/ui/tabs.tsx` | 39 | Client | - |
 | `components/ui/textarea.tsx` | 18 | Server | - |
 
-## Modules, actions and scripts (39)
+## Modules, actions and scripts (44)
 
 | File | Lines | Purpose |
 | --- | --- | --- |
 | `lib/admin/config.ts` | 18 | - |
-| `lib/admin/lockout.ts` | 41 | Minutes left on a lock, or 0 when sign-in is allowed. |
-| `lib/admin/service.ts` | 31 | A JSON request to the database REST API. Returns null for 204 responses. |
+| `lib/admin/lockout.ts` | 36 | Minutes left on a lock, or 0 when sign-in is allowed. |
+| `lib/admin/service.ts` | 37 | A JSON request to the database REST API. Returns null for 204 responses. |
 | `lib/admin/session.ts` | 59 | The signing key: the session secret plus the password hash, so a new password ends all sessions. |
 | `lib/ai-people.ts` | 24 | The two groups in the AI programme; values match ai_people.role. |
 | `lib/areas.tsx` | 177 | - |
 | `lib/champion-image.ts` | 64 | Geometry for the photo crop: a square crop box, a zoom level and a pan offset, all in pixels. |
 | `lib/cms/client-image.ts` | 29 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
-| `lib/cms/read.ts` | 22 | - |
-| `lib/cms/validate.ts` | 34 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
-| `lib/cms/write.ts` | 83 | Saves a value (null removes it), and records the change. |
-| `lib/content.ts` | 160 | Messages for one place on the site: "leadership" (default) or "ai-first". |
+| `lib/cms/paths.ts` | 29 | - |
+| `lib/cms/read.ts` | 25 | - |
+| `lib/cms/schema.ts` | 105 | - |
+| `lib/cms/store.ts` | 26 | - |
+| `lib/cms/validate.ts` | 110 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
+| `lib/cms/write.ts` | 69 | Saves a value (null removes it), and records the change. |
+| `lib/content.ts` | 196 | A value the admin saved in the content editor (see lib/cms/schema.ts), if any. |
 | `lib/database.types.ts` | 771 | Supabase database types for the HKBK website. |
 | `lib/editor.ts` | 84 | True when a signed-in editor is viewing the page. Checked once per page load. |
 | `lib/enquiry.ts` | 30 | Per-field messages, used to mark the matching input as invalid. |
 | `lib/format.ts` | 28 | Formats an ISO date (YYYY-MM-DD) as "3 Oct 2026" without timezone shifts. |
 | `lib/journey-model.ts` | 73 | Shared rules for the AI Transformation Journey timeline (visitors and editors). |
 | `lib/markdown.ts` | 16 | Splits markdown into sections at each "## Heading". Text before the first heading is the intro. |
-| `lib/menu-server.ts` | 15 | Loads everything the menu needs and builds it. Server components only. |
-| `lib/menu.ts` | 242 | One item in the top menu. Items with `columns` open a dropdown; items with |
+| `lib/menu-server.ts` | 17 | Loads everything the menu needs and builds it. Server components only. |
+| `lib/menu.ts` | 246 | One item in the top menu. Items with `columns` open a dropdown; items with |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
+| `lib/site-details.ts` | 36 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
 | `lib/site.ts` | 101 | Opens another site (a live initiative subdomain) in a new tab. |
 | `lib/supabase/client.ts` | 13 | Browser client from @supabase/ssr, for Client Components that need live data or auth. |
 | `lib/supabase/env.ts` | 14 | Supabase URL and public key from the environment, or null when the project is not connected yet. |
@@ -183,6 +194,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `actions/admin.ts` | 100 | Compares two strings in constant time, so the check does not reveal how much matched. |
 | `actions/ai-people.ts` | 114 | The person's slug when editing an existing card; omit to add a new person. |
 | `actions/auth.ts` | 45 | Staff sign-in with email and password. Only accounts on the editors list stay signed in. |
+| `actions/content.ts` | 61 | Every page and leadership message the content editor can open, with readable names. |
 | `actions/enquiry.ts` | 80 | Validates an enquiry form and stores it in the `enquiries` table (insert-only under RLS). |
 | `actions/journey.ts` | 166 | A Supabase client for a signed-in editor, or a message explaining why not. |
 | `scripts/build-manifest.mjs` | 149 | Generates docs/manifest.md and manifest.json: an inventory of the project |
@@ -236,7 +248,7 @@ Migrations, applied in order:
 
 ## Content
 
-- Pages (`content/pages`): 23
+- Pages (`content/pages`): 24
 - Messages (`content/messages`): 4
 - `content/data/ai_people.json`: 13 row(s)
 - `content/data/consultancy_projects.json`: 3 row(s)
