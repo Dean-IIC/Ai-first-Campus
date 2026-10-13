@@ -1,11 +1,10 @@
 ---
 # DRAFT for Shri. C M Ibrahim's review. Replace the text with the approved message.
-# Add a photo URL once uploaded to the Supabase "site-images" bucket.
 name: "Shri. C M Ibrahim"
 designation: "Chairman"
 organisation: "HKBK Group of Institutions"
 excerpt: "We opened HKBK in 1997 to give every young person a fair chance at an excellent engineering education. Becoming an AI First and Quantum Ready campus is how we keep that promise for the next generation."
-photo_url: ""
+photo_url: "/images/leaders/chairman.jpg"
 sort_order: 1
 status: draft
 ---

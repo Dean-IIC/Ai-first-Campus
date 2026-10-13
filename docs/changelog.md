@@ -5,6 +5,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [Unreleased]
 
 ### Added
+- Chairman's photo (Shri. C M Ibrahim): `public/images/leaders/chairman.jpg`, a portrait crop of the supplied photo, set in `content/messages/chairman.md` and the `leadership_messages` row.
 - AI Faculty Champions and AI Student Ambassadors: one shared card (`PersonCard`) for both sections. The signed-in admin sees ✏️ Edit and 🗑️ Delete on filled cards and ➕ Add on empty ones; Edit and Add turn the card into a form in place (click the photo to upload or replace it with a circular crop, name and details, Save or Cancel). Delete asks "Delete this person?" and returns the card to an empty slot. A ➕ Add new card at the end of each grid adds people beyond the numbered cards, and the heading counts follow. Changes save through the admin content store (`list:ai_people`), show on the live site at once and can be undone. Visitors see the cards as before.
 - The content editor asks for confirmation before saving a list that removes half or more of its items.
 - **Alumni** in the top menu (desktop and mobile), after Placements. It opens the new `/alumni` page (title "Alumni", line "HKBK Alumni Network — portal coming soon", editable under Edit content → Page text → Alumni) until an **Alumni portal link** is saved under Edit content → Alumni portal link; from then on the menu item opens that link in a new tab. Desktop menu items are 1px closer together on each side at 1280–1535px wide so the menu stays on one line.

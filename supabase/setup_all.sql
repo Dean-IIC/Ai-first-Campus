@@ -783,7 +783,7 @@ To be a campus where every engineer learns to build with artificial intelligence
 - Protect the data of our students and staff with modern, quantum-safe security.')
 on conflict (slug) do update set title = excluded.title, summary = excluded.summary, body_md = excluded.body_md;
 insert into public.leadership_messages (slug, name, designation, organisation, excerpt, photo_url, body_md, sort_order, section) values
-  ('chairman', 'Shri. C M Ibrahim', 'Chairman', 'HKBK Group of Institutions', 'We opened HKBK in 1997 to give every young person a fair chance at an excellent engineering education. Becoming an AI First and Quantum Ready campus is how we keep that promise for the next generation.', null, 'Dear students, parents and partners,
+  ('chairman', 'Shri. C M Ibrahim', 'Chairman', 'HKBK Group of Institutions', 'We opened HKBK in 1997 to give every young person a fair chance at an excellent engineering education. Becoming an AI First and Quantum Ready campus is how we keep that promise for the next generation.', '/images/leaders/chairman.jpg', 'Dear students, parents and partners,
 
 When HKBK College of Engineering opened its doors in 1997, our aim was simple: to give young people from every background a fair chance at an excellent engineering education. That aim has not changed. What has changed is the world our graduates walk into.
 
