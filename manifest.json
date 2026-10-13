@@ -389,7 +389,7 @@
     },
     {
       "file": "components/features/cms/list-form.tsx",
-      "lines": 98,
+      "lines": 100,
       "client": true,
       "summary": "Edits a whole list: change any item, add, delete and reorder. Saved in one go."
     },
@@ -736,6 +736,12 @@
       "summary": "A menu link: internal pages use next/link; live initiative sites open in a new tab."
     },
     {
+      "file": "components/features/people/add-person-card.tsx",
+      "lines": 54,
+      "client": true,
+      "summary": "The \"Add new\" card at the end of a grid, for people beyond the numbered cards. Admin only."
+    },
+    {
       "file": "components/features/people/ai-champions.tsx",
       "lines": 46,
       "client": false,
@@ -743,9 +749,15 @@
     },
     {
       "file": "components/features/people/ai-people-grid.tsx",
-      "lines": 93,
+      "lines": 86,
       "client": false,
       "summary": "Puts each student ambassador in the card numbered by their sort_order (the position the"
+    },
+    {
+      "file": "components/features/people/ambassador-view.tsx",
+      "lines": 60,
+      "client": false,
+      "summary": "One AI Student Ambassador card: the person (photo or initials, name, department, year), or a"
     },
     {
       "file": "components/features/people/champion-crop-dialog.tsx",
@@ -760,46 +772,28 @@
       "summary": "One AI Faculty Champion card. A filled card shows the photo with a solid teal ring (or the"
     },
     {
-      "file": "components/features/people/editor-bar.tsx",
-      "lines": 35,
-      "client": true,
-      "summary": "Shown above the champions grid only to a signed-in editor."
-    },
-    {
-      "file": "components/features/people/faculty-card.tsx",
-      "lines": 60,
-      "client": false,
-      "summary": "One AI Faculty Champion slot. It uses the same slot markers, Add/Edit button, form and save"
-    },
-    {
       "file": "components/features/people/featured-message.tsx",
       "lines": 83,
       "client": false,
       "summary": "Splits a leading salutation line (\"Dear students, ...,\") from the rest of the letter."
     },
     {
-      "file": "components/features/people/person-edit-button.tsx",
-      "lines": 57,
+      "file": "components/features/people/people-editor.tsx",
+      "lines": 68,
       "client": true,
-      "summary": "Add or Edit on one card. Renders nothing unless a signed-in editor is viewing."
+      "summary": "Holds every AI Faculty Champion and AI Student Ambassador for the cards' Add, Edit and Delete."
     },
     {
-      "file": "components/features/people/person-edit-form.tsx",
-      "lines": 142,
+      "file": "components/features/people/person-card-form.tsx",
+      "lines": 115,
       "client": true,
-      "summary": "The fields for one card. Student Ambassadors: photo, name, department and a short line."
+      "summary": "The card as a form, for Add and Edit: click the photo to upload or replace it (with a circular"
     },
     {
-      "file": "components/features/people/person-photo-field.tsx",
-      "lines": 77,
+      "file": "components/features/people/person-card.tsx",
+      "lines": 105,
       "client": true,
-      "summary": "The photo part of the Add/Edit form: preview, choose, and Remove photo. With `crop` on"
-    },
-    {
-      "file": "components/features/people/person-slot.tsx",
-      "lines": 78,
-      "client": false,
-      "summary": "One card in the AI Champions or Ambassadors grid: a real person, or a numbered placeholder."
+      "summary": "One card in the AI Faculty Champions or AI Student Ambassadors grid, shared by both sections."
     },
     {
       "file": "components/features/staff/sign-in-form.tsx",
@@ -939,7 +933,7 @@
     },
     {
       "file": "lib/cms/schema.ts",
-      "lines": 105,
+      "lines": 106,
       "summary": ""
     },
     {
@@ -949,7 +943,7 @@
     },
     {
       "file": "lib/cms/validate.ts",
-      "lines": 110,
+      "lines": 112,
       "summary": "A photo address the admin may use: one uploaded to our storage, or a file shipped with the site."
     },
     {
@@ -959,7 +953,7 @@
     },
     {
       "file": "lib/content.ts",
-      "lines": 196,
+      "lines": 197,
       "summary": "A value the admin saved in the content editor (see lib/cms/schema.ts), if any."
     },
     {
@@ -1044,7 +1038,7 @@
     },
     {
       "file": "lib/ui.ts",
-      "lines": 106,
+      "lines": 112,
       "summary": "Wider container for the menu bar and logo row."
     },
     {
@@ -1056,11 +1050,6 @@
       "file": "actions/admin.ts",
       "lines": 100,
       "summary": "Compares two strings in constant time, so the check does not reveal how much matched."
-    },
-    {
-      "file": "actions/ai-people.ts",
-      "lines": 114,
-      "summary": "The person's slug when editing an existing card; omit to add a new person."
     },
     {
       "file": "actions/auth.ts",

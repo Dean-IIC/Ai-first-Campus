@@ -57,7 +57,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (92 files)
+## Components (91 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -70,7 +70,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/cms/editable-text.tsx` | 85 | Client | Text that the admin can change on the page. Visitors see the text exactly as before. In |
 | `components/features/cms/field-input.tsx` | 66 | Client | One field of the content editor, edited with the control that suits its kind. |
 | `components/features/cms/image-field.tsx` | 58 | Client | A photo in the content editor: shows the current one, uploads a replacement, or removes it. |
-| `components/features/cms/list-form.tsx` | 98 | Client | Edits a whole list: change any item, add, delete and reorder. Saved in one go. |
+| `components/features/cms/list-form.tsx` | 100 | Client | Edits a whole list: change any item, add, delete and reorder. Saved in one go. |
 | `components/features/cms/record-form.tsx` | 40 | Client | Edits one item: a page, a leadership message or the contact details. |
 | `components/features/cms/save-bar.tsx` | 23 | Client | The Save button at the foot of the content editor, with the result of the last save. |
 | `components/features/content/bits.tsx` | 83 | Server | Section heading used on the home page. |
@@ -128,17 +128,16 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/navigation/main-nav.tsx` | 96 | Client | The main menu bar. Every item is always visible: on wide screens dropdowns |
 | `components/features/navigation/mega-menu.tsx` | 75 | Server | The dropdown for one menu item: link columns plus a feature card. |
 | `components/features/navigation/nav-link.tsx` | 20 | Server | A menu link: internal pages use next/link; live initiative sites open in a new tab. |
+| `components/features/people/add-person-card.tsx` | 54 | Client | The "Add new" card at the end of a grid, for people beyond the numbered cards. Admin only. |
 | `components/features/people/ai-champions.tsx` | 46 | Server | Summary of the AI Champions programme, linking to the full page with every person. |
-| `components/features/people/ai-people-grid.tsx` | 93 | Server | Puts each student ambassador in the card numbered by their sort_order (the position the |
+| `components/features/people/ai-people-grid.tsx` | 86 | Server | Puts each student ambassador in the card numbered by their sort_order (the position the |
+| `components/features/people/ambassador-view.tsx` | 60 | Server | One AI Student Ambassador card: the person (photo or initials, name, department, year), or a |
 | `components/features/people/champion-crop-dialog.tsx` | 147 | Client | Circular crop: drag or use the arrow keys to position the picture; the slider zooms. |
 | `components/features/people/champion-view.tsx` | 91 | Server | One AI Faculty Champion card. A filled card shows the photo with a solid teal ring (or the |
-| `components/features/people/editor-bar.tsx` | 35 | Client | Shown above the champions grid only to a signed-in editor. |
-| `components/features/people/faculty-card.tsx` | 60 | Server | One AI Faculty Champion slot. It uses the same slot markers, Add/Edit button, form and save |
 | `components/features/people/featured-message.tsx` | 83 | Server | Splits a leading salutation line ("Dear students, ...,") from the rest of the letter. |
-| `components/features/people/person-edit-button.tsx` | 57 | Client | Add or Edit on one card. Renders nothing unless a signed-in editor is viewing. |
-| `components/features/people/person-edit-form.tsx` | 142 | Client | The fields for one card. Student Ambassadors: photo, name, department and a short line. |
-| `components/features/people/person-photo-field.tsx` | 77 | Client | The photo part of the Add/Edit form: preview, choose, and Remove photo. With `crop` on |
-| `components/features/people/person-slot.tsx` | 78 | Server | One card in the AI Champions or Ambassadors grid: a real person, or a numbered placeholder. |
+| `components/features/people/people-editor.tsx` | 68 | Client | Holds every AI Faculty Champion and AI Student Ambassador for the cards' Add, Edit and Delete. |
+| `components/features/people/person-card-form.tsx` | 115 | Client | The card as a form, for Add and Edit: click the photo to upload or replace it (with a circular |
+| `components/features/people/person-card.tsx` | 105 | Client | One card in the AI Faculty Champions or AI Student Ambassadors grid, shared by both sections. |
 | `components/features/staff/sign-in-form.tsx` | 39 | Client | Staff sign-in with email and password; the Server Action checks the editors list. |
 | `components/ui/alert.tsx` | 32 | Server | - |
 | `components/ui/badge.tsx` | 33 | Server | - |
@@ -154,7 +153,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/ui/tabs.tsx` | 39 | Client | - |
 | `components/ui/textarea.tsx` | 18 | Server | - |
 
-## Modules, actions and scripts (44)
+## Modules, actions and scripts (43)
 
 | File | Lines | Purpose |
 | --- | --- | --- |
@@ -168,11 +167,11 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/cms/client-image.ts` | 29 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
 | `lib/cms/paths.ts` | 29 | - |
 | `lib/cms/read.ts` | 25 | - |
-| `lib/cms/schema.ts` | 105 | - |
+| `lib/cms/schema.ts` | 106 | - |
 | `lib/cms/store.ts` | 26 | - |
-| `lib/cms/validate.ts` | 110 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
+| `lib/cms/validate.ts` | 112 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
 | `lib/cms/write.ts` | 69 | Saves a value (null removes it), and records the change. |
-| `lib/content.ts` | 196 | A value the admin saved in the content editor (see lib/cms/schema.ts), if any. |
+| `lib/content.ts` | 197 | A value the admin saved in the content editor (see lib/cms/schema.ts), if any. |
 | `lib/database.types.ts` | 771 | Supabase database types for the HKBK website. |
 | `lib/editor.ts` | 84 | True when a signed-in editor is viewing the page. Checked once per page load. |
 | `lib/enquiry.ts` | 30 | Per-field messages, used to mark the matching input as invalid. |
@@ -189,10 +188,9 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/supabase/public.ts` | 18 | Cookie-free client for public content (pages, departments, news...). |
 | `lib/supabase/server.ts` | 31 | Server client from @supabase/ssr for Server Actions, Route Handlers and |
 | `lib/types.ts` | 44 | - |
-| `lib/ui.ts` | 106 | Wider container for the menu bar and logo row. |
+| `lib/ui.ts` | 112 | Wider container for the menu bar and logo row. |
 | `lib/utils.ts` | 8 | Merges Tailwind classes, letting later classes override earlier ones. |
 | `actions/admin.ts` | 100 | Compares two strings in constant time, so the check does not reveal how much matched. |
-| `actions/ai-people.ts` | 114 | The person's slug when editing an existing card; omit to add a new person. |
 | `actions/auth.ts` | 45 | Staff sign-in with email and password. Only accounts on the editors list stay signed in. |
 | `actions/content.ts` | 61 | Every page and leadership message the content editor can open, with readable names. |
 | `actions/enquiry.ts` | 80 | Validates an enquiry form and stores it in the `enquiries` table (insert-only under RLS). |

@@ -103,3 +103,9 @@ export const TONE: Record<
     headerGrad: "bg-gradient-to-r from-t-rose-tint/80 to-transparent",
   },
 };
+
+/** Small pill buttons the signed-in admin sees on the AI Champions and Ambassadors cards. */
+export const adminPill =
+  "inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[0.6875rem] font-semibold shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/60 disabled:opacity-60";
+export const navyPill = `${adminPill} bg-brand-dark text-white hover:bg-brand-dark/85`;
+export const redPill = `${adminPill} bg-destructive text-white hover:bg-destructive/85`;

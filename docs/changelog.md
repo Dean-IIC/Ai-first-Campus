@@ -5,9 +5,14 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [Unreleased]
 
 ### Added
+- AI Faculty Champions and AI Student Ambassadors: one shared card (`PersonCard`) for both sections. The signed-in admin sees ✏️ Edit and 🗑️ Delete on filled cards and ➕ Add on empty ones; Edit and Add turn the card into a form in place (click the photo to upload or replace it with a circular crop, name and details, Save or Cancel). Delete asks "Delete this person?" and returns the card to an empty slot. A ➕ Add new card at the end of each grid adds people beyond the numbered cards, and the heading counts follow. Changes save through the admin content store (`list:ai_people`), show on the live site at once and can be undone. Visitors see the cards as before.
+- The content editor asks for confirmation before saving a list that removes half or more of its items.
 - **Alumni** in the top menu (desktop and mobile), after Placements. It opens the new `/alumni` page (title "Alumni", line "HKBK Alumni Network — portal coming soon", editable under Edit content → Page text → Alumni) until an **Alumni portal link** is saved under Edit content → Alumni portal link; from then on the menu item opens that link in a new tab. Desktop menu items are 1px closer together on each side at 1280–1535px wide so the menu stays on one line.
 - Site admin: **Edit content** in the admin toolbar opens one editor for everything stored as content: the title, summary and text of all 23 pages, every leadership message (with photo), all 13 lists (departments, news and events, MoUs, AI Champions, key figures, houses, centres and initiatives, dashboards, research and consultancy projects, training programmes, UHV activities, the AI First journey) and the contact details (address, phone, email). Lists support add, delete and reorder. It opens on the content of the page being viewed.
 - Saved values (`page:`, `message:`, `list:`, `site:details`, plus the existing `text:` and `image:`) are laid over the content from Supabase or `/content`, so undo, history and restore work for them as for inline edits. Every field is checked on the server (`lib/cms/schema.ts`, `lib/cms/validate.ts`).
+
+### Removed
+- The staff-editor Add/Edit dialog and editor bar on the champions cards (`person-edit-button`, `person-edit-form`, `person-photo-field`, `editor-bar`, `person-slot`, `faculty-card`, `actions/ai-people.ts`), replaced by the admin's on-card editing.
 
 ### Changed
 - Admin edits, the change history and the sign-in lock are kept as JSON files in the `site-images` storage bucket (`cms-data/content.json`, `history.json`, `security.json`), read and written only on the server with the secret key (`lib/cms/store.ts`). Editing no longer needs the `site_content`, `site_history` and `admin_security` tables.

@@ -36,6 +36,8 @@ export default function ListForm({ spec, initial, onSave }: { spec: ListSpec; in
       noValidate
       onSubmit={async (e) => {
         e.preventDefault();
+        const removed = initial.length - rows.length;
+        if (removed > 0 && removed * 2 >= initial.length && !window.confirm(`This removes ${removed} of the ${initial.length} items in this list from the live site. Save anyway?`)) return;
         const clean = rows.map((r) => ({ slug: r.slug ?? "", ...Object.fromEntries(spec.fields.map((f) => [f.key, r[f.key]])) }));
         if (await onSave(clean)) setDirty(false);
       }}

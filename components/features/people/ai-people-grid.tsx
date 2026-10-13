@@ -1,11 +1,10 @@
 import { UserRound, Users } from "lucide-react";
 import Panel from "@/components/features/content/panel";
 import EditableText from "@/components/features/cms/editable-text";
-import EditorBar from "@/components/features/people/editor-bar";
-import FacultyCard from "@/components/features/people/faculty-card";
-import PersonSlot from "@/components/features/people/person-slot";
+import AddPersonCard from "@/components/features/people/add-person-card";
+import PeopleEditorProvider from "@/components/features/people/people-editor";
+import PersonCard from "@/components/features/people/person-card";
 import { getList } from "@/lib/content";
-import savedPeople from "@/content/data/ai_people.json";
 import { aiProgramme } from "@/lib/site";
 import type { AiPerson } from "@/lib/types";
 
@@ -37,14 +36,13 @@ function placeCards(rows: AiPerson[], count: number): (AiPerson | undefined)[] {
 }
 
 /**
- * The AI Faculty Champions and AI Student Ambassadors both come from the ai_people table and
- * are edited the same way: people fill the card matching their sort_order, and the rest stay
- * as numbered placeholders up to the programme size.
+ * The AI Faculty Champions and AI Student Ambassadors both come from the ai_people list and
+ * are edited the same way, on the cards themselves (PersonCard): people fill the card matching
+ * their sort_order, the rest stay as numbered placeholders up to the programme size, and the
+ * admin's "Add new" card adds people after them. The heading counts the cards.
  */
 export default async function AiPeopleGrid({ compact = false, idPrefix = "" }: { compact?: boolean; idPrefix?: string }) {
-  const [fetched, departments] = await Promise.all([getList("ai_people"), getList("departments")]);
-  // An empty people table (for example a new database that has not been seeded) shows the saved list.
-  const people = (fetched.length > 0 ? fetched : (savedPeople as AiPerson[]));
+  const [people, departments] = await Promise.all([getList("ai_people"), getList("departments")]);
   const deptNames = departments.map((d) => d.name);
   const facultyCount = aiProgramme.facultyChampions;
   const faculty = placeCards(
@@ -59,34 +57,29 @@ export default async function AiPeopleGrid({ compact = false, idPrefix = "" }: {
   const facultyCols = compact ? "grid-cols-3 gap-3 sm:grid-cols-5" : "grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3";
   const cols = compact ? "grid-cols-3 sm:grid-cols-5 lg:grid-cols-10" : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5";
   return (
-    <div className="space-y-6">
-      <EditorBar />
-      <Panel id={`${idPrefix}faculty-champions`} title={`AI Faculty Champions (${facultyCount})`} icon={Users} tone="teal">
-        <EditableText as="p" id="champions.intro" className="max-w-[70ch] text-muted-foreground">
-          {FACULTY_TEXT}
-        </EditableText>
-        <ul className={`mt-5 grid ${facultyCols}`}>
-          {faculty.map((person, i) => (
-            <FacultyCard key={i} person={person} index={i + 1} compact={compact} departments={deptNames} />
-          ))}
-        </ul>
-      </Panel>
-      <Panel id={`${idPrefix}student-ambassadors`} title={`AI Student Ambassadors (${count})`} icon={UserRound} tone="teal">
-        <p className="max-w-[70ch] text-muted-foreground">{AMBASSADOR_TEXT}</p>
-        <ul className={`mt-5 grid gap-3 ${cols}`}>
-          {cards.map((person, i) => (
-            <PersonSlot
-              key={i}
-              person={person}
-              label="Student Ambassador"
-              index={i + 1}
-              slot={`ambassador-${String(i + 1).padStart(2, "0")}`}
-              compact={compact}
-              departments={deptNames}
-            />
-          ))}
-        </ul>
-      </Panel>
-    </div>
+    <PeopleEditorProvider people={people} departments={deptNames}>
+      <div className="space-y-6">
+        <Panel id={`${idPrefix}faculty-champions`} title={`AI Faculty Champions (${faculty.length})`} icon={Users} tone="teal">
+          <EditableText as="p" id="champions.intro" className="max-w-[70ch] text-muted-foreground">
+            {FACULTY_TEXT}
+          </EditableText>
+          <ul className={`mt-5 grid ${facultyCols}`}>
+            {faculty.map((person, i) => (
+              <PersonCard key={i} role="Faculty champion" index={i + 1} person={person} compact={compact} />
+            ))}
+            <AddPersonCard role="Faculty champion" next={faculty.length + 1} compact={compact} />
+          </ul>
+        </Panel>
+        <Panel id={`${idPrefix}student-ambassadors`} title={`AI Student Ambassadors (${cards.length})`} icon={UserRound} tone="teal">
+          <p className="max-w-[70ch] text-muted-foreground">{AMBASSADOR_TEXT}</p>
+          <ul className={`mt-5 grid gap-3 ${cols}`}>
+            {cards.map((person, i) => (
+              <PersonCard key={i} role="Student ambassador" index={i + 1} person={person} compact={compact} />
+            ))}
+            <AddPersonCard role="Student ambassador" next={cards.length + 1} compact={compact} />
+          </ul>
+        </Panel>
+      </div>
+    </PeopleEditorProvider>
   );
 }
