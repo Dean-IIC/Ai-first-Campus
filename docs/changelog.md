@@ -11,6 +11,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 - AI First Campus timeline, June entry only: "June – July 2026", Layer 2, Completed, "Universal Human Values 2 (UHV-2) — Values-Led AI Adoption", with its description and six bullet points as supplied. Icon: users (editable). July 2026 remains empty and hidden from visitors. A one-time database update applies to the June row only while it is still empty.
 
 ### Added
+- **R&D** in the top menu (desktop and mobile), after Alumni, with a flask icon and the tooltip "Research & Development". It opens the new `/rnd` page (title "Research & Development", line "HKBK Research & Development portal — coming soon", editable under Edit content → Page text) until an **R&D portal link** is saved under Edit content → Alumni and R&D portal links; then the menu item opens that link in a new tab. The existing `/research` page is unchanged. Desktop menu items are a little closer together (2px each side at 1280–1535px, 6px from 1536px) so the menu stays on one line.
 - Principal's photo (Dr. Mohammed Riyaz Ahmed) replaced with the new supplied portrait, cropped to head and shoulders: `public/images/leaders/principal.jpg`.
 - Director's photo (Shri. C M Faiz Mohammed) replaced with the newer supplied portrait (seated at the desk), cropped to head and shoulders: `public/images/leaders/director.jpg`.
 - Chairman's photo (Shri. C M Ibrahim): `public/images/leaders/chairman.jpg`, a portrait crop of the supplied photo, set in `content/messages/chairman.md` and the `leadership_messages` row.
