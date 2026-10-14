@@ -667,9 +667,9 @@
     },
     {
       "file": "components/features/layout/footer-columns.ts",
-      "lines": 51,
+      "lines": 57,
       "client": false,
-      "summary": "Short footer labels for the IEEE chapters."
+      "summary": "Research pages kept in the footer, since the R&D menu item may point to an external portal."
     },
     {
       "file": "components/features/layout/logo.tsx",
@@ -1007,7 +1007,7 @@
     },
     {
       "file": "lib/menu.ts",
-      "lines": 259,
+      "lines": 256,
       "summary": "One item in the top menu. Items with `columns` open a dropdown; items with"
     },
     {

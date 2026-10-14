@@ -3,6 +3,12 @@ import type { NavItem } from "@/lib/site";
 
 export type FooterColumn = { title: string; links: NavItem[] };
 
+/** Research pages kept in the footer, since the R&D menu item may point to an external portal. */
+const RESEARCH_LINKS: NavItem[] = [
+  { label: "Research centres", href: "/research/centres" },
+  { label: "Research projects", href: "/research#projects" },
+];
+
 /** Short footer labels for the IEEE chapters. */
 const IEEE_SHORT: Record<string, string> = {
   cis: "IEEE CIS chapter",
@@ -32,7 +38,7 @@ export function buildFooterColumns(menu: MenuSection[]): FooterColumn[] {
     },
     { title: "Programmes", links: column("Programmes", 0) },
     { title: "Departments", links: find("Departments") ? sectionLinks(find("Departments")!) : [] },
-    { title: "Centre of Excellence", links: [...column("Centre of Excellence", 0), ...column("Centre of Excellence", 2)] },
+    { title: "Centre of Excellence", links: [...RESEARCH_LINKS, ...column("Centre of Excellence", 0), ...column("Centre of Excellence", 2)] },
     {
       title: "Student life",
       links: [

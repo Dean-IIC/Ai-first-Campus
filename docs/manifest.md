@@ -116,7 +116,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/initiatives/initiative-callout.tsx` | 37 | Server | Banner at the top of a page whose initiative has (or will have) its own site: UHV, R&D, IEEE. |
 | `components/features/layout/content-page.tsx` | 70 | Server | Standard inner page: banner, then the content at full width. |
 | `components/features/layout/footer-brand.tsx` | 64 | Server | Logo, motto, address and contact links at the start of the footer. |
-| `components/features/layout/footer-columns.ts` | 51 | Server | Short footer labels for the IEEE chapters. |
+| `components/features/layout/footer-columns.ts` | 57 | Server | Research pages kept in the footer, since the R&D menu item may point to an external portal. |
 | `components/features/layout/logo.tsx` | 7 | Server | The HKBK College of Engineering crest. |
 | `components/features/layout/page-banner.tsx` | 71 | Server | Page banner: breadcrumb, title and summary on the section's tint. |
 | `components/features/layout/site-footer.tsx` | 61 | Server | Site footer: brand and contact block, six link columns, and a slim bottom bar. |
@@ -181,7 +181,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/journey-model.ts` | 73 | Shared rules for the AI Transformation Journey timeline (visitors and editors). |
 | `lib/markdown.ts` | 16 | Splits markdown into sections at each "## Heading". Text before the first heading is the intro. |
 | `lib/menu-server.ts` | 16 | Loads everything the menu needs and builds it. Server components only. |
-| `lib/menu.ts` | 259 | One item in the top menu. Items with `columns` open a dropdown; items with |
+| `lib/menu.ts` | 256 | One item in the top menu. Items with `columns` open a dropdown; items with |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
 | `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
 | `lib/site.ts` | 101 | Opens another site (a live initiative subdomain) in a new tab. |

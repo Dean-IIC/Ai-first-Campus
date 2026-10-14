@@ -135,11 +135,8 @@ export function buildMenu({
       match: ["/research", "/research/centres", "/consultancy", "/corporate-training", "/initiatives"],
       columns: [
         {
-          title: "Research and industry",
+          title: "Industry",
           links: [
-            ...pick("research"),
-            { label: "Research centres", href: "/research/centres" },
-            { label: "Research projects", href: "/research#projects" },
             { label: "Consultancy projects", href: "/consultancy" },
             { label: "Corporate training", href: "/corporate-training" },
           ],

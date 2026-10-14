@@ -5,6 +5,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [Unreleased]
 
 ### Changed
+- Centre of Excellence menu (desktop and mobile): the first group is now "Industry" with Consultancy projects and Corporate training only; Research and Development, Research centres and Research projects are no longer in it. Research centres and Research projects are linked from the R&D page (`/rnd`) and always listed in the footer's Centre of Excellence column.
 - The consultancy client's name is no longer shown: the AI First Campus timeline (August – September 2026) says "a Bengaluru food business", and the consultancy project's client is "A Bengaluru food business". The name was also removed from earlier change-history entries.
 - Sample entries removed through the admin content store: all research projects and training programmes, consultancy projects 2 and 3, and news items "Quantum Lab opens for first-year students" and "Corporate training calendar for 2026–27". Empty lists now show a short message for visitors instead of a note about Supabase.
 - `backups/` is git-ignored; a full read-only backup of the database tables and storage was saved there on 2026-10-14.
