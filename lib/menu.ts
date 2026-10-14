@@ -16,6 +16,10 @@ export type MenuSection = {
   external?: boolean;
   /** Other routes that belong to this item (for highlighting). */
   match?: string[];
+  /** A small icon shown before the label (a key the menu knows, e.g. "flask"). */
+  icon?: "flask";
+  /** Tooltip shown on hover. */
+  hint?: string;
   columns?: MenuColumn[];
   feature?: { title: string; text: string; image?: string; href: string; cta: string };
 };
@@ -40,6 +44,7 @@ export function buildMenu({
   initiatives,
   houses,
   alumniUrl = "",
+  rndUrl = "",
 }: {
   departments: Dept[];
   leaders: Leader[];
@@ -48,6 +53,8 @@ export function buildMenu({
   houses: House[];
   /** The Alumni portal address the admin saved; empty opens the /alumni page. */
   alumniUrl?: string;
+  /** The R&D portal address the admin saved; empty opens the /rnd page. */
+  rndUrl?: string;
 }): MenuSection[] {
   const items = initiativeItems(initiatives, toneForCategory);
   const bySlug = (slug: string) => {
@@ -186,6 +193,15 @@ export function buildMenu({
     },
     { label: "Placements", tone: "blue", href: "/placements" },
     { label: "Alumni", tone: "blue", href: alumniUrl || "/alumni", external: /^https?:\/\//i.test(alumniUrl), match: ["/alumni"] },
+    {
+      label: "R&D",
+      tone: "amber",
+      href: rndUrl || "/rnd",
+      external: /^https?:\/\//i.test(rndUrl),
+      match: ["/rnd"],
+      icon: "flask",
+      hint: "Research & Development",
+    },
     { label: "MoUs", tone: "amber", href: "/mous" },
     {
       label: "AI First Campus",

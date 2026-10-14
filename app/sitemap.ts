@@ -22,6 +22,7 @@ const ROUTES = [
   "/houses",
   "/placements",
   "/alumni",
+  "/rnd",
   "/mous",
   "/iqac",
   "/ai-quantum/champions",

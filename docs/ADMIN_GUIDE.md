@@ -72,7 +72,7 @@ The preview link (claude.ai artifact) is a saved snapshot of the site with no se
 | Leadership messages (name, designation, photo, message) | **Edit content** → Leadership messages |
 | Departments, news and events, MoUs, AI Champions, key figures, houses, centres and initiatives, dashboards, research and consultancy projects, training programmes, UHV activities, the AI First journey | **Edit content** → Lists: open an item to change it, add, delete or reorder, then **Save changes** |
 | Address, phone and email (header, footer and Contact page) | **Edit content** → Contact details |
-| Where the **Alumni** menu item goes | **Edit content** → Alumni portal link. Empty: the Alumni page on this site. A saved link: the menu opens it in a new tab |
+| Where the **Alumni** and **R&D** menu items go | **Edit content** → Alumni and R&D portal links. Empty: the Alumni or Research & Development page on this site. A saved link: the menu opens it in a new tab |
 | Menu structure, buttons and the short descriptions written into the code | Not yet |
 
 **Edit content** opens on whatever the page you are viewing shows. Page text uses simple formatting: `## Heading`, `- bullet`, `**bold**`, `[link text](/address)`. Every save from **Edit content** also appears in **Undo** and **History**.

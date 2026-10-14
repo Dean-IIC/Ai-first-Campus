@@ -2,7 +2,7 @@
   "name": "hkbk-campus-website",
   "version": "0.25.2",
   "description": "HKBK College of Engineering website: AI First and Quantum Ready campus, built with Next.js and Supabase.",
-  "generated": "2026-10-13",
+  "generated": "2026-10-14",
   "stack": {
     "next": "16.3.8",
     "react": "^19.3.0",
@@ -312,6 +312,15 @@
       "data": [
         "table:departments",
         "page:research-centres"
+      ]
+    },
+    {
+      "route": "/rnd",
+      "file": "app/rnd/page.tsx",
+      "kind": "Static",
+      "revalidate": "300",
+      "data": [
+        "page:rnd"
       ]
     },
     {
@@ -719,7 +728,7 @@
     },
     {
       "file": "components/features/navigation/main-nav.tsx",
-      "lines": 96,
+      "lines": 98,
       "client": true,
       "summary": "The main menu bar. Every item is always visible: on wide screens dropdowns"
     },
@@ -933,7 +942,7 @@
     },
     {
       "file": "lib/cms/schema.ts",
-      "lines": 106,
+      "lines": 107,
       "summary": ""
     },
     {
@@ -993,7 +1002,7 @@
     },
     {
       "file": "lib/menu.ts",
-      "lines": 246,
+      "lines": 262,
       "summary": "One item in the top menu. Items with `columns` open a dropdown; items with"
     },
     {
@@ -1003,7 +1012,7 @@
     },
     {
       "file": "lib/site-details.ts",
-      "lines": 36,
+      "lines": 37,
       "summary": "Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only."
     },
     {
@@ -1345,7 +1354,7 @@
     }
   },
   "content": {
-    "pages": 24,
+    "pages": 25,
     "messages": 4,
     "data": {
       "ai_people": 13,

@@ -27,9 +27,10 @@ export async function getSiteDetails(): Promise<SiteDetails> {
   };
 }
 
-/** Links the admin can change in the content editor ("Alumni portal link"). Server only. */
-export async function getSiteLinks(): Promise<{ alumniUrl: string }> {
+/** Links the admin can change in the content editor ("Alumni and R&D portal links"). Server only. */
+export async function getSiteLinks(): Promise<{ alumniUrl: string; rndUrl: string }> {
   const raw = (await getContentMap())["site:links"];
-  const url = raw && typeof raw === "object" ? (raw as Record<string, unknown>).alumniUrl : null;
-  return { alumniUrl: typeof url === "string" ? url.trim() : "" };
+  const v = raw && typeof raw === "object" ? (raw as Record<string, unknown>) : {};
+  const pick = (key: string) => (typeof v[key] === "string" ? (v[key] as string).trim() : "");
+  return { alumniUrl: pick("alumniUrl"), rndUrl: pick("rndUrl") };
 }

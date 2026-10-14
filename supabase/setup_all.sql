@@ -836,6 +836,7 @@ HKBK has six research centres for doctoral research: Computer Science & Engineer
 ## Work with us
 
 Companies and research organisations can sponsor projects, co-supervise scholars or share equipment. Start with a [consultancy request](/consultancy#enquire) or [contact the college](/contact).'),
+  ('rnd', 'Research & Development', 'HKBK Research & Development portal — coming soon', ''),
   ('uhv', 'Universal Human Values', 'Our UHV cell helps students and staff think clearly about values, relationships and their place in society, as part of AICTE''s Universal Human Values programme.', '## What UHV is
 
 The All India Council for Technical Education (AICTE) introduced Universal Human Values (UHV) into the student induction programme and the engineering curriculum. UHV asks a simple question: what does it mean to live and work well with others?

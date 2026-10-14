@@ -1,6 +1,6 @@
 # Manifest
 
-Inventory of the HKBK College of Engineering website, generated from the source files by `npm run docs:manifest` on 2026-10-13. Do not edit by hand. A machine-readable copy is in `manifest.json`.
+Inventory of the HKBK College of Engineering website, generated from the source files by `npm run docs:manifest` on 2026-10-14. Do not edit by hand. A machine-readable copy is in `manifest.json`.
 
 ## Project
 
@@ -16,7 +16,7 @@ Inventory of the HKBK College of Engineering website, generated from the source 
 | @supabase/ssr | ^0.12.7 |
 | next-themes | ^0.4.6 |
 
-## Routes (32)
+## Routes (33)
 
 Components used by a route may load more data (for example the home page sections); see the components table.
 
@@ -52,6 +52,7 @@ Components used by a route may load more data (for example the home page section
 | `/programmes` | Static | 300s | `table:departments`, `page:programmes` | `app/programmes/page.tsx` |
 | `/research` | Static | 300s | `table:research_projects`, `page:research` | `app/research/page.tsx` |
 | `/research/centres` | Static | 300s | `table:departments`, `page:research-centres` | `app/research/centres/page.tsx` |
+| `/rnd` | Static | 300s | `page:rnd` | `app/rnd/page.tsx` |
 | `/staff/login` | Static | - | - | `app/staff/login/page.tsx` |
 | `/uhv` | Static | 300s | `table:uhv_activities`, `page:uhv` | `app/uhv/page.tsx` |
 
@@ -125,7 +126,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/layout/theme-toggle.tsx` | 26 | Client | Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash. |
 | `components/features/mous/mou-card.tsx` | 49 | Server | One MoU: partner, type, purpose, dates and a link to the signed document. |
 | `components/features/mous/mou-directory.tsx` | 47 | Server | All MoUs in tabs by partner type, or an empty state until the list is added. |
-| `components/features/navigation/main-nav.tsx` | 96 | Client | The main menu bar. Every item is always visible: on wide screens dropdowns |
+| `components/features/navigation/main-nav.tsx` | 98 | Client | The main menu bar. Every item is always visible: on wide screens dropdowns |
 | `components/features/navigation/mega-menu.tsx` | 75 | Server | The dropdown for one menu item: link columns plus a feature card. |
 | `components/features/navigation/nav-link.tsx` | 20 | Server | A menu link: internal pages use next/link; live initiative sites open in a new tab. |
 | `components/features/people/add-person-card.tsx` | 54 | Client | The "Add new" card at the end of a grid, for people beyond the numbered cards. Admin only. |
@@ -167,7 +168,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/cms/client-image.ts` | 29 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
 | `lib/cms/paths.ts` | 29 | - |
 | `lib/cms/read.ts` | 25 | - |
-| `lib/cms/schema.ts` | 106 | - |
+| `lib/cms/schema.ts` | 107 | - |
 | `lib/cms/store.ts` | 26 | - |
 | `lib/cms/validate.ts` | 112 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
 | `lib/cms/write.ts` | 69 | Saves a value (null removes it), and records the change. |
@@ -179,9 +180,9 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/journey-model.ts` | 73 | Shared rules for the AI Transformation Journey timeline (visitors and editors). |
 | `lib/markdown.ts` | 16 | Splits markdown into sections at each "## Heading". Text before the first heading is the intro. |
 | `lib/menu-server.ts` | 17 | Loads everything the menu needs and builds it. Server components only. |
-| `lib/menu.ts` | 246 | One item in the top menu. Items with `columns` open a dropdown; items with |
+| `lib/menu.ts` | 262 | One item in the top menu. Items with `columns` open a dropdown; items with |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
-| `lib/site-details.ts` | 36 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
+| `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
 | `lib/site.ts` | 101 | Opens another site (a live initiative subdomain) in a new tab. |
 | `lib/supabase/client.ts` | 13 | Browser client from @supabase/ssr, for Client Components that need live data or auth. |
 | `lib/supabase/env.ts` | 14 | Supabase URL and public key from the environment, or null when the project is not connected yet. |
@@ -250,7 +251,7 @@ Migrations, applied in order:
 
 ## Content
 
-- Pages (`content/pages`): 24
+- Pages (`content/pages`): 25
 - Messages (`content/messages`): 4
 - `content/data/ai_people.json`: 13 row(s)
 - `content/data/consultancy_projects.json`: 3 row(s)
