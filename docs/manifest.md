@@ -226,6 +226,7 @@ Migrations, applied in order:
 - `supabase/migrations/20261013030000_october_entry_alumni.sql`
 - `supabase/migrations/20261014000000_may_completed.sql`
 - `supabase/migrations/20261014010000_remove_ai_first_message.sql`
+- `supabase/migrations/20261014020000_august_entry_client.sql`
 
 | Table | Columns | Column names |
 | --- | --- | --- |
