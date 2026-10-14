@@ -26,13 +26,19 @@ export default async function ConsultancyPage() {
               content: (
                 <ProjectList
                   empty="Consultancy projects will be listed here soon."
-                  rows={projects.map((p) => ({
-                    ...p,
-                    meta: [
-                      { label: "Client", value: p.client },
-                      { label: "Department", value: p.department },
-                    ],
-                  }))}
+                  rows={projects.map((p) => {
+                    // Area and outcomes are optional fields saved through the admin content editor.
+                    const extra = p as typeof p & { area?: string | null; outcomes?: string[] | null };
+                    return {
+                      ...p,
+                      outcomes: extra.outcomes,
+                      meta: [
+                        { label: "Client", value: p.client },
+                        { label: "Department", value: p.department },
+                        { label: "Area", value: extra.area ?? null },
+                      ],
+                    };
+                  })}
                 />
               ),
             },

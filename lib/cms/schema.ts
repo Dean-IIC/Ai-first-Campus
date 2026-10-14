@@ -88,7 +88,9 @@ export const LIST_SPECS: Record<ListTable, ListSpec> = {
     t("title", "Title", { required: true }), t("investigator", "Investigator"), t("funding_agency", "Funding agency"), { key: "status", label: "Status", kind: "choice", options: ["Proposed", "Ongoing", "Completed"], required: true }, year, long("summary", "Summary"), sample,
   ] },
   consultancy_projects: { label: "Consultancy projects", item: "project", title: "title", fields: [
-    t("title", "Title", { required: true }), t("client", "Client"), t("department", "Department"), { key: "status", label: "Status", kind: "choice", options: ["Proposal", "Ongoing", "Completed"], required: true }, year, long("summary", "Summary"), sample,
+    t("title", "Title", { required: true }), t("client", "Client"), t("department", "Department"), t("area", "Area", { hint: "For example: Artificial Intelligence / Conversational AI" }),
+    { key: "status", label: "Status", kind: "choice", options: ["Proposal", "Ongoing", "Completed", "Delivered (live in production)"], required: true }, year, long("summary", "Summary"),
+    { key: "outcomes", label: "Outcomes (one per line)", kind: "lines" }, sample,
   ] },
   training_programs: { label: "Corporate training programmes", item: "programme", title: "title", fields: [
     t("title", "Title", { required: true }), t("track", "Track"), t("duration", "Duration"), t("mode", "Mode"), t("audience", "Audience"), long("summary", "Summary"), sample,

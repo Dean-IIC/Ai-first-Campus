@@ -73,12 +73,12 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/cms/list-form.tsx` | 100 | Client | Edits a whole list: change any item, add, delete and reorder. Saved in one go. |
 | `components/features/cms/record-form.tsx` | 40 | Client | Edits one item: a page, a leadership message or the contact details. |
 | `components/features/cms/save-bar.tsx` | 23 | Client | The Save button at the foot of the content editor, with the result of the last save. |
-| `components/features/content/bits.tsx` | 83 | Server | Section heading used on the home page. |
+| `components/features/content/bits.tsx` | 84 | Server | Section heading used on the home page. |
 | `components/features/content/content-tabs.tsx` | 77 | Client | Folder-style tabs built on shadcn/Radix Tabs. Every panel stays in the HTML |
 | `components/features/content/image-feature.tsx` | 50 | Server | A large image with a caption panel, used for AI, quantum and campus features. |
 | `components/features/content/markdown.tsx` | 31 | Server | - |
 | `components/features/content/panel.tsx` | 49 | Server | A shadcn Card with an optional header. The coloured top edge and icon use |
-| `components/features/content/project-list.tsx` | 46 | Server | Project rows for R&D and consultancy, with a coloured edge per section. |
+| `components/features/content/project-list.tsx` | 58 | Server | Optional bullet points shown under the summary (consultancy outcomes). |
 | `components/features/content/vision-mission.tsx` | 32 | Server | College vision and mission, from the `vision-mission` page (Supabase or content/pages/vision-mission.md). |
 | `components/features/departments/department-facts.tsx` | 40 | Server | Three small information tiles above the department tabs. |
 | `components/features/departments/department-overview.tsx` | 22 | Server | Key facts about a department. |
@@ -169,7 +169,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/cms/client-image.ts` | 29 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
 | `lib/cms/paths.ts` | 29 | - |
 | `lib/cms/read.ts` | 25 | - |
-| `lib/cms/schema.ts` | 107 | - |
+| `lib/cms/schema.ts` | 109 | - |
 | `lib/cms/store.ts` | 26 | - |
 | `lib/cms/validate.ts` | 112 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
 | `lib/cms/write.ts` | 69 | Saves a value (null removes it), and records the change. |

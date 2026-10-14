@@ -7,6 +7,8 @@ type Row = {
   status: string;
   year: number | null;
   is_sample: boolean;
+  /** Optional bullet points shown under the summary (consultancy outcomes). */
+  outcomes?: string[] | null;
   meta: { label: string; value: string | null }[];
 };
 
@@ -28,6 +30,16 @@ export default function ProjectList({ rows, empty }: { rows: Row[]; empty: strin
             </div>
           </div>
           {p.summary && <p className="mt-2 max-w-[70ch] text-sm text-muted-foreground">{p.summary}</p>}
+          {p.outcomes && p.outcomes.length > 0 && (
+            <ul className="mt-3 max-w-[70ch] space-y-1 text-sm">
+              {p.outcomes.map((o) => (
+                <li key={o} className="flex gap-2">
+                  <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-t-amber" />
+                  <span>{o}</span>
+                </li>
+              ))}
+            </ul>
+          )}
           <dl className="mt-3 flex flex-wrap gap-x-8 gap-y-1 text-sm">
             {p.meta
               .filter((m) => m.value)

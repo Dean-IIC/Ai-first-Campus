@@ -35,6 +35,7 @@ export function SampleTag() {
 const STATUS_TONE: Record<string, Tone | "muted"> = {
   Live: "green",
   Completed: "green",
+  "Delivered (live in production)": "green",
   Beta: "amber",
   Ongoing: "amber",
 };

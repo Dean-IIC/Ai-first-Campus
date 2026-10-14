@@ -409,7 +409,7 @@
     },
     {
       "file": "components/features/content/bits.tsx",
-      "lines": 83,
+      "lines": 84,
       "client": false,
       "summary": "Section heading used on the home page."
     },
@@ -439,9 +439,9 @@
     },
     {
       "file": "components/features/content/project-list.tsx",
-      "lines": 46,
+      "lines": 58,
       "client": false,
-      "summary": "Project rows for R&D and consultancy, with a coloured edge per section."
+      "summary": "Optional bullet points shown under the summary (consultancy outcomes)."
     },
     {
       "file": "components/features/content/vision-mission.tsx",
@@ -947,7 +947,7 @@
     },
     {
       "file": "lib/cms/schema.ts",
-      "lines": 107,
+      "lines": 109,
       "summary": ""
     },
     {
