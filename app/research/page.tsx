@@ -27,7 +27,7 @@ export default async function ResearchPage() {
               label: `Projects (${projects.length})`,
               content: (
                 <ProjectList
-                  empty="No projects listed yet. Add rows to the research_projects table in Supabase."
+                  empty="Research projects will be listed here soon."
                   rows={projects.map((p) => ({
                     ...p,
                     meta: [

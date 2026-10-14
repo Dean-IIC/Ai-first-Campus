@@ -5,6 +5,8 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [Unreleased]
 
 ### Changed
+- Sample entries removed through the admin content store: all research projects and training programmes, consultancy projects 2 and 3, and news items "Quantum Lab opens for first-year students" and "Corporate training calendar for 2026–27". Empty lists now show a short message for visitors instead of a note about Supabase.
+- `backups/` is git-ignored; a full read-only backup of the database tables and storage was saved there on 2026-10-14.
 - Search engines: `NEXT_PUBLIC_SITE_URL` on Vercel is now `https://www.hkbkce.in`, so the sitemap, robots.txt and page metadata use the new domain instead of www.hkbk.edu.in.
 - AI First Campus timeline: the August entry reads "August – September 2026" again, and May 2026 is Completed, so only September – October 2026 is in progress.
 - Header (desktop logo row): the address block with the location pin is removed; the affiliation text sits on the right next to the dark-mode toggle. The full address still shows in the footer and on the Contact page.

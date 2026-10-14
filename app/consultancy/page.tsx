@@ -25,7 +25,7 @@ export default async function ConsultancyPage() {
               label: `Recent projects (${projects.length})`,
               content: (
                 <ProjectList
-                  empty="No projects listed yet. Add rows to the consultancy_projects table in Supabase."
+                  empty="Consultancy projects will be listed here soon."
                   rows={projects.map((p) => ({
                     ...p,
                     meta: [

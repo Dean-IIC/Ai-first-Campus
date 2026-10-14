@@ -27,7 +27,11 @@ export default async function CorporateTrainingPage() {
               label: `Programmes (${programs.length})`,
               content: (
                 <>
-                  <p className="mb-5 text-muted-foreground">Every programme can be shortened, extended or combined to fit your team.</p>
+                  <p className="mb-5 text-muted-foreground">
+                    {programs.length > 0
+                      ? "Every programme can be shortened, extended or combined to fit your team."
+                      : "This year's programmes will be listed here soon. Use the enquiry form to plan a custom programme for your team."}
+                  </p>
                   <ul className="grid gap-4 md:grid-cols-2">
                     {programs.map((p) => (
                       <li key={p.slug} className="flex flex-col rounded-md border border-border border-l-[3px] border-l-t-amber p-5">
