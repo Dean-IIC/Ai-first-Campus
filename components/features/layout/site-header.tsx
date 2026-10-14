@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import MainNav from "@/components/features/navigation/main-nav";
+import MobileHeader from "@/components/features/navigation/mobile-header";
 import type { MenuSection } from "@/lib/menu";
 import { site } from "@/lib/site";
 import { getSiteDetails } from "@/lib/site-details";
@@ -15,7 +16,8 @@ export default async function SiteHeader({ menu }: { menu: MenuSection[] }) {
   return (
     <>
       <MainNav menu={menu} />
-      <header className="border-b border-border bg-card">
+      <MobileHeader menu={menu} name={site.name} />
+      <header className="hidden border-b border-border bg-card lg:block">
         <div className={cn(barWidth, "flex items-center justify-between gap-6 py-3")}>
           <Link href="/" className="flex items-center gap-4 rounded-md" aria-label={`${site.name}, home`}>
             <Logo size="lg" />

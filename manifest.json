@@ -698,7 +698,7 @@
     },
     {
       "file": "components/features/layout/site-header.tsx",
-      "lines": 61,
+      "lines": 63,
       "client": false,
       "summary": "Main menu bar at the very top, then the logo row with contact details and the theme toggle."
     },
@@ -710,7 +710,7 @@
     },
     {
       "file": "components/features/layout/theme-toggle.tsx",
-      "lines": 26,
+      "lines": 27,
       "client": true,
       "summary": "Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash."
     },
@@ -737,6 +737,24 @@
       "lines": 75,
       "client": false,
       "summary": "The dropdown for one menu item: link columns plus a feature card."
+    },
+    {
+      "file": "components/features/navigation/mobile-header.tsx",
+      "lines": 50,
+      "client": true,
+      "summary": "The header on screens narrower than 1024px: one compact sticky row with the crest, the"
+    },
+    {
+      "file": "components/features/navigation/mobile-menu-item.tsx",
+      "lines": 89,
+      "client": true,
+      "summary": "One item of the mobile menu: a full-width link, or an accordion (About, Programmes, ...)"
+    },
+    {
+      "file": "components/features/navigation/mobile-menu-panel.tsx",
+      "lines": 106,
+      "client": true,
+      "summary": "The slide-in menu for phones and tablets: a navy panel from the right over a dimmed page."
     },
     {
       "file": "components/features/navigation/nav-link.tsx",

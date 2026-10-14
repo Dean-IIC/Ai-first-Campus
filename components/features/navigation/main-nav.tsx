@@ -45,7 +45,7 @@ export default function MainNav({ menu }: { menu: MenuSection[] }) {
     <nav
       ref={navRef}
       aria-label="Main"
-      className="relative z-40 bg-brand-dark/95 text-white shadow-[0_6px_16px_-10px_rgba(10,42,87,0.6)] backdrop-blur-md supports-[backdrop-filter]:bg-brand-dark/90 xl:sticky xl:top-0"
+      className="relative z-40 hidden bg-brand-dark/95 text-white shadow-[0_6px_16px_-10px_rgba(10,42,87,0.6)] backdrop-blur-md supports-[backdrop-filter]:bg-brand-dark/90 lg:block xl:sticky xl:top-0"
     >
       <div className={cn(barWidth, "relative flex items-stretch")}>
         <ul className="flex w-full flex-wrap items-stretch justify-center xl:flex-nowrap xl:justify-between">

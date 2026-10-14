@@ -282,7 +282,8 @@
 body.cms-admin {
   padding-top: 2.5rem;
 }
-body.cms-admin nav[aria-label="Main"] {
+body.cms-admin nav[aria-label="Main"],
+body.cms-admin [data-mobile-header] {
   top: 2.5rem;
 }
 body.cms-edit [data-cms] {

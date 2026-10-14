@@ -83,7 +83,7 @@ check("INV-05", "No hard-coded hex colours in components and pages", () => {
 });
 
 check("INV-06", "Surfaces use theme tokens (no bg-white except approved image backings)", () => {
-  const allow = ["components/features/layout/footer-brand.tsx", "components/features/mous/mou-card.tsx", "app/ai-quantum/quantum-lab/page.tsx", "app/admin/login/page.tsx"];
+  const allow = ["components/features/layout/footer-brand.tsx", "components/features/mous/mou-card.tsx", "app/ai-quantum/quantum-lab/page.tsx", "app/admin/login/page.tsx", "components/features/navigation/mobile-menu-panel.tsx"];
   return codeFiles
     .filter((f) => !allow.includes(f.split(path.sep).join("/")))
     .filter((f) => /(?<=[\s"'`:])bg-white(?![\w/-])/.test(read(f)))

@@ -58,7 +58,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (91 files)
+## Components (94 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -121,13 +121,16 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/layout/logo.tsx` | 7 | Server | The HKBK College of Engineering crest. |
 | `components/features/layout/page-banner.tsx` | 71 | Server | Page banner: breadcrumb, title and summary on the section's tint. |
 | `components/features/layout/site-footer.tsx` | 61 | Server | Site footer: brand and contact block, six link columns, and a slim bottom bar. |
-| `components/features/layout/site-header.tsx` | 61 | Server | Main menu bar at the very top, then the logo row with contact details and the theme toggle. |
+| `components/features/layout/site-header.tsx` | 63 | Server | Main menu bar at the very top, then the logo row with contact details and the theme toggle. |
 | `components/features/layout/theme-provider.tsx` | 13 | Client | Light and dark mode via a `dark` class on <html>, following the visitor's system setting by default. |
-| `components/features/layout/theme-toggle.tsx` | 26 | Client | Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash. |
+| `components/features/layout/theme-toggle.tsx` | 27 | Client | Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash. |
 | `components/features/mous/mou-card.tsx` | 49 | Server | One MoU: partner, type, purpose, dates and a link to the signed document. |
 | `components/features/mous/mou-directory.tsx` | 47 | Server | All MoUs in tabs by partner type, or an empty state until the list is added. |
 | `components/features/navigation/main-nav.tsx` | 98 | Client | The main menu bar. Every item is always visible: on wide screens dropdowns |
 | `components/features/navigation/mega-menu.tsx` | 75 | Server | The dropdown for one menu item: link columns plus a feature card. |
+| `components/features/navigation/mobile-header.tsx` | 50 | Client | The header on screens narrower than 1024px: one compact sticky row with the crest, the |
+| `components/features/navigation/mobile-menu-item.tsx` | 89 | Client | One item of the mobile menu: a full-width link, or an accordion (About, Programmes, ...) |
+| `components/features/navigation/mobile-menu-panel.tsx` | 106 | Client | The slide-in menu for phones and tablets: a navy panel from the right over a dimmed page. |
 | `components/features/navigation/nav-link.tsx` | 20 | Server | A menu link: internal pages use next/link; live initiative sites open in a new tab. |
 | `components/features/people/add-person-card.tsx` | 54 | Client | The "Add new" card at the end of a grid, for people beyond the numbered cards. Admin only. |
 | `components/features/people/ai-champions.tsx` | 46 | Server | Summary of the AI Champions programme, linking to the full page with every person. |
