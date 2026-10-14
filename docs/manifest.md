@@ -16,7 +16,7 @@ Inventory of the HKBK College of Engineering website, generated from the source 
 | @supabase/ssr | ^0.12.7 |
 | next-themes | ^0.4.6 |
 
-## Routes (33)
+## Routes (32)
 
 Components used by a route may load more data (for example the home page sections); see the components table.
 
@@ -53,12 +53,11 @@ Components used by a route may load more data (for example the home page section
 | `/research` | Static | 300s | `table:research_projects`, `page:research` | `app/research/page.tsx` |
 | `/research/centres` | Static | 300s | `table:departments`, `page:research-centres` | `app/research/centres/page.tsx` |
 | `/rnd` | Static | 300s | `page:rnd` | `app/rnd/page.tsx` |
-| `/staff/login` | Static | - | - | `app/staff/login/page.tsx` |
 | `/uhv` | Static | 300s | `table:uhv_activities`, `page:uhv` | `app/uhv/page.tsx` |
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (94 files)
+## Components (93 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -142,7 +141,6 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/people/people-editor.tsx` | 68 | Client | Holds every AI Faculty Champion and AI Student Ambassador for the cards' Add, Edit and Delete. |
 | `components/features/people/person-card-form.tsx` | 115 | Client | The card as a form, for Add and Edit: click the photo to upload or replace it (with a circular |
 | `components/features/people/person-card.tsx` | 105 | Client | One card in the AI Faculty Champions or AI Student Ambassadors grid, shared by both sections. |
-| `components/features/staff/sign-in-form.tsx` | 39 | Client | Staff sign-in with email and password; the Server Action checks the editors list. |
 | `components/ui/alert.tsx` | 32 | Server | - |
 | `components/ui/badge.tsx` | 33 | Server | - |
 | `components/ui/button.tsx` | 42 | Server | - |
@@ -157,7 +155,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/ui/tabs.tsx` | 39 | Client | - |
 | `components/ui/textarea.tsx` | 18 | Server | - |
 
-## Modules, actions and scripts (43)
+## Modules, actions and scripts (42)
 
 | File | Lines | Purpose |
 | --- | --- | --- |
@@ -195,7 +193,6 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/ui.ts` | 112 | Wider container for the menu bar and logo row. |
 | `lib/utils.ts` | 8 | Merges Tailwind classes, letting later classes override earlier ones. |
 | `actions/admin.ts` | 100 | Compares two strings in constant time, so the check does not reveal how much matched. |
-| `actions/auth.ts` | 45 | Staff sign-in with email and password. Only accounts on the editors list stay signed in. |
 | `actions/content.ts` | 61 | Every page and leadership message the content editor can open, with readable names. |
 | `actions/enquiry.ts` | 80 | Validates an enquiry form and stores it in the `enquiries` table (insert-only under RLS). |
 | `actions/journey.ts` | 166 | A Supabase client for a signed-in editor, or a message explaining why not. |
@@ -227,6 +224,7 @@ Migrations, applied in order:
 - `supabase/migrations/20261013010000_october_entry.sql`
 - `supabase/migrations/20261013020000_june_entry_workshop.sql`
 - `supabase/migrations/20261013030000_october_entry_alumni.sql`
+- `supabase/migrations/20261014000000_may_completed.sql`
 
 | Table | Columns | Column names |
 | --- | --- | --- |

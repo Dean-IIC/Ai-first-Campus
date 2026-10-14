@@ -324,13 +324,6 @@
       ]
     },
     {
-      "route": "/staff/login",
-      "file": "app/staff/login/page.tsx",
-      "kind": "Static",
-      "revalidate": null,
-      "data": []
-    },
-    {
       "route": "/uhv",
       "file": "app/uhv/page.tsx",
       "kind": "Static",
@@ -823,12 +816,6 @@
       "summary": "One card in the AI Faculty Champions or AI Student Ambassadors grid, shared by both sections."
     },
     {
-      "file": "components/features/staff/sign-in-form.tsx",
-      "lines": 39,
-      "client": true,
-      "summary": "Staff sign-in with email and password; the Server Action checks the editors list."
-    },
-    {
       "file": "components/ui/alert.tsx",
       "lines": 32,
       "client": false,
@@ -1079,11 +1066,6 @@
       "summary": "Compares two strings in constant time, so the check does not reveal how much matched."
     },
     {
-      "file": "actions/auth.ts",
-      "lines": 45,
-      "summary": "Staff sign-in with email and password. Only accounts on the editors list stay signed in."
-    },
-    {
       "file": "actions/content.ts",
       "lines": 61,
       "summary": "Every page and leadership message the content editor can open, with readable names."
@@ -1143,7 +1125,8 @@
       "supabase/migrations/20261013000000_june_entry.sql",
       "supabase/migrations/20261013010000_october_entry.sql",
       "supabase/migrations/20261013020000_june_entry_workshop.sql",
-      "supabase/migrations/20261013030000_october_entry_alumni.sql"
+      "supabase/migrations/20261013030000_october_entry_alumni.sql",
+      "supabase/migrations/20261014000000_may_completed.sql"
     ],
     "tables": {
       "pages": [

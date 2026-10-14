@@ -44,7 +44,7 @@ There are deliberately **no** update or delete policies for public roles. Writes
 
 ## 3a. Staff editing
 
-- Staff sign in at `/staff/login` with email and password (Supabase Auth). The sign-in action signs out anyone who is not in `public.editors`.
+- The staff sign-in at `/staff/login` (Supabase Auth with `public.editors`) was removed on 2026-10-14. All editing is done by the site admin (see ADMIN_GUIDE.md).
 - `public.is_editor()` (security definer) tells whether the signed-in user is on the list; the `editors` table itself is readable only by each editor for their own row.
 - RLS lets editors insert, update and delete `ai_people`, and upload, replace or delete files only under `site-images/ai-people/`. Everyone else keeps read-only access. Verified with an editor and a non-editor account on PostgreSQL.
 - Server Actions re-check the session and the editors list on every save, validate every field, and accept photo addresses only from this project's `site-images/ai-people/` folder.

@@ -76,7 +76,6 @@ docs/                 this documentation set
 | `/iqac` | IQAC tabs | page `iqac` |
 | `/news` | News and events tabs | `news_items`, page `news` |
 | `/contact` | Address, map, contact form | page `contact` |
-| `/staff/login` | Staff sign-in (not indexed); editors then see Add or Edit on champion and ambassador cards | Supabase Auth, `editors` |
 | `/api/revalidate` | POST with `x-revalidate-secret`; refreshes all pages | none |
 | `/portals` | Permanent redirect to `/initiatives` | none |
 | `/sitemap.xml`, `/robots.txt` | Generated | all slugs |

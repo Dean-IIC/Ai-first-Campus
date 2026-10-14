@@ -102,7 +102,7 @@ The MoUs page (`/mous`) shows the number of MoUs from `key_figures` (slug `mous`
 
 ## AI Transformation Journey timeline (home page, "Our AI Transformation Journey 2026")
 
-Each month is an entry in `content/data/journey_milestones.json` (and the `journey_milestones` table). Visitors see only the months that have content. Signed-in staff editors (sign in at `/staff/login`) see every month, including empty ones.
+Each month is an entry in `content/data/journey_milestones.json` (and the `journey_milestones` table). Visitors see only the months that have content. The signed-in site admin (Edit content → AI First journey timeline) see every month, including empty ones.
 
 - **Edit or Add:** each month has an Edit button (filled) or an Add button (empty) at its top right. The form holds the month and year, layer (none or 1 to 5), title, description, bullet points, icon and status (Completed, In progress or Upcoming).
 - **Bullet points:** add, edit, reorder or remove any number of them.
@@ -122,14 +122,14 @@ Re-running `supabase/setup_all.sql` does not overwrite timeline entries that wer
 
 **To update a card without touching code**, add `?edit=1` to the Champions page address (for example `/ai-quantum/champions?edit=1`). Each card gets fields for name, designation, department and LinkedIn, and a photo button that opens a circular crop. When you are done, choose **Export update (.zip)**. Unzip the file, copy its `content` and `public` folders into the project, run `npm run build`, then commit and push. Edits stay in the browser until you export, and nothing is saved to the website itself. Visitors never see the editor.
 
-**Student ambassadors** are still added by a signed-in editor at `/staff/login`, using **Add** or **Edit** on each card. They are stored in the `ai_people` table.
+**Student ambassadors** are added by the signed-in site admin, using **Add**, **Edit** or **Delete** on each card (see ADMIN_GUIDE.md).
 
 ## AI Faculty Champions (home page, AI First Campus, /ai-quantum/champions)
 
 The cards come from `content/champions.json`, one object per card, in display order. The heading count and the "AI Faculty Champions" figure on the home page both follow the number of cards.
 
 **Who can edit.** Visitors see no edit controls. Edit mode opens in either of two ways:
-- a signed-in editor (sign in at `/staff/login`) clicks **Edit people** above the cards;
+- the signed-in site admin uses **Edit** or **Add** on the cards;
 - anyone with the address `?edit=1` added to the page address (for example `https://your-site/ai-quantum/champions?edit=1`).
 
 ### Edit a card

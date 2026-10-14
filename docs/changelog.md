@@ -5,6 +5,8 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [Unreleased]
 
 ### Changed
+- Search engines: `NEXT_PUBLIC_SITE_URL` on Vercel is now `https://www.hkbkce.in`, so the sitemap, robots.txt and page metadata use the new domain instead of www.hkbk.edu.in.
+- AI First Campus timeline: the August entry reads "August – September 2026" again, and May 2026 is Completed, so only September – October 2026 is in progress.
 - Header (desktop logo row): the address block with the location pin is removed; the affiliation text sits on the right next to the dark-mode toggle. The full address still shows in the footer and on the Contact page.
 - AI First Campus timeline, September – October 2026 entry (Layer 4): the description now says the Alumni Portal is being developed as part of the HKBK college website (not on Zoho), and the Alumni bullet is reworded to match and moved to the end of the list, after "Secure by design".
 - AI First Campus timeline, June – July 2026 entry: the UHV-2 content is replaced by "AI Faculty Champions Recognised — AI Transformation Workshop" (no workshop length mentioned), with its description and six bullet points as supplied (no personal names). Layer 2, Completed. Icon: trophy (editable).
@@ -24,6 +26,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 - Saved values (`page:`, `message:`, `list:`, `site:details`, plus the existing `text:` and `image:`) are laid over the content from Supabase or `/content`, so undo, history and restore work for them as for inline edits. Every field is checked on the server (`lib/cms/schema.ts`, `lib/cms/validate.ts`).
 
 ### Removed
+- The old staff sign-in page `/staff/login`, its form and `actions/auth.ts`. All editing is done by the site admin.
 - The staff-editor Add/Edit dialog and editor bar on the champions cards (`person-edit-button`, `person-edit-form`, `person-photo-field`, `editor-bar`, `person-slot`, `faculty-card`, `actions/ai-people.ts`), replaced by the admin's on-card editing.
 
 ### Changed

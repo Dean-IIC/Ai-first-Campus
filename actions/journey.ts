@@ -26,7 +26,7 @@ async function editorClient(): Promise<EditorAuth> {
   const supabase = await createSupabaseServerClient();
   if (!supabase) return { supabase: null, error: "The website is not connected to Supabase yet." };
   const { data, error } = await supabase.auth.getUser();
-  if (error || !data.user) return { supabase: null, error: "Your session has ended. Sign in again at /staff/login." };
+  if (error || !data.user) return { supabase: null, error: "Your session has ended." };
   const { data: isEditor, error: roleError } = await supabase.rpc("is_editor");
   if (roleError || isEditor !== true) return { supabase: null, error: "This account is not allowed to edit the website." };
   return { supabase, error: null };
