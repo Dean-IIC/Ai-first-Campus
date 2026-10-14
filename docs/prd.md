@@ -1,7 +1,7 @@
 # Product requirements document (PRD)
 
 **Product:** HKBK College of Engineering website, an AI First and Quantum Ready campus
-**Owner:** Office of the Chief AI and Quantum Officer, HKBK College of Engineering
+**Owner:** HKBK College of Engineering
 **Version:** 0.17 (October 2026)
 **Status:** Built; awaiting Supabase connection, content approval and launch
 
@@ -61,7 +61,7 @@ HKBK College of Engineering (Nagawara, Bengaluru; established 1997; affiliated t
 | FR-12 | Quick access tiles to the most-used pages | Done |
 | FR-13 | Vision and mission | Done |
 | FR-14 | Leadership messages from the Chairman (Shri. C M Ibrahim), Director (Shri. C M Faiz Mohammed) and Principal (Dr. Mohammed Riyaz Ahmed), in full, one below the other, name under photo | Done (text is draft) |
-| FR-15 | AI-First Campus section: introduction, message from the Chief AI and Quantum Officer (Dr. Tabassum Ara), all 15 champions and 50 ambassadors as cards | Done (names and photos pending) |
+| FR-15 | AI-First Campus section: introduction, all 15 champions and 50 ambassadors as cards | Done (names and photos pending) |
 | FR-16 | Notices and events in tabs; research and industry panels; departments grid; visit strip | Done |
 
 ### Sections
@@ -76,7 +76,7 @@ HKBK College of Engineering (Nagawara, Bengaluru; established 1997; affiliated t
 | FR-25 | Houses: Dr. A. P. J. Abdul Kalam, Mother Teresa, Rabindranath Tagore, House 4 and House 5 (names pending) | Done |
 | FR-26 | Placements page with placement figure and preparation process | Done |
 | FR-27 | MoUs page: count, scope, partner directory by type (Industry, Academic, Research, Government) | Done (partner list pending) |
-| FR-28 | AI First Campus: page, Chief AI and Quantum Officer's message, AI Champions and Ambassadors page, dashboards hub | Done |
+| FR-28 | AI First Campus: page, AI Champions and Ambassadors page, dashboards hub | Done |
 | FR-29 | Quantum Ready Campus: Quantum Lab, process steps, quantum-safe timeline | Done |
 | FR-30 | IDEA Lab and every centre or initiative: ready-made page until its subdomain is live, then a direct link | Done |
 | FR-31 | IQAC: about, objectives, functions, reports | Done (reports pending) |
@@ -124,8 +124,8 @@ HKBK College of Engineering (Nagawara, Bengaluru; established 1997; affiliated t
 
 | Item | Owner |
 | --- | --- |
-| Approve leadership messages and the Chief AI and Quantum Officer's message | Each leader |
-| Photos of leaders, AI Faculty Champions and AI Student Ambassadors | Office of the Chief AI and Quantum Officer |
+| Approve leadership messages | Each leader |
+| Photos of leaders, AI Faculty Champions and AI Student Ambassadors | AI First Campus office |
 | Department vision and mission statements | Heads of department |
 | Names of House 4 and House 5 | Student affairs |
 | The 25 MoU partners | Industry relations |

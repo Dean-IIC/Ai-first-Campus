@@ -13,9 +13,7 @@ If both are used, Supabase wins. Running `npm run db:seed` overwrites rows in Su
 
 ## Leadership messages
 
-Files: `content/messages/chairman.md` (Shri. C M Ibrahim), `director.md` (Shri. C M Faiz Mohammed) and `principal.md` (Dr. Mohammed Riyaz Ahmed). The Director's and Principal's messages, and Dr. Tabassum Ara's, use the text and photos from the AI Transformation Journey portal; photos are in `public/images/leaders/`. Table: `leadership_messages`. The home page and `/leadership` both show every message in full, one below the other, in `sort_order`, with the leader's name and designation under their photo. If you seeded Supabase before the Chief AI Officer message was removed, delete the `chief-ai-officer` row.
-
-The message from Dr. Tabassum Ara, Chief AI and Quantum Officer, is in `content/messages/chief-ai-quantum-officer.md`. Its `section: "ai-first"` setting places it under **AI-First Campus** on the home page and on the AI First page, not with the leadership messages. Any message can be moved by changing `section` to `leadership` or `ai-first`.
+Files: `content/messages/chairman.md` (Shri. C M Ibrahim), `director.md` (Shri. C M Faiz Mohammed) and `principal.md` (Dr. Mohammed Riyaz Ahmed). The Director's and Principal's messages use the text and photos from the AI Transformation Journey portal; photos are in `public/images/leaders/`. Table: `leadership_messages`. The home page and `/leadership` both show every message in full, one below the other, in `sort_order`, with the leader's name and designation under their photo. If an older copy of the database still has a message that is no longer on the site, re-run `supabase/setup_all.sql`.
 
 ```markdown
 ---
@@ -215,8 +213,8 @@ Open **Table Editor > enquiries** in Supabase. Filter by `type` to see one form,
 
 ## Launch checklist
 
-- [ ] Each leader, and Dr. Tabassum Ara, has approved their message and `status: approved` is set
-- [ ] Chairman's photo added (Director, Principal and Dr. Tabassum Ara photos are in place)
+- [ ] Each leader has approved their message and `status: approved` is set
+- [ ] Chairman's photo added (Director and Principal photos are in place)
 - [ ] Department vision and mission statements replaced with approved wording
 - [ ] AI Faculty Champions added to `content/champions.json` with names and photos
 - [ ] AI Student Ambassadors added with names and photos

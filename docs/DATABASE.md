@@ -28,9 +28,9 @@ Every list table has a unique `slug`, used by the seed script to update rows ins
 
 | Column | Type | Notes |
 | --- | --- | --- |
-| `slug` | text, primary key | `chairman`, `director`, `principal`, `chief-ai-quantum-officer` |
+| `slug` | text, primary key | `chairman`, `director`, `principal` |
 | `name` | text | Full name. If empty, the designation is shown instead |
-| `designation` | text | For example `Chief AI Officer` |
+| `designation` | text | For example `Principal` |
 | `organisation` | text | Shown under the name |
 | `excerpt` | text | Two or three sentences, used in search-engine descriptions |
 | `photo_url` | text | Public URL from the `site-images` bucket. If empty, a monogram is shown |

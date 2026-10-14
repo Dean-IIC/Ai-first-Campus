@@ -29,6 +29,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 - Saved values (`page:`, `message:`, `list:`, `site:details`, plus the existing `text:` and `image:`) are laid over the content from Supabase or `/content`, so undo, history and restore work for them as for inline edits. Every field is checked on the server (`lib/cms/schema.ts`, `lib/cms/validate.ts`).
 
 ### Removed
+- The AI First Campus message (featured message, letter, photo, name and title) from the home page, the AI First Campus page, the AI First Campus menu, the mobile menu and the footer; its data file, photo and database row; and the "Office" paragraph on the AI First Campus page. The old address `/leadership/chief-ai-quantum-officer` redirects permanently to `/ai-quantum/ai-first`.
 - The old staff sign-in page `/staff/login`, its form and `actions/auth.ts`. All editing is done by the site admin.
 - The staff-editor Add/Edit dialog and editor bar on the champions cards (`person-edit-button`, `person-edit-form`, `person-photo-field`, `editor-bar`, `person-slot`, `faculty-card`, `actions/ai-people.ts`), replaced by the admin's on-card editing.
 
@@ -79,7 +80,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [0.23.2] - 2026-10-10
 
 ### Changed
-- Dr. Tabassum Ara's message (AI First Campus): removed the "Google Gemini" bullet. The other bullets are unchanged. The setup file was regenerated; re-run `supabase/setup_all.sql` on the database so the database copy of the message is updated too.
+- The AI First Campus message: removed the "Google Gemini" bullet. The other bullets are unchanged. The setup file was regenerated; re-run `supabase/setup_all.sql` on the database so the database copy of the message is updated too.
 
 ## [0.23.1] - 2026-10-10
 
@@ -187,8 +188,8 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [0.19.3] - 2026-10-09
 
 ### Changed
-- The Director's, Principal's and Chief AI and Quantum Officer's messages use the same featured design as the Chairman's (navy header, gold-framed photo, pull quote, name in gold, drop cap, signature in the theme blue), on the home page, `/leadership`, `/leadership/[slug]` and the AI First Campus page. Photos are anchored to the top so faces are not cropped.
-- Pull quotes for the Director, Principal and Chief AI and Quantum Officer use a sentence from later in their own message, so the quote no longer repeats the letter's opening line.
+- The Director's, Principal's and AI First Campus messages use the same featured design as the Chairman's (navy header, gold-framed photo, pull quote, name in gold, drop cap, signature in the theme blue), on the home page, `/leadership`, `/leadership/[slug]` and the AI First Campus page. Photos are anchored to the top so faces are not cropped.
+- Pull quotes for the Director, Principal and AI First Campus message use a sentence from later in their own message, so the quote no longer repeats the letter's opening line.
 
 ### Removed
 - `components/features/people/leader-message.tsx` (replaced everywhere by `featured-message.tsx`).
@@ -223,11 +224,11 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ### Added
 - "Our AI Transformation Journey 2026" on the home page, copied from the AI Transformation Journey portal: January–February, March (with the AICTE recognition badge), April (with all 12 FDP photos) and May; `journey_milestones` table.
-- Photos of the Director, the Principal and the Chief AI and Quantum Officer (`public/images/leaders/`).
+- Photos of the Director, the Principal and the AI First Campus message (`public/images/leaders/`).
 
 ### Changed
-- Messages from the Director, the Principal and the Chief AI and Quantum Officer now use their text from the AI Transformation Journey portal, with their highlight points. The Chairman's message is unchanged.
-- Director's organisation shown as HKBK Group of Institutions; Chief AI and Quantum Officer shown as Dean IIC and HoD, Dept. of AIML.
+- Messages from the Director, the Principal and the AI First Campus message now use their text from the AI Transformation Journey portal, with their highlight points. The Chairman's message is unchanged.
+- Director's organisation shown as HKBK Group of Institutions.
 - `supabase/setup_all.sql` writes JSON columns correctly.
 
 ### Unchanged
@@ -318,7 +319,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [0.7.0] - 2026-10-04
 
 ### Added
-- Message from the Chief AI and Quantum Officer, Dr. Tabassum Ara, under AI-First Campus and on the AI First page (`section = ai-first`).
+- An AI First Campus message under AI-First Campus and on the AI First page (`section = ai-first`).
 - All 15 AI Faculty Champions and 50 AI Student Ambassadors as cards on the home page.
 
 ### Removed
@@ -331,7 +332,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 - AI-First Campus paragraphs replace the AI and quantum image cards.
 
 ### Removed
-- Chief AI Officer from the leadership list.
+- The AI First Campus message from the leadership list.
 
 ## [0.5.0] - 2026-10-04
 

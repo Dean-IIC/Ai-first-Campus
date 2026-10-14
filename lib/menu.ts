@@ -40,7 +40,6 @@ export const IEEE_CHAPTERS = [
 export function buildMenu({
   departments,
   leaders,
-  aiLeaders,
   initiatives,
   houses,
   alumniUrl = "",
@@ -48,7 +47,6 @@ export function buildMenu({
 }: {
   departments: Dept[];
   leaders: Leader[];
-  aiLeaders: Leader[];
   initiatives: Initiative[];
   houses: House[];
   /** The Alumni portal address the admin saved; empty opens the /alumni page. */
@@ -212,7 +210,6 @@ export function buildMenu({
           title: "AI First Campus",
           links: [
             { label: "AI First Campus", href: "/ai-quantum/ai-first" },
-            ...aiLeaders.map((l) => ({ label: `${l.designation}'s message`, note: l.name ?? undefined, href: "/ai-quantum/ai-first#officer-message" })),
             { label: "AI Champions and Ambassadors", href: "/ai-quantum/champions" },
             { label: "Dashboards", href: "/ai-quantum/dashboards" },
           ],

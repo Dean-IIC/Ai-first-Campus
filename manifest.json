@@ -505,9 +505,9 @@
     },
     {
       "file": "components/features/home/ai-first-section.tsx",
-      "lines": 48,
+      "lines": 42,
       "client": false,
-      "summary": "AI-First Campus: introduction, programme figures, the Chief AI and Quantum Officer's message, and every champion and ambassador."
+      "summary": "AI-First Campus: introduction, programme figures, and every champion and ambassador."
     },
     {
       "file": "components/features/home/count-up.tsx",
@@ -1002,12 +1002,12 @@
     },
     {
       "file": "lib/menu-server.ts",
-      "lines": 17,
+      "lines": 16,
       "summary": "Loads everything the menu needs and builds it. Server components only."
     },
     {
       "file": "lib/menu.ts",
-      "lines": 262,
+      "lines": 259,
       "summary": "One item in the top menu. Items with `columns` open a dropdown; items with"
     },
     {
@@ -1126,7 +1126,8 @@
       "supabase/migrations/20261013010000_october_entry.sql",
       "supabase/migrations/20261013020000_june_entry_workshop.sql",
       "supabase/migrations/20261013030000_october_entry_alumni.sql",
-      "supabase/migrations/20261014000000_may_completed.sql"
+      "supabase/migrations/20261014000000_may_completed.sql",
+      "supabase/migrations/20261014010000_remove_ai_first_message.sql"
     ],
     "tables": {
       "pages": [
@@ -1356,7 +1357,7 @@
   },
   "content": {
     "pages": 25,
-    "messages": 4,
+    "messages": 3,
     "data": {
       "ai_people": 13,
       "consultancy_projects": 3,

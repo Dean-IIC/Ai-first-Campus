@@ -2,9 +2,8 @@ import { UserRound, Users } from "lucide-react";
 import { SectionHeading } from "@/components/features/content/bits";
 import Markdown from "@/components/features/content/markdown";
 import AiPeopleGrid from "@/components/features/people/ai-people-grid";
-import FeaturedMessage from "@/components/features/people/featured-message";
 import { aiProgramme } from "@/lib/site";
-import type { LeadershipMessage, Page } from "@/lib/types";
+import type { Page } from "@/lib/types";
 import { shell } from "@/lib/ui";
 
 const STATS = [
@@ -12,8 +11,8 @@ const STATS = [
   { value: aiProgramme.studentAmbassadors, label: "AI Student Ambassadors", text: "Help classmates use AI well and responsibly.", icon: UserRound },
 ];
 
-/** AI-First Campus: introduction, programme figures, the Chief AI and Quantum Officer's message, and every champion and ambassador. */
-export default function AiFirstSection({ page, messages }: { page: Page | null; messages: LeadershipMessage[] }) {
+/** AI-First Campus: introduction, programme figures, and every champion and ambassador. */
+export default function AiFirstSection({ page }: { page: Page | null }) {
   return (
     <section id="ai-first-campus" className={`${shell} scroll-mt-20 pt-14`}>
       <SectionHeading title={page?.title ?? "AI-First Campus"} tone="teal" />
@@ -34,11 +33,6 @@ export default function AiFirstSection({ page, messages }: { page: Page | null; 
           ))}
         </div>
       </div>
-      {messages.map((m) => (
-        <div key={m.slug} className="mt-8">
-          <FeaturedMessage message={m} as="div" />
-        </div>
-      ))}
       <div className="mt-8">
         <AiPeopleGrid compact idPrefix="home-" />
       </div>

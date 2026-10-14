@@ -69,7 +69,7 @@ docs/                 this documentation set
 | `/placements` | Placement figures and preparation | `key_figures`, page `placements` |
 | `/mous` | MoU count, scope and directory | `mous`, `key_figures`, page `mous` |
 | `/ai-quantum` | AI and quantum overview with dashboards chart | `dashboards`, page `ai-quantum` |
-| `/ai-quantum/ai-first` | AI First Campus page with the Chief AI and Quantum Officer's message | page `ai-first`, messages (section `ai-first`) |
+| `/ai-quantum/ai-first` | AI First Campus page | page `ai-first` |
 | `/ai-quantum/champions` | 15 AI Faculty Champions (cards, with `?edit=1` editor) and 50 AI Student Ambassadors | `content/champions.json`, `ai_people` (ambassadors), page `ai-champions` |
 | `/ai-quantum/quantum-lab` | Quantum Ready Campus: lab, steps, quantum-safe timeline | page `quantum-lab` |
 | `/ai-quantum/dashboards` | Dashboards hub by category | `dashboards`, page `dashboards` |
@@ -97,7 +97,7 @@ Defined once in `buildMenu()` (`lib/menu.ts`); loaded by `getMenu()` (`lib/menu-
 | 7 | Houses | violet | Five houses ("Name coming soon" for placeholders) |
 | 8 | Placements | blue | `/placements` |
 | 9 | MoUs | amber | `/mous` |
-| 10 | AI First Campus | teal | AI First Campus, Chief AI and Quantum Officer's message, AI Champions and Ambassadors, Dashboards. Feature: AI illustration |
+| 10 | AI First Campus | teal | AI First Campus, AI Champions and Ambassadors, Dashboards. Feature: AI illustration |
 | 11 | Quantum Ready Campus | teal | `/ai-quantum/quantum-lab` |
 | 12 | IDEA Lab | amber | Subdomain when live, else `/initiatives/idea-lab` |
 | 13 | IQAC | blue | `/iqac` |

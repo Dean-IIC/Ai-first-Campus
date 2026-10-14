@@ -18,9 +18,8 @@ import { shell } from "@/lib/ui";
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [messages, aiMessages, departments, news, aiFirstPage, journey] = await Promise.all([
+  const [messages, departments, news, aiFirstPage, journey] = await Promise.all([
     getMessages(),
-    getMessages("ai-first"),
     getList("departments"),
     getList("news_items"),
     getPage("home-ai-first"),
@@ -41,7 +40,7 @@ export default async function HomePage() {
         </div>
       </section>
       <LeadershipSection messages={messages} />
-      <AiFirstSection page={aiFirstPage} messages={aiMessages} />
+      <AiFirstSection page={aiFirstPage} />
       <JourneySection milestones={journey} />
       <NoticesSection news={news} />
       <ExploreSection />

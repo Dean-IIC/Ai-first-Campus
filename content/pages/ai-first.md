@@ -23,7 +23,3 @@ status: draft
 3. Conversations with the assistant are private to the user. Usage reports show totals, never individual chats.
 4. AI answers cite their sources.
 5. We publish what each AI system can and cannot do, and review them every semester.
-
-## Office of the Chief AI Officer
-
-The Chief AI Officer leads AI strategy, governance and the [dashboards](/ai-quantum/dashboards) that track progress.

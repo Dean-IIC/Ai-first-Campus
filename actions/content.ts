@@ -20,7 +20,7 @@ export async function catalogAction(): Promise<{ ok: true; catalog: Catalog } | 
     const files = await fs.readdir(path.join(process.cwd(), "content", "pages")).catch(() => [] as string[]);
     const slugs = files.filter((f) => f.endsWith(".md")).map((f) => f.replace(/\.md$/, ""));
     const pages = await Promise.all(slugs.map(async (slug) => ({ key: `page:${slug}`, label: (await getPage(slug))?.title ?? slug })));
-    const leaders = [...(await getMessages()), ...(await getMessages("ai-first"))];
+    const leaders = await getMessages();
     return {
       ok: true,
       catalog: {
@@ -43,7 +43,7 @@ export async function loadContentAction(key: string): Promise<LoadResult> {
       return page ? { ok: true, value: page } : { ok: false, error: "That page was not found." };
     }
     if (kind === "message") {
-      const all = [...(await getMessages()), ...(await getMessages("ai-first"))];
+      const all = await getMessages();
       const m = all.find((x) => x.slug === name);
       return m ? { ok: true, value: m } : { ok: false, error: "That message was not found." };
     }

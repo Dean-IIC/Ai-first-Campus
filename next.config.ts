@@ -10,7 +10,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [{ protocol: "https", hostname: "*.supabase.co" }],
   },
   async redirects() {
-    return [{ source: "/portals", destination: "/initiatives", permanent: true }];
+    return [
+      { source: "/portals", destination: "/initiatives", permanent: true },
+      // A message removed on 2026-10-14: its old address opens the AI First Campus page.
+      { source: "/leadership/chief-ai-quantum-officer", destination: "/ai-quantum/ai-first", permanent: true },
+    ];
   },
 };
 

@@ -292,7 +292,7 @@ create policy "Public can read" on public.ai_people for select to anon, authenti
 -- Migration: 20261003030000_message_section.sql
 -- ============================================================
 -- Messages can appear in different places: 'leadership' (Chairman, Director,
--- Principal) or 'ai-first' (Chief AI and Quantum Officer, under AI-First Campus).
+-- Principal) or 'ai-first' (a message under AI-First Campus).
 alter table public.leadership_messages
   add column if not exists section text not null default 'leadership';
 
@@ -666,6 +666,12 @@ where slug = 'm-2026-10';
 update public.journey_milestones set status = 'completed' where slug = 'may-2026' and status = 'in_progress';
 
 -- ============================================================
+-- Migration: 20261014010000_remove_ai_first_message.sql
+-- ============================================================
+-- 2026-10-14: the AI First Campus message (section 'ai-first') is removed from the site.
+delete from public.leadership_messages where slug = 'chief-ai-quantum-officer';
+
+-- ============================================================
 -- Content
 -- ============================================================
 insert into public.pages (slug, title, summary, body_md) values
@@ -698,11 +704,7 @@ The college has committed to becoming an AI First and Quantum Ready campus. Read
 2. The assistant only uses information the person asking is allowed to see.
 3. Conversations with the assistant are private to the user. Usage reports show totals, never individual chats.
 4. AI answers cite their sources.
-5. We publish what each AI system can and cannot do, and review them every semester.
-
-## Office of the Chief AI Officer
-
-The Chief AI Officer leads AI strategy, governance and the [dashboards](/ai-quantum/dashboards) that track progress.'),
+5. We publish what each AI system can and cannot do, and review them every semester.'),
   ('ai-quantum', 'AI and quantum at HKBK', 'Two commitments for the next decade. Every engineer learns to build with AI, and the campus prepares students and systems for quantum computing.', '**AI First** means AI is part of how every programme is taught and how campus services work, with clear rules for privacy, fairness and human judgement.
 
 **Quantum Ready** has two halves. Students learn quantum computing hands-on, from simulators to real quantum hardware. And the systems that hold student and research records move to the new quantum-safe encryption standards, so that data stolen today cannot be decrypted by quantum computers later.'),
@@ -885,15 +887,6 @@ Technology alone does not make a good engineer. Through our Universal Human Valu
 Our campus sits directly opposite Manyata Tech Park, and industry is our neighbour. I invite companies to train their teams with us, to bring us their engineering problems, and to hire our graduates.
 
 To our students: work hard, stay curious, and look after one another. To parents: thank you for trusting us with your children''s future.', 1, 'leadership'),
-  ('chief-ai-quantum-officer', 'Dr. Tabassum Ara', 'Chief AI and Quantum Officer', 'Dean IIC and HoD, Dept. of AIML, HKBK College of Engineering', 'Our campus does not just teach AI, we live it.', '/images/leaders/tabassum-ara.jpg', 'Every achievement in this journey — the portals we built, the students we trained, the recognitions we earned — comes from one belief: that AI without humanity is incomplete. We have woven Human Values and Ethics into every AI initiative.
-
-Our intake in AIML has grown from 120 to 180 students — not because we marketed AI, but because we demonstrated AI. I built four live AI applications using Claude — a video library, a prompt library, a health tracker, and a student chatbot — to show that our campus does not just teach AI, we live it. Every sponsorship we earned, every collaboration we secured, began with this proof.
-
-- **AIML Intake:** Expanded from 120 to 180 students due to AI-first brand positioning.
-- **AICTE Sponsorship:** Secured funding for AI + Cybersecurity program development.
-- **Quantum Computing:** Sponsorship secured from VAANI and ATAL for Quantum readiness.
-- **Human Values:** All AI-First programs incorporate ethics, UHV, and responsible AI principles.
-- **Industry Training:** HKBK now trains IT professionals in AI — creating new revenue and recognition.', 1, 'ai-first'),
   ('director', 'Shri. C M Faiz Mohammed', 'Director', 'HKBK Group of Institutions', 'AI-First is not a strategy for us; it is a survival imperative and a moral responsibility.', '/images/leaders/director.jpg', 'The IT industry is changing faster than any of us anticipated. When AI automates coding, testing, and system administration, what will happen to our graduates? This question kept me awake. The answer is not to fear AI, but to master it.
 
 We are not just teaching engineering. We are preparing human beings who will collaborate with AI, lead AI teams, and build AI systems. If IT jobs disappear, our students must be the ones who create the next wave of AI-powered opportunities. That is why AI-First is not a strategy for us; it is a survival imperative and a moral responsibility.

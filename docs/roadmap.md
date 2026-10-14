@@ -15,7 +15,7 @@ Where the HKBK website goes next. Quarters are targets, not commitments; each it
 ## Phase 0: Public website foundation (done)
 
 - [x] Every public page: About, Programmes, Departments (with vision and mission), Centre of Excellence, IEEE and chapters, Houses, Placements, MoUs, AI First Campus, AI Champions and Ambassadors, Quantum Ready Campus, IDEA Lab, IQAC, News, Contact
-- [x] Leadership messages in full; message from the Chief AI and Quantum Officer under AI-First Campus
+- [x] Leadership messages in full
 - [x] Big numbers, college logo, campus photograph, AI and quantum illustrations
 - [x] One menu tree for the top bar and footer; every menu item always visible
 - [x] Centres and initiatives ready to switch to their subdomains by data change
@@ -30,7 +30,7 @@ Goal: the site live on the college domain with approved content.
 | Ticket | Item |
 | --- | --- |
 | LAUNCH-01 | Connect the Supabase project and load content |
-| LAUNCH-02 | Leaders and the Chief AI and Quantum Officer approve their messages |
+| LAUNCH-02 | Leaders approve their messages |
 | LAUNCH-03 | Upload photos of leaders, champions and ambassadors |
 | LAUNCH-04 | Department vision and mission statements approved |
 | LAUNCH-05 | Enter the 25 MoUs |

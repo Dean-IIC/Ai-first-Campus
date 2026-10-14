@@ -63,7 +63,7 @@ Run the migrations on project `stksjavtukawalkffqjw`, load content, and connect 
 
 ### LAUNCH-02 Approve leadership and officer messages
 P0 · S · Depends on: none
-- [ ] Chairman, Director, Principal and Chief AI and Quantum Officer each approve or edit their message
+- [ ] Chairman, Director and Principal each approve or edit their message
 - [ ] `status: approved` set in `content/messages/*.md` (or the rows updated in Supabase)
 
 ### LAUNCH-03 Upload photos

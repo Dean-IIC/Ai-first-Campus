@@ -8,7 +8,7 @@ The site runs immediately with no database: every page falls back to the Markdow
 
 | Area | Route | Content source |
 | --- | --- | --- |
-| Home: campus photo, big numbers (years, students, faculty, papers, patents, MoUs, AI Champions and Ambassadors, placements), quick access, vision and mission, full leadership messages, AI-First Campus (message from the Chief AI and Quantum Officer, all 15 AI Faculty Champions and 50 AI Student Ambassadors), news and events | `/` | several |
+| Home: campus photo, big numbers (years, students, faculty, papers, patents, MoUs, AI Champions and Ambassadors, placements), quick access, vision and mission, full leadership messages, AI-First Campus (all 15 AI Faculty Champions and 50 AI Student Ambassadors), news and events | `/` | several |
 | About, with Vision and mission and Leadership tabs | `/about` | `pages/about`, `pages/vision-mission` |
 | Leadership messages from the Chairman, Director and Principal, in full, one below the other (also on the home page) | `/leadership` | `leadership_messages` |
 | Departments: CSE, ISE, AIML, ME, ECE, Mathematics, Physics, Chemistry, Humanities, Physical Education and Sports | `/academics` | `departments` |

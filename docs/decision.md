@@ -139,7 +139,7 @@ Architecture decision records (ADRs) for the HKBK College of Engineering website
 
 ## ADR-015 Messages carry a `section`
 
-**Decision.** `leadership_messages.section` is `leadership` (Chairman, Director, Principal) or `ai-first` (Chief AI and Quantum Officer). Leadership pages read `leadership`; the AI-First Campus section and page read `ai-first`.
+**Decision.** `leadership_messages.section` is `leadership` (Chairman, Director, Principal) or `ai-first` (an AI First Campus message; none at present). Leadership pages read `leadership`; the AI-First Campus section and page read `ai-first`.
 
 **Consequences.** One table and one component (`LeaderMessage`) for all messages; the About menu lists only leadership messages.
 
@@ -193,7 +193,7 @@ Architecture decision records (ADRs) for the HKBK College of Engineering website
 
 ## ADR-024 Staff editing of AI Champions
 
-**Context.** The Chief AI and Quantum Officer needs to add photos and details of the 15 AI Faculty Champions and 50 AI Student Ambassadors without editing files or the Supabase dashboard.
+**Context.** The AI First Campus office needs to add photos and details of the 15 AI Faculty Champions and 50 AI Student Ambassadors without editing files or the Supabase dashboard.
 
 **Decision.** Supabase Auth with email and password at `/staff/login`; a `public.editors` list and `is_editor()` decide who may edit; RLS allows editors to change `ai_people` and upload only under `site-images/ai-people/`. Add or Edit buttons are client islands on each card that render nothing for the public, so pages stay static. Saves use Server Actions that re-check the editor and revalidate the affected pages. Each card has a stable id and people appear in the card matching their `sort_order`. Until Supabase is connected, the website preview offers the same form backed by the preview's own database and storage; its entries are copied into the project on request.
 

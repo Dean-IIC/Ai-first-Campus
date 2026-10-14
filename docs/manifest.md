@@ -89,7 +89,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/forms/extra-field-input.tsx` | 37 | Server | Renders one form-specific field; its value is saved in the enquiry's `details`. |
 | `components/features/forms/form-field.tsx` | 42 | Server | Label, optional marker, hint and error message around one form control. |
 | `components/features/forms/types.ts` | 10 | Server | - |
-| `components/features/home/ai-first-section.tsx` | 48 | Server | AI-First Campus: introduction, programme figures, the Chief AI and Quantum Officer's message, and every champion and ambassador. |
+| `components/features/home/ai-first-section.tsx` | 42 | Server | AI-First Campus: introduction, programme figures, and every champion and ambassador. |
 | `components/features/home/count-up.tsx` | 47 | Client | Counts from 0 to `value` once the number scrolls into view. The final number |
 | `components/features/home/departments-panel.tsx` | 38 | Server | Grid of all departments, each linking to its page. |
 | `components/features/home/explore-section.tsx` | 37 | Server | Research and industry panels. |
@@ -180,8 +180,8 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/format.ts` | 28 | Formats an ISO date (YYYY-MM-DD) as "3 Oct 2026" without timezone shifts. |
 | `lib/journey-model.ts` | 73 | Shared rules for the AI Transformation Journey timeline (visitors and editors). |
 | `lib/markdown.ts` | 16 | Splits markdown into sections at each "## Heading". Text before the first heading is the intro. |
-| `lib/menu-server.ts` | 17 | Loads everything the menu needs and builds it. Server components only. |
-| `lib/menu.ts` | 262 | One item in the top menu. Items with `columns` open a dropdown; items with |
+| `lib/menu-server.ts` | 16 | Loads everything the menu needs and builds it. Server components only. |
+| `lib/menu.ts` | 259 | One item in the top menu. Items with `columns` open a dropdown; items with |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
 | `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
 | `lib/site.ts` | 101 | Opens another site (a live initiative subdomain) in a new tab. |
@@ -225,6 +225,7 @@ Migrations, applied in order:
 - `supabase/migrations/20261013020000_june_entry_workshop.sql`
 - `supabase/migrations/20261013030000_october_entry_alumni.sql`
 - `supabase/migrations/20261014000000_may_completed.sql`
+- `supabase/migrations/20261014010000_remove_ai_first_message.sql`
 
 | Table | Columns | Column names |
 | --- | --- | --- |
@@ -253,7 +254,7 @@ Migrations, applied in order:
 ## Content
 
 - Pages (`content/pages`): 25
-- Messages (`content/messages`): 4
+- Messages (`content/messages`): 3
 - `content/data/ai_people.json`: 13 row(s)
 - `content/data/consultancy_projects.json`: 3 row(s)
 - `content/data/dashboards.json`: 7 row(s)

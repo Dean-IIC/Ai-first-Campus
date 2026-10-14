@@ -33,7 +33,7 @@ Statements that must be true of the HKBK website at every commit. If one breaks,
 | INV-M3 | The top menu shows all 13 items in one row at 1280px and wider, and every item is visible (wrapping, never collapsed) below that | Open the site at 1280px and 390px |
 | INV-M4 | Enquiry forms submit and validate without JavaScript | Disable JavaScript in the browser and submit the Contact form |
 | INV-M5 | Zero axe-core WCAG A/AA violations on the home page, a department page, Contact, IEEE, MoUs and AI Champions, in light and dark mode | Run axe (browser extension or CI-02) in both themes |
-| INV-M6 | Leadership messages (`section = leadership`) and the Chief AI and Quantum Officer's message (`section = ai-first`) never mix: the About menu and `/leadership` show only leadership | Check the About mega menu and `/leadership` |
+| INV-M6 | Leadership messages (`section = leadership`) and any AI First Campus message (`section = ai-first`) never mix: the About menu and `/leadership` show only leadership | Check the About mega menu and `/leadership` |
 | INV-M7 | Unless an initiative is Live, menus link to `/initiatives/<slug>`; when Live, they open the subdomain in a new tab | Set a test row to Live with a URL and check the menu and footer |
 | INV-M8 | No invented facts: every statistic, name, partner and date was supplied by the college; drafts are marked `status: draft`; placeholder rows are `is_sample: true` | Review content changes in each pull request |
 | INV-M9 | Every external link opens in a new tab with `rel="noopener noreferrer"` and a screen-reader hint | Inspect links to subdomains, maps and documents |
