@@ -871,15 +871,13 @@ Students explore themselves, their families, society and nature through guided s
 Students here learn to build powerful AI systems. They also need judgement about fairness, privacy and the people their work affects. UHV gives that judgement a foundation, and our values-and-technology talks connect it directly to AI and engineering decisions.'),
   ('vision-mission', 'Vision and mission', 'The vision and mission of HKBK College of Engineering.', '## Vision
 
-To be a campus where every engineer learns to build with artificial intelligence, is prepared for quantum technologies, and works with integrity for society.
+To empower students through wholesome education and enable the students to develop into highly qualified and trained professionals with ethics and emerge as responsible citizens with broad outlook to build a vibrant nation.
 
 ## Mission
 
-- Teach every programme with AI tools, and teach students to build and question them.
-- Give students hands-on access to quantum computing, from simulators to real hardware.
-- Grow research and consultancy that solve problems for industry and the community.
-- Shape character alongside skill through Universal Human Values.
-- Protect the data of our students and staff with modern, quantum-safe security.')
+- To achieve academic excellence through in-depth knowledge in science, engineering and technology through dedication to duty, innovation in teaching and faith in human values.
+- To enable our students to develop into outstanding professionals with high ethical standards to face the challenges of the 21st century.
+- To provide educational opportunities to the deprived and weaker section of the society, to uplift their socio-economic status.')
 on conflict (slug) do update set title = excluded.title, summary = excluded.summary, body_md = excluded.body_md;
 insert into public.leadership_messages (slug, name, designation, organisation, excerpt, photo_url, body_md, sort_order, section) values
   ('chairman', 'Shri. C M Ibrahim', 'Chairman', 'HKBK Group of Institutions', 'We opened HKBK in 1997 to give every young person a fair chance at an excellent engineering education. Becoming an AI First and Quantum Ready campus is how we keep that promise for the next generation.', '/images/leaders/chairman.jpg', 'Dear students, parents and partners,

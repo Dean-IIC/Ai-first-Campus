@@ -6,12 +6,10 @@ status: draft
 
 ## Vision
 
-To be a campus where every engineer learns to build with artificial intelligence, is prepared for quantum technologies, and works with integrity for society.
+To empower students through wholesome education and enable the students to develop into highly qualified and trained professionals with ethics and emerge as responsible citizens with broad outlook to build a vibrant nation.
 
 ## Mission
 
-- Teach every programme with AI tools, and teach students to build and question them.
-- Give students hands-on access to quantum computing, from simulators to real hardware.
-- Grow research and consultancy that solve problems for industry and the community.
-- Shape character alongside skill through Universal Human Values.
-- Protect the data of our students and staff with modern, quantum-safe security.
+- To achieve academic excellence through in-depth knowledge in science, engineering and technology through dedication to duty, innovation in teaching and faith in human values.
+- To enable our students to develop into outstanding professionals with high ethical standards to face the challenges of the 21st century.
+- To provide educational opportunities to the deprived and weaker section of the society, to uplift their socio-economic status.
