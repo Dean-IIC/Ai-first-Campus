@@ -698,7 +698,7 @@
     },
     {
       "file": "components/features/layout/site-header.tsx",
-      "lines": 63,
+      "lines": 53,
       "client": false,
       "summary": "Main menu bar at the very top, then the logo row with contact details and the theme toggle."
     },

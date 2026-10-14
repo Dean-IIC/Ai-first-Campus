@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import MainNav from "@/components/features/navigation/main-nav";
 import MobileHeader from "@/components/features/navigation/mobile-header";
 import type { MenuSection } from "@/lib/menu";
@@ -42,16 +42,6 @@ export default async function SiteHeader({ menu }: { menu: MenuSection[] }) {
                   {details.email}
                 </a>
               )}
-            </p>
-            <p className="hidden items-center gap-2.5 xl:flex">
-              <span className="grid size-9 place-items-center rounded-full bg-brand-tint text-primary">
-                <MapPin aria-hidden="true" className="size-[1.125rem]" />
-              </span>
-              <span className="leading-tight">
-                {details.address.line1}
-                <br />
-                {details.address.line2}, {details.address.city} {details.address.pin}
-              </span>
             </p>
             <ThemeToggle />
           </div>

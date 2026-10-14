@@ -121,7 +121,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/layout/logo.tsx` | 7 | Server | The HKBK College of Engineering crest. |
 | `components/features/layout/page-banner.tsx` | 71 | Server | Page banner: breadcrumb, title and summary on the section's tint. |
 | `components/features/layout/site-footer.tsx` | 61 | Server | Site footer: brand and contact block, six link columns, and a slim bottom bar. |
-| `components/features/layout/site-header.tsx` | 63 | Server | Main menu bar at the very top, then the logo row with contact details and the theme toggle. |
+| `components/features/layout/site-header.tsx` | 53 | Server | Main menu bar at the very top, then the logo row with contact details and the theme toggle. |
 | `components/features/layout/theme-provider.tsx` | 13 | Client | Light and dark mode via a `dark` class on <html>, following the visitor's system setting by default. |
 | `components/features/layout/theme-toggle.tsx` | 27 | Client | Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash. |
 | `components/features/mous/mou-card.tsx` | 49 | Server | One MoU: partner, type, purpose, dates and a link to the signed document. |
