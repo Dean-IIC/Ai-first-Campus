@@ -7,8 +7,8 @@ You are setting up the HKBK College of Engineering website (Next.js 16 + Supabas
 
 PROJECT
 - Code: the folder `hkbk-website` (unzipped from hkbk-website.zip). First read README.md, AGENTS.md and docs/SETUP.md. Follow AGENTS.md for any code change.
-- Supabase project URL: https://stksjavtukawalkffqjw.supabase.co
-- Supabase project ref: stksjavtukawalkffqjw
+- Supabase project URL: https://elhxrjkasyzjkyazutgi.supabase.co
+- Supabase project ref: elhxrjkasyzjkyazutgi
 
 SECURITY RULES (always)
 - Never print, echo, log or commit secret values. Secrets live only in `.env.local`, which is git-ignored.
@@ -28,7 +28,7 @@ STEP 2 - Install and build
 
 STEP 3 - Create .env.local
 - Copy .env.example to .env.local.
-- Set NEXT_PUBLIC_SUPABASE_URL=https://stksjavtukawalkffqjw.supabase.co
+- Set NEXT_PUBLIC_SUPABASE_URL=https://elhxrjkasyzjkyazutgi.supabase.co
 - Set REVALIDATE_SECRET to a new random value: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 - Keep NEXT_PUBLIC_SITE_URL=https://www.hkbk.edu.in unless I give another address.
 - Ask me to add, in .env.local, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY (sb_publishable_...) and SUPABASE_SECRET_KEY (sb_secret_...) from Supabase Dashboard > Project Settings > API Keys. Wait until I confirm.
@@ -37,7 +37,7 @@ STEP 3 - Create .env.local
 STEP 4 - Create the database schema (use option A; fall back to B)
 Option A, Supabase CLI:
 - npx supabase login            (opens a browser to sign in)
-- npx supabase link --project-ref stksjavtukawalkffqjw   (I will type the database password when asked)
+- npx supabase link --project-ref elhxrjkasyzjkyazutgi   (I will type the database password when asked)
 - npx supabase db push          (applies the 8 files in supabase/migrations, in order)
 Option B, if the CLI cannot be used:
 - Tell me to open Supabase Dashboard > SQL Editor > New query, paste the entire contents of supabase/setup_all.sql, and click Run. This creates the schema AND loads all content, and is safe to run again. Then skip Step 5.
@@ -52,7 +52,7 @@ In the database (CLI `npx supabase db query` if available, or ask me to run thes
 - Row-level security on every table: select tablename from pg_tables where schemaname = 'public' and not rowsecurity;  must return no rows.
 - Storage bucket: select id, public from storage.buckets where id = 'site-images';  must return one row with public = true.
 Regenerate the database types and re-check the build:
-- npx supabase gen types typescript --project-id stksjavtukawalkffqjw --schema public > lib/database.types.ts
+- npx supabase gen types typescript --project-id elhxrjkasyzjkyazutgi --schema public > lib/database.types.ts
 - npm run typecheck and npm run build must pass. If they fail because of the new types, fix the code following AGENTS.md, not by editing the generated file.
 Check the running site:
 - npm run dev, then open http://localhost:3000.

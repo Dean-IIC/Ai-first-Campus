@@ -182,7 +182,7 @@ Validation (server): type allowed; name ≥ 2 characters; email or phone; email 
 
 | Variable | Where | Purpose |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SUPABASE_URL` | `.env.local`, Vercel | Project URL (`https://stksjavtukawalkffqjw.supabase.co`) |
+| `NEXT_PUBLIC_SUPABASE_URL` | `.env.local`, Vercel | Project URL (`https://elhxrjkasyzjkyazutgi.supabase.co`) |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | `.env.local`, Vercel | Public key, limited by RLS (`NEXT_PUBLIC_SUPABASE_ANON_KEY` accepted for older projects) |
 | `SUPABASE_SECRET_KEY` | `.env.local` only | Seeding; never in Vercel |
 | `REVALIDATE_SECRET` | `.env.local`, Vercel, webhook header | Protects `/api/revalidate` |

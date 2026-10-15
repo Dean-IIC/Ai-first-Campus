@@ -55,7 +55,7 @@ The backlog for the HKBK website. Each ticket has an ID, priority, estimate, dep
 
 ### LAUNCH-01 Connect Supabase and load content
 P0 · S · Depends on: none
-Run the migrations on project `stksjavtukawalkffqjw`, load content, and connect the site.
+Run the migrations on project `elhxrjkasyzjkyazutgi`, load content, and connect the site.
 - [ ] `supabase db push` or `setup_all.sql` applied; row counts match `master-spec.md` section 6
 - [ ] `.env.local` configured; no "[content] ... Using files" warnings in `npm run dev`
 - [ ] Contact form test row appears in `enquiries` and is deleted
