@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, FlaskConical } from "lucide-react";
+import { ArrowRight, ExternalLink, FlaskConical } from "lucide-react";
 import ContentPage, { pageMetadata } from "@/components/features/layout/content-page";
 import Panel from "@/components/features/content/panel";
+import { buttonVariants } from "@/components/ui/button";
+import { isOffSite } from "@/lib/menu";
+import { getSiteLinks } from "@/lib/site-details";
 import { linkText } from "@/lib/ui";
 
 export const revalidate = 300;
@@ -12,10 +15,23 @@ const LINKS = [
   { label: "Research projects", href: "/research#projects" },
 ];
 
-/** Research & Development: a holding page until the R&D portal link is set, with links to the research pages. */
-export default function RndPage() {
+/** Research & Development: the way to the Research Pulse portal (the R&D portal link set in Edit content), and the research pages. */
+export default async function RndPage() {
+  const { rndUrl } = await getSiteLinks();
+  const offSite = rndUrl ? isOffSite(rndUrl) : false;
   return (
     <ContentPage slug="rnd" fallbackTitle="Research & Development" current="/rnd">
+      {rndUrl && (
+        <a
+          href={rndUrl}
+          {...(offSite ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+          className={buttonVariants({ size: "lg", className: "w-full sm:w-auto" })}
+        >
+          <FlaskConical aria-hidden="true" />
+          Open Research Pulse
+          {offSite ? <ExternalLink aria-hidden="true" /> : <ArrowRight aria-hidden="true" />}
+        </a>
+      )}
       <Panel title="Research at HKBK" icon={FlaskConical} tone="amber">
         <ul className="space-y-2">
           {LINKS.map((l) => (

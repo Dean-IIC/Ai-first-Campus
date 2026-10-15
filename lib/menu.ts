@@ -4,6 +4,9 @@ import type { Tone } from "./ui";
 
 export type MenuColumn = { title: string; links: NavItem[] };
 
+/** A full web address on another site. HKBK's own sites (*.hkbkce.in) open in the same tab. */
+export const isOffSite = (url: string) => /^https?:\/\//i.test(url) && !/^https?:\/\/([a-z0-9-]+\.)*hkbkce\.in(\/|$)/i.test(url);
+
 /**
  * One item in the top menu. Items with `columns` open a dropdown; items with
  * only `href` are plain links. The same list drives the top menu, the left
@@ -187,12 +190,12 @@ export function buildMenu({
       },
     },
     { label: "Placements", tone: "blue", href: "/placements" },
-    { label: "Alumni", tone: "blue", href: alumniUrl || "/alumni", external: /^https?:\/\//i.test(alumniUrl), match: ["/alumni"] },
+    { label: "Alumni", tone: "blue", href: alumniUrl || "/alumni", external: isOffSite(alumniUrl), match: ["/alumni"] },
     {
       label: "R&D",
       tone: "amber",
       href: rndUrl || "/rnd",
-      external: /^https?:\/\//i.test(rndUrl),
+      external: isOffSite(rndUrl),
       match: ["/rnd"],
       icon: "flask",
       hint: "Research & Development",

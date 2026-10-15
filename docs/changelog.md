@@ -5,6 +5,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [Unreleased]
 
 ### Changed
+- R&D now opens the HKBK Research Pulse portal (https://research.hkbkce.in), set as the R&D portal link in Edit content. Links to HKBK's own sites (*.hkbkce.in) open in the same tab. The R&D page (`/rnd`) has the line about Research Pulse and an "Open Research Pulse" button, and keeps its links to Research centres and Research projects. The footer's Centre of Excellence column lists "Research Pulse".
 - College vision and mission replaced with the approved text (one vision statement, three mission points) on the home page and the About page; department statements are unchanged.
 - Centre of Excellence menu (desktop and mobile): the first group is now "Industry" with Consultancy projects and Corporate training only; Research and Development, Research centres and Research projects are no longer in it. Research centres and Research projects are linked from the R&D page (`/rnd`) and always listed in the footer's Centre of Excellence column.
 - The consultancy client's name is no longer shown: the AI First Campus timeline (August – September 2026) says "a Bengaluru food business", and the consultancy project's client is "A Bengaluru food business". The name was also removed from earlier change-history entries.

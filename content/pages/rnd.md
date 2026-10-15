@@ -1,4 +1,4 @@
 ---
 title: Research & Development
-summary: HKBK Research & Development portal — coming soon
+summary: Explore HKBK's research publications, patents, projects and scholars on the HKBK Research Pulse portal
 ---

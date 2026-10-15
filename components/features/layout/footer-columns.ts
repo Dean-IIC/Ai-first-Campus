@@ -3,7 +3,7 @@ import type { NavItem } from "@/lib/site";
 
 export type FooterColumn = { title: string; links: NavItem[] };
 
-/** Research pages kept in the footer, since the R&D menu item may point to an external portal. */
+/** Research pages kept in the footer, since the R&D menu item may point to the research portal. */
 const RESEARCH_LINKS: NavItem[] = [
   { label: "Research centres", href: "/research/centres" },
   { label: "Research projects", href: "/research#projects" },
@@ -29,6 +29,9 @@ export function buildFooterColumns(menu: MenuSection[]): FooterColumn[] {
   };
   const column = (label: string, index: number): NavItem[] => find(label)?.columns?.[index]?.links ?? [];
   const about = find("About");
+  // The R&D item's portal address (set in Edit content), listed as "Research Pulse" when it is a web address.
+  const rnd = find("R&D");
+  const portal: NavItem[] = rnd?.href && /^https?:\/\//i.test(rnd.href) ? [{ label: "Research Pulse", href: rnd.href, external: rnd.external }] : [];
   const ai = find("AI First Campus");
 
   return [
@@ -38,7 +41,7 @@ export function buildFooterColumns(menu: MenuSection[]): FooterColumn[] {
     },
     { title: "Programmes", links: column("Programmes", 0) },
     { title: "Departments", links: find("Departments") ? sectionLinks(find("Departments")!) : [] },
-    { title: "Centre of Excellence", links: [...RESEARCH_LINKS, ...column("Centre of Excellence", 0), ...column("Centre of Excellence", 2)] },
+    { title: "Centre of Excellence", links: [...portal, ...RESEARCH_LINKS, ...column("Centre of Excellence", 0), ...column("Centre of Excellence", 2)] },
     {
       title: "Student life",
       links: [
