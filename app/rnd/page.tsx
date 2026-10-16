@@ -15,7 +15,7 @@ const LINKS = [
   { label: "Research projects", href: "/research#projects" },
 ];
 
-/** Research & Development: the way to the Research Pulse portal (the R&D portal link set in Edit content), and the research pages. */
+/** Research & Development: the way to the HKBK Research portal (the R&D portal link set in Edit content), and the research pages. */
 export default async function RndPage() {
   const { rndUrl } = await getSiteLinks();
   const offSite = rndUrl ? isOffSite(rndUrl) : false;
@@ -28,7 +28,7 @@ export default async function RndPage() {
           className={buttonVariants({ size: "lg", className: "w-full sm:w-auto" })}
         >
           <FlaskConical aria-hidden="true" />
-          Open Research Pulse
+          Open HKBK Research
           {offSite ? <ExternalLink aria-hidden="true" /> : <ArrowRight aria-hidden="true" />}
         </a>
       )}

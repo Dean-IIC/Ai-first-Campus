@@ -29,9 +29,9 @@ export function buildFooterColumns(menu: MenuSection[]): FooterColumn[] {
   };
   const column = (label: string, index: number): NavItem[] => find(label)?.columns?.[index]?.links ?? [];
   const about = find("About");
-  // The R&D item's portal address (set in Edit content), listed as "Research Pulse" when it is a web address.
+  // The R&D item's portal address (set in Edit content), listed as "HKBK Research" when it is a web address.
   const rnd = find("R&D");
-  const portal: NavItem[] = rnd?.href && /^https?:\/\//i.test(rnd.href) ? [{ label: "Research Pulse", href: rnd.href, external: rnd.external }] : [];
+  const portal: NavItem[] = rnd?.href && /^https?:\/\//i.test(rnd.href) ? [{ label: "HKBK Research", href: rnd.href, external: rnd.external }] : [];
   const ai = find("AI First Campus");
 
   return [

@@ -13,3 +13,8 @@ npm-debug.log*
 
 # Local backups of the database and storage (may contain personal data)
 /backups/
+
+# One-time private file for pasting a key (never committed)
+/paste-supabase-key-here.txt
+/paste-arya-key-here.txt
+/paste-research-pulse-key-here.txt
