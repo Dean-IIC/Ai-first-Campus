@@ -8,7 +8,7 @@
     "signed_on": "2025-08-10",
     "valid_until": "2028-08-10",
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/shinawatra-university.jpg",
     "sort_order": 1
   },
   {
@@ -20,7 +20,7 @@
     "signed_on": "2025-05-12",
     "valid_until": "2028-05-12",
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/citriot.png",
     "sort_order": 2
   },
   {
@@ -32,7 +32,7 @@
     "signed_on": "2024-10-16",
     "valid_until": "2029-10-16",
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/vtu.png",
     "sort_order": 3
   },
   {
@@ -44,7 +44,7 @@
     "signed_on": "2026-01-22",
     "valid_until": "2031-01-22",
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/dsedify.png",
     "sort_order": 4
   },
   {
@@ -80,7 +80,7 @@
     "signed_on": "2024-07-24",
     "valid_until": "2029-07-24",
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/gleamator-technologies.png",
     "sort_order": 7
   },
   {
@@ -92,7 +92,7 @@
     "signed_on": "2026-01-22",
     "valid_until": "2031-01-22",
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/dyashin-technosoft.png",
     "sort_order": 8
   },
   {
@@ -104,7 +104,7 @@
     "signed_on": "2026-05-04",
     "valid_until": "2029-05-04",
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/ubuntu-consortium.png",
     "sort_order": 9
   }
 ]

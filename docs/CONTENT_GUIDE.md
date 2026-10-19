@@ -221,7 +221,7 @@ Open **Table Editor > enquiries** in Supabase. Filter by `type` to see one form,
 - [ ] Names, namesakes and descriptions added for House 4 and House 5
 - [ ] IEEE chapter details, branch counsellor and chapter office-bearers confirmed
 - [ ] Placement page recruiter list and IQAC reports added
-- [ ] Partner logos added for the 9 MoUs in the `mous` table
+- [ ] Logos added for RollNumber Technologies and V-INSPIRE in the `mous` table (the other 7 are in `public/images/mous/`)
 - [ ] Figures in `key_figures` checked and dated (for example, students placed in which year)
 - [ ] Subdomain addresses added and set to `Live` for each centre or initiative that is ready
 - [ ] Leadership portraits uploaded to the `site-images` bucket and `photo_url` filled in
