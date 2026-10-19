@@ -1008,7 +1008,7 @@ insert into public.key_figures (slug, label, value, suffix, sort_order) values
   ('patents-filed', 'Patents filed', 150, '', 5),
   ('patents-published', 'Patents published', 50, '', 6),
   ('patents-granted', 'Patents granted', 30, '', 7),
-  ('mous', 'MoUs signed', 12, '', 8),
+  ('mous', 'MoUs signed', 13, '', 8),
   ('ai-faculty-champions', 'AI Faculty Champions', null, '', 9),
   ('ai-student-ambassadors', 'AI Student Ambassadors', null, '', 10),
   ('students-placed', 'Students placed', 200, '', 11)
@@ -1024,8 +1024,9 @@ insert into public.mous (slug, partner, association, partner_type, purpose, sign
   ('dyashin-technosoft', 'Dyashin Technosoft Pvt Ltd', 'HKBKCE', 'Industry', null, '2026-01-22', '2031-01-22', null, '/images/mous/dyashin-technosoft.png', 8),
   ('ubuntu-consortium', 'Ubuntu Consortium', 'HKBKCE', 'Industry', null, '2026-05-04', '2029-05-04', null, '/images/mous/ubuntu-consortium.png', 9),
   ('chiac', 'Chiac ASI', null, 'Industry', null, null, null, null, '/images/mous/chiac.png', 10),
-  ('midhani', 'Mishra Dhatu Nigam Limited (MIDHANI)', null, 'Government', null, null, null, null, '/images/mous/midhani.png', 11),
-  ('quantumx', 'QuantumX', null, 'Industry', null, null, null, null, '/images/mous/quantumx.jpg', 12)
+  ('medini-technologies', 'Medini Technologies', 'HKBKCE', 'Industry', null, '2024-05-07', null, null, '/images/mous/medini-technologies.png', 11),
+  ('quantumx', 'QuantumX', 'HKBKCE', 'Industry', null, '2026-11-17', null, null, '/images/mous/quantumx.jpg', 12),
+  ('ust', 'UST', 'HKBKCE', 'Industry', null, '2021-04-04', null, null, '/images/mous/ust.png', 13)
 on conflict (slug) do update set partner = excluded.partner, association = excluded.association, partner_type = excluded.partner_type, purpose = excluded.purpose, signed_on = excluded.signed_on, valid_until = excluded.valid_until, document_url = excluded.document_url, logo_url = excluded.logo_url, sort_order = excluded.sort_order;
 insert into public.news_items (slug, kind, title, summary, published_on, event_date, link_url, is_sample) values
   ('sample-ai-first-launch', 'event', 'AI First campus launch week', 'Talks, demos of the campus assistant and open sessions in the Quantum Lab for students, parents and industry guests.', '2026-10-01', '2026-11-16', null, true),

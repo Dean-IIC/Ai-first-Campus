@@ -167,7 +167,7 @@ To add photos to another month, upload them to `public/images/journey/` (or the 
 
 ## Big numbers (home page)
 
-The band under the home page photo shows eleven figures from the `key_figures` table (or `content/data/key_figures.json`): years of excellence, students (2,500+), faculty (150+), papers published (300+), patents filed (150), patents published (50), patents granted (30), MoUs signed (12), AI Faculty Champions, AI Student Ambassadors and students placed (200).
+The band under the home page photo shows eleven figures from the `key_figures` table (or `content/data/key_figures.json`): years of excellence, students (2,500+), faculty (150+), papers published (300+), patents filed (150), patents published (50), patents granted (30), MoUs signed (13), AI Faculty Champions, AI Student Ambassadors and students placed (200).
 
 - **Years of excellence** is calculated from the founding year (1997), and the **AI Faculty Champions** and **AI Student Ambassadors** figures come from `aiProgramme` in `lib/site.ts`. Leave their `value` empty.
 - For the others, update `value` when the figure changes; `suffix` is shown after it (for example `+`). A figure with no value shows "Figure coming soon".

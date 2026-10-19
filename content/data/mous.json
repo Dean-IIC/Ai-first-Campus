@@ -120,27 +120,39 @@
     "sort_order": 10
   },
   {
-    "slug": "midhani",
-    "partner": "Mishra Dhatu Nigam Limited (MIDHANI)",
-    "association": null,
-    "partner_type": "Government",
+    "slug": "medini-technologies",
+    "partner": "Medini Technologies",
+    "association": "HKBKCE",
+    "partner_type": "Industry",
     "purpose": null,
-    "signed_on": null,
+    "signed_on": "2024-05-07",
     "valid_until": null,
     "document_url": null,
-    "logo_url": "/images/mous/midhani.png",
+    "logo_url": "/images/mous/medini-technologies.png",
     "sort_order": 11
   },
   {
     "slug": "quantumx",
     "partner": "QuantumX",
-    "association": null,
+    "association": "HKBKCE",
     "partner_type": "Industry",
     "purpose": null,
-    "signed_on": null,
+    "signed_on": "2026-11-17",
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/quantumx.jpg",
     "sort_order": 12
+  },
+  {
+    "slug": "ust",
+    "partner": "UST",
+    "association": "HKBKCE",
+    "partner_type": "Industry",
+    "purpose": null,
+    "signed_on": "2021-04-04",
+    "valid_until": null,
+    "document_url": null,
+    "logo_url": "/images/mous/ust.png",
+    "sort_order": 13
   }
 ]
