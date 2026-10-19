@@ -1023,7 +1023,7 @@ insert into public.mous (slug, partner, association, partner_type, purpose, sign
   ('gleamator-technologies', 'Gleamator Technologies', 'VTU and HKBKCE', 'Industry', null, '2024-07-24', '2029-07-24', null, '/images/mous/gleamator-technologies.png', 7),
   ('dyashin-technosoft', 'Dyashin Technosoft Pvt Ltd', 'HKBKCE', 'Industry', null, '2026-01-22', '2031-01-22', null, '/images/mous/dyashin-technosoft.png', 8),
   ('ubuntu-consortium', 'Ubuntu Consortium', 'HKBKCE', 'Industry', null, '2026-05-04', '2029-05-04', null, '/images/mous/ubuntu-consortium.png', 9),
-  ('chiac', 'Chiac ASI', null, 'Industry', null, null, null, null, '/images/mous/chiac.png', 10),
+  ('chiac', 'Chiac ASI', 'HKBKCE', 'Industry', null, '2026-01-25', null, null, '/images/mous/chiac.png', 10),
   ('medini-technologies', 'Medini Technologies', 'HKBKCE', 'Industry', null, '2024-05-07', null, null, '/images/mous/medini-technologies.png', 11),
   ('quantumx', 'QuantumX', 'HKBKCE', 'Industry', null, '2026-11-17', null, null, '/images/mous/quantumx.jpg', 12),
   ('ust', 'UST', 'HKBKCE', 'Industry', null, '2021-04-04', null, null, '/images/mous/ust.png', 13)
