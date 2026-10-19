@@ -106,5 +106,41 @@
     "document_url": null,
     "logo_url": "/images/mous/ubuntu-consortium.png",
     "sort_order": 9
+  },
+  {
+    "slug": "chiac",
+    "partner": "Chiac ASI",
+    "association": null,
+    "partner_type": "Industry",
+    "purpose": null,
+    "signed_on": null,
+    "valid_until": null,
+    "document_url": null,
+    "logo_url": "/images/mous/chiac.png",
+    "sort_order": 10
+  },
+  {
+    "slug": "midhani",
+    "partner": "Mishra Dhatu Nigam Limited (MIDHANI)",
+    "association": null,
+    "partner_type": "Government",
+    "purpose": null,
+    "signed_on": null,
+    "valid_until": null,
+    "document_url": null,
+    "logo_url": "/images/mous/midhani.png",
+    "sort_order": 11
+  },
+  {
+    "slug": "quantumx",
+    "partner": "QuantumX",
+    "association": null,
+    "partner_type": "Industry",
+    "purpose": null,
+    "signed_on": null,
+    "valid_until": null,
+    "document_url": null,
+    "logo_url": "/images/mous/quantumx.jpg",
+    "sort_order": 12
   }
 ]
