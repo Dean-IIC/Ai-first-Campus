@@ -70,9 +70,9 @@ docs/                 this documentation set
 | `/mous` | MoU count, scope and directory | `mous`, `key_figures`, page `mous` |
 | `/ai-quantum` | AI and quantum overview with dashboards chart | `dashboards`, page `ai-quantum` |
 | `/ai-quantum/ai-first` | AI First Campus page | page `ai-first` |
-| `/ai-quantum/champions` | 15 AI Faculty Champions (cards, with `?edit=1` editor) and 50 AI Student Ambassadors | `content/champions.json`, `ai_people` (ambassadors), page `ai-champions` |
+| `/ai-quantum/champions` | Permanent redirect to `/ai-quantum/ai-first#champions` (the AI Champions and Ambassadors content is on the AI First Campus page) | - |
 | `/ai-quantum/quantum-lab` | Quantum Ready Campus: lab, steps, quantum-safe timeline | page `quantum-lab` |
-| `/ai-quantum/dashboards` | Dashboards hub by category | `dashboards`, page `dashboards` |
+| `/ai-quantum/dashboards` | Permanent redirect to `/ai-quantum/ai-first#dashboards` (the dashboards content is on the AI First Campus page) | - |
 | `/iqac` | IQAC tabs | page `iqac` |
 | `/news` | News and events tabs | `news_items`, page `news` |
 | `/contact` | Address, map, contact form | page `contact` |

@@ -3,7 +3,7 @@ import { UserRound, Users } from "lucide-react";
 import Panel from "@/components/features/content/panel";
 import { aiProgramme } from "@/lib/site";
 
-/** Summary of the AI Champions programme, linking to the full page with every person. */
+/** Summary of the AI Champions programme, linking to the grids with every person. */
 export default function AiChampions() {
   const groups = [
     {
@@ -11,14 +11,14 @@ export default function AiChampions() {
       count: aiProgramme.facultyChampions,
       icon: Users,
       text: "Faculty members who lead AI adoption in their departments.",
-      href: "/ai-quantum/champions#faculty-champions",
+      href: "/ai-quantum/ai-first#faculty-champions",
     },
     {
       title: "AI Student Ambassadors",
       count: aiProgramme.studentAmbassadors,
       icon: UserRound,
       text: "Students who help classmates use AI tools well and responsibly.",
-      href: "/ai-quantum/champions#student-ambassadors",
+      href: "/ai-quantum/ai-first#student-ambassadors",
     },
   ];
   return (

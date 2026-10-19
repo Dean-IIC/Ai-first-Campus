@@ -5,6 +5,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [Unreleased]
 
 ### Changed (menu)
+- AI First Campus page (`/ai-quantum/ai-first`): the two link cards are removed. Below the page header it now shows the full AI Champions and Ambassadors content (faculty and ambassador grids, same component and data, admin editing unchanged) under a "AI Champions and Ambassadors" heading (`#champions`), then the full Dashboards content (intro, chart, status counts, tabbed list) under "Dashboards" (`#dashboards`), then the existing photo, summary panel and page text. The summary panel's "See all" links point to the grids on the same page. `/ai-quantum/champions` and `/ai-quantum/dashboards` redirect permanently (308) to those sections and are removed from the sitemap. The page now renders on each request so card edits show at once. Dashboards content moved to `components/features/initiatives/dashboards-section.tsx`; `link-cards.tsx` removed.
 - AI & Quantum Campus dropdown (desktop and mobile): the AI First Campus column now lists only "AI First Campus". The AI First Campus page has two cards below the heading, "AI Champions and Ambassadors" and "Dashboards" (side by side, stacked on phones), linking to the existing pages, which are unchanged. The footer still lists both links, and the menu item stays highlighted on those pages. New `components/features/content/link-cards.tsx`.
 
 ### Added

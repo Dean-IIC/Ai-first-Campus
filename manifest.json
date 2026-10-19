@@ -106,28 +106,10 @@
       "route": "/ai-quantum/ai-first",
       "file": "app/ai-quantum/ai-first/page.tsx",
       "kind": "Static",
-      "revalidate": "300",
-      "data": [
-        "page:ai-first"
-      ]
-    },
-    {
-      "route": "/ai-quantum/champions",
-      "file": "app/ai-quantum/champions/page.tsx",
-      "kind": "Static",
       "revalidate": null,
       "data": [
-        "page:ai-champions"
-      ]
-    },
-    {
-      "route": "/ai-quantum/dashboards",
-      "file": "app/ai-quantum/dashboards/page.tsx",
-      "kind": "Static",
-      "revalidate": "300",
-      "data": [
-        "table:dashboards",
-        "page:dashboards"
+        "page:ai-champions",
+        "page:ai-first"
       ]
     },
     {
@@ -452,12 +434,6 @@
       "summary": "A large image with a caption panel, used for AI, quantum and campus features."
     },
     {
-      "file": "components/features/content/link-cards.tsx",
-      "lines": 40,
-      "client": false,
-      "summary": "Clickable cards that lead to related pages, side by side on wider screens and stacked on"
-    },
-    {
       "file": "components/features/content/markdown.tsx",
       "lines": 31,
       "client": false,
@@ -692,6 +668,12 @@
       "summary": "Numbered steps; in a row with arrows on wide screens, or a 2-column grid."
     },
     {
+      "file": "components/features/initiatives/dashboards-section.tsx",
+      "lines": 97,
+      "client": false,
+      "summary": "The dashboards content (intro text from the \"dashboards\" page, the chart, the status counts"
+    },
+    {
       "file": "components/features/initiatives/initiative-callout.tsx",
       "lines": 37,
       "client": false,
@@ -809,7 +791,7 @@
       "file": "components/features/people/ai-champions.tsx",
       "lines": 46,
       "client": false,
-      "summary": "Summary of the AI Champions programme, linking to the full page with every person."
+      "summary": "Summary of the AI Champions programme, linking to the grids with every person."
     },
     {
       "file": "components/features/people/ai-people-grid.tsx",

@@ -11,7 +11,6 @@ const ROUTES = [
   "/ai-quantum",
   "/ai-quantum/ai-first",
   "/ai-quantum/quantum-lab",
-  "/ai-quantum/dashboards",
   "/research",
   "/research/centres",
   "/consultancy",
@@ -25,7 +24,6 @@ const ROUTES = [
   "/rnd",
   "/mous",
   "/iqac",
-  "/ai-quantum/champions",
   "/contact",
 ];
 

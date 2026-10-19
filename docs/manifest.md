@@ -16,7 +16,7 @@ Inventory of the HKBK College of Engineering website, generated from the source 
 | @supabase/ssr | ^0.12.7 |
 | next-themes | ^0.4.6 |
 
-## Routes (34)
+## Routes (32)
 
 Components used by a route may load more data (for example the home page sections); see the components table.
 
@@ -29,9 +29,7 @@ Components used by a route may load more data (for example the home page section
 | `/admin/enquiries` | Static | - | - | `app/admin/enquiries/page.tsx` |
 | `/admin/login` | Static | - | - | `app/admin/login/page.tsx` |
 | `/ai-quantum` | Static | 300s | `table:dashboards`, `page:ai-quantum` | `app/ai-quantum/page.tsx` |
-| `/ai-quantum/ai-first` | Static | 300s | `page:ai-first` | `app/ai-quantum/ai-first/page.tsx` |
-| `/ai-quantum/champions` | Static | - | `page:ai-champions` | `app/ai-quantum/champions/page.tsx` |
-| `/ai-quantum/dashboards` | Static | 300s | `table:dashboards`, `page:dashboards` | `app/ai-quantum/dashboards/page.tsx` |
+| `/ai-quantum/ai-first` | Static | - | `page:ai-champions`, `page:ai-first` | `app/ai-quantum/ai-first/page.tsx` |
 | `/ai-quantum/quantum-lab` | Static | 300s | `page:quantum-lab` | `app/ai-quantum/quantum-lab/page.tsx` |
 | `/alumni` | Static | 300s | `page:alumni` | `app/alumni/page.tsx` |
 | `/api/admin/enquiries/csv` | API | - | - | `app/api/admin/enquiries/csv/route.ts` |
@@ -80,7 +78,6 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/content/bits.tsx` | 84 | Server | Section heading used on the home page. |
 | `components/features/content/content-tabs.tsx` | 77 | Client | Folder-style tabs built on shadcn/Radix Tabs. Every panel stays in the HTML |
 | `components/features/content/image-feature.tsx` | 50 | Server | A large image with a caption panel, used for AI, quantum and campus features. |
-| `components/features/content/link-cards.tsx` | 40 | Server | Clickable cards that lead to related pages, side by side on wider screens and stacked on |
 | `components/features/content/markdown.tsx` | 31 | Server | - |
 | `components/features/content/panel.tsx` | 49 | Server | A shadcn Card with an optional header. The coloured top edge and icon use |
 | `components/features/content/project-list.tsx` | 58 | Server | Optional bullet points shown under the summary (consultancy outcomes). |
@@ -120,6 +117,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/infographics/index.ts` | 4 | Server | - |
 | `components/features/infographics/milestone-timeline.tsx` | 25 | Server | Horizontal timeline on wide screens, vertical on phones. |
 | `components/features/infographics/process-steps.tsx` | 39 | Server | Numbered steps; in a row with arrows on wide screens, or a 2-column grid. |
+| `components/features/initiatives/dashboards-section.tsx` | 97 | Server | The dashboards content (intro text from the "dashboards" page, the chart, the status counts |
 | `components/features/initiatives/initiative-callout.tsx` | 37 | Server | Banner at the top of a page whose initiative has (or will have) its own site: UHV, R&D, IEEE. |
 | `components/features/layout/content-page.tsx` | 70 | Server | Standard inner page: banner, then the content at full width. |
 | `components/features/layout/footer-brand.tsx` | 64 | Server | Logo, motto, address and contact links at the start of the footer. |
@@ -139,7 +137,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/navigation/mobile-menu-panel.tsx` | 106 | Client | The slide-in menu for phones and tablets: a navy panel from the right over a dimmed page. |
 | `components/features/navigation/nav-link.tsx` | 20 | Server | A menu link: internal pages use next/link; live initiative sites open in a new tab. |
 | `components/features/people/add-person-card.tsx` | 54 | Client | The "Add new" card at the end of a grid, for people beyond the numbered cards. Admin only. |
-| `components/features/people/ai-champions.tsx` | 46 | Server | Summary of the AI Champions programme, linking to the full page with every person. |
+| `components/features/people/ai-champions.tsx` | 46 | Server | Summary of the AI Champions programme, linking to the grids with every person. |
 | `components/features/people/ai-people-grid.tsx` | 86 | Server | Puts each student ambassador in the card numbered by their sort_order (the position the |
 | `components/features/people/ambassador-view.tsx` | 60 | Server | One AI Student Ambassador card: the person (photo or initials, name, department, year), or a |
 | `components/features/people/champion-crop-dialog.tsx` | 147 | Client | Circular crop: drag or use the arrow keys to position the picture; the slider zooms. |
