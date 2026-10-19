@@ -1,4 +1,5 @@
 import { serviceBase } from "@/lib/admin/service";
+import { CAROUSEL_KEY, MAX_SLIDES } from "@/lib/carousel";
 import { LINK_FIELDS, LIST_SPECS, MESSAGE_FIELDS, PAGE_FIELDS, SITE_FIELDS, isListTable, type Field } from "./schema";
 
 /*
@@ -94,6 +95,20 @@ function cleanList(table: string, value: unknown): Record<string, unknown>[] {
   });
 }
 
+/** Home page carousel: up to MAX_SLIDES photos, each an allowed image with alt text and an optional badge. */
+function cleanCarousel(value: unknown): { src: string; alt: string; title: string; subtitle: string }[] {
+  if (!Array.isArray(value) || value.length === 0) throw new Error("Add at least one photo.");
+  if (value.length > MAX_SLIDES) throw new Error(`The carousel can hold at most ${MAX_SLIDES} photos.`);
+  return value.map((raw, i) => {
+    const s = (raw ?? {}) as Record<string, unknown>;
+    const src = typeof s.src === "string" ? s.src.trim() : "";
+    if (!src || !isAllowedImage(src)) throw new Error(`Photo ${i + 1}: upload the picture here instead of pasting an address.`);
+    const alt = cleanText(s.alt ?? "", 300);
+    if (!alt) throw new Error(`Photo ${i + 1}: describe the photo in the alt text.`);
+    return { src, alt, title: cleanText(s.title ?? "", 80), subtitle: cleanText(s.subtitle ?? "", 120) };
+  });
+}
+
 /** Checks a value for its kind of content and returns the cleaned value to store. */
 export function cleanValue(key: string, value: unknown): unknown {
   if (key.startsWith("text:")) return cleanText(value, 1000, false);
@@ -107,5 +122,6 @@ export function cleanValue(key: string, value: unknown): unknown {
   if (key === "site:details") return cleanRecord(SITE_FIELDS, value);
   if (key === "site:links") return cleanRecord(LINK_FIELDS, value);
   if (key.startsWith("list:")) return cleanList(key.slice(5), value);
+  if (key === CAROUSEL_KEY) return cleanCarousel(value);
   throw new Error("This content cannot be edited.");
 }

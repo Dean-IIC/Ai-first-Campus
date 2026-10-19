@@ -48,7 +48,7 @@ The preview link (claude.ai artifact) is a saved snapshot of the site with no se
 2. A dark bar appears at the top of every page: **Signed in as admin**, **Edit page**, **Undo**, **History**, **Sign out**.
 3. Click **Edit page** to turn editing on. Editable text is outlined in dashed teal when you hover over it.
 4. **Text:** click it, type, then press **Enter** or click elsewhere. The bar shows "Saved ✓". Press **Esc** to cancel.
-5. **Photos:** click **Replace photo** under a picture. Choose a JPG, PNG or WebP up to 5 MB. Pictures are shrunk and compressed in the browser before upload. The alt text under the photo is also editable.
+5. **Photos:** click **Replace photo** under a picture (the home page photos are changed in **Edit content** → Home page carousel instead). Choose a JPG, PNG or WebP up to 5 MB. Pictures are shrunk and compressed in the browser before upload. The alt text under the photo is also editable.
 6. **Champions:** on the AI Faculty Champions section, click a name or detail to edit it, a photo to replace it (with a circular crop), **Remove photo**, **Clear card**, **Delete card**, the arrow buttons or drag to reorder, and **+ Add champion** at the end.
 7. **Undo** reverses your last change. Undo can be used again to step back further.
 8. **History** lists the last 30 changes. Click **Restore** on any entry to put back the version it saved.
@@ -67,7 +67,8 @@ The preview link (claude.ai artifact) is a saved snapshot of the site with no se
 
 | Area | How |
 | --- | --- |
-| Home page headline, intro paragraph and campus photo; section headings and intro lines | **Edit page** on, then click the text or **Replace photo** |
+| Home page headline and intro paragraph; section headings and intro lines | **Edit page** on, then click the text |
+| Home page photo carousel (up to 10 photos, each with a badge title, subtitle and alt text) | **Edit content** → Home page carousel: **Add photo**, upload, drag or use the arrows to reorder, delete, then **Save changes**. Leave the badge title and subtitle empty to hide the badge on that photo. With one photo there are no arrows or dots |
 | Title, summary and full text of every page | **Edit content** → Page text |
 | Leadership messages (name, designation, photo, message) | **Edit content** → Leadership messages |
 | Departments, news and events, MoUs, AI Champions, key figures, houses, centres and initiatives, dashboards, research and consultancy projects, training programmes, UHV activities, the AI First journey | **Edit content** → Lists: open an item to change it, add, delete or reorder, then **Save changes** |

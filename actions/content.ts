@@ -6,6 +6,8 @@ import { isAdminSession } from "@/lib/admin/session";
 import { getList, getMessages, getPage } from "@/lib/content";
 import { isListTable } from "@/lib/cms/schema";
 import { getSiteDetails, getSiteLinks } from "@/lib/site-details";
+import { CAROUSEL_KEY } from "@/lib/carousel";
+import { getHeroSlides } from "@/lib/carousel-server";
 
 export type Choice = { key: string; label: string };
 export type Catalog = { pages: Choice[]; messages: Choice[] };
@@ -49,6 +51,7 @@ export async function loadContentAction(key: string): Promise<LoadResult> {
     }
     if (kind === "list" && isListTable(name)) return { ok: true, value: await getList(name) };
     if (key === "site:links") return { ok: true, value: await getSiteLinks() };
+    if (key === CAROUSEL_KEY) return { ok: true, value: await getHeroSlides() };
     if (kind === "site") {
       const d = await getSiteDetails();
       return { ok: true, value: { phone: d.phone, email: d.email, mapQuery: d.mapQuery, ...d.address } };

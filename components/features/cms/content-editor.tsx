@@ -9,6 +9,8 @@ import { NativeSelect } from "@/components/ui/native-select";
 import { useAdmin } from "@/components/features/admin/admin-provider";
 import { LINK_FIELDS, LIST_SPECS, LIST_TABLES, MESSAGE_FIELDS, PAGE_FIELDS, SITE_FIELDS } from "@/lib/cms/schema";
 import { keyForPath } from "@/lib/cms/paths";
+import { CAROUSEL_KEY, type HeroSlide } from "@/lib/carousel";
+import CarouselForm from "./carousel-form";
 import ListForm from "./list-form";
 import RecordForm from "./record-form";
 
@@ -69,6 +71,7 @@ export default function ContentEditor({ open, onOpenChange }: { open: boolean; o
           <Label htmlFor="cms-target">What do you want to edit?</Label>
           <NativeSelect id="cms-target" value={key} onChange={(e) => setKey(e.target.value)}>
             <option value="site:details">Contact details (address, phone, email)</option>
+            <option value={CAROUSEL_KEY}>Home page carousel</option>
             <option value="site:links">Alumni, R&amp;D and UHV portal links</option>
             <optgroup label="Lists">
               {LIST_TABLES.map((t) => <option key={t} value={`list:${t}`}>{LIST_SPECS[t].label}</option>)}
@@ -88,7 +91,10 @@ export default function ContentEditor({ open, onOpenChange }: { open: boolean; o
         {value !== null && kind === "list" && name in LIST_SPECS && (
           <ListForm key={`${key}-${version}`} spec={LIST_SPECS[name as keyof typeof LIST_SPECS]} initial={value as Row[]} onSave={(rows) => store(rows, `List: ${LIST_SPECS[name as keyof typeof LIST_SPECS].label}`)} />
         )}
-        {value !== null && kind !== "list" && (
+        {value !== null && key === CAROUSEL_KEY && (
+          <CarouselForm key={`${key}-${version}`} initial={value as HeroSlide[]} onSave={(slides) => store(slides, "Home page carousel")} />
+        )}
+        {value !== null && kind !== "list" && key !== CAROUSEL_KEY && (
           <RecordForm
             key={`${key}-${version}`}
             fields={kind === "page" ? PAGE_FIELDS : kind === "message" ? MESSAGE_FIELDS : key === "site:links" ? LINK_FIELDS : SITE_FIELDS}
