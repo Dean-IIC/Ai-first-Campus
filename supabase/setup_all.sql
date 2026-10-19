@@ -1018,8 +1018,8 @@ insert into public.mous (slug, partner, association, partner_type, purpose, sign
   ('citriot', 'CITRIOT', 'HKBKCE', 'Industry', null, '2025-05-12', '2028-05-12', null, '/images/mous/citriot.png', 2),
   ('vtu', 'VTU', 'HKBKCE', 'Academic', null, '2024-10-16', '2029-10-16', null, '/images/mous/vtu.png', 3),
   ('dsedify', 'DSEdify Pvt Ltd', 'HKBKCE', 'Industry', null, '2026-01-22', '2031-01-22', null, '/images/mous/dsedify.png', 4),
-  ('rollnumber-technologies', 'RollNumber Technologies Pvt Ltd', 'HKBKCE', 'Industry', null, '2025-03-10', '2028-03-10', null, null, 5),
-  ('v-inspire', 'V-INSPIRE', 'HKBKCE', 'Industry', null, '2026-01-01', '2031-01-01', null, null, 6),
+  ('rollnumber-technologies', 'RollNumber Technologies Pvt Ltd', 'HKBKCE', 'Industry', null, '2025-03-10', '2028-03-10', null, '/images/mous/rollnumber-technologies.png', 5),
+  ('v-inspire', 'V-INSPIRE', 'HKBKCE', 'Industry', null, '2026-01-01', '2031-01-01', null, '/images/mous/v-inspire.png', 6),
   ('gleamator-technologies', 'Gleamator Technologies', 'VTU and HKBKCE', 'Industry', null, '2024-07-24', '2029-07-24', null, '/images/mous/gleamator-technologies.png', 7),
   ('dyashin-technosoft', 'Dyashin Technosoft Pvt Ltd', 'HKBKCE', 'Industry', null, '2026-01-22', '2031-01-22', null, '/images/mous/dyashin-technosoft.png', 8),
   ('ubuntu-consortium', 'Ubuntu Consortium', 'HKBKCE', 'Industry', null, '2026-05-04', '2029-05-04', null, '/images/mous/ubuntu-consortium.png', 9)

@@ -56,7 +56,7 @@
     "signed_on": "2025-03-10",
     "valid_until": "2028-03-10",
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/rollnumber-technologies.png",
     "sort_order": 5
   },
   {
@@ -68,7 +68,7 @@
     "signed_on": "2026-01-01",
     "valid_until": "2031-01-01",
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/v-inspire.png",
     "sort_order": 6
   },
   {
