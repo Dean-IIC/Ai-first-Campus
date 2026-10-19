@@ -98,7 +98,6 @@
       "kind": "Static",
       "revalidate": "300",
       "data": [
-        "table:dashboards",
         "page:ai-quantum"
       ]
     },

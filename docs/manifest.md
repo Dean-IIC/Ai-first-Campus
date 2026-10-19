@@ -28,7 +28,7 @@ Components used by a route may load more data (for example the home page section
 | `/academics/[slug]` | Dynamic (pre-rendered) | 300s | `table:departments` | `app/academics/[slug]/page.tsx` |
 | `/admin/enquiries` | Static | - | - | `app/admin/enquiries/page.tsx` |
 | `/admin/login` | Static | - | - | `app/admin/login/page.tsx` |
-| `/ai-quantum` | Static | 300s | `table:dashboards`, `page:ai-quantum` | `app/ai-quantum/page.tsx` |
+| `/ai-quantum` | Static | 300s | `page:ai-quantum` | `app/ai-quantum/page.tsx` |
 | `/ai-quantum/ai-first` | Static | - | `page:ai-champions`, `page:ai-first` | `app/ai-quantum/ai-first/page.tsx` |
 | `/ai-quantum/quantum-lab` | Static | 300s | `page:quantum-lab` | `app/ai-quantum/quantum-lab/page.tsx` |
 | `/alumni` | Static | 300s | `page:alumni` | `app/alumni/page.tsx` |

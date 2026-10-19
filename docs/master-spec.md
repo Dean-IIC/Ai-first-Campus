@@ -72,7 +72,7 @@ docs/                 this documentation set
 | `/ai-quantum/ai-first` | AI First Campus page | page `ai-first` |
 | `/ai-quantum/champions` | Permanent redirect to `/ai-quantum/ai-first#champions` (the AI Champions and Ambassadors content is on the AI First Campus page) | - |
 | `/ai-quantum/quantum-lab` | Quantum Ready Campus: lab, steps, quantum-safe timeline | page `quantum-lab` |
-| `/ai-quantum/dashboards` | Permanent redirect to `/ai-quantum/ai-first#dashboards` (the dashboards content is on the AI First Campus page) | - |
+| `/ai-quantum/dashboards` | Permanent redirect to `/ai-quantum/ai-first` (dashboards are not shown for now; data and editor kept) | - |
 | `/iqac` | IQAC tabs | page `iqac` |
 | `/news` | News and events tabs | `news_items`, page `news` |
 | `/contact` | Address, map, contact form | page `contact` |
