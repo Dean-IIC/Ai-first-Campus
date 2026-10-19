@@ -97,7 +97,7 @@ Defined once in `buildMenu()` (`lib/menu.ts`); loaded by `getMenu()` (`lib/menu-
 | 7 | Houses | violet | Five houses ("Name coming soon" for placeholders) |
 | 8 | Placements | blue | `/placements` |
 | 9 | MoUs | amber | `/mous` |
-| 10 | AI & Quantum Campus | teal | Two columns with clickable headings: AI First Campus (CPU icon; AI First Campus, AI Champions and Ambassadors, Dashboards) and Quantum Ready Campus (atom icon; `/ai-quantum/quantum-lab`). Bottom link: Overview of AI and quantum (`/ai-quantum`). No feature card |
+| 10 | AI & Quantum Campus | teal | Two columns with clickable headings: AI First Campus (CPU icon; AI First Campus only: the AI First Campus page links to AI Champions and Ambassadors and Dashboards with two cards) and Quantum Ready Campus (atom icon; `/ai-quantum/quantum-lab`). Bottom link: Overview of AI and quantum (`/ai-quantum`). No feature card |
 | 11 | IDEA Lab | amber | Subdomain when live, else `/initiatives/idea-lab` |
 | 12 | IQAC | blue | `/iqac` |
 

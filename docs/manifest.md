@@ -59,7 +59,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (97 files)
+## Components (98 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -80,6 +80,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/content/bits.tsx` | 84 | Server | Section heading used on the home page. |
 | `components/features/content/content-tabs.tsx` | 77 | Client | Folder-style tabs built on shadcn/Radix Tabs. Every panel stays in the HTML |
 | `components/features/content/image-feature.tsx` | 50 | Server | A large image with a caption panel, used for AI, quantum and campus features. |
+| `components/features/content/link-cards.tsx` | 40 | Server | Clickable cards that lead to related pages, side by side on wider screens and stacked on |
 | `components/features/content/markdown.tsx` | 31 | Server | - |
 | `components/features/content/panel.tsx` | 49 | Server | A shadcn Card with an optional header. The coloured top edge and icon use |
 | `components/features/content/project-list.tsx` | 58 | Server | Optional bullet points shown under the summary (consultancy outcomes). |
@@ -122,7 +123,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/initiatives/initiative-callout.tsx` | 37 | Server | Banner at the top of a page whose initiative has (or will have) its own site: UHV, R&D, IEEE. |
 | `components/features/layout/content-page.tsx` | 70 | Server | Standard inner page: banner, then the content at full width. |
 | `components/features/layout/footer-brand.tsx` | 64 | Server | Logo, motto, address and contact links at the start of the footer. |
-| `components/features/layout/footer-columns.ts` | 60 | Server | Research pages kept in the footer, since the R&D menu item may point to the research portal. |
+| `components/features/layout/footer-columns.ts` | 67 | Server | Research pages kept in the footer, since the R&D menu item may point to the research portal. |
 | `components/features/layout/logo.tsx` | 7 | Server | The HKBK College of Engineering crest. Pass `className` to size it some other way (for example to fill a frame). |
 | `components/features/layout/page-banner.tsx` | 71 | Server | Page banner: breadcrumb, title and summary on the section's tint. |
 | `components/features/layout/site-footer.tsx` | 61 | Server | Site footer: brand and contact block, six link columns, and a slim bottom bar. |
@@ -191,7 +192,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/journey-model.ts` | 73 | Shared rules for the AI Transformation Journey timeline (visitors and editors). |
 | `lib/markdown.ts` | 16 | Splits markdown into sections at each "## Heading". Text before the first heading is the intro. |
 | `lib/menu-server.ts` | 16 | Loads everything the menu needs and builds it. Server components only. |
-| `lib/menu.ts` | 275 | A dropdown column. With `href` the heading is a link; `icon` shows before the heading. |
+| `lib/menu.ts` | 271 | A dropdown column. With `href` the heading is a link; `icon` shows before the heading. |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
 | `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
 | `lib/site.ts` | 103 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |

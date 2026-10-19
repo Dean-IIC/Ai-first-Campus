@@ -4,6 +4,9 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Changed (menu)
+- AI & Quantum Campus dropdown (desktop and mobile): the AI First Campus column now lists only "AI First Campus". The AI First Campus page has two cards below the heading, "AI Champions and Ambassadors" and "Dashboards" (side by side, stacked on phones), linking to the existing pages, which are unchanged. The footer still lists both links, and the menu item stays highlighted on those pages. New `components/features/content/link-cards.tsx`.
+
 ### Added
 - Enquiries inbox for the admin (`/admin/enquiries`, **Enquiries** button in the admin bar with a count of new ones): every consultancy, corporate training and contact enquiry with filters by form and status, search by name, email or organisation, status (New, In progress, Closed), a private note, and **Download CSV**. Visitors can send a limited number of enquiries per hour. Optional email alerts through Resend: recipients per form are set in **Edit content** → Enquiry email alerts, and alerts start once `RESEND_API_KEY` is set on Vercel; until then each enquiry shows "Email alerts not set up". Five test enquiries were removed.
 

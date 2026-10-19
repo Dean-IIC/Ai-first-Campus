@@ -452,6 +452,12 @@
       "summary": "A large image with a caption panel, used for AI, quantum and campus features."
     },
     {
+      "file": "components/features/content/link-cards.tsx",
+      "lines": 40,
+      "client": false,
+      "summary": "Clickable cards that lead to related pages, side by side on wider screens and stacked on"
+    },
+    {
       "file": "components/features/content/markdown.tsx",
       "lines": 31,
       "client": false,
@@ -705,7 +711,7 @@
     },
     {
       "file": "components/features/layout/footer-columns.ts",
-      "lines": 60,
+      "lines": 67,
       "client": false,
       "summary": "Research pages kept in the footer, since the R&D menu item may point to the research portal."
     },
@@ -1065,7 +1071,7 @@
     },
     {
       "file": "lib/menu.ts",
-      "lines": 275,
+      "lines": 271,
       "summary": "A dropdown column. With `href` the heading is a link; `icon` shows before the heading."
     },
     {

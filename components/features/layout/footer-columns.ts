@@ -53,7 +53,14 @@ export function buildFooterColumns(menu: MenuSection[]): FooterColumn[] {
     },
     {
       title: "AI and quantum",
-      links: [...(ai ? sectionLinks(ai) : []), ...single("IDEA Lab")],
+      links: [
+        ...(ai ? sectionLinks(ai).slice(0, 1) : []),
+        // Reached from the AI First Campus page rather than the menu; kept in the footer.
+        { label: "AI Champions and Ambassadors", href: "/ai-quantum/champions" },
+        { label: "Dashboards", href: "/ai-quantum/dashboards" },
+        ...(ai ? sectionLinks(ai).slice(1) : []),
+        ...single("IDEA Lab"),
+      ],
     },
   ].filter((c) => c.links.length > 0);
 }

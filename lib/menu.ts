@@ -219,17 +219,13 @@ export function buildMenu({
     {
       label: "AI & Quantum Campus",
       tone: "teal",
-      match: ["/ai-quantum", "/ai-quantum/ai-first", "/ai-quantum/quantum-lab"],
+      match: ["/ai-quantum", "/ai-quantum/ai-first", "/ai-quantum/champions", "/ai-quantum/dashboards", "/ai-quantum/quantum-lab"],
       columns: [
         {
           title: "AI First Campus",
           href: "/ai-quantum/ai-first",
           icon: "cpu",
-          links: [
-            { label: "AI First Campus", href: "/ai-quantum/ai-first" },
-            { label: "AI Champions and Ambassadors", href: "/ai-quantum/champions" },
-            { label: "Dashboards", href: "/ai-quantum/dashboards" },
-          ],
+          links: [{ label: "AI First Campus", href: "/ai-quantum/ai-first" }],
         },
         {
           title: "Quantum Ready Campus",
