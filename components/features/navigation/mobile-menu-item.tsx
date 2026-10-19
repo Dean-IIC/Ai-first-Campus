@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, ExternalLink, FlaskConical } from "lucide-react";
+import { ChevronDown, ExternalLink, FlaskConical, HeartHandshake } from "lucide-react";
 import type { MenuSection } from "@/lib/menu";
 import { isActiveItem } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -30,6 +30,7 @@ export default function MobileMenuItem({
   const label = (
     <>
       {section.icon === "flask" && <FlaskConical aria-hidden="true" className="size-[1.05em] shrink-0" />}
+      {section.icon === "heart" && <HeartHandshake aria-hidden="true" className="size-[1.05em] shrink-0" />}
       <span className="flex-1">{section.label}</span>
     </>
   );

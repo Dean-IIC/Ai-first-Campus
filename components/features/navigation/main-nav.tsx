@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, ExternalLink, FlaskConical } from "lucide-react";
+import { ChevronDown, ExternalLink, FlaskConical, HeartHandshake } from "lucide-react";
 import { sectionFor, type MenuSection } from "@/lib/menu";
 import { cn } from "@/lib/utils";
 import { barWidth } from "@/lib/ui";
@@ -10,7 +10,7 @@ import MegaMenu from "./mega-menu";
 import NavLink from "./nav-link";
 
 const topItem =
-  "relative flex min-h-11 items-center gap-0.5 whitespace-nowrap px-2.5 text-[0.875rem] font-semibold text-white/90 outline-none transition-colors hover:bg-white/10 hover:text-white focus-visible:bg-white/15 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold xl:min-h-12 xl:px-0.5 2xl:px-1.5";
+  "relative flex min-h-11 items-center gap-0.5 whitespace-nowrap px-2.5 text-[0.875rem] font-semibold text-white/90 outline-none transition-colors hover:bg-white/10 hover:text-white focus-visible:bg-white/15 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold xl:min-h-12 xl:px-0.5 xl:text-[0.84375rem] 2xl:px-1.5 2xl:text-[0.875rem]";
 
 /**
  * The main menu bar. Every item is always visible: on wide screens dropdowns
@@ -62,6 +62,7 @@ export default function MainNav({ menu }: { menu: MenuSection[] }) {
                     title={section.hint}
                   >
                     {section.icon === "flask" && <FlaskConical aria-hidden="true" className="mr-1 size-[1.05em] shrink-0" />}
+                    {section.icon === "heart" && <HeartHandshake aria-hidden="true" className="mr-1 size-[1.05em] shrink-0" />}
                     {section.label}
                     {section.external && <ExternalLink aria-hidden="true" className="ml-1 size-3 text-white/60" />}
                     {underline}

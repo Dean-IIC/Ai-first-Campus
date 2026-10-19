@@ -8,7 +8,7 @@ import type { ListTable } from "@/lib/types";
  *   message:<slug>   a leadership message
  *   list:<table>     a whole list (departments, news, MoUs, ...), in display order
  *   site:details     address, phone and email
- *   site:links       the Alumni and R&D portal links used by those menu items
+ *   site:links       the Alumni, R&D and UHV portal links used by those menu items
  * Values are laid over the content from Supabase or /content, so anything not saved keeps its original value.
  */
 
@@ -50,6 +50,7 @@ export const SITE_FIELDS: Field[] = [
 export const LINK_FIELDS: Field[] = [
   { key: "alumniUrl", label: "Alumni portal link", kind: "link", hint: "Paste the full address, for example https://alumni.hkbk.edu.in. Leave empty to show the Alumni page on this site." },
   { key: "rndUrl", label: "R&D portal link", kind: "link", hint: "Paste the full address of the R&D portal. Leave empty to show the Research & Development page on this site." },
+  { key: "uhvUrl", label: "UHV portal link", kind: "link", hint: "Paste the full address of the UHV portal. Leave empty to show the Universal Human Values page on this site." },
 ];
 
 export const LIST_SPECS: Record<ListTable, ListSpec> = {

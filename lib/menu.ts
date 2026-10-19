@@ -20,7 +20,7 @@ export type MenuSection = {
   /** Other routes that belong to this item (for highlighting). */
   match?: string[];
   /** A small icon shown before the label (a key the menu knows, e.g. "flask"). */
-  icon?: "flask";
+  icon?: "flask" | "heart";
   /** Tooltip shown on hover. */
   hint?: string;
   columns?: MenuColumn[];
@@ -47,6 +47,7 @@ export function buildMenu({
   houses,
   alumniUrl = "",
   rndUrl = "",
+  uhvUrl = "",
 }: {
   departments: Dept[];
   leaders: Leader[];
@@ -56,6 +57,8 @@ export function buildMenu({
   alumniUrl?: string;
   /** The R&D portal address the admin saved; empty opens the /rnd page. */
   rndUrl?: string;
+  /** The UHV portal address the admin saved; empty opens the /uhv page. */
+  uhvUrl?: string;
 }): MenuSection[] {
   const items = initiativeItems(initiatives, toneForCategory);
   const bySlug = (slug: string) => {
@@ -145,7 +148,7 @@ export function buildMenu({
           ],
         },
         { title: "Research centres", links: centres.map((d) => ({ label: d.name, href: `/academics/${d.slug}#research-centre` })) },
-        { title: "Centres and cells", links: pick("uhv", "skill-development", "equal-opportunity-cell", "alumni") },
+        { title: "Centres and cells", links: pick("skill-development", "equal-opportunity-cell", "alumni") },
       ],
       feature: {
         title: "Centre of Excellence",
@@ -199,6 +202,15 @@ export function buildMenu({
       match: ["/rnd"],
       icon: "flask",
       hint: "Research & Development",
+    },
+    {
+      label: "UHV",
+      tone: "green",
+      href: uhvUrl || "/uhv",
+      external: isOffSite(uhvUrl),
+      match: ["/uhv"],
+      icon: "heart",
+      hint: "Universal Human Values — Coming soon",
     },
     { label: "MoUs", tone: "amber", href: "/mous" },
     {

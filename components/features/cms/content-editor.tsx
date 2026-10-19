@@ -69,7 +69,7 @@ export default function ContentEditor({ open, onOpenChange }: { open: boolean; o
           <Label htmlFor="cms-target">What do you want to edit?</Label>
           <NativeSelect id="cms-target" value={key} onChange={(e) => setKey(e.target.value)}>
             <option value="site:details">Contact details (address, phone, email)</option>
-            <option value="site:links">Alumni and R&amp;D portal links</option>
+            <option value="site:links">Alumni, R&amp;D and UHV portal links</option>
             <optgroup label="Lists">
               {LIST_TABLES.map((t) => <option key={t} value={`list:${t}`}>{LIST_SPECS[t].label}</option>)}
             </optgroup>
@@ -93,7 +93,7 @@ export default function ContentEditor({ open, onOpenChange }: { open: boolean; o
             key={`${key}-${version}`}
             fields={kind === "page" ? PAGE_FIELDS : kind === "message" ? MESSAGE_FIELDS : key === "site:links" ? LINK_FIELDS : SITE_FIELDS}
             initial={value as Row}
-            onSave={(v) => store(v, key === "site:links" ? "Alumni and R&D portal links" : kind === "site" ? "Contact details" : `${kind === "page" ? "Page" : "Message"}: ${title(v)}`)}
+            onSave={(v) => store(v, key === "site:links" ? "Alumni, R&D and UHV portal links" : kind === "site" ? "Contact details" : `${kind === "page" ? "Page" : "Message"}: ${title(v)}`)}
           />
         )}
       </DialogContent>
