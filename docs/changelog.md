@@ -5,6 +5,7 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 ## [Unreleased]
 
 ### Changed
+- Admin sign-in page: the college logo now sits fully inside its white circle (96 px on desktop, 80 px on phones, 8 px padding, scaled to fit, soft shadow, 16 px gap to the title). `Logo` takes an optional `className` to size it.
 - Home page photo is now a carousel in the same frame: it slides every 5 seconds, pauses while the mouse is over it or after a tap, and has arrows (on hover; always on touch screens), dots and swiping. Each photo has its own badge title and subtitle (no badge when both are empty). Visitors who prefer reduced motion get no auto-play. Photos are managed in **Edit content** → Home page carousel (upload, badge, alt text, drag to reorder, delete, up to 10), saved with History; the on-page "Replace photo" on the hero is removed. Until photos are added it shows the current campus photo only.
 - Placements page (`/placements`) now has a "Training and Placement Portal" box with an "Open the Placement Portal" button (staff sign-in, opens in a new tab). The address is `site.placementPortalUrl` in `lib/site.ts` (today https://hkbk-placement-portal.vercel.app; change it there when placements.hkbkce.in or placementportal.hkbk.edu.in is verified).
 - The research portal is now called "HKBK Research": the R&D page line reads "…on HKBK Research", its button is "Open HKBK Research", and the footer link is "HKBK Research".
