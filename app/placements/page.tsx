@@ -1,7 +1,9 @@
-import { Briefcase, GraduationCap } from "lucide-react";
+import { Briefcase, ExternalLink, GraduationCap, LayoutDashboard } from "lucide-react";
 import ContentPage, { pageMetadata } from "@/components/features/layout/content-page";
 import Panel from "@/components/features/content/panel";
+import { buttonVariants } from "@/components/ui/button";
 import { getList } from "@/lib/content";
+import { site } from "@/lib/site";
 
 export const revalidate = 300;
 export const generateMetadata = () => pageMetadata("placements", "Placements");
@@ -17,6 +19,23 @@ export default async function PlacementsPage() {
       current="/placements"
       layout={(body) => (
         <>
+          {/* The placement office's own portal: staff sign-in, opens in a new tab. */}
+          <div className="flex flex-col gap-3 rounded-lg border border-border border-l-[3px] border-l-t-blue bg-card p-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="font-semibold text-heading">Training and Placement Portal</p>
+              <p className="mt-0.5 text-sm text-muted-foreground">Student records, drives, offers and reports. Sign-in for the placement office, principals and the director.</p>
+            </div>
+            <a
+              href={site.placementPortalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ size: "lg", className: "w-full shrink-0 sm:w-auto" })}
+            >
+              <LayoutDashboard aria-hidden="true" />
+              Open the Placement Portal
+              <ExternalLink aria-hidden="true" />
+            </a>
+          </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               { f: placed, icon: Briefcase },
