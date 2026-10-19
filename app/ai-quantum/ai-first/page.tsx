@@ -14,9 +14,9 @@ export const dynamic = "force-dynamic";
 export const generateMetadata = () => pageMetadata("ai-first", "AI First campus");
 
 /**
- * The AI First campus page: the picture, the Champions summary, the full AI Champions and
- * Ambassadors grids (the old /ai-quantum/champions address redirects to #champions) and the
- * page text. The dashboards section is not shown for now; its data and editor are unchanged.
+ * The AI First campus page: the picture, the page text, the Champions summary and the full
+ * AI Champions and Ambassadors grids (the old /ai-quantum/champions address redirects to
+ * #champions). The dashboards section is not shown for now; its data and editor are unchanged.
  */
 export default async function AiFirstPage() {
   const champions = await getPage("ai-champions");
@@ -28,6 +28,7 @@ export default async function AiFirstPage() {
       layout={(body) => (
         <>
           <img src={images.ai.src} alt={images.ai.alt} width={1600} height={1000} className="aspect-[16/7] w-full rounded-lg object-cover" />
+          {body && <Panel tone="teal">{body}</Panel>}
           <AiChampions />
           <section id="champions" className="scroll-mt-24 space-y-8">
             <SectionHeading title="AI Champions and Ambassadors" tone="teal" />
@@ -38,7 +39,6 @@ export default async function AiFirstPage() {
             )}
             <AiPeopleGrid />
           </section>
-          {body && <Panel tone="teal">{body}</Panel>}
         </>
       )}
     />
