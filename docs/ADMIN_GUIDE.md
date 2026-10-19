@@ -54,6 +54,10 @@ The preview link (claude.ai artifact) is a saved snapshot of the site with no se
 8. **History** lists the last 30 changes. Click **Restore** on any entry to put back the version it saved.
 9. Click **Sign out** when you finish. The session also ends after seven days.
 
+## Enquiries inbox
+
+Click **Enquiries** in the dark bar (the number shows how many are New). Every consultancy request, corporate training enquiry and Contact page message is listed, newest first. Filter by form or status, or search by name, email or organisation. Open an enquiry to set its status (New, In progress, Closed) and add a private note that visitors never see, then **Save**. **Download CSV** saves the list as it is filtered. Each enquiry also shows whether its email alert was sent.
+
 ## 4. Security
 
 - Visitors never see the toolbar, the edit controls or the editing mode.
@@ -74,6 +78,7 @@ The preview link (claude.ai artifact) is a saved snapshot of the site with no se
 | Departments, news and events, MoUs, AI Champions, key figures, houses, centres and initiatives, dashboards, research and consultancy projects, training programmes, UHV activities, the AI First journey | **Edit content** → Lists: open an item to change it, add, delete or reorder, then **Save changes** |
 | Address, phone and email (header, footer and Contact page) | **Edit content** → Contact details |
 | Where the **Alumni** and **R&D** menu items go | **Edit content** → Alumni and R&D portal links. Empty: the Alumni or Research & Development page on this site. A saved link: the menu opens it in a new tab |
+| Who is emailed when an enquiry arrives (consultancy, corporate training, contact) | **Edit content** → Enquiry email alerts (emails are sent once the email service is connected) |
 | Menu structure, buttons and the short descriptions written into the code | Not yet |
 
 **Edit content** opens on whatever the page you are viewing shows. Page text uses simple formatting: `## Heading`, `- bullet`, `**bold**`, `[link text](/address)`. Every save from **Edit content** also appears in **Undo** and **History**.

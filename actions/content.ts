@@ -8,6 +8,7 @@ import { isListTable } from "@/lib/cms/schema";
 import { getSiteDetails, getSiteLinks } from "@/lib/site-details";
 import { CAROUSEL_KEY } from "@/lib/carousel";
 import { getHeroSlides } from "@/lib/carousel-server";
+import { getContentMap } from "@/lib/cms/read";
 
 export type Choice = { key: string; label: string };
 export type Catalog = { pages: Choice[]; messages: Choice[] };
@@ -52,6 +53,10 @@ export async function loadContentAction(key: string): Promise<LoadResult> {
     if (kind === "list" && isListTable(name)) return { ok: true, value: await getList(name) };
     if (key === "site:links") return { ok: true, value: await getSiteLinks() };
     if (key === CAROUSEL_KEY) return { ok: true, value: await getHeroSlides() };
+    if (key === "site:alerts") {
+      const raw = (await getContentMap())["site:alerts"];
+      return { ok: true, value: raw && typeof raw === "object" ? raw : {} };
+    }
     if (kind === "site") {
       const d = await getSiteDetails();
       return { ok: true, value: { phone: d.phone, email: d.email, mapQuery: d.mapQuery, ...d.address } };

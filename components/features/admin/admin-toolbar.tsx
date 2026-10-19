@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { FilePen, History, LogOut, Pencil, Undo2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FilePen, History, Inbox, LogOut, Pencil, Undo2 } from "lucide-react";
 import { logoutAction } from "@/actions/admin";
+import { newEnquiryCountAction } from "@/actions/enquiries";
 import { Button } from "@/components/ui/button";
 import { useAdmin } from "./admin-provider";
 import HistoryPanel from "./history-panel";
@@ -13,6 +16,12 @@ export default function AdminToolbar() {
   const { admin, editMode, setEditMode, status, undo, setHistoryOpen } = useAdmin();
   const [busy, setBusy] = useState(false);
   const [editorOpen, setEditorOpen] = useState(false);
+  const [newCount, setNewCount] = useState(0);
+  const pathname = usePathname();
+  // Refreshed on every page change, so the badge follows status changes made in the inbox.
+  useEffect(() => {
+    if (admin) newEnquiryCountAction().then(setNewCount).catch(() => setNewCount(0));
+  }, [admin, pathname]);
   if (!admin) return null;
 
   const statusText =
@@ -53,6 +62,15 @@ export default function AdminToolbar() {
           <FilePen aria-hidden="true" className="size-3.5" />
           Edit content
         </Button>
+        <Link
+          href="/admin/enquiries"
+          aria-label={newCount ? `Enquiries, ${newCount} new` : "Enquiries"}
+          className="inline-flex h-7 items-center gap-1.5 rounded-md px-2 text-xs font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-gold/60"
+        >
+          <Inbox aria-hidden="true" className="size-3.5" />
+          <span className="sr-only sm:not-sr-only">Enquiries</span>
+          {newCount > 0 && <span aria-hidden="true" className="grid h-4 min-w-4 place-items-center rounded-full bg-gold px-1 text-[0.625rem] font-bold text-brand-dark">{newCount > 99 ? "99+" : newCount}</span>}
+        </Link>
         <Button type="button" size="sm" variant="ghost" className="h-7 px-2 text-xs text-white hover:bg-white/10 hover:text-white" onClick={() => setHistoryOpen(true)}>
           <History aria-hidden="true" className="size-3.5" />
           <span className="sr-only sm:not-sr-only">History</span>

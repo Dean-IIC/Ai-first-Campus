@@ -9,10 +9,11 @@ import type { ListTable } from "@/lib/types";
  *   list:<table>     a whole list (departments, news, MoUs, ...), in display order
  *   site:details     address, phone and email
  *   site:links       the Alumni, R&D and UHV portal links used by those menu items
+ *   site:alerts      who receives the email alert for each enquiry form
  * Values are laid over the content from Supabase or /content, so anything not saved keeps its original value.
  */
 
-export type FieldKind = "text" | "long" | "markdown" | "number" | "bool" | "lines" | "image" | "link" | "date" | "choice";
+export type FieldKind = "text" | "long" | "markdown" | "number" | "bool" | "lines" | "image" | "link" | "date" | "choice" | "email";
 export type Field = { key: string; label: string; kind: FieldKind; hint?: string; options?: readonly string[]; required?: boolean };
 export type ListSpec = { label: string; item: string; title: string; fields: Field[] };
 
@@ -51,6 +52,12 @@ export const LINK_FIELDS: Field[] = [
   { key: "alumniUrl", label: "Alumni portal link", kind: "link", hint: "Paste the full address, for example https://alumni.hkbk.edu.in. Leave empty to show the Alumni page on this site." },
   { key: "rndUrl", label: "R&D portal link", kind: "link", hint: "Paste the full address of the R&D portal. Leave empty to show the Research & Development page on this site." },
   { key: "uhvUrl", label: "UHV portal link", kind: "link", hint: "Paste the full address of the UHV portal. Leave empty to show the Universal Human Values page on this site." },
+];
+
+export const ALERT_FIELDS: Field[] = [
+  { key: "consultancy", label: "Consultancy form → email", kind: "email", hint: "Who is emailed when someone sends a consultancy request." },
+  { key: "corporate_training", label: "Corporate training form → email", kind: "email", hint: "Who is emailed when someone sends a training enquiry." },
+  { key: "contact", label: "Contact form → email", kind: "email", hint: "Who is emailed for the Contact page form, and for any form above left empty." },
 ];
 
 export const LIST_SPECS: Record<ListTable, ListSpec> = {

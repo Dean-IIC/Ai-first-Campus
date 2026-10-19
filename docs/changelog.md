@@ -4,6 +4,9 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Added
+- Enquiries inbox for the admin (`/admin/enquiries`, **Enquiries** button in the admin bar with a count of new ones): every consultancy, corporate training and contact enquiry with filters by form and status, search by name, email or organisation, status (New, In progress, Closed), a private note, and **Download CSV**. Visitors can send a limited number of enquiries per hour. Optional email alerts through Resend: recipients per form are set in **Edit content** → Enquiry email alerts, and alerts start once `RESEND_API_KEY` is set on Vercel; until then each enquiry shows "Email alerts not set up". Five test enquiries were removed.
+
 ### Changed
 - Top menu (desktop and mobile): "AI First Campus" and "Quantum Ready Campus" are combined into one "AI & Quantum Campus" dropdown with two columns. AI First Campus (CPU icon) lists AI First Campus, AI Champions and Ambassadors and Dashboards; Quantum Ready Campus (atom icon) links to the Quantum Lab page. Both column headings are links. A bottom link "Overview of AI and quantum" opens `/ai-quantum`. The picture card is removed. Menu columns can now have `href` and `icon`, and a section can have a `footerLink`. The footer's AI and quantum column is unchanged.
 - Admin sign-in page: the college logo now sits fully inside its white circle (96 px on desktop, 80 px on phones, 8 px padding, scaled to fit, soft shadow, 16 px gap to the title). `Logo` takes an optional `className` to size it.

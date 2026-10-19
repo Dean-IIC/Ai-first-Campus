@@ -39,7 +39,7 @@ export default function EnquiryForm({
     return (
       <Alert variant="success" role="status">
         <CircleCheck aria-hidden="true" />
-        <AlertTitle>Thank you</AlertTitle>
+        <AlertTitle>Request received</AlertTitle>
         <AlertDescription className="text-foreground">{state.message}</AlertDescription>
       </Alert>
     );

@@ -79,6 +79,13 @@
       ]
     },
     {
+      "route": "/admin/enquiries",
+      "file": "app/admin/enquiries/page.tsx",
+      "kind": "Static",
+      "revalidate": null,
+      "data": []
+    },
+    {
       "route": "/admin/login",
       "file": "app/admin/login/page.tsx",
       "kind": "Static",
@@ -140,6 +147,13 @@
       "data": [
         "page:alumni"
       ]
+    },
+    {
+      "route": "/api/admin/enquiries/csv",
+      "file": "app/api/admin/enquiries/csv/route.ts",
+      "kind": "API",
+      "revalidate": null,
+      "data": []
     },
     {
       "route": "/api/admin/session",
@@ -343,9 +357,21 @@
     },
     {
       "file": "components/features/admin/admin-toolbar.tsx",
-      "lines": 75,
+      "lines": 93,
       "client": true,
       "summary": "Fixed bar at the top of every page for the signed-in admin. Visitors never see it."
+    },
+    {
+      "file": "components/features/admin/enquiries/enquiry-card.tsx",
+      "lines": 101,
+      "client": true,
+      "summary": "One enquiry: what the visitor sent (shown as plain text), its status, the admin note and the email alert result."
+    },
+    {
+      "file": "components/features/admin/enquiries/enquiry-filters.tsx",
+      "lines": 48,
+      "client": false,
+      "summary": "Filter by form and status, and search by name, email or organisation. A plain GET form."
     },
     {
       "file": "components/features/admin/history-panel.tsx",
@@ -367,7 +393,7 @@
     },
     {
       "file": "components/features/cms/content-editor.tsx",
-      "lines": 109,
+      "lines": 110,
       "client": true,
       "summary": "The admin's editor for everything stored as content: pages, leadership messages, every list and the contact details."
     },
@@ -687,7 +713,7 @@
       "file": "components/features/layout/logo.tsx",
       "lines": 7,
       "client": false,
-      "summary": "The HKBK College of Engineering crest."
+      "summary": "The HKBK College of Engineering crest. Pass `className` to size it some other way (for example to fill a frame)."
     },
     {
       "file": "components/features/layout/page-banner.tsx",
@@ -739,9 +765,9 @@
     },
     {
       "file": "components/features/navigation/mega-menu.tsx",
-      "lines": 75,
+      "lines": 105,
       "client": false,
-      "summary": "The dropdown for one menu item: link columns plus a feature card."
+      "summary": "A column heading: plain text, or a link (with its icon) when the column has its own page."
     },
     {
       "file": "components/features/navigation/mobile-header.tsx",
@@ -751,7 +777,7 @@
     },
     {
       "file": "components/features/navigation/mobile-menu-item.tsx",
-      "lines": 90,
+      "lines": 117,
       "client": true,
       "summary": "One item of the mobile menu: a full-width link, or an accordion (About, Programmes, ...)"
     },
@@ -913,6 +939,16 @@
       "summary": ""
     },
     {
+      "file": "lib/admin/email-alert.ts",
+      "lines": 58,
+      "summary": "Which alert address field covers each form. Admission and hostel forms use the general address."
+    },
+    {
+      "file": "lib/admin/enquiries.ts",
+      "lines": 78,
+      "summary": "Keeps only letters, digits and a few safe characters, so the search cannot change the query."
+    },
+    {
       "file": "lib/admin/lockout.ts",
       "lines": 36,
       "summary": "Minutes left on a lock, or 0 when sign-in is allowed."
@@ -969,7 +1005,7 @@
     },
     {
       "file": "lib/cms/schema.ts",
-      "lines": 110,
+      "lines": 117,
       "summary": ""
     },
     {
@@ -979,7 +1015,7 @@
     },
     {
       "file": "lib/cms/validate.ts",
-      "lines": 128,
+      "lines": 134,
       "summary": "A photo address the admin may use: one uploaded to our storage, or a file shipped with the site."
     },
     {
@@ -1004,7 +1040,7 @@
     },
     {
       "file": "lib/enquiry.ts",
-      "lines": 30,
+      "lines": 61,
       "summary": "Per-field messages, used to mark the matching input as invalid."
     },
     {
@@ -1029,8 +1065,8 @@
     },
     {
       "file": "lib/menu.ts",
-      "lines": 271,
-      "summary": "A full web address on another site. HKBK's own sites (*.hkbkce.in) open in the same tab."
+      "lines": 275,
+      "summary": "A dropdown column. With `href` the heading is a link; `icon` shows before the heading."
     },
     {
       "file": "lib/portals.tsx",
@@ -1089,13 +1125,18 @@
     },
     {
       "file": "actions/content.ts",
-      "lines": 64,
+      "lines": 69,
       "summary": "Every page and leadership message the content editor can open, with readable names."
+    },
+    {
+      "file": "actions/enquiries.ts",
+      "lines": 30,
+      "summary": "Number of New enquiries, for the badge in the admin bar. Visitors get 0."
     },
     {
       "file": "actions/enquiry.ts",
       "lines": 80,
-      "summary": "Validates an enquiry form and stores it in the `enquiries` table (insert-only under RLS)."
+      "summary": "Extra fields each form may send; anything else is ignored."
     },
     {
       "file": "actions/journey.ts",

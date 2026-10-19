@@ -1,6 +1,6 @@
 import { serviceBase } from "@/lib/admin/service";
 import { CAROUSEL_KEY, MAX_SLIDES } from "@/lib/carousel";
-import { LINK_FIELDS, LIST_SPECS, MESSAGE_FIELDS, PAGE_FIELDS, SITE_FIELDS, isListTable, type Field } from "./schema";
+import { ALERT_FIELDS, LINK_FIELDS, LIST_SPECS, MESSAGE_FIELDS, PAGE_FIELDS, SITE_FIELDS, isListTable, type Field } from "./schema";
 
 /*
  * Everything the admin saves is checked here before it reaches the database. Text is
@@ -56,6 +56,11 @@ function cleanField(f: Field, raw: unknown): unknown {
       const d = str.trim();
       if (!d) return f.required ? fail("choose a date.") : null;
       return DATE.test(d) ? d : fail("choose a date.");
+    }
+    case "email": {
+      const e = str.trim();
+      if (!e) return "";
+      return /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(e) && e.length <= 200 ? e : fail("enter a valid email address.");
     }
     case "choice":
       return f.options?.includes(str) ? str : fail("choose one of the options.");
@@ -121,6 +126,7 @@ export function cleanValue(key: string, value: unknown): unknown {
   if (/^message:[a-z0-9-]+$/.test(key)) return cleanRecord(MESSAGE_FIELDS, value);
   if (key === "site:details") return cleanRecord(SITE_FIELDS, value);
   if (key === "site:links") return cleanRecord(LINK_FIELDS, value);
+  if (key === "site:alerts") return cleanRecord(ALERT_FIELDS, value);
   if (key.startsWith("list:")) return cleanList(key.slice(5), value);
   if (key === CAROUSEL_KEY) return cleanCarousel(value);
   throw new Error("This content cannot be edited.");
