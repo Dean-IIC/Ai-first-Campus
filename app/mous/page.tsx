@@ -11,7 +11,8 @@ export const generateMetadata = () => pageMetadata("mous", "MoUs");
 
 export default async function MousPage() {
   const [mous, figures, page] = await Promise.all([getList("mous"), getList("key_figures"), getPage("mous")]);
-  const total = figures.find((f) => f.slug === "mous")?.value ?? null;
+  // The count matches the cards shown; the key figure is used only until the list is added.
+  const total = mous.length > 0 ? mous.length : (figures.find((f) => f.slug === "mous")?.value ?? null);
   const { sections } = splitSections(page?.body_md ?? "");
   const scope = sections.find((s) => s.id === "what-our-mous-cover");
 
