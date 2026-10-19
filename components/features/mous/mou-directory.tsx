@@ -1,23 +1,8 @@
 import { Handshake } from "lucide-react";
-import ContentTabs from "@/components/features/content/content-tabs";
 import type { Mou } from "@/lib/types";
 import MouCard from "./mou-card";
 
-const TYPES = ["Industry", "Academic", "Research", "Government"];
-
-function Grid({ rows }: { rows: Mou[] }) {
-  return (
-    <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-      {rows.map((m) => (
-        <li key={m.slug}>
-          <MouCard mou={m} />
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-/** All MoUs in tabs by partner type, or an empty state until the list is added. */
+/** Every MoU in one grid, in the order set by sort_order, or an empty state until the list is added. */
 export default function MouDirectory({ mous, total }: { mous: Mou[]; total: number | null }) {
   if (mous.length === 0) {
     return (
@@ -32,15 +17,13 @@ export default function MouDirectory({ mous, total }: { mous: Mou[]; total: numb
       </div>
     );
   }
-  const types = TYPES.filter((t) => mous.some((m) => m.partner_type === t));
   return (
-    <ContentTabs
-      label="MoUs by partner type"
-      tone="amber"
-      items={[
-        { id: "all", label: `All (${mous.length})`, content: <Grid rows={mous} /> },
-        ...types.map((t) => ({ id: t.toLowerCase(), label: t, content: <Grid rows={mous.filter((m) => m.partner_type === t)} /> })),
-      ]}
-    />
+    <ul aria-label="MoUs signed" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {mous.map((m) => (
+        <li key={m.slug}>
+          <MouCard mou={m} />
+        </li>
+      ))}
+    </ul>
   );
 }

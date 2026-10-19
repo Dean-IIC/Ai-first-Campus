@@ -96,7 +96,7 @@ The menu at the top shows these items in this order: Home, About, Programmes, De
 
 ## MoUs
 
-The MoUs page (`/mous`) shows the number of MoUs from `key_figures` (slug `mous`) and lists every MoU from the `mous` table, grouped in tabs by partner type. Add one row per MoU: `partner`, `partner_type` (`Industry`, `Academic`, `Research` or `Government`), `purpose`, `signed_on`, `valid_until`, and optionally `document_url` (a link to the signed PDF) and `logo_url`. Until rows are added, the page shows "Partner list coming soon". The "What our MoUs cover" panel is in `content/pages/mous.md`.
+The MoUs page (`/mous`) shows how many MoUs are listed and every MoU from the `mous` table in one grid (no tabs), in `sort_order`. Each card shows the partner's logo (or its initials until `logo_url` is set), the partner name, "Signed on" with `signed_on`, and the `association` (who signed with the partner, for example `HKBKCE` or `VTU and HKBKCE`). Add one row per MoU: `partner`, `association`, `signed_on`, `valid_until`, `partner_type` (`Industry`, `Academic`, `Research` or `Government`, not shown on the card), and optionally `purpose`, `document_url` (a link to the signed PDF, shown as "View MoU") and `logo_url`. Until rows are added, the page shows "Partner list coming soon" with the number from `key_figures` (slug `mous`). The "What our MoUs cover" panel is in `content/pages/mous.md`.
 
 ## AI Transformation Journey timeline (home page, "Our AI Transformation Journey 2026")
 
@@ -167,7 +167,7 @@ To add photos to another month, upload them to `public/images/journey/` (or the 
 
 ## Big numbers (home page)
 
-The band under the home page photo shows eleven figures from the `key_figures` table (or `content/data/key_figures.json`): years of excellence, students (2,500+), faculty (150+), papers published (300+), patents filed (150), patents published (50), patents granted (30), MoUs signed (25), AI Faculty Champions, AI Student Ambassadors and students placed (200).
+The band under the home page photo shows eleven figures from the `key_figures` table (or `content/data/key_figures.json`): years of excellence, students (2,500+), faculty (150+), papers published (300+), patents filed (150), patents published (50), patents granted (30), MoUs signed (9), AI Faculty Champions, AI Student Ambassadors and students placed (200).
 
 - **Years of excellence** is calculated from the founding year (1997), and the **AI Faculty Champions** and **AI Student Ambassadors** figures come from `aiProgramme` in `lib/site.ts`. Leave their `value` empty.
 - For the others, update `value` when the figure changes; `suffix` is shown after it (for example `+`). A figure with no value shows "Figure coming soon".
@@ -221,7 +221,7 @@ Open **Table Editor > enquiries** in Supabase. Filter by `type` to see one form,
 - [ ] Names, namesakes and descriptions added for House 4 and House 5
 - [ ] IEEE chapter details, branch counsellor and chapter office-bearers confirmed
 - [ ] Placement page recruiter list and IQAC reports added
-- [ ] All 25 MoUs entered in the `mous` table
+- [ ] Partner logos added for the 9 MoUs in the `mous` table
 - [ ] Figures in `key_figures` checked and dated (for example, students placed in which year)
 - [ ] Subdomain addresses added and set to `Live` for each centre or initiative that is ready
 - [ ] Leadership portraits uploaded to the `site-images` bucket and `photo_url` filled in

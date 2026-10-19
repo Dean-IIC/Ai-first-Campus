@@ -705,6 +705,12 @@ grant insert on public.enquiries to anon, authenticated;
 grant select on public.editors to authenticated;
 
 -- ============================================================
+-- Migration: 20261019120000_mou_association.sql
+-- ============================================================
+-- Who signed each MoU on HKBK's side, for example "HKBKCE" or "VTU and HKBKCE".
+alter table public.mous add column if not exists association text;
+
+-- ============================================================
 -- Content
 -- ============================================================
 insert into public.pages (slug, title, summary, body_md) values
@@ -1002,12 +1008,22 @@ insert into public.key_figures (slug, label, value, suffix, sort_order) values
   ('patents-filed', 'Patents filed', 150, '', 5),
   ('patents-published', 'Patents published', 50, '', 6),
   ('patents-granted', 'Patents granted', 30, '', 7),
-  ('mous', 'MoUs signed', 25, '', 8),
+  ('mous', 'MoUs signed', 9, '', 8),
   ('ai-faculty-champions', 'AI Faculty Champions', null, '', 9),
   ('ai-student-ambassadors', 'AI Student Ambassadors', null, '', 10),
   ('students-placed', 'Students placed', 200, '', 11)
 on conflict (slug) do update set label = excluded.label, value = excluded.value, suffix = excluded.suffix, sort_order = excluded.sort_order;
--- mous: no rows
+insert into public.mous (slug, partner, association, partner_type, purpose, signed_on, valid_until, document_url, logo_url, sort_order) values
+  ('shinawatra-university', 'Shinawatra University', 'MIT Square Services Private Limited and HKBKCE', 'Academic', null, '2025-08-10', '2028-08-10', null, null, 1),
+  ('citriot', 'CITRIOT', 'HKBKCE', 'Industry', null, '2025-05-12', '2028-05-12', null, null, 2),
+  ('vtu', 'VTU', 'HKBKCE', 'Academic', null, '2024-10-16', '2029-10-16', null, null, 3),
+  ('dsedify', 'DSEdify Pvt Ltd', 'HKBKCE', 'Industry', null, '2026-01-22', '2031-01-22', null, null, 4),
+  ('rollnumber-technologies', 'RollNumber Technologies Pvt Ltd', 'HKBKCE', 'Industry', null, '2025-03-10', '2028-03-10', null, null, 5),
+  ('v-inspire', 'V-INSPIRE', 'HKBKCE', 'Industry', null, '2026-01-01', '2031-01-01', null, null, 6),
+  ('gleamator-technologies', 'Gleamator Technologies', 'VTU and HKBKCE', 'Industry', null, '2024-07-24', '2029-07-24', null, null, 7),
+  ('dyashin-technosoft', 'Dyashin Technosoft Pvt Ltd', 'HKBKCE', 'Industry', null, '2026-01-22', '2031-01-22', null, null, 8),
+  ('ubuntu-consortium', 'Ubuntu Consortium', 'HKBKCE', 'Industry', null, '2026-05-04', '2029-05-04', null, null, 9)
+on conflict (slug) do update set partner = excluded.partner, association = excluded.association, partner_type = excluded.partner_type, purpose = excluded.purpose, signed_on = excluded.signed_on, valid_until = excluded.valid_until, document_url = excluded.document_url, logo_url = excluded.logo_url, sort_order = excluded.sort_order;
 insert into public.news_items (slug, kind, title, summary, published_on, event_date, link_url, is_sample) values
   ('sample-ai-first-launch', 'event', 'AI First campus launch week', 'Talks, demos of the campus assistant and open sessions in the Quantum Lab for students, parents and industry guests.', '2026-10-01', '2026-11-16', null, true),
   ('sample-quantum-lab-opens', 'news', 'Quantum Lab opens for first-year students', 'First-year students can now run quantum circuits on simulators, with hardware access through faculty-led classroom accounts.', '2026-09-22', null, null, true),
