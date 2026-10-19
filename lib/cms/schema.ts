@@ -72,7 +72,7 @@ export const ALERT_FIELDS: Field[] = [
 export const LIST_SPECS: Record<ListTable, ListSpec> = {
   departments: { label: "Departments", item: "department", title: "name", fields: [
     t("name", "Name", { required: true }), t("short_name", "Short name"), t("kind", "Kind", { hint: "For example: Engineering" }), t("programmes", "Programmes"),
-    long("description", "Description"), { ...long("vision", "Vision"), ...noStatements }, { key: "mission", label: "Mission (one point per line)", kind: "lines", ...noStatements },
+    long("description", "Description"), { ...long("vision", "Vision", "Several points: put each on its own line."), ...noStatements }, { key: "mission", label: "Mission (one point per line)", kind: "lines", ...noStatements },
     { key: "has_research_centre", label: "Has a VTU research centre", kind: "bool" }, { key: "research_areas", label: "Research areas (one per line)", kind: "lines" },
   ] },
   news_items: { label: "News and events", item: "news item", title: "title", fields: [
