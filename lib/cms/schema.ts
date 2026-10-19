@@ -1,4 +1,5 @@
 import { AI_ROLES } from "@/lib/ai-people";
+import { SCIENCES_KIND } from "@/lib/site";
 import type { ListTable } from "@/lib/types";
 
 /*
@@ -14,10 +15,18 @@ import type { ListTable } from "@/lib/types";
  */
 
 export type FieldKind = "text" | "long" | "markdown" | "number" | "bool" | "lines" | "image" | "link" | "date" | "choice" | "email";
-export type Field = { key: string; label: string; kind: FieldKind; hint?: string; options?: readonly string[]; required?: boolean };
+/** `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field equals `equals`. */
+export type Field = { key: string; label: string; kind: FieldKind; hint?: string; options?: readonly string[]; required?: boolean; hideWhen?: { key: string; equals: string } };
 export type ListSpec = { label: string; item: string; title: string; fields: Field[] };
 
 const t = (key: string, label: string, extra: Partial<Field> = {}): Field => ({ key, label, kind: "text", ...extra });
+
+/** False when the field is hidden for this row (see `hideWhen`). */
+export function fieldShown(f: Field, row: Record<string, unknown>): boolean {
+  return !f.hideWhen || String(row[f.hideWhen.key] ?? "").trim() !== f.hideWhen.equals;
+}
+
+const noStatements = { hideWhen: { key: "kind", equals: SCIENCES_KIND } };
 const long = (key: string, label: string, hint?: string): Field => ({ key, label, kind: "long", hint });
 const sample: Field = { key: "is_sample", label: "Placeholder entry (shows a “Sample entry” tag)", kind: "bool" };
 const year: Field = { key: "year", label: "Year", kind: "number" };
@@ -63,7 +72,7 @@ export const ALERT_FIELDS: Field[] = [
 export const LIST_SPECS: Record<ListTable, ListSpec> = {
   departments: { label: "Departments", item: "department", title: "name", fields: [
     t("name", "Name", { required: true }), t("short_name", "Short name"), t("kind", "Kind", { hint: "For example: Engineering" }), t("programmes", "Programmes"),
-    long("description", "Description"), long("vision", "Vision"), { key: "mission", label: "Mission (one point per line)", kind: "lines" },
+    long("description", "Description"), { ...long("vision", "Vision"), ...noStatements }, { key: "mission", label: "Mission (one point per line)", kind: "lines", ...noStatements },
     { key: "has_research_centre", label: "Has a VTU research centre", kind: "bool" }, { key: "research_areas", label: "Research areas (one per line)", kind: "lines" },
   ] },
   news_items: { label: "News and events", item: "news item", title: "title", fields: [

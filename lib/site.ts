@@ -39,6 +39,9 @@ export type NavItem = {
   /** For initiatives: the menu section they belong to. */
   group?: string;
 };
+/** Departments of this kind (Mathematics, Physics, Chemistry, Humanities) show no vision and mission. */
+export const SCIENCES_KIND = "Basic sciences and humanities";
+
 export const INITIATIVES_LABEL = "Centres & Initiatives";
 
 type InitiativeLike = {

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ArrowDown, ArrowUp, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { ListSpec } from "@/lib/cms/schema";
+import { fieldShown, type ListSpec } from "@/lib/cms/schema";
 import FieldInput from "./field-input";
 import SaveBar from "./save-bar";
 
@@ -73,7 +73,7 @@ export default function ListForm({ spec, initial, onSave }: { spec: ListSpec; in
             </div>
             {open === i && (
               <div className="grid gap-4 border-t border-border p-3">
-                {spec.fields.map((f) => (
+                {spec.fields.filter((f) => fieldShown(f, row)).map((f) => (
                   <FieldInput key={f.key} id={`cms-${i}-${f.key}`} field={f} value={row[f.key]} onChange={(v) => update(rows.map((r, j) => (j === i ? { ...r, [f.key]: v } : r)))} />
                 ))}
               </div>

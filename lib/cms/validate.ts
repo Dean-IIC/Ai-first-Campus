@@ -1,6 +1,6 @@
 import { serviceBase } from "@/lib/admin/service";
 import { CAROUSEL_KEY, MAX_SLIDES } from "@/lib/carousel";
-import { ALERT_FIELDS, LINK_FIELDS, LIST_SPECS, MESSAGE_FIELDS, PAGE_FIELDS, SITE_FIELDS, isListTable, type Field } from "./schema";
+import { ALERT_FIELDS, LINK_FIELDS, LIST_SPECS, MESSAGE_FIELDS, PAGE_FIELDS, SITE_FIELDS, fieldShown, isListTable, type Field } from "./schema";
 
 /*
  * Everything the admin saves is checked here before it reaches the database. Text is
@@ -88,6 +88,8 @@ function cleanList(table: string, value: unknown): Record<string, unknown>[] {
   const seen = new Set<string>();
   return value.map((row, i) => {
     const clean = cleanRecord(spec.fields, row);
+    // Fields hidden for this row (e.g. vision and mission for basic sciences) are always saved empty.
+    for (const f of spec.fields) if (!fieldShown(f, clean)) clean[f.key] = cleanField(f, null);
     const given = String((row as Record<string, unknown>).slug ?? "");
     const base = given || String(clean[spec.title] ?? spec.item).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60) || "item";
     let slug = base;
