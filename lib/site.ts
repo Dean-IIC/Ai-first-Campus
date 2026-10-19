@@ -20,7 +20,7 @@ export const site = {
   email: "",
   website: "https://www.hkbk.edu.in",
   /** The Training and Placement Portal (staff sign-in), linked from the Placements page. */
-  placementPortalUrl: "https://hkbk-placement-portal.vercel.app",
+  placementPortalUrl: "https://placements.hkbkce.in",
   mapQuery: "HKBK College of Engineering, Nagawara, Bengaluru 560045",
 };
 
