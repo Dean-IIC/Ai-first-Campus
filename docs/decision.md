@@ -125,7 +125,7 @@ Architecture decision records (ADRs) for the HKBK College of Engineering website
 
 ## ADR-013 College-defined top menu, every item always visible
 
-**Decision.** Top menu order: Home, About, Programmes, Departments, Centre of Excellence, IEEE, Houses, Placements, MoUs, AI First Campus, Quantum Ready Campus, IDEA Lab, IQAC. Items with sub-items open a mega menu (link columns plus a feature card). Every item is always shown: on screens narrower than 1280px the bar wraps and dropdowns open on tap or click; there is no collapsed "Menu" button.
+**Decision.** Top menu order: Home, About, Programmes, Departments, Centre of Excellence, IEEE, Houses, Placements, MoUs, AI & Quantum Campus, IDEA Lab, IQAC. Items with sub-items open a mega menu (link columns plus a feature card). Every item is always shown: on screens narrower than 1280px the bar wraps and dropdowns open on tap or click; there is no collapsed "Menu" button.
 
 **Consequences.** Long menu bars must still fit on one line at 1280px; item spacing is tuned for that (checked in `flow.md` verification steps).
 

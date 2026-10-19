@@ -97,10 +97,9 @@ Defined once in `buildMenu()` (`lib/menu.ts`); loaded by `getMenu()` (`lib/menu-
 | 7 | Houses | violet | Five houses ("Name coming soon" for placeholders) |
 | 8 | Placements | blue | `/placements` |
 | 9 | MoUs | amber | `/mous` |
-| 10 | AI First Campus | teal | AI First Campus, AI Champions and Ambassadors, Dashboards. Feature: AI illustration |
-| 11 | Quantum Ready Campus | teal | `/ai-quantum/quantum-lab` |
-| 12 | IDEA Lab | amber | Subdomain when live, else `/initiatives/idea-lab` |
-| 13 | IQAC | blue | `/iqac` |
+| 10 | AI & Quantum Campus | teal | Two columns with clickable headings: AI First Campus (CPU icon; AI First Campus, AI Champions and Ambassadors, Dashboards) and Quantum Ready Campus (atom icon; `/ai-quantum/quantum-lab`). Bottom link: Overview of AI and quantum (`/ai-quantum`). No feature card |
+| 11 | IDEA Lab | amber | Subdomain when live, else `/initiatives/idea-lab` |
+| 12 | IQAC | blue | `/iqac` |
 
 `sectionFor(path, menu)` decides the active menu item, the banner colour and the breadcrumb. `/academics/*` always maps to Departments; `/initiatives/*` to Centre of Excellence.
 

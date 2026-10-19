@@ -32,7 +32,7 @@ export function buildFooterColumns(menu: MenuSection[]): FooterColumn[] {
   // The R&D item's portal address (set in Edit content), listed as "HKBK Research" when it is a web address.
   const rnd = find("R&D");
   const portal: NavItem[] = rnd?.href && /^https?:\/\//i.test(rnd.href) ? [{ label: "HKBK Research", href: rnd.href, external: rnd.external }] : [];
-  const ai = find("AI First Campus");
+  const ai = find("AI & Quantum Campus");
 
   return [
     {
@@ -53,7 +53,7 @@ export function buildFooterColumns(menu: MenuSection[]): FooterColumn[] {
     },
     {
       title: "AI and quantum",
-      links: [...(ai ? sectionLinks(ai) : []), ...single("Quantum Ready Campus"), ...single("IDEA Lab")],
+      links: [...(ai ? sectionLinks(ai) : []), ...single("IDEA Lab")],
     },
   ].filter((c) => c.links.length > 0);
 }

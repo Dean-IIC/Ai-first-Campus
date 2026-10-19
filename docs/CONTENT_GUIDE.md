@@ -88,7 +88,7 @@ When a dashboard is ready, set its `url` and change `status` to `Live`. The **Op
 
 ## Menu
 
-The menu at the top shows these items in this order: Home, About, Programmes, Departments, Centre of Excellence, IEEE, Houses, Placements, MoUs, AI First Campus, Quantum Ready Campus, IDEA Lab, IQAC. Most items update themselves from the content: Programmes and Departments list the rows in `departments`, Houses lists `houses`, and Centre of Excellence lists the research centres plus UHV, Skill Development Centre, Equal Opportunity Cell and Alumni Network from `portals`.
+The menu at the top shows these items in this order: Home, About, Programmes, Departments, Centre of Excellence, IEEE, Houses, Placements, MoUs, AI & Quantum Campus, IDEA Lab, IQAC. Most items update themselves from the content: Programmes and Departments list the rows in `departments`, Houses lists `houses`, and Centre of Excellence lists the research centres plus UHV, Skill Development Centre, Equal Opportunity Cell and Alumni Network from `portals`.
 
 - **IEEE chapters** are the `## ` sections of `content/pages/ieee.md` (CIS, WIE, Information Theory, Education Society). To add a chapter, add a section there and add it to `IEEE_CHAPTERS` in `lib/menu.ts`.
 - **Houses**: rename House 4 and House 5 in the `houses` table, fill in `namesake` and `about`, and set `is_placeholder` to false.

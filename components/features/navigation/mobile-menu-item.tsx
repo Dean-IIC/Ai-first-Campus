@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, ExternalLink, FlaskConical, HeartHandshake } from "lucide-react";
+import { ArrowRight, Atom, ChevronDown, Cpu, ExternalLink, FlaskConical, HeartHandshake } from "lucide-react";
 import type { MenuSection } from "@/lib/menu";
 import { isActiveItem } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -58,7 +58,7 @@ export default function MobileMenuItem({
       <div id={panelId} hidden={!expanded} className="bg-black/15 pb-2">
         {section.columns.map((col) => (
           <div key={col.title} className="px-5 pt-3">
-            <p className="text-xs font-bold tracking-wide text-gold/90">{col.title}</p>
+            <MobileColumnHeading title={col.title} href={col.href} icon={col.icon} />
             <ul className="mt-1">
               {col.links.map((item) => {
                 const current = isActiveItem(item, pathname);
@@ -83,7 +83,34 @@ export default function MobileMenuItem({
             </ul>
           </div>
         ))}
+        {section.footerLink && (
+          <NavLink
+            item={{ label: section.footerLink.label, href: section.footerLink.href }}
+            className="mx-5 mt-3 flex min-h-11 items-center gap-2 border-t border-white/15 pt-2 text-[0.9375rem] font-semibold text-gold/90 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
+          >
+            {section.footerLink.label}
+            <ArrowRight aria-hidden="true" className="size-4" />
+          </NavLink>
+        )}
       </div>
     </li>
+  );
+}
+
+/** A column heading in the mobile menu: a link with its icon when the column has its own page. */
+function MobileColumnHeading({ title, href, icon }: { title: string; href?: string; icon?: "cpu" | "atom" }) {
+  const Icon = icon === "cpu" ? Cpu : icon === "atom" ? Atom : null;
+  const inner = (
+    <>
+      {Icon && <Icon aria-hidden="true" className="size-4 shrink-0" />}
+      {title}
+    </>
+  );
+  const base = "flex items-center gap-1.5 text-xs font-bold tracking-wide text-gold/90";
+  if (!href) return <p className={base}>{inner}</p>;
+  return (
+    <NavLink item={{ label: title, href }} className={cn(base, "min-h-8 rounded-sm hover:text-gold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold")}>
+      {inner}
+    </NavLink>
   );
 }

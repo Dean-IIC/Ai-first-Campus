@@ -1,8 +1,9 @@
 import { toneForCategory } from "./portals";
-import { aiProgramme, images, initiativeItems, isActiveItem, type NavItem } from "./site";
+import { images, initiativeItems, isActiveItem, type NavItem } from "./site";
 import type { Tone } from "./ui";
 
-export type MenuColumn = { title: string; links: NavItem[] };
+/** A dropdown column. With `href` the heading is a link; `icon` shows before the heading. */
+export type MenuColumn = { title: string; links: NavItem[]; href?: string; icon?: "cpu" | "atom" };
 
 /** A full web address on another site. HKBK's own sites (*.hkbkce.in) open in the same tab. */
 export const isOffSite = (url: string) => /^https?:\/\//i.test(url) && !/^https?:\/\/([a-z0-9-]+\.)*hkbkce\.in(\/|$)/i.test(url);
@@ -25,6 +26,8 @@ export type MenuSection = {
   hint?: string;
   columns?: MenuColumn[];
   feature?: { title: string; text: string; image?: string; href: string; cta: string };
+  /** A small link at the bottom of the dropdown, e.g. to an overview page. */
+  footerLink?: { label: string; href: string };
 };
 
 type Dept = { slug: string; name: string; kind: string; programmes: string | null; has_research_centre: boolean };
@@ -214,28 +217,29 @@ export function buildMenu({
     },
     { label: "MoUs", tone: "amber", href: "/mous" },
     {
-      label: "AI First Campus",
+      label: "AI & Quantum Campus",
       tone: "teal",
-      match: ["/ai-quantum", "/ai-quantum/ai-first"],
+      match: ["/ai-quantum", "/ai-quantum/ai-first", "/ai-quantum/quantum-lab"],
       columns: [
         {
           title: "AI First Campus",
+          href: "/ai-quantum/ai-first",
+          icon: "cpu",
           links: [
             { label: "AI First Campus", href: "/ai-quantum/ai-first" },
             { label: "AI Champions and Ambassadors", href: "/ai-quantum/champions" },
             { label: "Dashboards", href: "/ai-quantum/dashboards" },
           ],
         },
+        {
+          title: "Quantum Ready Campus",
+          href: "/ai-quantum/quantum-lab",
+          icon: "atom",
+          links: [{ label: "Quantum Ready Campus", href: "/ai-quantum/quantum-lab" }],
+        },
       ],
-      feature: {
-        title: "AI First Campus",
-        text: `${aiProgramme.facultyChampions} AI Faculty Champions and ${aiProgramme.studentAmbassadors} AI Student Ambassadors lead the change.`,
-        image: images.ai.src,
-        href: "/ai-quantum/ai-first",
-        cta: "Learn more",
-      },
+      footerLink: { label: "Overview of AI and quantum", href: "/ai-quantum" },
     },
-    { label: "Quantum Ready Campus", tone: "teal", href: "/ai-quantum/quantum-lab" },
     {
       label: "IDEA Lab",
       tone: "amber",
