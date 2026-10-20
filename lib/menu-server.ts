@@ -11,5 +11,5 @@ export async function getMenu(): Promise<MenuSection[]> {
     getList("houses"),
     getSiteLinks(),
   ]);
-  return buildMenu({ departments, leaders, initiatives, houses, alumniUrl: links.alumniUrl, rndUrl: links.rndUrl, uhvUrl: links.uhvUrl });
+  return buildMenu({ departments, leaders, initiatives, houses, alumniUrl: links.alumniUrl, rndUrl: links.rndUrl, uhvUrl: links.uhvUrl, placementUrl: links.placement_portal_link });
 }

@@ -72,7 +72,7 @@ export default function ContentEditor({ open, onOpenChange }: { open: boolean; o
           <NativeSelect id="cms-target" value={key} onChange={(e) => setKey(e.target.value)}>
             <option value="site:details">Contact details (address, phone, email)</option>
             <option value={CAROUSEL_KEY}>Home page carousel</option>
-            <option value="site:links">Alumni, R&amp;D and UHV portal links</option>
+            <option value="site:links">Alumni, R&amp;D, UHV and Placement portal links</option>
             <option value="site:alerts">Enquiry email alerts</option>
             <optgroup label="Lists">
               {LIST_TABLES.map((t) => <option key={t} value={`list:${t}`}>{LIST_SPECS[t].label}</option>)}
@@ -100,7 +100,7 @@ export default function ContentEditor({ open, onOpenChange }: { open: boolean; o
             key={`${key}-${version}`}
             fields={kind === "page" ? PAGE_FIELDS : kind === "message" ? MESSAGE_FIELDS : key === "site:links" ? LINK_FIELDS : key === "site:alerts" ? ALERT_FIELDS : SITE_FIELDS}
             initial={value as Row}
-            onSave={(v) => store(v, key === "site:links" ? "Alumni, R&D and UHV portal links" : key === "site:alerts" ? "Enquiry email alerts" : kind === "site" ? "Contact details" : `${kind === "page" ? "Page" : "Message"}: ${title(v)}`)}
+            onSave={(v) => store(v, key === "site:links" ? "Alumni, R&D, UHV and Placement portal links" : key === "site:alerts" ? "Enquiry email alerts" : kind === "site" ? "Contact details" : `${kind === "page" ? "Page" : "Message"}: ${title(v)}`)}
           />
         )}
       </DialogContent>

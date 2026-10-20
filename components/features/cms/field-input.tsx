@@ -49,7 +49,7 @@ export default function FieldInput({ field, value, onChange, id }: { field: Fiel
     control = <Textarea {...common} rows={field.kind === "lines" ? 5 : 3} />;
   } else {
     const type = field.kind === "number" ? "number" : field.kind === "date" ? "date" : field.kind === "email" ? "email" : "text";
-    control = <Input {...common} type={type} inputMode={field.kind === "number" ? "decimal" : field.kind === "link" ? "url" : undefined} autoComplete="off" />;
+    control = <Input {...common} type={type} inputMode={field.kind === "number" ? "decimal" : field.kind === "link" ? "url" : undefined} placeholder={field.placeholder} autoComplete="off" />;
   }
 
   return (

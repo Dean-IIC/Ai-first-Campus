@@ -9,14 +9,14 @@ import type { ListTable } from "@/lib/types";
  *   message:<slug>   a leadership message
  *   list:<table>     a whole list (departments, news, MoUs, ...), in display order
  *   site:details     address, phone and email
- *   site:links       the Alumni, R&D and UHV portal links used by those menu items
+ *   site:links       the Alumni, R&D, UHV and Placement portal links used by those menu items
  *   site:alerts      who receives the email alert for each enquiry form
  * Values are laid over the content from Supabase or /content, so anything not saved keeps its original value.
  */
 
 export type FieldKind = "text" | "long" | "markdown" | "number" | "bool" | "lines" | "image" | "link" | "date" | "choice" | "email";
 /** `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field equals `equals`. */
-export type Field = { key: string; label: string; kind: FieldKind; hint?: string; options?: readonly string[]; required?: boolean; hideWhen?: { key: string; equals: string } };
+export type Field = { key: string; label: string; kind: FieldKind; hint?: string; placeholder?: string; options?: readonly string[]; required?: boolean; hideWhen?: { key: string; equals: string } };
 export type ListSpec = { label: string; item: string; title: string; fields: Field[] };
 
 const t = (key: string, label: string, extra: Partial<Field> = {}): Field => ({ key, label, kind: "text", ...extra });
@@ -61,6 +61,7 @@ export const LINK_FIELDS: Field[] = [
   { key: "alumniUrl", label: "Alumni portal link", kind: "link", hint: "Paste the full address, for example https://alumni.hkbk.edu.in. Leave empty to show the Alumni page on this site." },
   { key: "rndUrl", label: "R&D portal link", kind: "link", hint: "Paste the full address of the R&D portal. Leave empty to show the Research & Development page on this site." },
   { key: "uhvUrl", label: "UHV portal link", kind: "link", hint: "Paste the full address of the UHV portal. Leave empty to show the Universal Human Values page on this site." },
+  { key: "placement_portal_link", label: "Placement Portal Link", kind: "link", placeholder: "https://placements.hkbkce.in", hint: "Paste the full address of the Placement Portal. Leave empty to show the Placement page on this site." },
 ];
 
 export const ALERT_FIELDS: Field[] = [

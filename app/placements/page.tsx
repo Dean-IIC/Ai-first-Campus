@@ -4,12 +4,15 @@ import Panel from "@/components/features/content/panel";
 import { buttonVariants } from "@/components/ui/button";
 import { getList } from "@/lib/content";
 import { site } from "@/lib/site";
+import { getSiteLinks } from "@/lib/site-details";
 
 export const revalidate = 300;
 export const generateMetadata = () => pageMetadata("placements", "Placements");
 
 export default async function PlacementsPage() {
-  const figures = await getList("key_figures");
+  const [figures, links] = await Promise.all([getList("key_figures"), getSiteLinks()]);
+  // The Placement Portal Link saved in Edit content, else the default in lib/site.ts.
+  const portalUrl = links.placement_portal_link || site.placementPortalUrl;
   const placed = figures.find((f) => f.slug === "students-placed");
   const students = figures.find((f) => f.slug === "students");
   return (
@@ -26,7 +29,7 @@ export default async function PlacementsPage() {
               <p className="mt-0.5 text-sm text-muted-foreground">Student records, drives, offers and reports. Sign-in for the placement office, principals and the director.</p>
             </div>
             <a
-              href={site.placementPortalUrl}
+              href={portalUrl}
               target="_blank"
               rel="noopener noreferrer"
               className={buttonVariants({ size: "lg", className: "w-full shrink-0 sm:w-auto" })}

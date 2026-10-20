@@ -51,6 +51,7 @@ export function buildMenu({
   alumniUrl = "",
   rndUrl = "",
   uhvUrl = "",
+  placementUrl = "",
 }: {
   departments: Dept[];
   leaders: Leader[];
@@ -62,6 +63,8 @@ export function buildMenu({
   rndUrl?: string;
   /** The UHV portal address the admin saved; empty opens the /uhv page. */
   uhvUrl?: string;
+  /** The Placement Portal address the admin saved; empty opens the /placements page. */
+  placementUrl?: string;
 }): MenuSection[] {
   const items = initiativeItems(initiatives, toneForCategory);
   const bySlug = (slug: string) => {
@@ -195,7 +198,7 @@ export function buildMenu({
         cta: "Meet the houses",
       },
     },
-    { label: "Placements", tone: "blue", href: "/placements" },
+    { label: "Placements", tone: "blue", href: placementUrl || "/placements", external: isOffSite(placementUrl), match: ["/placements"] },
     { label: "Alumni", tone: "blue", href: alumniUrl || "/alumni", external: isOffSite(alumniUrl), match: ["/alumni"] },
     {
       label: "R&D",
