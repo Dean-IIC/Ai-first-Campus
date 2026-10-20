@@ -198,7 +198,8 @@ export function buildMenu({
         cta: "Meet the houses",
       },
     },
-    { label: "Placements", tone: "blue", href: placementUrl || "/placements", external: isOffSite(placementUrl), match: ["/placements"] },
+    // A saved Placement Portal Link opens straight in a new tab, even on *.hkbkce.in (unlike R&D and UHV).
+    { label: "Placements", tone: "blue", href: placementUrl || "/placements", external: /^https?:\/\//i.test(placementUrl), match: ["/placements"] },
     { label: "Alumni", tone: "blue", href: alumniUrl || "/alumni", external: isOffSite(alumniUrl), match: ["/alumni"] },
     {
       label: "R&D",
