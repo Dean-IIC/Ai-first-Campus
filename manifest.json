@@ -828,9 +828,9 @@
     },
     {
       "file": "components/features/mous/mou-directory.tsx",
-      "lines": 101,
+      "lines": 85,
       "client": true,
-      "summary": "Every MoU as a card, under \"MoUs (N)\", with filters by type and status and a search box. The"
+      "summary": "Every MoU as a card, under \"MoUs (N)\". The signed-in admin also gets Add, drag-to-reorder and"
     },
     {
       "file": "components/features/mous/mou-document-field.tsx",
@@ -843,12 +843,6 @@
       "lines": 90,
       "client": true,
       "summary": "Holds every MoU for the cards' Add, Edit, Delete, drag-to-reorder and sort. Each change saves"
-    },
-    {
-      "file": "components/features/mous/mou-filters.tsx",
-      "lines": 35,
-      "client": true,
-      "summary": "Filters for visitors: type, status and a search box over partner, purpose and departments."
     },
     {
       "file": "components/features/navigation/main-nav.tsx",
@@ -1179,7 +1173,7 @@
     },
     {
       "file": "lib/mous.ts",
-      "lines": 31,
+      "lines": 27,
       "summary": "An uploaded MoU document's path in the private \"mou-documents\" bucket."
     },
     {

@@ -22,9 +22,5 @@ export function mouStatus(m: Pick<Mou, "status" | "valid_until">, today = new Da
   return m.valid_until < day ? "Expired" : "Active";
 }
 
-/** What a visitor has picked in the MoU filters; empty strings mean "any". */
-export type MouFilter = { type: string; status: string; q: string };
-export const NO_FILTER: MouFilter = { type: "", status: "", q: "" };
-
 /** The address that serves an MoU's uploaded document (visitors only when it is marked visible). */
 export const mouDocumentHref = (slug: string) => `/api/mous/document?slug=${encodeURIComponent(slug)}`;
