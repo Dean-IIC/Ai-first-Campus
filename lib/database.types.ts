@@ -269,6 +269,7 @@ export type Database = {
           slug: string
           department: string
           name: string
+          is_hod: boolean
           designation: string | null
           qualification: string | null
           photo_url: string | null
@@ -280,6 +281,7 @@ export type Database = {
           slug: string
           department: string
           name: string
+          is_hod?: boolean
           designation?: string | null
           qualification?: string | null
           photo_url?: string | null
@@ -291,6 +293,7 @@ export type Database = {
           slug?: string
           department?: string
           name?: string
+          is_hod?: boolean
           designation?: string | null
           qualification?: string | null
           photo_url?: string | null

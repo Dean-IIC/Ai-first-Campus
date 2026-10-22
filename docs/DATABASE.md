@@ -43,7 +43,7 @@ Every list table has a unique `slug`, used by the seed script to update rows ins
 | Table | Key columns |
 | --- | --- |
 | `departments` | `name`, `short_name`, `kind` (Engineering, Basic sciences and humanities, Physical education), `programmes` (`BE` marks the five BE programmes), `description`, `vision`, `mission` (list), `has_research_centre`, `research_areas` (list); optional page sections (ADR-025): `show_research_tile`, `history`, `approvals`, `peos`, `psos`, `pos`, `curriculum`, `employment_scope`, `career_roles` (lists, one "Label: text" point per item), `achievements`, `achievements_image` |
-| `faculty` | `department` (a department slug such as `aiml`), `name`, `designation`, `qualification`, `photo_url`, `sort_order`; shown in the Faculty tab of that department's page |
+| `faculty` | `department` (a department slug such as `aiml`), `name`, `is_hod` (shown first), `designation` (Professor, Associate Professor, Assistant Professor or Teaching Assistant), `qualification`, `photo_url`, `sort_order`; shown in the Faculty tab of that department's page |
 | `ai_people` | Student ambassadors only (`role = Student ambassador`). Faculty champions moved to `content/champions.json` in version 0.20.0; any old `Faculty champion` rows are no longer shown |
 | `dashboards` | `title`, `category` (AI, Quantum, Academic, Research, Operations), `description`, `url`, `status` (Live, Beta, In development) |
 | `uhv_activities` | `activity_type`, `title`, `description` |

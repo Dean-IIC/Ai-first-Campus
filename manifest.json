@@ -474,7 +474,7 @@
     },
     {
       "file": "components/features/departments/department-faculty.tsx",
-      "lines": 44,
+      "lines": 96,
       "client": false,
       "summary": "Shown before any faculty member is added: one empty portrait frame and a note."
     },
@@ -1098,7 +1098,7 @@
     },
     {
       "file": "lib/cms/schema.ts",
-      "lines": 155,
+      "lines": 157,
       "summary": "`hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`."
     },
     {
@@ -1123,7 +1123,7 @@
     },
     {
       "file": "lib/database.types.ts",
-      "lines": 846,
+      "lines": 849,
       "summary": "Supabase database types for the HKBK website."
     },
     {
@@ -1188,7 +1188,7 @@
     },
     {
       "file": "lib/site.ts",
-      "lines": 111,
+      "lines": 113,
       "summary": "The Training and Placement Portal (staff sign-in), linked from the Placements page."
     },
     {
@@ -1317,28 +1317,254 @@
       "supabase/migrations/20261023010000_faculty.sql"
     ],
     "tables": {
-      "pages": [],
-      "leadership_messages": [],
-      "departments": [],
-      "dashboards": [],
-      "uhv_activities": [],
-      "research_projects": [],
-      "consultancy_projects": [],
-      "training_programs": [],
-      "hostel_facilities": [],
-      "news_items": [],
-      "enquiries": [],
-      "portals": [],
-      "ai_people": [],
-      "key_figures": [],
-      "houses": [],
-      "mous": [],
-      "journey_milestones": [],
-      "editors": [],
-      "site_content": [],
-      "site_history": [],
-      "admin_security": [],
-      "faculty": []
+      "pages": [
+        "slug",
+        "title",
+        "summary",
+        "body_md",
+        "updated_at"
+      ],
+      "leadership_messages": [
+        "slug",
+        "name",
+        "designation",
+        "organisation",
+        "excerpt",
+        "photo_url",
+        "body_md",
+        "sort_order",
+        "section",
+        "updated_at"
+      ],
+      "departments": [
+        "id",
+        "slug",
+        "name",
+        "short_name",
+        "kind",
+        "programmes",
+        "description",
+        "vision",
+        "mission",
+        "has_research_centre",
+        "research_areas",
+        "show_research_tile",
+        "history",
+        "approvals",
+        "peos",
+        "psos",
+        "pos",
+        "curriculum",
+        "employment_scope",
+        "career_roles",
+        "achievements",
+        "achievements_image",
+        "sort_order",
+        "updated_at"
+      ],
+      "dashboards": [
+        "id",
+        "slug",
+        "title",
+        "category",
+        "description",
+        "url",
+        "status",
+        "sort_order",
+        "updated_at"
+      ],
+      "uhv_activities": [
+        "id",
+        "slug",
+        "activity_type",
+        "title",
+        "description",
+        "sort_order",
+        "updated_at"
+      ],
+      "research_projects": [
+        "id",
+        "slug",
+        "title",
+        "investigator",
+        "funding_agency",
+        "status",
+        "year",
+        "summary",
+        "is_sample",
+        "sort_order",
+        "updated_at"
+      ],
+      "consultancy_projects": [
+        "id",
+        "slug",
+        "title",
+        "client",
+        "department",
+        "status",
+        "year",
+        "summary",
+        "is_sample",
+        "sort_order",
+        "updated_at"
+      ],
+      "training_programs": [
+        "id",
+        "slug",
+        "title",
+        "track",
+        "duration",
+        "mode",
+        "audience",
+        "summary",
+        "is_sample",
+        "sort_order",
+        "updated_at"
+      ],
+      "hostel_facilities": [
+        "id",
+        "slug",
+        "title",
+        "description",
+        "is_sample",
+        "sort_order",
+        "updated_at"
+      ],
+      "news_items": [
+        "id",
+        "slug",
+        "kind",
+        "title",
+        "summary",
+        "published_on",
+        "event_date",
+        "link_url",
+        "is_sample",
+        "updated_at"
+      ],
+      "enquiries": [
+        "id",
+        "type",
+        "name",
+        "email",
+        "phone",
+        "message",
+        "details",
+        "status",
+        "created_at"
+      ],
+      "portals": [
+        "id",
+        "slug",
+        "title",
+        "description",
+        "url",
+        "category",
+        "icon",
+        "status",
+        "related_page",
+        "menu_group",
+        "sort_order",
+        "updated_at"
+      ],
+      "ai_people": [
+        "id",
+        "slug",
+        "name",
+        "role",
+        "department",
+        "bio",
+        "photo_url",
+        "sort_order",
+        "updated_at"
+      ],
+      "key_figures": [
+        "id",
+        "slug",
+        "label",
+        "value",
+        "suffix",
+        "sort_order",
+        "updated_at"
+      ],
+      "houses": [
+        "id",
+        "slug",
+        "name",
+        "namesake",
+        "about",
+        "motto",
+        "is_placeholder",
+        "sort_order",
+        "updated_at"
+      ],
+      "mous": [
+        "id",
+        "slug",
+        "partner",
+        "association",
+        "academic_year",
+        "partner_type",
+        "purpose",
+        "signed_on",
+        "valid_until",
+        "document_url",
+        "logo_url",
+        "sort_order",
+        "updated_at"
+      ],
+      "journey_milestones": [
+        "id",
+        "slug",
+        "period",
+        "title",
+        "summary",
+        "points",
+        "badge",
+        "icon",
+        "inline_photo",
+        "layer",
+        "photos",
+        "sort_order",
+        "status",
+        "updated_at"
+      ],
+      "editors": [
+        "user_id",
+        "email",
+        "role",
+        "created_at"
+      ],
+      "site_content": [
+        "key",
+        "value",
+        "updated_at"
+      ],
+      "site_history": [
+        "id",
+        "key",
+        "label",
+        "old_value",
+        "new_value",
+        "created_at"
+      ],
+      "admin_security": [
+        "id",
+        "failed_attempts",
+        "locked_until"
+      ],
+      "faculty": [
+        "id",
+        "slug",
+        "department",
+        "name",
+        "is_hod",
+        "designation",
+        "qualification",
+        "photo_url",
+        "sort_order",
+        "updated_at"
+      ]
     }
   },
   "content": {

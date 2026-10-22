@@ -85,7 +85,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/departments/department-careers.tsx` | 63 | Server | Icon for a scope card, chosen from words in its heading. |
 | `components/features/departments/department-curriculum.tsx` | 35 | Server | The curriculum as one card per semester: its scheme and its subjects. |
 | `components/features/departments/department-facts.tsx` | 45 | Server | Three small information tiles above the department tabs. |
-| `components/features/departments/department-faculty.tsx` | 44 | Server | Shown before any faculty member is added: one empty portrait frame and a note. |
+| `components/features/departments/department-faculty.tsx` | 96 | Server | Shown before any faculty member is added: one empty portrait frame and a note. |
 | `components/features/departments/department-history.tsx` | 37 | Server | The programme's year-by-year history as a table (academic year and milestone). |
 | `components/features/departments/department-outcomes.tsx` | 32 | Server | Programme educational objectives, programme specific outcomes and programme outcomes. |
 | `components/features/departments/department-overview.tsx` | 35 | Server | Key facts about a department, then the programme's history when it has one. A department |
@@ -196,12 +196,12 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/cms/client-image.ts` | 67 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
 | `lib/cms/paths.ts` | 25 | - |
 | `lib/cms/read.ts` | 25 | - |
-| `lib/cms/schema.ts` | 155 | `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`. |
+| `lib/cms/schema.ts` | 157 | `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`. |
 | `lib/cms/store.ts` | 26 | - |
 | `lib/cms/validate.ts` | 153 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
 | `lib/cms/write.ts` | 69 | Saves a value (null removes it), and records the change. |
 | `lib/content.ts` | 198 | A value the admin saved in the content editor (see lib/cms/schema.ts), if any. |
-| `lib/database.types.ts` | 846 | Supabase database types for the HKBK website. |
+| `lib/database.types.ts` | 849 | Supabase database types for the HKBK website. |
 | `lib/department-sections.ts` | 57 | A leading code such as M1, PEO1, PSO2 or PO12. |
 | `lib/editor.ts` | 84 | True when a signed-in editor is viewing the page. Checked once per page load. |
 | `lib/enquiry.ts` | 61 | Per-field messages, used to mark the matching input as invalid. |
@@ -214,7 +214,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/mous.ts` | 27 | An uploaded MoU document's path in the private "mou-documents" bucket. |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
 | `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
-| `lib/site.ts` | 111 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
+| `lib/site.ts` | 113 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
 | `lib/supabase/client.ts` | 13 | Browser client from @supabase/ssr, for Client Components that need live data or auth. |
 | `lib/supabase/env.ts` | 14 | Supabase URL and public key from the environment, or null when the project is not connected yet. |
 | `lib/supabase/public.ts` | 18 | Cookie-free client for public content (pages, departments, news...). |
@@ -268,28 +268,28 @@ Migrations, applied in order:
 
 | Table | Columns | Column names |
 | --- | --- | --- |
-| `pages` | 0 |  |
-| `leadership_messages` | 0 |  |
-| `departments` | 0 |  |
-| `dashboards` | 0 |  |
-| `uhv_activities` | 0 |  |
-| `research_projects` | 0 |  |
-| `consultancy_projects` | 0 |  |
-| `training_programs` | 0 |  |
-| `hostel_facilities` | 0 |  |
-| `news_items` | 0 |  |
-| `enquiries` | 0 |  |
-| `portals` | 0 |  |
-| `ai_people` | 0 |  |
-| `key_figures` | 0 |  |
-| `houses` | 0 |  |
-| `mous` | 0 |  |
-| `journey_milestones` | 0 |  |
-| `editors` | 0 |  |
-| `site_content` | 0 |  |
-| `site_history` | 0 |  |
-| `admin_security` | 0 |  |
-| `faculty` | 0 |  |
+| `pages` | 5 | `slug`, `title`, `summary`, `body_md`, `updated_at` |
+| `leadership_messages` | 10 | `slug`, `name`, `designation`, `organisation`, `excerpt`, `photo_url`, `body_md`, `sort_order`, `section`, `updated_at` |
+| `departments` | 24 | `id`, `slug`, `name`, `short_name`, `kind`, `programmes`, `description`, `vision`, `mission`, `has_research_centre`, `research_areas`, `show_research_tile`, `history`, `approvals`, `peos`, `psos`, `pos`, `curriculum`, `employment_scope`, `career_roles`, `achievements`, `achievements_image`, `sort_order`, `updated_at` |
+| `dashboards` | 9 | `id`, `slug`, `title`, `category`, `description`, `url`, `status`, `sort_order`, `updated_at` |
+| `uhv_activities` | 7 | `id`, `slug`, `activity_type`, `title`, `description`, `sort_order`, `updated_at` |
+| `research_projects` | 11 | `id`, `slug`, `title`, `investigator`, `funding_agency`, `status`, `year`, `summary`, `is_sample`, `sort_order`, `updated_at` |
+| `consultancy_projects` | 11 | `id`, `slug`, `title`, `client`, `department`, `status`, `year`, `summary`, `is_sample`, `sort_order`, `updated_at` |
+| `training_programs` | 11 | `id`, `slug`, `title`, `track`, `duration`, `mode`, `audience`, `summary`, `is_sample`, `sort_order`, `updated_at` |
+| `hostel_facilities` | 7 | `id`, `slug`, `title`, `description`, `is_sample`, `sort_order`, `updated_at` |
+| `news_items` | 10 | `id`, `slug`, `kind`, `title`, `summary`, `published_on`, `event_date`, `link_url`, `is_sample`, `updated_at` |
+| `enquiries` | 9 | `id`, `type`, `name`, `email`, `phone`, `message`, `details`, `status`, `created_at` |
+| `portals` | 12 | `id`, `slug`, `title`, `description`, `url`, `category`, `icon`, `status`, `related_page`, `menu_group`, `sort_order`, `updated_at` |
+| `ai_people` | 9 | `id`, `slug`, `name`, `role`, `department`, `bio`, `photo_url`, `sort_order`, `updated_at` |
+| `key_figures` | 7 | `id`, `slug`, `label`, `value`, `suffix`, `sort_order`, `updated_at` |
+| `houses` | 9 | `id`, `slug`, `name`, `namesake`, `about`, `motto`, `is_placeholder`, `sort_order`, `updated_at` |
+| `mous` | 13 | `id`, `slug`, `partner`, `association`, `academic_year`, `partner_type`, `purpose`, `signed_on`, `valid_until`, `document_url`, `logo_url`, `sort_order`, `updated_at` |
+| `journey_milestones` | 14 | `id`, `slug`, `period`, `title`, `summary`, `points`, `badge`, `icon`, `inline_photo`, `layer`, `photos`, `sort_order`, `status`, `updated_at` |
+| `editors` | 4 | `user_id`, `email`, `role`, `created_at` |
+| `site_content` | 3 | `key`, `value`, `updated_at` |
+| `site_history` | 6 | `id`, `key`, `label`, `old_value`, `new_value`, `created_at` |
+| `admin_security` | 3 | `id`, `failed_attempts`, `locked_until` |
+| `faculty` | 10 | `id`, `slug`, `department`, `name`, `is_hod`, `designation`, `qualification`, `photo_url`, `sort_order`, `updated_at` |
 
 ## Content
 

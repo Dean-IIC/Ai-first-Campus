@@ -745,12 +745,15 @@ alter table public.departments
 -- Migration: 20261023010000_faculty.sql
 -- ============================================================
 -- Faculty shown on a department page: photo, then name, designation and qualification.
--- department holds the department's slug (for example 'aiml').
+-- department holds the department's slug (for example 'aiml'). The head of department
+-- (is_hod) is shown first, then the others grouped by designation: Professor, Associate
+-- Professor, Assistant Professor, Teaching Assistant.
 create table if not exists public.faculty (
   id             uuid primary key default gen_random_uuid(),
   slug           text not null unique,
   department     text not null,
   name           text not null,
+  is_hod         boolean not null default false,
   designation    text,
   qualification  text,
   photo_url      text,

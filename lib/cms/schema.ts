@@ -1,7 +1,7 @@
 import { AI_ROLES } from "@/lib/ai-people";
 import { EVENT_CATEGORIES } from "@/lib/events";
 import { MOU_STATUSES, MOU_TYPES } from "@/lib/mous";
-import { DEPARTMENT_SLUGS, NO_STATEMENT_KINDS } from "@/lib/site";
+import { DEPARTMENT_SLUGS, FACULTY_RANKS, NO_STATEMENT_KINDS } from "@/lib/site";
 import type { ListTable } from "@/lib/types";
 
 /*
@@ -93,9 +93,11 @@ export const LIST_SPECS: Record<ListTable, ListSpec> = {
   faculty: { label: "Faculty", item: "faculty member", title: "name", fields: [
     t("name", "Name", { required: true }),
     { key: "department", label: "Department", kind: "choice", options: DEPARTMENT_SLUGS, required: true, hint: "aiml is Artificial Intelligence & Machine Learning, cse is Computer Science and so on." },
-    t("designation", "Designation", { hint: "For example: Professor and HoD" }), t("qualification", "Qualification", { hint: "For example: M.Tech, Ph.D." }),
+    { key: "is_hod", label: "Head of the department", kind: "bool", hint: "Shown first, in a larger card. Tick it for one person per department." },
+    { key: "designation", label: "Designation", kind: "choice", options: FACULTY_RANKS, required: true, hint: "Faculty are grouped by designation, highest rank first." },
+    t("qualification", "Qualification", { hint: "For example: M.Tech, Ph.D." }),
     { key: "photo_url", label: "Photo", kind: "image", hint: "A portrait photo works best." },
-    { key: "sort_order", label: "Card number", kind: "number", hint: "Order of the card on the department page, starting at 1." },
+    { key: "sort_order", label: "Card number", kind: "number", hint: "Order of the card within its designation, starting at 1." },
   ] },
   news_items: { label: "News and events", item: "news item", title: "title", fields: [
     t("title", "Title", { required: true }), { key: "kind", label: "Type", kind: "choice", options: ["news", "event"], hint: "Only events are shown on the website." }, long("summary", "Summary"),
