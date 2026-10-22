@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ContentTabs from "@/components/features/content/content-tabs";
-import DepartmentAchievements, { hasAchievements } from "@/components/features/departments/department-achievements";
+import DepartmentAchievements from "@/components/features/departments/department-achievements";
 import DepartmentCareers, { hasCareers } from "@/components/features/departments/department-careers";
 import DepartmentCurriculum from "@/components/features/departments/department-curriculum";
 import DepartmentFacts from "@/components/features/departments/department-facts";
@@ -14,6 +14,7 @@ import DepartmentVisionMission from "@/components/features/departments/departmen
 import PageBanner from "@/components/features/layout/page-banner";
 import { getList } from "@/lib/content";
 import { hasExtendedPage, linesOf } from "@/lib/department-sections";
+import { getAchievements } from "@/lib/achievements-server";
 import { getFacultyRanks } from "@/lib/site-details";
 import { NO_STATEMENT_KINDS } from "@/lib/site";
 import { shell } from "@/lib/ui";
@@ -43,7 +44,7 @@ export default async function DepartmentPage({ params }: Props) {
   const { slug } = await params;
   const { department: d } = await findDepartment(slug);
   if (!d) notFound();
-  const [allFaculty, ranks] = await Promise.all([getList("faculty"), getFacultyRanks()]);
+  const [allFaculty, ranks, achievements] = await Promise.all([getList("faculty"), getFacultyRanks(), getAchievements(d)]);
   const faculty = allFaculty.filter((f) => f.department === d.slug);
 
   // Optional tabs appear only when the department has that content, so other departments are unchanged.
@@ -79,7 +80,7 @@ export default async function DepartmentPage({ params }: Props) {
           },
         ]
       : []),
-    ...(hasAchievements(d) ? [{ id: "achievements", label: "Achievements", content: <DepartmentAchievements department={d} /> }] : []),
+    ...(achievements.length || extended ? [{ id: "achievements", label: "Achievements", content: <DepartmentAchievements items={achievements} department={d.slug} /> }] : []),
     ...(d.has_research_centre ? [{ id: "research-centre", label: "Research centre", content: <DepartmentResearch department={d} /> }] : []),
   ];
 

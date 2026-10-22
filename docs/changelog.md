@@ -4,6 +4,12 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Changed (department achievements)
+- The Achievements tab now holds any number of achievements, edited on the tab by the signed-in admin as on the Faculty tab: **➕ Add achievement** (new ones go to the top), and **✏️ Edit** and **🗑️ Delete** on each card. Each has a title, an optional year or date, a description and a photo. Saved per department in the admin store under `achievements:<slug>` (Undo and History; no database change).
+- Photos sit in a gallery-style frame (thin green-to-teal border, light mat, fine inner line, soft shadow) and are always shown whole, never cropped; posters and certificates of any shape fit.
+- Click an achievement to open it: the full photo, year, title and the whole description in a window.
+- The department's older single achievement (Edit content → Departments, now labelled "First achievement (older single entry)") is shown as the first card until the list is saved, so nothing is lost. New: `lib/achievements.ts`, `lib/achievements-server.ts`, `components/features/departments/achievement-*.tsx`, `achievements-editor.tsx`.
+
 ### Changed (hero logos)
 - Home page hero points: "Affiliated to VTU, Belagavi" and "Approved by AICTE, New Delhi" now show the official VTU and AICTE logos (transparent backgrounds, `public/images/vtu-logo.webp`, `aicte-logo.webp`, alt text naming each body) instead of icons. The 30 Years of Excellence badge, VTU and AICTE logos are all 56 px tall, in equal-width slots so the four labels line up; "Five BE programmes, six research centres" keeps its icon. Clear in dark mode without a backing.
 

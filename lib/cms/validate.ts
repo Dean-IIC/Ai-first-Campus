@@ -1,4 +1,5 @@
 import { serviceBase } from "@/lib/admin/service";
+import { ACHIEVEMENTS_KEY, MAX_ACHIEVEMENTS, type Achievement } from "@/lib/achievements";
 import { CAROUSEL_KEY, MAX_SLIDES } from "@/lib/carousel";
 import { MOU_DOCUMENT_PATH } from "@/lib/mous";
 import { ALERT_FIELDS, LINK_FIELDS, LIST_SPECS, MESSAGE_FIELDS, PAGE_FIELDS, RANK_FIELDS, SITE_FIELDS, fieldShown, isListTable, type Field } from "./schema";
@@ -133,6 +134,21 @@ function cleanCarousel(value: unknown): { src: string; alt: string; title: strin
   });
 }
 
+/** A department's achievements, in display order: each with an id and a title; text and photo optional. */
+function cleanAchievements(value: unknown): Achievement[] {
+  if (!Array.isArray(value) || value.length > MAX_ACHIEVEMENTS) throw new Error(`Keep the list to ${MAX_ACHIEVEMENTS} achievements or fewer.`);
+  return value.map((raw, i) => {
+    const a = (raw ?? {}) as Record<string, unknown>;
+    const id = String(a.id ?? "");
+    if (!/^[a-z0-9-]{1,60}$/.test(id)) throw new Error(`Achievement ${i + 1} could not be read. Reload the page and try again.`);
+    const title = cleanText(a.title ?? "", 200);
+    if (!title) throw new Error(`Achievement ${i + 1}: enter a title.`);
+    const photo = typeof a.photo_url === "string" ? a.photo_url.trim() : "";
+    if (photo && !isAllowedImage(photo)) throw new Error(`Achievement ${i + 1}: upload the photo here instead of pasting an address.`);
+    return { id, title, year: cleanText(a.year ?? "", 40), text: cleanText(a.text ?? "", 3000, true), photo_url: photo || null };
+  });
+}
+
 /** Faculty designations, highest rank first: at least one, each once, at most 20. */
 function cleanRanks(value: unknown): { designations: string[] } {
   const { designations } = cleanRecord(RANK_FIELDS, value) as { designations: string[] };
@@ -156,6 +172,7 @@ export function cleanValue(key: string, value: unknown): unknown {
   if (key === "site:links") return cleanRecord(LINK_FIELDS, value);
   if (key === "site:alerts") return cleanRecord(ALERT_FIELDS, value);
   if (key === "site:ranks") return cleanRanks(value);
+  if (ACHIEVEMENTS_KEY.test(key)) return cleanAchievements(value);
   if (key.startsWith("list:")) return cleanList(key.slice(5), value);
   if (key === CAROUSEL_KEY) return cleanCarousel(value);
   throw new Error("This content cannot be edited.");
