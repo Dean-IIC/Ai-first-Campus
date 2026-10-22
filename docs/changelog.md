@@ -4,6 +4,12 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Changed (MoU partners)
+- MoUs page (`/mous`): MIT Square Services Pvt Ltd is listed as its own MoU (AY 2025-27, HKBKCE), right after Shinawatra University, with its logo from mitsquare.com. Shinawatra University's association is now "HKBKCE" (it was "MIT Square Services Private Limited and HKBKCE").
+- Every MoU now shows the "HKBKCE" association (Gleamator Technologies keeps "VTU and HKBKCE"); the 11 MoUs added by academic year had none.
+- Mitron Technologies and Innovations shows its full "MITRON TECH" logo from mitrontech.com instead of the triangle mark alone.
+- The page lists 25 MoUs and the "MoUs signed" key figure is 25.
+
 ### Changed (MoU academic years)
 - MoUs page (`/mous`): the 13 MoUs with a signing date now show an academic year from the signing year to 2027 instead of "Signed on" (for example UST, signed 4 Apr 2021, shows "AY 2021-27"; Shinawatra University, signed 10 Aug 2025, shows "AY 2025-27"). The signing dates are kept in `signed_on`; the card shows "Signed on" only when no academic year is set.
 
