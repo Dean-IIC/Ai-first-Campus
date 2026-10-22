@@ -480,9 +480,9 @@
     },
     {
       "file": "components/features/departments/department-history.tsx",
-      "lines": 37,
+      "lines": 51,
       "client": false,
-      "summary": "The programme's year-by-year history as a table (academic year and milestone)."
+      "summary": "The last whole number in a milestone (\"Intake increased from 60 to 120\" → 120)."
     },
     {
       "file": "components/features/departments/department-outcomes.tsx",
@@ -510,7 +510,7 @@
     },
     {
       "file": "components/features/departments/faculty-card-form.tsx",
-      "lines": 120,
+      "lines": 147,
       "client": true,
       "summary": "A faculty member as a form, for Add and Edit: name, designation, qualification, head of the"
     },
@@ -531,6 +531,18 @@
       "lines": 60,
       "client": false,
       "summary": "Shown before any faculty member is added: one empty portrait frame and a note."
+    },
+    {
+      "file": "components/features/departments/intake-chart.tsx",
+      "lines": 73,
+      "client": false,
+      "summary": "A round axis top above the largest value (50, 100, 200, 250, 500 ...) and its tick step."
+    },
+    {
+      "file": "components/features/departments/portrait-crop-dialog.tsx",
+      "lines": 139,
+      "client": true,
+      "summary": "Portrait (3:4) crop for faculty photos: drag or use the arrow keys to position the picture; the slider zooms."
     },
     {
       "file": "components/features/departments/statement-tile.tsx",
@@ -1204,6 +1216,11 @@
       "file": "lib/portals.tsx",
       "lines": 42,
       "summary": "A portal is clickable once it has an address and is marked Live."
+    },
+    {
+      "file": "lib/portrait-crop.ts",
+      "lines": 49,
+      "summary": "Geometry for the faculty photo crop: a 3:4 portrait crop box, a zoom level and a pan offset, all in pixels."
     },
     {
       "file": "lib/site-details.ts",

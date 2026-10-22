@@ -56,7 +56,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (121 files)
+## Components (123 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -86,15 +86,17 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/departments/department-curriculum.tsx` | 35 | Server | The curriculum as one card per semester: its scheme and its subjects. |
 | `components/features/departments/department-facts.tsx` | 45 | Server | Three small information tiles above the department tabs. |
 | `components/features/departments/department-faculty.tsx` | 64 | Client | The department's faculty: the head of department first, then everyone else grouped by |
-| `components/features/departments/department-history.tsx` | 37 | Server | The programme's year-by-year history as a table (academic year and milestone). |
+| `components/features/departments/department-history.tsx` | 51 | Server | The last whole number in a milestone ("Intake increased from 60 to 120" → 120). |
 | `components/features/departments/department-outcomes.tsx` | 32 | Server | Programme educational objectives, programme specific outcomes and programme outcomes. |
 | `components/features/departments/department-overview.tsx` | 35 | Server | Key facts about a department, then the programme's history when it has one. A department |
 | `components/features/departments/department-research.tsx` | 35 | Server | The department's research centre and its research areas. |
 | `components/features/departments/department-vision-mission.tsx` | 58 | Server | One statement, or several as a numbered list. When every point starts with its own label |
-| `components/features/departments/faculty-card-form.tsx` | 120 | Client | A faculty member as a form, for Add and Edit: name, designation, qualification, head of the |
+| `components/features/departments/faculty-card-form.tsx` | 147 | Client | A faculty member as a form, for Add and Edit: name, designation, qualification, head of the |
 | `components/features/departments/faculty-card.tsx` | 62 | Client | One faculty member. Visitors see the card. The signed-in admin also sees Edit and Delete; |
 | `components/features/departments/faculty-editor.tsx` | 72 | Client | Holds the whole faculty list (every department) for the Faculty tab's Add, Edit and Delete. |
 | `components/features/departments/faculty-view.tsx` | 60 | Server | Shown before any faculty member is added: one empty portrait frame and a note. |
+| `components/features/departments/intake-chart.tsx` | 73 | Server | A round axis top above the largest value (50, 100, 200, 250, 500 ...) and its tick step. |
+| `components/features/departments/portrait-crop-dialog.tsx` | 139 | Client | Portrait (3:4) crop for faculty photos: drag or use the arrow keys to position the picture; the slider zooms. |
 | `components/features/departments/statement-tile.tsx` | 55 | Server | A highlighted statement card (department vision or mission). |
 | `components/features/events/event-card-form.tsx` | 136 | Client | An event as a form, for Add and Edit: title, dates, time, venue, category, description, link and |
 | `components/features/events/event-card-view.tsx` | 61 | Server | One event: the calendar date badge (month in the red strip, day below), category, title, dates, |
@@ -182,7 +184,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/ui/tabs.tsx` | 39 | Client | - |
 | `components/ui/textarea.tsx` | 18 | Server | - |
 
-## Modules, actions and scripts (52)
+## Modules, actions and scripts (53)
 
 | File | Lines | Purpose |
 | --- | --- | --- |
@@ -217,6 +219,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/menu.ts` | 269 | A dropdown column. With `href` the heading is a link; `icon` shows before the heading. |
 | `lib/mous.ts` | 27 | An uploaded MoU document's path in the private "mou-documents" bucket. |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
+| `lib/portrait-crop.ts` | 49 | Geometry for the faculty photo crop: a 3:4 portrait crop box, a zoom level and a pan offset, all in pixels. |
 | `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
 | `lib/site.ts` | 113 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
 | `lib/supabase/client.ts` | 13 | Browser client from @supabase/ssr, for Client Components that need live data or auth. |
