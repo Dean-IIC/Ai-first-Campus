@@ -485,6 +485,7 @@ export type Database = {
           slug: string
           partner: string
           association: string | null
+          academic_year: string | null
           partner_type: string
           purpose: string | null
           signed_on: string | null
@@ -499,6 +500,7 @@ export type Database = {
           slug: string
           partner: string
           association?: string | null
+          academic_year?: string | null
           partner_type?: string
           purpose?: string | null
           signed_on?: string | null
@@ -513,6 +515,7 @@ export type Database = {
           slug?: string
           partner?: string
           association?: string | null
+          academic_year?: string | null
           partner_type?: string
           purpose?: string | null
           signed_on?: string | null

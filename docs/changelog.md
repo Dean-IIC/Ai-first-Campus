@@ -4,6 +4,11 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Added (MoUs by academic year)
+- MoUs page (`/mous`): 11 MoUs from the AY 2023-24, 2024-25 and 2025-26 lists are added, each with the academic years it covers under the name: Karunadu Technologies, Mitron Technologies and Innovations, Prodevans Technologies, Enterprise Building Training Solutions and Cranes Varsity (AY 2023-26); Reverse Engineering Infosec (AY 2024-26); Brain O Vision (AY 2023-25); Krish Tec (AY 2025-26); WSPL Hosting Solutions and Colt Assist and Utility Technologies (AY 2024-25); Vigameq Consultancy Services (AY 2023-24). The page now lists 24 MoUs and the "MoUs signed" key figure is 24.
+- New `academic_year` column (migration `20261022120000_mou_academic_year.sql`), an Academic year field in **Edit content** → MoUs, and an academic-year line on the MoU card.
+- Logos in `public/images/mous/` for all 11: Karunadu Technologies, Krish Tec, Reverse Engineering Infosec (Reinfosec), Prodevans Technologies, Cranes Varsity, WSPL Hosting Solutions, Brain O Vision and Mitron Technologies and Innovations from each company's website; Enterprise Building Training Solutions, Colt Assist and Vigameq cut from website screenshots supplied by the college (Colt and Vigameq redrawn dark so they show on the white logo tile).
+
 ### Changed (home photo deck)
 - Home page hero photos are a stacked deck: the front photo with the next two peeking out on the right (92% and 84% size, 85% and 60% opacity; narrower peeks on phones). Every 5 s the front photo slides out to the back and the next one moves forward (0.6 s). Pauses on hover or tap; arrows and dots under the deck; swipe on phones; clicking a peeking photo brings it forward; no auto-slide or animation with reduced motion. The badge sits below the front photo's bottom-left corner, overlapping it by 12 px. New per-photo **Fit** in Edit content → Home page carousel: "Full poster" (whole image on a light backing, nothing cropped) or "Fill frame". The VTU Rank poster was set to Full poster (History). Files: `hero-carousel.tsx`, `hero-card.tsx`, `hero-carousel-parts.tsx`; `fit` added to `HeroSlide`.
 

@@ -81,7 +81,7 @@ export const LIST_SPECS: Record<ListTable, ListSpec> = {
     { key: "published_on", label: "Published on", kind: "date", required: true }, { key: "event_date", label: "Event date", kind: "date" }, { key: "link_url", label: "Link", kind: "link" }, sample,
   ] },
   mous: { label: "MoUs", item: "MoU", title: "partner", fields: [
-    t("partner", "Partner", { required: true }), t("association", "Association", { hint: "Who signed with the partner, for example: HKBKCE or VTU and HKBKCE" }), t("partner_type", "Partner type", { hint: "For example: Industry, University" }), long("purpose", "Purpose"),
+    t("partner", "Partner", { required: true }), t("association", "Association", { hint: "Who signed with the partner, for example: HKBKCE or VTU and HKBKCE" }), t("academic_year", "Academic year", { hint: "Academic years the MoU covers, for example: AY 2023-24 or AY 2023-26" }), t("partner_type", "Partner type", { hint: "For example: Industry, University" }), long("purpose", "Purpose"),
     { key: "signed_on", label: "Signed on", kind: "date" }, { key: "valid_until", label: "Valid until", kind: "date" },
     { key: "document_url", label: "Document link", kind: "link" }, { key: "logo_url", label: "Logo", kind: "image" },
   ] },
