@@ -56,7 +56,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (123 files)
+## Components (128 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -81,7 +81,12 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/content/panel.tsx` | 49 | Server | A shadcn Card with an optional header. The coloured top edge and icon use |
 | `components/features/content/project-list.tsx` | 58 | Server | Optional bullet points shown under the summary (consultancy outcomes). |
 | `components/features/content/vision-mission.tsx` | 32 | Server | College vision and mission, from the `vision-mission` page (Supabase or content/pages/vision-mission.md). |
-| `components/features/departments/department-achievements.tsx` | 45 | Server | The department's achievements: a framed photo (an empty frame until one is uploaded) beside the text. |
+| `components/features/departments/achievement-card-form.tsx` | 98 | Client | An achievement as a form, for Add and Edit: title, year or date, description and a photo (shrunk in |
+| `components/features/departments/achievement-card.tsx` | 99 | Client | One achievement: its framed photo, title, year and the start of the description. Clicking it |
+| `components/features/departments/achievement-frame.tsx` | 26 | Server | A gallery-style frame: a thin green-to-teal border, a light mat and a fine inner line around the |
+| `components/features/departments/achievement-list.tsx` | 44 | Client | The department's achievements as framed cards (click one to open it), with the admin's Add achievement on top. |
+| `components/features/departments/achievements-editor.tsx` | 66 | Client | A short random id for a new achievement. |
+| `components/features/departments/department-achievements.tsx` | 13 | Server | The department's achievements: framed cards that open on click, edited on the tab by the signed-in admin. |
 | `components/features/departments/department-careers.tsx` | 63 | Server | Icon for a scope card, chosen from words in its heading. |
 | `components/features/departments/department-curriculum.tsx` | 35 | Server | The curriculum as one card per semester: its scheme and its subjects. |
 | `components/features/departments/department-facts.tsx` | 45 | Server | Three small information tiles above the department tabs. |
@@ -184,10 +189,12 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/ui/tabs.tsx` | 39 | Client | - |
 | `components/ui/textarea.tsx` | 18 | Server | - |
 
-## Modules, actions and scripts (53)
+## Modules, actions and scripts (55)
 
 | File | Lines | Purpose |
 | --- | --- | --- |
+| `lib/achievements-server.ts` | 20 | A department's achievements: the saved list, or its single older achievement until one is saved. Server only. |
+| `lib/achievements.ts` | 24 | One achievement on a department's Achievements tab: a title, an optional year or date, a |
 | `lib/admin/config.ts` | 18 | - |
 | `lib/admin/email-alert.ts` | 58 | Which alert address field covers each form. Admission and hostel forms use the general address. |
 | `lib/admin/enquiries.ts` | 78 | Keeps only letters, digits and a few safe characters, so the search cannot change the query. |
@@ -204,7 +211,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/cms/read.ts` | 25 | - |
 | `lib/cms/schema.ts` | 168 | `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`. |
 | `lib/cms/store.ts` | 26 | - |
-| `lib/cms/validate.ts` | 163 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
+| `lib/cms/validate.ts` | 180 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
 | `lib/cms/write.ts` | 69 | Saves a value (null removes it), and records the change. |
 | `lib/content.ts` | 198 | A value the admin saved in the content editor (see lib/cms/schema.ts), if any. |
 | `lib/database.types.ts` | 849 | Supabase database types for the HKBK website. |

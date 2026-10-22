@@ -4,6 +4,12 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Changed (department achievements)
+- The Achievements tab now holds any number of achievements, edited on the tab by the signed-in admin as on the Faculty tab: **➕ Add achievement** (new ones go to the top), and **✏️ Edit** and **🗑️ Delete** on each card. Each has a title, an optional year or date, a description and a photo. Saved per department in the admin store under `achievements:<slug>` (Undo and History; no database change).
+- Photos sit in a gallery-style frame (thin green-to-teal border, light mat, fine inner line, soft shadow) and are always shown whole, never cropped; posters and certificates of any shape fit.
+- Click an achievement to open it: the full photo, year, title and the whole description in a window.
+- The department's older single achievement (Edit content → Departments, now labelled "First achievement (older single entry)") is shown as the first card until the list is saved, so nothing is lost. New: `lib/achievements.ts`, `lib/achievements-server.ts`, `components/features/departments/achievement-*.tsx`, `achievements-editor.tsx`.
+
 ### Changed (department pages)
 - History of the programme: when every year states an intake, it is now an "Annual intake (seats) by academic year" bar chart (value above each bar, year below, milestone on hover, "3× since 2021–22"), with the table kept for screen readers. Years without an intake still show the table. New: `components/features/departments/intake-chart.tsx`.
 - Faculty photos: choosing a photo opens a crop window with a 3:4 portrait frame (drag to place, slider to zoom, arrow keys too) and saves a 600 × 800 JPG; **Crop again** re-crops from the original picture. New: `components/features/departments/portrait-crop-dialog.tsx`, `lib/portrait-crop.ts`.

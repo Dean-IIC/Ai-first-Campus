@@ -449,10 +449,40 @@
       "summary": "College vision and mission, from the `vision-mission` page (Supabase or content/pages/vision-mission.md)."
     },
     {
-      "file": "components/features/departments/department-achievements.tsx",
-      "lines": 45,
+      "file": "components/features/departments/achievement-card-form.tsx",
+      "lines": 98,
+      "client": true,
+      "summary": "An achievement as a form, for Add and Edit: title, year or date, description and a photo (shrunk in"
+    },
+    {
+      "file": "components/features/departments/achievement-card.tsx",
+      "lines": 99,
+      "client": true,
+      "summary": "One achievement: its framed photo, title, year and the start of the description. Clicking it"
+    },
+    {
+      "file": "components/features/departments/achievement-frame.tsx",
+      "lines": 26,
       "client": false,
-      "summary": "The department's achievements: a framed photo (an empty frame until one is uploaded) beside the text."
+      "summary": "A gallery-style frame: a thin green-to-teal border, a light mat and a fine inner line around the"
+    },
+    {
+      "file": "components/features/departments/achievement-list.tsx",
+      "lines": 44,
+      "client": true,
+      "summary": "The department's achievements as framed cards (click one to open it), with the admin's Add achievement on top."
+    },
+    {
+      "file": "components/features/departments/achievements-editor.tsx",
+      "lines": 66,
+      "client": true,
+      "summary": "A short random id for a new achievement."
+    },
+    {
+      "file": "components/features/departments/department-achievements.tsx",
+      "lines": 13,
+      "client": false,
+      "summary": "The department's achievements: framed cards that open on click, edited on the tab by the signed-in admin."
     },
     {
       "file": "components/features/departments/department-careers.tsx",
@@ -1063,6 +1093,16 @@
   ],
   "modules": [
     {
+      "file": "lib/achievements-server.ts",
+      "lines": 20,
+      "summary": "A department's achievements: the saved list, or its single older achievement until one is saved. Server only."
+    },
+    {
+      "file": "lib/achievements.ts",
+      "lines": 24,
+      "summary": "One achievement on a department's Achievements tab: a title, an optional year or date, a"
+    },
+    {
       "file": "lib/admin/config.ts",
       "lines": 18,
       "summary": ""
@@ -1144,7 +1184,7 @@
     },
     {
       "file": "lib/cms/validate.ts",
-      "lines": 163,
+      "lines": 180,
       "summary": "A photo address the admin may use: one uploaded to our storage, or a file shipped with the site."
     },
     {

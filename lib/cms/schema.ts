@@ -98,8 +98,8 @@ export const LIST_SPECS: Record<ListTable, ListSpec> = {
     { key: "curriculum", label: "Curriculum (one semester per line)", kind: "lines", hint: "Semester (scheme), colon, subjects separated by semicolons. For example: Semester 1 (2025 scheme): Applied Mathematics-I; Applied Chemistry", ...noStatements },
     { key: "employment_scope", label: "Scope of employment (one per line)", kind: "lines", hint: "Heading, colon, text. For example: Government jobs: Preparation for the civil services …", ...noStatements },
     { key: "career_roles", label: "Career roles (one per line)", kind: "lines", hint: "For example: Data scientist", ...noStatements },
-    { ...long("achievements", "Achievements", "Shown beside the achievements photo. A blank line starts a new paragraph."), ...noStatements },
-    { key: "achievements_image", label: "Achievements photo", kind: "image", ...noStatements },
+    { ...long("achievements", "First achievement (older single entry)", "Shown on the Achievements tab only until achievements are added there. Add, edit and delete achievements on the tab itself."), ...noStatements },
+    { key: "achievements_image", label: "First achievement photo (older single entry)", kind: "image", ...noStatements },
   ] },
   faculty: { label: "Faculty", item: "faculty member", title: "name", fields: [
     t("name", "Name", { required: true }),
