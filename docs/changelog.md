@@ -4,6 +4,9 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Changed (MoUs)
+- MoUs page: the search box and the type and status filters are removed; every MoU card shows directly under "MoUs (N)". The admin can always drag cards to reorder. `mou-filters.tsx` removed.
+
 ### Changed (Events)
 - News is no longer shown. The home page section is now "Events" (no tabs; link "All events"), showing the next three upcoming events, or the latest three past events when none are upcoming. The page is now `/events` ("Upcoming events", soonest first, then "Past events"); `/news` redirects there permanently, and the footer link reads "Events". The news item is kept in the data (`list:news_items`) but not shown. The signed-in admin edits events on the cards (✏️ Edit, 🗑️ Delete, ➕ Add event) with title, start and end dates, time, venue, category (Workshop, Seminar, Fest, Sports, Cultural, Other), description, poster or photo (shown in full) and a registration link; changes save through the admin store (Undo and History). Empty state: "Upcoming events will be listed here soon." New: `lib/events.ts`, `components/features/events/`, `app/events/page.tsx`.
 

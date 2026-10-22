@@ -56,7 +56,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (111 files)
+## Components (110 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -138,10 +138,9 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/mous/mou-card-form.tsx` | 132 | Client | Small labelled field on the card form. |
 | `components/features/mous/mou-card-view.tsx` | 95 | Server | Initials for a partner without a logo: "VTU", "CITRIOT" → "CI", "Dyashin Technosoft Pvt Ltd" → "DT". |
 | `components/features/mous/mou-card.tsx` | 65 | Client | One MoU card. Visitors see the MoU. The signed-in admin also sees Edit and Delete at the |
-| `components/features/mous/mou-directory.tsx` | 101 | Client | Every MoU as a card, under "MoUs (N)", with filters by type and status and a search box. The |
+| `components/features/mous/mou-directory.tsx` | 85 | Client | Every MoU as a card, under "MoUs (N)". The signed-in admin also gets Add, drag-to-reorder and |
 | `components/features/mous/mou-document-field.tsx` | 97 | Client | Sends the PDF straight to the private bucket with the one-time ticket from the server. |
 | `components/features/mous/mou-editor.tsx` | 90 | Client | Holds every MoU for the cards' Add, Edit, Delete, drag-to-reorder and sort. Each change saves |
-| `components/features/mous/mou-filters.tsx` | 35 | Client | Filters for visitors: type, status and a search box over partner, purpose and departments. |
 | `components/features/navigation/main-nav.tsx` | 99 | Client | The main menu bar. Every item is always visible: on wide screens dropdowns |
 | `components/features/navigation/mega-menu.tsx` | 105 | Server | A column heading: plain text, or a link (with its icon) when the column has its own page. |
 | `components/features/navigation/mobile-header.tsx` | 54 | Client | The header on screens narrower than 1024px: one compact sticky row with the crest, the |
@@ -204,7 +203,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/markdown.ts` | 16 | Splits markdown into sections at each "## Heading". Text before the first heading is the intro. |
 | `lib/menu-server.ts` | 16 | Loads everything the menu needs and builds it. Server components only. |
 | `lib/menu.ts` | 269 | A dropdown column. With `href` the heading is a link; `icon` shows before the heading. |
-| `lib/mous.ts` | 31 | An uploaded MoU document's path in the private "mou-documents" bucket. |
+| `lib/mous.ts` | 27 | An uploaded MoU document's path in the private "mou-documents" bucket. |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
 | `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
 | `lib/site.ts` | 109 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |

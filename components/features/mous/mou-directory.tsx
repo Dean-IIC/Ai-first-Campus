@@ -2,35 +2,22 @@
 
 import { useState } from "react";
 import { ArrowDownWideNarrow, GripVertical, Handshake } from "lucide-react";
-import { mouStatus, NO_FILTER, type MouFilter } from "@/lib/mous";
-import type { Mou } from "@/lib/types";
 import { adminPill, navyPill } from "@/lib/ui";
 import { cn } from "@/lib/utils";
 import MouCard from "./mou-card";
 import MouCardForm from "./mou-card-form";
 import { useMouEditor } from "./mou-editor";
-import MouFilters from "./mou-filters";
-
-function matches(m: Mou, f: MouFilter): boolean {
-  if (f.type && m.partner_type !== f.type) return false;
-  if (f.status && mouStatus(m) !== f.status) return false;
-  const q = f.q.trim().toLowerCase();
-  return !q || [m.partner, m.purpose, m.departments, m.association].some((v) => v?.toLowerCase().includes(q));
-}
 
 /**
- * Every MoU as a card, under "MoUs (N)", with filters by type and status and a search box. The
- * signed-in admin also gets Add, drag-to-reorder (when no filter is set) and sort by date.
+ * Every MoU as a card, under "MoUs (N)". The signed-in admin also gets Add, drag-to-reorder and
+ * sort by date.
  */
 export default function MouDirectory() {
   const { admin, rows, moveMou, sortByDate } = useMouEditor();
-  const [filter, setFilter] = useState<MouFilter>(NO_FILTER);
   const [adding, setAdding] = useState(false);
   const [dragFrom, setDragFrom] = useState<string | null>(null);
   const [message, setMessage] = useState("");
-  const shown = rows.filter((m) => matches(m, filter));
-  const filtered = Boolean(filter.type || filter.status || filter.q.trim());
-  const canDrag = admin && !filtered;
+  const canDrag = admin;
 
   return (
     <section aria-labelledby="mou-list" className="space-y-5">
@@ -42,7 +29,7 @@ export default function MouDirectory() {
           <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
             <span className="flex items-center gap-1">
               <GripVertical aria-hidden="true" className="size-3.5" />
-              {canDrag ? "Drag cards to reorder" : "Clear the filters to reorder"}
+              Drag cards to reorder
             </span>
             <button type="button" className={cn(adminPill, "border border-border bg-card text-foreground hover:bg-muted")} onClick={async () => setMessage((await sortByDate()) ?? "")}>
               <ArrowDownWideNarrow aria-hidden="true" className="size-3.5" />
@@ -51,7 +38,6 @@ export default function MouDirectory() {
           </div>
         )}
       </div>
-      {rows.length > 0 && <MouFilters value={filter} onChange={setFilter} />}
       {message && <p role="alert" className="text-sm font-medium text-destructive">{message}</p>}
       {rows.length === 0 && !admin && (
         <div className="flex flex-col items-center rounded-xl border border-dashed border-border bg-muted/50 px-6 py-10 text-center">
@@ -61,10 +47,8 @@ export default function MouDirectory() {
           <p className="mt-4 font-semibold text-heading">MoUs will be listed here soon.</p>
         </div>
       )}
-      {rows.length > 0 && shown.length === 0 && <p className="text-sm text-muted-foreground">No MoUs match these filters.</p>}
-      {filtered && shown.length > 0 && <p className="text-sm text-muted-foreground">Showing {shown.length} of {rows.length}</p>}
       <ul aria-label="MoUs signed" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {shown.map((m, i) => (
+        {rows.map((m, i) => (
           <li
             key={m.slug || `new-${i}`}
             draggable={canDrag}
