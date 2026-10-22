@@ -6,12 +6,10 @@
     "kind": "Engineering",
     "programmes": "BE",
     "description": "Software engineering, systems, data and AI, taught with industry tools and real projects.",
-    "vision": "To be a centre of excellence in computer science that produces engineers who build intelligent, secure and responsible software for society.",
+    "vision": "To advance the intellectual capacity of the nation and the international community by imparting knowledge to graduates who are globally recognized as innovators, entrepreneur and competent professionals.",
     "mission": [
-      "Teach strong foundations in computing through hands-on, AI-enabled learning.",
-      "Encourage research and innovation in AI, data science, cybersecurity and quantum computing.",
-      "Partner with industry for internships, projects and placements.",
-      "Develop ethical, lifelong learners who serve society."
+      "To provide excellent technical knowledge and computing skills to make the graduates globally competitive with professional ethics.",
+      "To involve in research activities and be committed to lifelong learning to make positive contributions to the society."
     ],
     "has_research_centre": true,
     "research_areas": [
@@ -19,7 +17,18 @@
       "Cybersecurity and post-quantum cryptography",
       "Data science and cloud computing"
     ],
-    "sort_order": 1
+    "sort_order": 1,
+    "show_research_tile": true,
+    "history": [],
+    "approvals": [],
+    "peos": [],
+    "psos": [],
+    "pos": [],
+    "curriculum": [],
+    "employment_scope": [],
+    "career_roles": [],
+    "achievements": null,
+    "achievements_image": null
   },
   {
     "slug": "ise",
@@ -28,13 +37,24 @@
     "kind": "Engineering",
     "programmes": "BE",
     "description": "Information systems, cloud computing, data engineering and web technologies.",
-    "vision": "To train skilled and ethical professionals with the ability to plan, design, develop, organize, and manage modern and traditional information systems — with comprehensive knowledge of Information Technologies, services, and global organizations.",
+    "vision": "To train skilled and ethical professionals with an ability to plan, design, develop, organize and manage modern and traditional information systems with the knowledge of Information technologies, services and organizations globally.",
     "mission": [
-      "To impart high-quality engineering education in the field of Information Science & Technology through strong theoretical foundations and extensive practical training methodologies, driven by innovation and research — to produce world-class engineers ready for global challenges."
+      "To impart high quality engineering education in the field of Information Science & Technology with strong theoretical and extensive practical training methodologies through innovation and research to make world class engineers."
     ],
     "has_research_centre": false,
     "research_areas": [],
-    "sort_order": 2
+    "sort_order": 2,
+    "show_research_tile": true,
+    "history": [],
+    "approvals": [],
+    "peos": [],
+    "psos": [],
+    "pos": [],
+    "curriculum": [],
+    "employment_scope": [],
+    "career_roles": [],
+    "achievements": null,
+    "achievements_image": null
   },
   {
     "slug": "aiml",
@@ -43,16 +63,81 @@
     "kind": "Engineering",
     "programmes": "BE",
     "description": "Machine learning, deep learning, language models and responsible AI.",
-    "vision": "To be a leading department in artificial intelligence education, shaping engineers who build AI that is accurate, fair and useful.",
+    "vision": "To prepare students to serve society with a holistic approach and participate in nation building.",
     "mission": [
-      "Teach machine learning, deep learning and language models on strong mathematical foundations.",
-      "Give every student hands-on experience with real datasets and AI tools.",
-      "Collaborate with industry and research labs on applied AI projects.",
-      "Embed responsible AI, fairness and privacy in every course."
+      "To lay a strong foundation in theoretical concepts and experimental learning in the field of artificial intelligence and machine learning, and allied fields. To inculcate self-learning abilities, team spirit, and professional ethics among the students to emerge as valued entrepreneurs and serve society.",
+      "To promote innovation and entrepreneurship ideas among students to be job creators in the future."
     ],
     "has_research_centre": false,
     "research_areas": [],
-    "sort_order": 3
+    "sort_order": 3,
+    "show_research_tile": false,
+    "history": [
+      "2021–22: Department established with an intake of 60",
+      "2022–23: Intake: 60",
+      "2023–24: Intake: 60",
+      "2024–25: Intake increased from 60 to 120",
+      "2025–26: Intake increased to 180"
+    ],
+    "approvals": [
+      "Approved by AICTE",
+      "Affiliated to VTU"
+    ],
+    "peos": [
+      "PEO1: Graduates will possess fundamental knowledge of engineering and will pursue successful careers as software professionals, AI developers, data analysts and data scientists.",
+      "PEO2: Graduates will demonstrate lifelong learning in the field of Artificial Intelligence and Machine Learning.",
+      "PEO3: Graduates will perform their duties with professional skills and ethics."
+    ],
+    "psos": [
+      "PSO1: Design thinking and problem solving: understand, formulate and solve interdisciplinary problems with AI tools.",
+      "PSO2: Professional skill: apply appropriate AI and ML techniques and contribute to society through innovation, research and entrepreneurship."
+    ],
+    "pos": [
+      "PO1: Engineering knowledge: Apply the knowledge of mathematics, science, engineering fundamentals and an engineering specialization to the solution of complex engineering problems.",
+      "PO2: Problem analysis: Identify, formulate, review research literature and analyse complex engineering problems, reaching substantiated conclusions using first principles of mathematics, natural sciences and engineering sciences.",
+      "PO3: Design and development of solutions: Design solutions for complex engineering problems and design system components or processes that meet the specified needs with appropriate consideration for public health and safety, and cultural, societal and environmental considerations.",
+      "PO4: Conduct investigations of complex problems: Use research-based knowledge and research methods, including design of experiments, analysis and interpretation of data, and synthesis of the information to provide valid conclusions.",
+      "PO5: Modern tool usage: Create, select and apply appropriate techniques, resources and modern engineering and IT tools, including prediction and modelling, to complex engineering activities with an understanding of their limitations.",
+      "PO6: The engineer and society: Apply reasoning informed by contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to professional engineering practice.",
+      "PO7: Environment and sustainability: Understand the impact of professional engineering solutions in societal and environmental contexts, and demonstrate the knowledge of, and need for, sustainable development.",
+      "PO8: Ethics: Apply ethical principles and commit to professional ethics and the responsibilities and norms of engineering practice.",
+      "PO9: Individual and team work: Function effectively as an individual, and as a member or leader in diverse teams and in multidisciplinary settings.",
+      "PO10: Communication: Communicate effectively on complex engineering activities with the engineering community and with society at large, such as being able to comprehend and write effective reports and design documentation, make effective presentations, and give and receive clear instructions.",
+      "PO11: Project management and finance: Demonstrate knowledge and understanding of engineering and management principles and apply these to one's own work, as a member and leader in a team, to manage projects in multidisciplinary environments.",
+      "PO12: Life-long learning: Recognise the need for, and have the preparation and ability to engage in, independent and life-long learning in the broadest context of technological change."
+    ],
+    "curriculum": [
+      "Semester 1 (2025 scheme): Applied Mathematics-I; Applied Chemistry; Introduction to AI and Applications; Engineering Science Course-I; Programming Language Course; Communication Skills; Indian Constitution and Engineering Ethics; Innovation and Design Thinking Lab",
+      "Semester 2 (2025 scheme): Applied Mathematics-I; Applied Physics; Computer-Aided Engineering Drawing; Engineering Science Course-I; Programme Specific Course; Soft Skills; Programme Specific Course Lab; Innovation and Design Thinking Lab; Samskrutika Kannada / Balake Kannada",
+      "Semester 3 (2025 scheme): Mathematics for Computer Science; Digital Design and Computer Organization; Operating Systems; Data Structures and Applications; Data Structures Lab; Social Connect and Responsibility; Ability or Skill Enhancement Course III",
+      "Semester 4 (2025 scheme): Analysis and Design of Algorithms; Artificial Intelligence; Database Management Systems; Analysis and Design of Algorithms Lab; Ability or Skill Enhancement Course IV; Biology for Engineers; Universal Human Values",
+      "Semester 5 (2022 scheme): Software Engineering and Project Management; Computer Networks; Theory of Computation; Data Visualization Lab; Professional Elective; Mini Project; Research Methodology and IPR; Environmental Studies",
+      "Semester 6 (2022 scheme): Big Data Analytics; Machine Learning; Machine Learning Lab; Professional Elective; Open Elective; Project Phase I; Ability Enhancement or Skill Development Course V",
+      "Semester 7 (2022 scheme): Deep Learning and Reinforcement Learning; Machine Learning II; Data Security and Privacy; Professional Elective; Open Elective; Major Project Phase II",
+      "Semester 8 (2022 scheme): Professional Elective (online, through NPTEL, Coursera or Springboard); Open Elective (online); Internship in industry or research (14 to 20 weeks)"
+    ],
+    "employment_scope": [
+      "Corporate jobs: Industry careers in IT, AI and ML, data science, software development, cybersecurity and emerging technologies.",
+      "Government jobs: Preparation for the civil services, PSUs, banking, defence and other government-sector opportunities.",
+      "Higher studies: Preparation for GATE, UGC-NET, CAT, MAT and other competitive examinations for advanced education and research.",
+      "Entrepreneurship and startups: Support for innovation, startup development, business creation and self-employment.",
+      "Research and innovation: Opportunities in R&D centres, research laboratories, product development and technological innovation.",
+      "Global careers and certifications: International careers through specialised skills, professional certifications and industry-recognised qualifications."
+    ],
+    "career_roles": [
+      "AI / ML engineer",
+      "Data scientist",
+      "Data analyst",
+      "NLP engineer",
+      "Computer vision engineer",
+      "Deep learning researcher",
+      "AI product manager",
+      "Robotics engineer",
+      "Business intelligence analyst",
+      "AI solutions architect"
+    ],
+    "achievements": "A student of the department secured 8th rank at VTU with a CGPA of 9.48.",
+    "achievements_image": null
   },
   {
     "slug": "me",
@@ -61,12 +146,11 @@
     "kind": "Engineering",
     "programmes": "BE",
     "description": "Design, manufacturing, thermal engineering and robotics.",
-    "vision": "To produce mechanical engineers who design, manufacture and maintain sustainable machines and systems.",
+    "vision": "To nurture creativity and critical thinking in applying engineering skills to analyze and face the fast growing globalization.\nTo develop holistic personality of the learners and to create professionally superior and ethically strong global manpower.\nTo create center of excellence in research and development.",
     "mission": [
-      "Build strong fundamentals in design, thermal, manufacturing and materials engineering.",
-      "Integrate CAD, simulation, robotics and smart manufacturing into the curriculum.",
-      "Encourage research and prototyping through laboratories and the IDEA Lab.",
-      "Prepare graduates for industry, higher studies and entrepreneurship."
+      "The mission of the department is to transform students into world class mechanical engineers by providing a high quality engineering education through effective teaching learning process and creation of new knowledge so as to make them highly professional.",
+      "To offer a well-balanced programme of instruction, practical experience, and opportunities for overall personality development.",
+      "To shape the students as disciplined humane engineers who can build a strong, peaceful and dynamic country."
     ],
     "has_research_centre": true,
     "research_areas": [
@@ -74,7 +158,18 @@
       "Advanced manufacturing and materials",
       "Robotics and automation"
     ],
-    "sort_order": 4
+    "sort_order": 4,
+    "show_research_tile": true,
+    "history": [],
+    "approvals": [],
+    "peos": [],
+    "psos": [],
+    "pos": [],
+    "curriculum": [],
+    "employment_scope": [],
+    "career_roles": [],
+    "achievements": null,
+    "achievements_image": null
   },
   {
     "slug": "ece",
@@ -83,12 +178,12 @@
     "kind": "Engineering",
     "programmes": "BE",
     "description": "VLSI, embedded systems, signal processing and communication networks.",
-    "vision": "To be a centre of excellence in electronics and communication engineering that drives innovation in connected and intelligent systems.",
+    "vision": "To shape the students as disciplined human engineers who can build a strong, peaceful and vibrant country and focus on mutual respect, tolerance and professional ethics.",
     "mission": [
-      "Teach core electronics, communication and signal processing with hands-on laboratories.",
-      "Promote research in VLSI, embedded systems, IoT and wireless communication.",
-      "Strengthen industry collaboration for projects, training and placements.",
-      "Develop engineers with integrity and a commitment to society."
+      "M1: To provide the best possible educational experience.",
+      "M2: Excellence in teaching and research activities for today's students and professionals of tomorrow.",
+      "M3: To hone young minds and train them to be conscientious individuals.",
+      "M4: Will serve the society as competent professionals in the field of Electronics and Communication Engineering."
     ],
     "has_research_centre": true,
     "research_areas": [
@@ -96,7 +191,18 @@
       "Internet of Things and wireless communication",
       "Signal and image processing"
     ],
-    "sort_order": 5
+    "sort_order": 5,
+    "show_research_tile": true,
+    "history": [],
+    "approvals": [],
+    "peos": [],
+    "psos": [],
+    "pos": [],
+    "curriculum": [],
+    "employment_scope": [],
+    "career_roles": [],
+    "achievements": null,
+    "achievements_image": null
   },
   {
     "slug": "mathematics",
@@ -118,7 +224,18 @@
       "Graph theory and optimisation",
       "Statistics and data analysis"
     ],
-    "sort_order": 6
+    "sort_order": 6,
+    "show_research_tile": true,
+    "history": [],
+    "approvals": [],
+    "peos": [],
+    "psos": [],
+    "pos": [],
+    "curriculum": [],
+    "employment_scope": [],
+    "career_roles": [],
+    "achievements": null,
+    "achievements_image": null
   },
   {
     "slug": "physics",
@@ -140,7 +257,18 @@
       "Photonics and optics",
       "Quantum physics and sensing"
     ],
-    "sort_order": 7
+    "sort_order": 7,
+    "show_research_tile": true,
+    "history": [],
+    "approvals": [],
+    "peos": [],
+    "psos": [],
+    "pos": [],
+    "curriculum": [],
+    "employment_scope": [],
+    "career_roles": [],
+    "achievements": null,
+    "achievements_image": null
   },
   {
     "slug": "chemistry",
@@ -162,7 +290,18 @@
       "Corrosion science and surface coatings",
       "Electrochemistry and energy storage"
     ],
-    "sort_order": 8
+    "sort_order": 8,
+    "show_research_tile": true,
+    "history": [],
+    "approvals": [],
+    "peos": [],
+    "psos": [],
+    "pos": [],
+    "curriculum": [],
+    "employment_scope": [],
+    "career_roles": [],
+    "achievements": null,
+    "achievements_image": null
   },
   {
     "slug": "humanities",
@@ -180,7 +319,18 @@
     ],
     "has_research_centre": false,
     "research_areas": [],
-    "sort_order": 9
+    "sort_order": 9,
+    "show_research_tile": true,
+    "history": [],
+    "approvals": [],
+    "peos": [],
+    "psos": [],
+    "pos": [],
+    "curriculum": [],
+    "employment_scope": [],
+    "career_roles": [],
+    "achievements": null,
+    "achievements_image": null
   },
   {
     "slug": "sports",
@@ -198,6 +348,17 @@
     ],
     "has_research_centre": false,
     "research_areas": [],
-    "sort_order": 10
+    "sort_order": 10,
+    "show_research_tile": true,
+    "history": [],
+    "approvals": [],
+    "peos": [],
+    "psos": [],
+    "pos": [],
+    "curriculum": [],
+    "employment_scope": [],
+    "career_roles": [],
+    "achievements": null,
+    "achievements_image": null
   }
 ]

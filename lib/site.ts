@@ -43,6 +43,8 @@ export type NavItem = {
 export const SCIENCES_KIND = "Basic sciences and humanities";
 /** Department kinds whose pages show no vision and mission: basic sciences and humanities, and sports. */
 export const NO_STATEMENT_KINDS: readonly string[] = [SCIENCES_KIND, "Physical education"];
+/** Department slugs (their /academics/<slug> address), offered when the admin assigns a faculty member. */
+export const DEPARTMENT_SLUGS: readonly string[] = ["cse", "ise", "aiml", "me", "ece", "mathematics", "physics", "chemistry", "humanities", "sports"];
 
 export const INITIATIVES_LABEL = "Centres & Initiatives";
 

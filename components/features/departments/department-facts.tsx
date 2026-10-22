@@ -11,15 +11,20 @@ export default function DepartmentFacts({ department: d }: { department: Departm
       ? [{ icon: GraduationCap, label: "Programme", value: "BE, four years", gradient: "from-t-green to-t-teal" }]
       : []),
     { icon: Building2, label: "Department", value: d.short_name ? `${d.short_name} · ${d.kind}` : d.kind, gradient: "from-t-blue to-t-teal" },
-    {
-      icon: Microscope,
-      label: "Research centre",
-      value: d.has_research_centre ? "Doctoral research centre" : "Teaching department",
-      gradient: d.has_research_centre ? "from-t-amber to-t-rose" : "from-t-violet to-t-blue",
-    },
+    // The admin can hide this tile per department ("Show the research centre tile").
+    ...(d.show_research_tile !== false
+      ? [
+          {
+            icon: Microscope,
+            label: "Research centre",
+            value: d.has_research_centre ? "Doctoral research centre" : "Teaching department",
+            gradient: d.has_research_centre ? "from-t-amber to-t-rose" : "from-t-violet to-t-blue",
+          },
+        ]
+      : []),
   ];
   return (
-    <ul className="grid gap-3 sm:grid-cols-3">
+    <ul className={cn("grid gap-3", facts.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2")}>
       {facts.map(({ icon: Icon, label, value, gradient }) => (
         <li
           key={label}

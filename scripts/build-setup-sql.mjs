@@ -26,8 +26,8 @@ const upsert = (table, rows, key = "slug") => {
   const values = rows.map((r) => `  (${cols.map((c) => lit(r[c] ?? null, c)).join(", ")})`).join(",\n");
   const updates = cols.filter((c) => c !== key).map((c) => `${c} = excluded.${c}`).join(", ");
   // AI Champions and Ambassadors are edited on the website; never overwrite them when re-run.
-  // Entries edited on the website (AI Champions, Ambassadors, the journey timeline) are never overwritten when this file is re-run.
-  const onConflict = ["ai_people", "journey_milestones"].includes(table) ? "do nothing" : `do update set ${updates}`;
+  // Entries edited on the website (AI Champions, Ambassadors, the journey timeline, faculty) are never overwritten when this file is re-run.
+  const onConflict = ["ai_people", "journey_milestones", "faculty"].includes(table) ? "do nothing" : `do update set ${updates}`;
   return `insert into public.${table} (${cols.join(", ")}) values\n${values}\non conflict (${key}) ${onConflict};\n`;
 };
 

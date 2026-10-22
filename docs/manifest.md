@@ -25,7 +25,7 @@ Components used by a route may load more data (for example the home page section
 | `/` | Static | - | `table:departments`, `table:news_items`, `table:journey_milestones`, `page:home-ai-first` | `app/page.tsx` |
 | `/about` | Static | 300s | `page:about` | `app/about/page.tsx` |
 | `/academics` | Static | 300s | `table:departments`, `page:academics` | `app/academics/page.tsx` |
-| `/academics/[slug]` | Dynamic (pre-rendered) | 300s | `table:departments` | `app/academics/[slug]/page.tsx` |
+| `/academics/[slug]` | Dynamic (pre-rendered) | 300s | `table:departments`, `table:faculty` | `app/academics/[slug]/page.tsx` |
 | `/admin/enquiries` | Static | - | - | `app/admin/enquiries/page.tsx` |
 | `/admin/login` | Static | - | - | `app/admin/login/page.tsx` |
 | `/ai-quantum` | Static | - | `page:ai-quantum` | `app/ai-quantum/page.tsx` |
@@ -56,7 +56,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (111 files)
+## Components (118 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -81,10 +81,16 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/content/panel.tsx` | 49 | Server | A shadcn Card with an optional header. The coloured top edge and icon use |
 | `components/features/content/project-list.tsx` | 58 | Server | Optional bullet points shown under the summary (consultancy outcomes). |
 | `components/features/content/vision-mission.tsx` | 32 | Server | College vision and mission, from the `vision-mission` page (Supabase or content/pages/vision-mission.md). |
-| `components/features/departments/department-facts.tsx` | 40 | Server | Three small information tiles above the department tabs. |
-| `components/features/departments/department-overview.tsx` | 22 | Server | Key facts about a department. |
+| `components/features/departments/department-achievements.tsx` | 45 | Server | The department's achievements: a framed photo (an empty frame until one is uploaded) beside the text. |
+| `components/features/departments/department-careers.tsx` | 63 | Server | Icon for a scope card, chosen from words in its heading. |
+| `components/features/departments/department-curriculum.tsx` | 35 | Server | The curriculum as one card per semester: its scheme and its subjects. |
+| `components/features/departments/department-facts.tsx` | 45 | Server | Three small information tiles above the department tabs. |
+| `components/features/departments/department-faculty.tsx` | 44 | Server | Shown before any faculty member is added: one empty portrait frame and a note. |
+| `components/features/departments/department-history.tsx` | 37 | Server | The programme's year-by-year history as a table (academic year and milestone). |
+| `components/features/departments/department-outcomes.tsx` | 32 | Server | Programme educational objectives, programme specific outcomes and programme outcomes. |
+| `components/features/departments/department-overview.tsx` | 35 | Server | Key facts about a department, then the programme's history when it has one. A department |
 | `components/features/departments/department-research.tsx` | 35 | Server | The department's research centre and its research areas. |
-| `components/features/departments/department-vision-mission.tsx` | 53 | Server | One statement, or several as a numbered list. When every point starts with its own label |
+| `components/features/departments/department-vision-mission.tsx` | 58 | Server | One statement, or several as a numbered list. When every point starts with its own label |
 | `components/features/departments/statement-tile.tsx` | 55 | Server | A highlighted statement card (department vision or mission). |
 | `components/features/events/event-card-form.tsx` | 136 | Client | An event as a form, for Add and Edit: title, dates, time, venue, category, description, link and |
 | `components/features/events/event-card-view.tsx` | 61 | Server | One event: the calendar date badge (month in the red strip, day below), category, title, dates, |
@@ -169,10 +175,11 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/ui/native-select.tsx` | 25 | Server | shadcn-styled native select: accessible, submits with the form, works without JavaScript. |
 | `components/ui/separator.tsx` | 20 | Client | - |
 | `components/ui/skeleton.tsx` | 9 | Server | - |
+| `components/ui/table.tsx` | 41 | Server | - |
 | `components/ui/tabs.tsx` | 39 | Client | - |
 | `components/ui/textarea.tsx` | 18 | Server | - |
 
-## Modules, actions and scripts (51)
+## Modules, actions and scripts (52)
 
 | File | Lines | Purpose |
 | --- | --- | --- |
@@ -190,12 +197,13 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/cms/client-image.ts` | 67 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
 | `lib/cms/paths.ts` | 25 | - |
 | `lib/cms/read.ts` | 25 | - |
-| `lib/cms/schema.ts` | 136 | `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`. |
+| `lib/cms/schema.ts` | 155 | `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`. |
 | `lib/cms/store.ts` | 26 | - |
 | `lib/cms/validate.ts` | 153 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
 | `lib/cms/write.ts` | 69 | Saves a value (null removes it), and records the change. |
-| `lib/content.ts` | 197 | A value the admin saved in the content editor (see lib/cms/schema.ts), if any. |
-| `lib/database.types.ts` | 777 | Supabase database types for the HKBK website. |
+| `lib/content.ts` | 198 | A value the admin saved in the content editor (see lib/cms/schema.ts), if any. |
+| `lib/database.types.ts` | 846 | Supabase database types for the HKBK website. |
+| `lib/department-sections.ts` | 57 | A leading code such as M1, PEO1, PSO2 or PO12. |
 | `lib/editor.ts` | 84 | True when a signed-in editor is viewing the page. Checked once per page load. |
 | `lib/enquiry.ts` | 61 | Per-field messages, used to mark the matching input as invalid. |
 | `lib/events.ts` | 41 | Today's date in India (YYYY-MM-DD), so an event becomes "past" after its last day on campus. |
@@ -207,12 +215,12 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/mous.ts` | 31 | An uploaded MoU document's path in the private "mou-documents" bucket. |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
 | `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
-| `lib/site.ts` | 109 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
+| `lib/site.ts` | 111 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
 | `lib/supabase/client.ts` | 13 | Browser client from @supabase/ssr, for Client Components that need live data or auth. |
 | `lib/supabase/env.ts` | 14 | Supabase URL and public key from the environment, or null when the project is not connected yet. |
 | `lib/supabase/public.ts` | 18 | Cookie-free client for public content (pages, departments, news...). |
 | `lib/supabase/server.ts` | 31 | Server client from @supabase/ssr for Server Actions, Route Handlers and |
-| `lib/types.ts` | 48 | Event fields kept only in the admin content store (list:news_items), set with the on-card editor. |
+| `lib/types.ts` | 50 | Event fields kept only in the admin content store (list:news_items), set with the on-card editor. |
 | `lib/ui.ts` | 112 | Wider container for the menu bar and logo row. |
 | `lib/utils.ts` | 8 | Merges Tailwind classes, letting later classes override earlier ones. |
 | `actions/admin.ts` | 100 | Compares two strings in constant time, so the check does not reveal how much matched. |
@@ -256,30 +264,33 @@ Migrations, applied in order:
 - `supabase/migrations/20261015000000_api_grants.sql`
 - `supabase/migrations/20261019120000_mou_association.sql`
 - `supabase/migrations/20261022120000_mou_academic_year.sql`
+- `supabase/migrations/20261023000000_department_sections.sql`
+- `supabase/migrations/20261023010000_faculty.sql`
 
 | Table | Columns | Column names |
 | --- | --- | --- |
-| `pages` | 5 | `slug`, `title`, `summary`, `body_md`, `updated_at` |
-| `leadership_messages` | 10 | `slug`, `name`, `designation`, `organisation`, `excerpt`, `photo_url`, `body_md`, `sort_order`, `section`, `updated_at` |
-| `departments` | 13 | `id`, `slug`, `name`, `short_name`, `kind`, `programmes`, `description`, `vision`, `mission`, `has_research_centre`, `research_areas`, `sort_order`, `updated_at` |
-| `dashboards` | 9 | `id`, `slug`, `title`, `category`, `description`, `url`, `status`, `sort_order`, `updated_at` |
-| `uhv_activities` | 7 | `id`, `slug`, `activity_type`, `title`, `description`, `sort_order`, `updated_at` |
-| `research_projects` | 11 | `id`, `slug`, `title`, `investigator`, `funding_agency`, `status`, `year`, `summary`, `is_sample`, `sort_order`, `updated_at` |
-| `consultancy_projects` | 11 | `id`, `slug`, `title`, `client`, `department`, `status`, `year`, `summary`, `is_sample`, `sort_order`, `updated_at` |
-| `training_programs` | 11 | `id`, `slug`, `title`, `track`, `duration`, `mode`, `audience`, `summary`, `is_sample`, `sort_order`, `updated_at` |
-| `hostel_facilities` | 7 | `id`, `slug`, `title`, `description`, `is_sample`, `sort_order`, `updated_at` |
-| `news_items` | 10 | `id`, `slug`, `kind`, `title`, `summary`, `published_on`, `event_date`, `link_url`, `is_sample`, `updated_at` |
-| `enquiries` | 9 | `id`, `type`, `name`, `email`, `phone`, `message`, `details`, `status`, `created_at` |
-| `portals` | 12 | `id`, `slug`, `title`, `description`, `url`, `category`, `icon`, `status`, `related_page`, `menu_group`, `sort_order`, `updated_at` |
-| `ai_people` | 9 | `id`, `slug`, `name`, `role`, `department`, `bio`, `photo_url`, `sort_order`, `updated_at` |
-| `key_figures` | 7 | `id`, `slug`, `label`, `value`, `suffix`, `sort_order`, `updated_at` |
-| `houses` | 9 | `id`, `slug`, `name`, `namesake`, `about`, `motto`, `is_placeholder`, `sort_order`, `updated_at` |
-| `mous` | 13 | `id`, `slug`, `partner`, `association`, `academic_year`, `partner_type`, `purpose`, `signed_on`, `valid_until`, `document_url`, `logo_url`, `sort_order`, `updated_at` |
-| `journey_milestones` | 14 | `id`, `slug`, `period`, `title`, `summary`, `points`, `badge`, `icon`, `inline_photo`, `layer`, `photos`, `sort_order`, `status`, `updated_at` |
-| `editors` | 4 | `user_id`, `email`, `role`, `created_at` |
-| `site_content` | 3 | `key`, `value`, `updated_at` |
-| `site_history` | 6 | `id`, `key`, `label`, `old_value`, `new_value`, `created_at` |
-| `admin_security` | 3 | `id`, `failed_attempts`, `locked_until` |
+| `pages` | 0 |  |
+| `leadership_messages` | 0 |  |
+| `departments` | 0 |  |
+| `dashboards` | 0 |  |
+| `uhv_activities` | 0 |  |
+| `research_projects` | 0 |  |
+| `consultancy_projects` | 0 |  |
+| `training_programs` | 0 |  |
+| `hostel_facilities` | 0 |  |
+| `news_items` | 0 |  |
+| `enquiries` | 0 |  |
+| `portals` | 0 |  |
+| `ai_people` | 0 |  |
+| `key_figures` | 0 |  |
+| `houses` | 0 |  |
+| `mous` | 0 |  |
+| `journey_milestones` | 0 |  |
+| `editors` | 0 |  |
+| `site_content` | 0 |  |
+| `site_history` | 0 |  |
+| `admin_security` | 0 |  |
+| `faculty` | 0 |  |
 
 ## Content
 
@@ -289,6 +300,7 @@ Migrations, applied in order:
 - `content/data/consultancy_projects.json`: 3 row(s)
 - `content/data/dashboards.json`: 7 row(s)
 - `content/data/departments.json`: 10 row(s)
+- `content/data/faculty.json`: 0 row(s)
 - `content/data/houses.json`: 5 row(s)
 - `content/data/journey_milestones.json`: 11 row(s)
 - `content/data/key_figures.json`: 11 row(s)
@@ -333,12 +345,11 @@ Migrations, applied in order:
 - `docs/ADMIN_GUIDE.md`
 - `docs/AGENT_SETUP_PROMPT.md`
 - `docs/ARCHITECTURE.md`
+- `docs/changelog.md`
 - `docs/CONTENT_GUIDE.md`
 - `docs/DATABASE.md`
-- `docs/DEPLOYMENT.md`
-- `docs/SETUP.md`
-- `docs/changelog.md`
 - `docs/decision.md`
+- `docs/DEPLOYMENT.md`
 - `docs/design.md`
 - `docs/feature-tickets.md`
 - `docs/flow.md`
@@ -349,5 +360,6 @@ Migrations, applied in order:
 - `docs/roadmap.md`
 - `docs/rules.md`
 - `docs/security.md`
+- `docs/SETUP.md`
 - `README.md`
 - `AGENTS.md`

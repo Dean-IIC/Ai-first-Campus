@@ -179,6 +179,19 @@ The band under the home page photo shows eleven figures from the `key_figures` t
 
 All three come from the `departments` table. Each department row holds its `vision`, its `mission` (a list of points), and `research_areas`. A department appears on the Programmes page when `programmes` is exactly `BE`, and on the Research centres page when `has_research_centre` is true. The department vision and mission in this repository are **drafts**; replace them with each department's approved wording.
 
+**Optional sections on a department page** (each tab appears only when it has content; edit them in **Edit content** → Departments):
+
+| Field | One line per | Example |
+| --- | --- | --- |
+| History of the programme | academic year | `2024–25: Intake increased from 60 to 120` |
+| Approvals | badge | `Approved by AICTE` |
+| PEOs, PSOs, POs | objective or outcome | `PO1: Engineering knowledge: Apply the knowledge of ...` |
+| Curriculum | semester | `Semester 3 (2025 scheme): Operating Systems; Data Structures and Applications` |
+| Scope of employment | card | `Higher studies: Preparation for GATE, UGC-NET, CAT ...` |
+| Career roles | role | `Data scientist` |
+
+Achievements is free text beside an uploaded photo; until the photo is uploaded the page shows an empty frame. Untick **Show the research centre tile** to hide the Research centre tile and overview row. **Faculty** have their own list (**Edit content** → Faculty): choose the department (`aiml`, `cse`, ...), then name, designation, qualification and a portrait photo; the card number sets the order.
+
 ## AI Faculty Champions and AI Student Ambassadors
 
 The home page (under AI-First Campus) and the AI & Quantum Campus page (`/ai-quantum#champions`) show the same 15 faculty champion cards, from `content/champions.json`. Cards without a name show as numbered placeholders. The 50 student ambassador cards come from the `ai_people` table, with numbered placeholders up to the programme size set in `lib/site.ts`.

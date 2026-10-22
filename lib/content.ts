@@ -128,6 +128,7 @@ export async function getMessage(slug: string): Promise<LeadershipMessage | null
 
 const ORDER: Record<ListTable, { column: string; ascending: boolean }> = {
   departments: { column: "sort_order", ascending: true },
+  faculty: { column: "sort_order", ascending: true },
   dashboards: { column: "sort_order", ascending: true },
   uhv_activities: { column: "sort_order", ascending: true },
   research_projects: { column: "sort_order", ascending: true },

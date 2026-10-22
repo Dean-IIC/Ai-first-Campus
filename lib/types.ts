@@ -10,6 +10,7 @@ type Content<T extends TableName> = Omit<Tables<T>, "id" | "updated_at">;
 export type Page = Pick<Tables<"pages">, "slug" | "title" | "summary" | "body_md">;
 export type LeadershipMessage = Omit<Tables<"leadership_messages">, "updated_at">;
 export type Department = Content<"departments">;
+export type Faculty = Content<"faculty">;
 export type Dashboard = Content<"dashboards">;
 export type UhvActivity = Content<"uhv_activities">;
 export type ResearchProject = Content<"research_projects">;
@@ -30,6 +31,7 @@ export type JourneyPhoto = { src: string; alt: string; fit?: "cover" | "contain"
 
 export type ListTables = {
   departments: Department;
+  faculty: Faculty;
   dashboards: Dashboard;
   uhv_activities: UhvActivity;
   research_projects: ResearchProject;

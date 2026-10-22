@@ -1,7 +1,7 @@
 import { AI_ROLES } from "@/lib/ai-people";
 import { EVENT_CATEGORIES } from "@/lib/events";
 import { MOU_STATUSES, MOU_TYPES } from "@/lib/mous";
-import { NO_STATEMENT_KINDS } from "@/lib/site";
+import { DEPARTMENT_SLUGS, NO_STATEMENT_KINDS } from "@/lib/site";
 import type { ListTable } from "@/lib/types";
 
 /*
@@ -77,6 +77,25 @@ export const LIST_SPECS: Record<ListTable, ListSpec> = {
     t("name", "Name", { required: true }), t("short_name", "Short name"), t("kind", "Kind", { hint: "For example: Engineering" }), t("programmes", "Programmes"),
     long("description", "Description"), { ...long("vision", "Vision", "Several points: put each on its own line."), ...noStatements }, { key: "mission", label: "Mission (one point per line)", kind: "lines", ...noStatements },
     { key: "has_research_centre", label: "Has a VTU research centre", kind: "bool" }, { key: "research_areas", label: "Research areas (one per line)", kind: "lines" },
+    { key: "show_research_tile", label: "Show the research centre tile", kind: "bool", hint: "Untick to hide the Research centre tile and overview row on this department's page." },
+    // Optional sections: each shows on the department page only when it has content.
+    { key: "history", label: "History of the programme (one year per line)", kind: "lines", hint: "Year, colon, milestone. For example: 2021–22: Department established with an intake of 60", ...noStatements },
+    { key: "approvals", label: "Approvals (one per line)", kind: "lines", hint: "For example: Approved by AICTE", ...noStatements },
+    { key: "peos", label: "Programme educational objectives (one per line)", kind: "lines", hint: "For example: PEO1: Graduates will …", ...noStatements },
+    { key: "psos", label: "Programme specific outcomes (one per line)", kind: "lines", hint: "For example: PSO1: Professional skill: Apply …", ...noStatements },
+    { key: "pos", label: "Programme outcomes (one per line)", kind: "lines", hint: "For example: PO1: Engineering knowledge: Apply …", ...noStatements },
+    { key: "curriculum", label: "Curriculum (one semester per line)", kind: "lines", hint: "Semester (scheme), colon, subjects separated by semicolons. For example: Semester 1 (2025 scheme): Applied Mathematics-I; Applied Chemistry", ...noStatements },
+    { key: "employment_scope", label: "Scope of employment (one per line)", kind: "lines", hint: "Heading, colon, text. For example: Government jobs: Preparation for the civil services …", ...noStatements },
+    { key: "career_roles", label: "Career roles (one per line)", kind: "lines", hint: "For example: Data scientist", ...noStatements },
+    { ...long("achievements", "Achievements", "Shown beside the achievements photo. A blank line starts a new paragraph."), ...noStatements },
+    { key: "achievements_image", label: "Achievements photo", kind: "image", ...noStatements },
+  ] },
+  faculty: { label: "Faculty", item: "faculty member", title: "name", fields: [
+    t("name", "Name", { required: true }),
+    { key: "department", label: "Department", kind: "choice", options: DEPARTMENT_SLUGS, required: true, hint: "aiml is Artificial Intelligence & Machine Learning, cse is Computer Science and so on." },
+    t("designation", "Designation", { hint: "For example: Professor and HoD" }), t("qualification", "Qualification", { hint: "For example: M.Tech, Ph.D." }),
+    { key: "photo_url", label: "Photo", kind: "image", hint: "A portrait photo works best." },
+    { key: "sort_order", label: "Card number", kind: "number", hint: "Order of the card on the department page, starting at 1." },
   ] },
   news_items: { label: "News and events", item: "news item", title: "title", fields: [
     t("title", "Title", { required: true }), { key: "kind", label: "Type", kind: "choice", options: ["news", "event"], hint: "Only events are shown on the website." }, long("summary", "Summary"),

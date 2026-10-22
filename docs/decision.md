@@ -29,6 +29,7 @@ Architecture decision records (ADRs) for the HKBK College of Engineering website
 | ADR-023 | No left panel on inner pages | Accepted | 2026-10-09 |
 | ADR-024 | AI Faculty Champions come from a file, with a browser-only editor and zip export | Accepted | 2026-10-09 |
 | ADR-024 | Staff editing of AI Champions: Supabase sign-in, editors list, RLS | Accepted | 2026-10-09 |
+| ADR-025 | Department page sections as text-list columns; faculty as a table | Accepted | 2026-10-23 |
 
 ---
 
@@ -206,3 +207,11 @@ Architecture decision records (ADRs) for the HKBK College of Engineering website
 **Decision.** `content/champions.json` is the only source for the 15 faculty champion cards, and photos live in `public/images/champions/`. `?edit=1` turns on an editor for that page visit. Everything happens in the browser: inline fields, a circular photo crop that saves a 400 × 400 JPG, Clear card, and Export update (.zip), which packages the updated `content/champions.json` and the new photos. Visitors never see the editor, and the editor code loads only in edit mode. Student ambassadors stay in the `ai_people` table with the staff sign-in.
 
 **Consequences.** Faculty updates go through a file and a redeploy, not the database. Faculty Add and Edit buttons were removed, because the database rows are no longer read for faculty. The `faculty-champion` rows left in `ai_people` are ignored. Edits are not saved on the server, so an export must be copied into the project before the change is visible. INV-14 checks the file.
+
+## ADR-025 Department page sections as text-list columns; faculty as a table
+
+**Context.** The AIML department asked for its programme history, PEOs, PSOs, POs, curriculum, scope of employment, career roles, achievements and faculty on its page, and for the "Research centre: Teaching department" tile to be hidden. Other departments will want the same sections later, edited by the admin without code changes.
+
+**Decision.** The sections are columns on `departments`: `text[]` lists (`history`, `approvals`, `peos`, `psos`, `pos`, `curriculum`, `employment_scope`, `career_roles`), plus `achievements`, `achievements_image` and `show_research_tile`. Each line follows the "Label: text" convention already used by mission (`M1: ...`), for example `PO1: Engineering knowledge: ...`, `2021–22: ...` or `Semester 1 (2025 scheme): Subject; Subject`; `lib/department-sections.ts` parses them. A tab appears only when its column has content. Faculty are a separate `faculty` table (one row per person with a photo), assigned to a department by its slug.
+
+**Consequences.** No new editor field kind and no jsonb handling in `build-setup-sql.mjs`: the admin edits plain lines in Edit content, and the hints show the format. A line typed without the colon still shows, without its heading. Departments without content are unchanged. Faculty grow without touching the department row and are never overwritten when `setup_all.sql` is re-run.

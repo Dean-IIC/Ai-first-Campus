@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ContentTabs from "@/components/features/content/content-tabs";
+import DepartmentAchievements, { hasAchievements } from "@/components/features/departments/department-achievements";
+import DepartmentCareers, { hasCareers } from "@/components/features/departments/department-careers";
+import DepartmentCurriculum from "@/components/features/departments/department-curriculum";
 import DepartmentFacts from "@/components/features/departments/department-facts";
+import DepartmentFaculty from "@/components/features/departments/department-faculty";
+import DepartmentOutcomes, { hasOutcomes } from "@/components/features/departments/department-outcomes";
 import DepartmentOverview from "@/components/features/departments/department-overview";
 import DepartmentResearch from "@/components/features/departments/department-research";
 import DepartmentVisionMission from "@/components/features/departments/department-vision-mission";
 import PageBanner from "@/components/features/layout/page-banner";
 import { getList } from "@/lib/content";
+import { hasExtendedPage, linesOf } from "@/lib/department-sections";
 import { NO_STATEMENT_KINDS } from "@/lib/site";
 import { shell } from "@/lib/ui";
 
@@ -35,11 +41,30 @@ export default async function DepartmentPage({ params }: Props) {
   const { slug } = await params;
   const { department: d } = await findDepartment(slug);
   if (!d) notFound();
+  const faculty = (await getList("faculty")).filter((f) => f.department === d.slug);
 
+  // Optional tabs appear only when the department has that content, so other departments are unchanged.
+  // An extended page (AIML) shows its overview under the vision and mission, and always has a Faculty tab.
+  const extended = hasExtendedPage(d);
+  const statements = !NO_STATEMENT_KINDS.includes(d.kind);
+  const visionAndOverview = (
+    <div className="space-y-10">
+      <DepartmentVisionMission department={d} />
+      <section aria-labelledby="overview-heading" className="border-t border-border pt-8">
+        <h2 id="overview-heading" className="mb-2 text-xl font-bold tracking-tight text-heading">Overview</h2>
+        <DepartmentOverview department={d} />
+      </section>
+    </div>
+  );
   const items = [
     // Basic sciences and humanities, and sports, have no vision and mission tab.
-    ...(!NO_STATEMENT_KINDS.includes(d.kind) ? [{ id: "vision-mission", label: "Vision and mission", content: <DepartmentVisionMission department={d} /> }] : []),
-    { id: "overview", label: "Overview", content: <DepartmentOverview department={d} /> },
+    ...(statements ? [{ id: "vision-mission", label: "Vision and mission", content: extended ? visionAndOverview : <DepartmentVisionMission department={d} /> }] : []),
+    ...(statements && extended ? [] : [{ id: "overview", label: "Overview", content: <DepartmentOverview department={d} /> }]),
+    ...(hasOutcomes(d) ? [{ id: "outcomes", label: "Outcomes", content: <DepartmentOutcomes department={d} /> }] : []),
+    ...(linesOf(d.curriculum).length ? [{ id: "curriculum", label: "Curriculum", content: <DepartmentCurriculum department={d} /> }] : []),
+    ...(hasCareers(d) ? [{ id: "careers", label: "Careers", content: <DepartmentCareers department={d} /> }] : []),
+    ...(faculty.length || extended ? [{ id: "faculty", label: "Faculty", content: <DepartmentFaculty faculty={faculty} /> }] : []),
+    ...(hasAchievements(d) ? [{ id: "achievements", label: "Achievements", content: <DepartmentAchievements department={d} /> }] : []),
     ...(d.has_research_centre ? [{ id: "research-centre", label: "Research centre", content: <DepartmentResearch department={d} /> }] : []),
   ];
 

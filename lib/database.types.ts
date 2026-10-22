@@ -138,6 +138,17 @@ export type Database = {
           mission: string[]
           has_research_centre: boolean
           research_areas: string[]
+          show_research_tile: boolean
+          history: string[]
+          approvals: string[]
+          peos: string[]
+          psos: string[]
+          pos: string[]
+          curriculum: string[]
+          employment_scope: string[]
+          career_roles: string[]
+          achievements: string | null
+          achievements_image: string | null
           sort_order: number
           updated_at: string
         }
@@ -153,6 +164,17 @@ export type Database = {
           mission?: string[]
           has_research_centre?: boolean
           research_areas?: string[]
+          show_research_tile?: boolean
+          history?: string[]
+          approvals?: string[]
+          peos?: string[]
+          psos?: string[]
+          pos?: string[]
+          curriculum?: string[]
+          employment_scope?: string[]
+          career_roles?: string[]
+          achievements?: string | null
+          achievements_image?: string | null
           sort_order?: number
           updated_at?: string
         }
@@ -168,6 +190,17 @@ export type Database = {
           mission?: string[]
           has_research_centre?: boolean
           research_areas?: string[]
+          show_research_tile?: boolean
+          history?: string[]
+          approvals?: string[]
+          peos?: string[]
+          psos?: string[]
+          pos?: string[]
+          curriculum?: string[]
+          employment_scope?: string[]
+          career_roles?: string[]
+          achievements?: string | null
+          achievements_image?: string | null
           sort_order?: number
           updated_at?: string
         }
@@ -227,6 +260,42 @@ export type Database = {
           details?: Json
           status?: string
           created_at?: string
+        }
+        Relationships: []
+      }
+      faculty: {
+        Row: {
+          id: string
+          slug: string
+          department: string
+          name: string
+          designation: string | null
+          qualification: string | null
+          photo_url: string | null
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          slug: string
+          department: string
+          name: string
+          designation?: string | null
+          qualification?: string | null
+          photo_url?: string | null
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          slug?: string
+          department?: string
+          name?: string
+          designation?: string | null
+          qualification?: string | null
+          photo_url?: string | null
+          sort_order?: number
+          updated_at?: string
         }
         Relationships: []
       }
