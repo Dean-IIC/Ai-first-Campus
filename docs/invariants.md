@@ -14,7 +14,7 @@ Statements that must be true of the HKBK website at every commit. If one breaks,
 | INV-03 | `SUPABASE_SECRET_KEY` and `SUPABASE_SERVICE_ROLE_KEY` appear only under `scripts/` | The secret key bypasses RLS; it must never reach the website code or the browser |
 | INV-04 | No component or page file is longer than 150 lines | Keeps components focused and reviewable |
 | INV-05 | No hard-coded hex colours in components and pages (except the root error page, the theme-colour meta tags and the donut chart palette) | Colours must follow the theme in light and dark mode |
-| INV-06 | No `bg-white` surfaces except approved image backings (footer logo disc, MoU partner logos, Bloch sphere diagram) | White surfaces break dark mode |
+| INV-06 | No `bg-white` surfaces except approved image backings (footer logo disc, MoU partner logos, Bloch sphere diagram, posters in the home photo deck) | White surfaces break dark mode |
 | INV-07 | Files marked `"use client"` export no plain values (only components) | Server code importing such a value receives a client reference instead of the value |
 | INV-08 | Every `content/data/*.json` file matches a database table, every row has a `slug`, and slugs are unique per file | Seeding upserts by `slug`; duplicates would overwrite each other |
 | INV-09 | `lib/database.types.ts` contains every table created by the migrations | Code is typed against the real schema |

@@ -349,7 +349,7 @@
     },
     {
       "file": "components/features/cms/carousel-form.tsx",
-      "lines": 118,
+      "lines": 126,
       "client": true,
       "summary": "The home page carousel in Edit content: upload photos (shrunk to 1600 px and compressed before"
     },
@@ -516,16 +516,22 @@
       "summary": "Research and industry panels."
     },
     {
-      "file": "components/features/home/hero-carousel-parts.tsx",
-      "lines": 56,
+      "file": "components/features/home/hero-card.tsx",
+      "lines": 73,
       "client": false,
-      "summary": "Previous and next buttons on the photo: shown on hover with a mouse, always on touch screens."
+      "summary": "Where a card sits in the deck: 0 is the front photo; 1 and 2 peek out on the right (smaller and"
+    },
+    {
+      "file": "components/features/home/hero-carousel-parts.tsx",
+      "lines": 62,
+      "client": false,
+      "summary": "Previous and next arrows with one dot per photo, under the deck."
     },
     {
       "file": "components/features/home/hero-carousel.tsx",
-      "lines": 106,
+      "lines": 120,
       "client": true,
-      "summary": "The home page photo carousel, in the frame the single campus photo used. Slides every five"
+      "summary": "The home page photos as a stacked deck: the front photo with the next two peeking out on the"
     },
     {
       "file": "components/features/home/hero.tsx",
@@ -966,7 +972,7 @@
     },
     {
       "file": "lib/carousel.ts",
-      "lines": 14,
+      "lines": 19,
       "summary": "One photo in the home page carousel. An empty title and subtitle hide the badge for that photo."
     },
     {

@@ -8,7 +8,7 @@ export async function getHeroSlides(): Promise<HeroSlide[]> {
   const str = (v: unknown) => (typeof v === "string" ? v : "");
   const slides = raw
     .filter((s): s is Record<string, unknown> => Boolean(s) && typeof s === "object" && typeof (s as Record<string, unknown>).src === "string")
-    .map((s) => ({ src: str(s.src), alt: str(s.alt), title: str(s.title), subtitle: str(s.subtitle) }))
+    .map((s): HeroSlide => ({ src: str(s.src), alt: str(s.alt), title: str(s.title), subtitle: str(s.subtitle), fit: s.fit === "contain" ? "contain" : "cover" }))
     .slice(0, MAX_SLIDES);
   return slides.length ? slides : DEFAULT_SLIDES;
 }

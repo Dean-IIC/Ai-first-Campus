@@ -4,6 +4,9 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Changed (home photo deck)
+- Home page hero photos are a stacked deck: the front photo with the next two peeking out on the right (92% and 84% size, 85% and 60% opacity; narrower peeks on phones). Every 5 s the front photo slides out to the back and the next one moves forward (0.6 s). Pauses on hover or tap; arrows and dots under the deck; swipe on phones; clicking a peeking photo brings it forward; no auto-slide or animation with reduced motion. The badge sits below the front photo's bottom-left corner, overlapping it by 12 px. New per-photo **Fit** in Edit content → Home page carousel: "Full poster" (whole image on a light backing, nothing cropped) or "Fill frame". The VTU Rank poster was set to Full poster (History). Files: `hero-carousel.tsx`, `hero-card.tsx`, `hero-carousel-parts.tsx`; `fit` added to `HeroSlide`.
+
 ### Added (30 Years of Excellence badge)
 - "30 Years of Excellence" badge (transparent background: `public/images/30-years-badge.webp`, `-sm.webp`, PNG master) in the desktop header before the VTU/AICTE text (64 px), in the compact header next to the dark-mode toggle (40 px, from 440 px wide so the college name is never cut), in the hero instead of the calendar icon beside "Established 1997", and in the footer next to the college name (48 px). Tooltip and alt text: "Celebrating 30 years of excellence, 1997–2027"; the header badge opens the About page. Component `components/features/layout/anniversary-badge.tsx`, image data in `images.anniversary` (`lib/site.ts`).
 
