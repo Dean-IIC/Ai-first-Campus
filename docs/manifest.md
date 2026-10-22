@@ -119,7 +119,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/home/hero-card.tsx` | 73 | Server | Where a card sits in the deck: 0 is the front photo; 1 and 2 peek out on the right (smaller and |
 | `components/features/home/hero-carousel-parts.tsx` | 62 | Server | Previous and next arrows with one dot per photo, under the deck. |
 | `components/features/home/hero-carousel.tsx` | 120 | Client | The home page photos as a stacked deck: the front photo with the next two peeking out on the |
-| `components/features/home/hero.tsx` | 49 | Server | Opening section: headline, key facts and the photo carousel with a frosted location badge. |
+| `components/features/home/hero.tsx` | 58 | Server | Opening section: headline, key facts and the photo carousel with a frosted location badge. |
 | `components/features/home/journey-bullets.tsx` | 43 | Client | The bullet points of one month: edit, reorder, remove, and add. |
 | `components/features/home/journey-edit-button.tsx` | 70 | Client | Edit (filled months) or Add (empty months), plus move up and down. Shown only to signed-in editors. |
 | `components/features/home/journey-edit-form.tsx` | 138 | Client | The fields of one month. Its photos and badge are kept as they are. |
@@ -228,7 +228,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
 | `lib/portrait-crop.ts` | 49 | Geometry for the faculty photo crop: a 3:4 portrait crop box, a zoom level and a pan offset, all in pixels. |
 | `lib/site-details.ts` | 45 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
-| `lib/site.ts` | 113 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
+| `lib/site.ts` | 115 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
 | `lib/supabase/client.ts` | 13 | Browser client from @supabase/ssr, for Client Components that need live data or auth. |
 | `lib/supabase/env.ts` | 14 | Supabase URL and public key from the environment, or null when the project is not connected yet. |
 | `lib/supabase/public.ts` | 18 | Cookie-free client for public content (pages, departments, news...). |
