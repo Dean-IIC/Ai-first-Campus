@@ -5,7 +5,7 @@ import path from "node:path";
 import { isAdminSession } from "@/lib/admin/session";
 import { getList, getMessages, getPage } from "@/lib/content";
 import { isListTable } from "@/lib/cms/schema";
-import { getSiteDetails, getSiteLinks } from "@/lib/site-details";
+import { getFacultyRanks, getSiteDetails, getSiteLinks } from "@/lib/site-details";
 import { CAROUSEL_KEY } from "@/lib/carousel";
 import { getHeroSlides } from "@/lib/carousel-server";
 import { getContentMap } from "@/lib/cms/read";
@@ -52,6 +52,7 @@ export async function loadContentAction(key: string): Promise<LoadResult> {
     }
     if (kind === "list" && isListTable(name)) return { ok: true, value: await getList(name) };
     if (key === "site:links") return { ok: true, value: await getSiteLinks() };
+    if (key === "site:ranks") return { ok: true, value: { designations: await getFacultyRanks() } };
     if (key === CAROUSEL_KEY) return { ok: true, value: await getHeroSlides() };
     if (key === "site:alerts") {
       const raw = (await getContentMap())["site:alerts"];

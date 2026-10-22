@@ -10,12 +10,14 @@ export type FacultyDraft = Pick<Faculty, "name" | "designation" | "qualification
 type FacultyEditor = {
   admin: boolean;
   department: string;
+  /** Designations, highest rank first (Edit content → Faculty designations). */
+  ranks: string[];
   rows: Faculty[];
   saveFaculty: (slug: string | null, draft: FacultyDraft) => Promise<string | null>;
   deleteFaculty: (slug: string) => Promise<string | null>;
 };
 
-const Ctx = createContext<FacultyEditor>({ admin: false, department: "", rows: [], saveFaculty: async () => null, deleteFaculty: async () => null });
+const Ctx = createContext<FacultyEditor>({ admin: false, department: "", ranks: [], rows: [], saveFaculty: async () => null, deleteFaculty: async () => null });
 export function useFacultyEditor(): FacultyEditor {
   return useContext(Ctx);
 }
@@ -28,7 +30,7 @@ const pick = (f: Faculty) => Object.fromEntries(FIELDS.map((k) => [k, (f as Reco
  * Each change saves the list through the admin's content store (key list:faculty), so it shows
  * on the live site at once and can be undone (Undo and History).
  */
-export default function FacultyEditorProvider({ items, department, children }: { items: Faculty[]; department: string; children: ReactNode }) {
+export default function FacultyEditorProvider({ items, department, ranks, children }: { items: Faculty[]; department: string; ranks: string[]; children: ReactNode }) {
   const { admin, save } = useAdmin();
   const [rows, setRows] = useState(items);
   useEffect(() => setRows(items), [items]);
@@ -66,6 +68,6 @@ export default function FacultyEditorProvider({ items, department, children }: {
     [rows, store],
   );
 
-  const value = useMemo(() => ({ admin, department, rows, saveFaculty, deleteFaculty }), [admin, department, rows, saveFaculty, deleteFaculty]);
+  const value = useMemo(() => ({ admin, department, ranks, rows, saveFaculty, deleteFaculty }), [admin, department, ranks, rows, saveFaculty, deleteFaculty]);
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

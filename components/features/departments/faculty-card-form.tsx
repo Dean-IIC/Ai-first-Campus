@@ -2,7 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ImagePlus, Loader2 } from "lucide-react";
+import { Crop, ImagePlus, Loader2 } from "lucide-react";
 import { useAdmin } from "@/components/features/admin/admin-provider";
 import { Input } from "@/components/ui/input";
 import { NativeSelect } from "@/components/ui/native-select";
@@ -12,6 +12,7 @@ import type { Faculty } from "@/lib/types";
 import { adminPill, navyPill } from "@/lib/ui";
 import { cn } from "@/lib/utils";
 import { useFacultyEditor, type FacultyDraft } from "./faculty-editor";
+import PortraitCropDialog from "./portrait-crop-dialog";
 
 const plainPill = cn(adminPill, "border border-border bg-card text-foreground hover:bg-muted");
 
@@ -21,16 +22,24 @@ const plainPill = cn(adminPill, "border border-border bg-card text-foreground ho
  */
 export default function FacultyCardForm({ person, nextOrder, onDone }: { person?: Faculty; nextOrder: number; onDone: () => void }) {
   const { uploadImage } = useAdmin();
-  const { saveFaculty } = useFacultyEditor();
+  const { saveFaculty, ranks } = useFacultyEditor();
+  // The rank list, plus this person's designation if it was removed from the list since.
+  const options = person?.designation && !ranks.includes(person.designation) ? [...ranks, person.designation] : ranks;
   const [d, setD] = useState<FacultyDraft>(() => ({
     name: person?.name ?? "",
-    designation: person?.designation ?? FACULTY_RANKS[2],
+    designation: person?.designation ?? (ranks.includes(FACULTY_RANKS[2]) ? FACULTY_RANKS[2] : ranks[0] ?? ""),
     qualification: person?.qualification ?? "",
     is_hod: person?.is_hod ?? false,
     photo_url: person?.photo_url ?? null,
     sort_order: person?.sort_order ?? nextOrder,
   }));
   const [photo, setPhoto] = useState<Blob | null>(null);
+  // The picture as chosen (before cropping), so the crop can be redone; cropping holds it while the dialog is open.
+  const [original, setOriginal] = useState<string | null>(null);
+  const [cropping, setCropping] = useState(false);
+  useEffect(() => () => {
+    if (original) URL.revokeObjectURL(original);
+  }, [original]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const file = useRef<HTMLInputElement>(null);
@@ -64,7 +73,7 @@ export default function FacultyCardForm({ person, nextOrder, onDone }: { person?
       <label htmlFor={`${id}-rank`} className="grid gap-1 text-xs font-medium text-muted-foreground">
         Designation *
         <NativeSelect id={`${id}-rank`} value={d.designation ?? ""} onChange={(e) => set({ designation: e.target.value })} className="min-h-9 py-1.5 text-sm">
-          {FACULTY_RANKS.map((r) => <option key={r}>{r}</option>)}
+          {options.map((r) => <option key={r}>{r}</option>)}
         </NativeSelect>
       </label>
       <Input aria-label="Qualification" placeholder="Qualification, e.g. M.Tech, Ph.D." value={d.qualification ?? ""} onChange={(e) => set({ qualification: e.target.value })} maxLength={300} className={field} />
@@ -82,10 +91,26 @@ export default function FacultyCardForm({ person, nextOrder, onDone }: { person?
           <ImagePlus aria-hidden="true" className="size-3.5" />
           {preview ? "Replace photo" : "Add photo"}
         </button>
+        {original && (
+          <button type="button" className={plainPill} onClick={() => setCropping(true)}>
+            <Crop aria-hidden="true" className="size-3.5" />
+            Crop again
+          </button>
+        )}
         {preview && (
-          <button type="button" className="text-xs text-muted-foreground underline-offset-4 hover:underline" onClick={() => { setPhoto(null); set({ photo_url: null }); }}>
+          <button type="button" className="text-xs text-muted-foreground underline-offset-4 hover:underline" onClick={() => { setPhoto(null); setOriginal(null); set({ photo_url: null }); }}>
             Remove
           </button>
+        )}
+        {cropping && original && (
+          <PortraitCropDialog
+            src={original}
+            onApply={(blob) => {
+              setPhoto(blob);
+              setCropping(false);
+            }}
+            onCancel={() => setCropping(false)}
+          />
         )}
         <input
           ref={file}
@@ -100,7 +125,11 @@ export default function FacultyCardForm({ person, nextOrder, onDone }: { person?
             if (!f) return;
             const problem = checkPicture(f);
             if (problem) return setError(problem);
-            setPhoto(await shrinkPicture(f, 1200).catch(() => null));
+            setError("");
+            const shrunk = await shrinkPicture(f, 1600).catch(() => null);
+            if (!shrunk) return setError("This picture could not be opened. Try a JPG or PNG.");
+            setOriginal(URL.createObjectURL(shrunk));
+            setCropping(true);
           }}
         />
       </div>

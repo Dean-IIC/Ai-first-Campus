@@ -1,5 +1,5 @@
 import { getContentMap } from "./cms/read";
-import { site } from "./site";
+import { FACULTY_RANKS, site } from "./site";
 
 export type SiteDetails = {
   phone: string;
@@ -25,6 +25,14 @@ export async function getSiteDetails(): Promise<SiteDetails> {
       pin: pick("pin", site.address.pin),
     },
   };
+}
+
+/** Faculty designations, highest rank first, as set in the content editor ("Faculty designations"). Server only. */
+export async function getFacultyRanks(): Promise<string[]> {
+  const raw = (await getContentMap())["site:ranks"];
+  const list = raw && typeof raw === "object" ? (raw as Record<string, unknown>).designations : null;
+  const ranks = Array.isArray(list) ? list.filter((d): d is string => typeof d === "string" && d.trim() !== "").map((d) => d.trim()) : [];
+  return ranks.length ? ranks : [...FACULTY_RANKS];
 }
 
 /** Links the admin can change in the content editor ("Alumni, R&D, UHV and Placement portal links"). Server only. */

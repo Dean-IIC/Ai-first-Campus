@@ -56,7 +56,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (121 files)
+## Components (123 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -67,7 +67,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/admin/history-panel.tsx` | 51 | Client | The last 30 changes. Restoring one puts back the text, photo or list it set. |
 | `components/features/admin/login-form.tsx` | 42 | Client | Email and password for the single admin account. Errors are shown in one generic message. |
 | `components/features/cms/carousel-form.tsx` | 126 | Client | The home page carousel in Edit content: upload photos (shrunk to 1600 px and compressed before |
-| `components/features/cms/content-editor.tsx` | 110 | Client | The admin's editor for everything stored as content: pages, leadership messages, every list and the contact details. |
+| `components/features/cms/content-editor.tsx` | 111 | Client | The admin's editor for everything stored as content: pages, leadership messages, every list and the contact details. |
 | `components/features/cms/editable-text.tsx` | 85 | Client | Text that the admin can change on the page. Visitors see the text exactly as before. In |
 | `components/features/cms/field-input.tsx` | 66 | Client | One field of the content editor, edited with the control that suits its kind. |
 | `components/features/cms/image-field.tsx` | 58 | Client | A photo in the content editor: shows the current one, uploads a replacement, or removes it. |
@@ -85,16 +85,18 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/departments/department-careers.tsx` | 63 | Server | Icon for a scope card, chosen from words in its heading. |
 | `components/features/departments/department-curriculum.tsx` | 35 | Server | The curriculum as one card per semester: its scheme and its subjects. |
 | `components/features/departments/department-facts.tsx` | 45 | Server | Three small information tiles above the department tabs. |
-| `components/features/departments/department-faculty.tsx` | 64 | Client | The department's faculty: the head of department first, then everyone else grouped by |
-| `components/features/departments/department-history.tsx` | 37 | Server | The programme's year-by-year history as a table (academic year and milestone). |
+| `components/features/departments/department-faculty.tsx` | 64 | Client | Group headings for the usual designations; any other designation is used as written. |
+| `components/features/departments/department-history.tsx` | 51 | Server | The last whole number in a milestone ("Intake increased from 60 to 120" → 120). |
 | `components/features/departments/department-outcomes.tsx` | 32 | Server | Programme educational objectives, programme specific outcomes and programme outcomes. |
 | `components/features/departments/department-overview.tsx` | 35 | Server | Key facts about a department, then the programme's history when it has one. A department |
 | `components/features/departments/department-research.tsx` | 35 | Server | The department's research centre and its research areas. |
 | `components/features/departments/department-vision-mission.tsx` | 58 | Server | One statement, or several as a numbered list. When every point starts with its own label |
-| `components/features/departments/faculty-card-form.tsx` | 120 | Client | A faculty member as a form, for Add and Edit: name, designation, qualification, head of the |
+| `components/features/departments/faculty-card-form.tsx` | 149 | Client | A faculty member as a form, for Add and Edit: name, designation, qualification, head of the |
 | `components/features/departments/faculty-card.tsx` | 62 | Client | One faculty member. Visitors see the card. The signed-in admin also sees Edit and Delete; |
-| `components/features/departments/faculty-editor.tsx` | 72 | Client | Holds the whole faculty list (every department) for the Faculty tab's Add, Edit and Delete. |
+| `components/features/departments/faculty-editor.tsx` | 74 | Client | Designations, highest rank first (Edit content → Faculty designations). |
 | `components/features/departments/faculty-view.tsx` | 60 | Server | Shown before any faculty member is added: one empty portrait frame and a note. |
+| `components/features/departments/intake-chart.tsx` | 73 | Server | A round axis top above the largest value (50, 100, 200, 250, 500 ...) and its tick step. |
+| `components/features/departments/portrait-crop-dialog.tsx` | 139 | Client | Portrait (3:4) crop for faculty photos: drag or use the arrow keys to position the picture; the slider zooms. |
 | `components/features/departments/statement-tile.tsx` | 55 | Server | A highlighted statement card (department vision or mission). |
 | `components/features/events/event-card-form.tsx` | 136 | Client | An event as a form, for Add and Edit: title, dates, time, venue, category, description, link and |
 | `components/features/events/event-card-view.tsx` | 61 | Server | One event: the calendar date badge (month in the red strip, day below), category, title, dates, |
@@ -182,7 +184,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/ui/tabs.tsx` | 39 | Client | - |
 | `components/ui/textarea.tsx` | 18 | Server | - |
 
-## Modules, actions and scripts (52)
+## Modules, actions and scripts (53)
 
 | File | Lines | Purpose |
 | --- | --- | --- |
@@ -200,9 +202,9 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/cms/client-image.ts` | 67 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
 | `lib/cms/paths.ts` | 25 | - |
 | `lib/cms/read.ts` | 25 | - |
-| `lib/cms/schema.ts` | 157 | `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`. |
+| `lib/cms/schema.ts` | 168 | `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`. |
 | `lib/cms/store.ts` | 26 | - |
-| `lib/cms/validate.ts` | 153 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
+| `lib/cms/validate.ts` | 163 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
 | `lib/cms/write.ts` | 69 | Saves a value (null removes it), and records the change. |
 | `lib/content.ts` | 198 | A value the admin saved in the content editor (see lib/cms/schema.ts), if any. |
 | `lib/database.types.ts` | 849 | Supabase database types for the HKBK website. |
@@ -217,7 +219,8 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/menu.ts` | 269 | A dropdown column. With `href` the heading is a link; `icon` shows before the heading. |
 | `lib/mous.ts` | 27 | An uploaded MoU document's path in the private "mou-documents" bucket. |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
-| `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
+| `lib/portrait-crop.ts` | 49 | Geometry for the faculty photo crop: a 3:4 portrait crop box, a zoom level and a pan offset, all in pixels. |
+| `lib/site-details.ts` | 45 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
 | `lib/site.ts` | 113 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
 | `lib/supabase/client.ts` | 13 | Browser client from @supabase/ssr, for Client Components that need live data or auth. |
 | `lib/supabase/env.ts` | 14 | Supabase URL and public key from the environment, or null when the project is not connected yet. |
@@ -227,7 +230,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/ui.ts` | 112 | Wider container for the menu bar and logo row. |
 | `lib/utils.ts` | 8 | Merges Tailwind classes, letting later classes override earlier ones. |
 | `actions/admin.ts` | 100 | Compares two strings in constant time, so the check does not reveal how much matched. |
-| `actions/content.ts` | 69 | Every page and leadership message the content editor can open, with readable names. |
+| `actions/content.ts` | 70 | Every page and leadership message the content editor can open, with readable names. |
 | `actions/enquiries.ts` | 30 | Number of New enquiries, for the badge in the admin bar. Visitors get 0. |
 | `actions/enquiry.ts` | 80 | Extra fields each form may send; anything else is ignored. |
 | `actions/journey.ts` | 166 | A Supabase client for a signed-in editor, or a message explaining why not. |

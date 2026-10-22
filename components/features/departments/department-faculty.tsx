@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { FACULTY_RANKS } from "@/lib/site";
 import { navyPill } from "@/lib/ui";
 import FacultyMember from "./faculty-card";
 import FacultyCardForm from "./faculty-card-form";
 import { useFacultyEditor } from "./faculty-editor";
 import { NoFacultyYet } from "./faculty-view";
 
+/** Group headings for the usual designations; any other designation is used as written. */
 const PLURAL: Record<string, string> = {
   Professor: "Professors",
   "Associate Professor": "Associate Professors",
@@ -17,18 +17,18 @@ const PLURAL: Record<string, string> = {
 
 /**
  * The department's faculty: the head of department first, then everyone else grouped by
- * designation from Professor down to Teaching Assistant (the order number sorts each group).
- * The signed-in admin also gets Add faculty, and Edit and Delete on each card.
+ * designation in rank order (Edit content → Faculty designations; the order number sorts each
+ * group). The signed-in admin also gets Add faculty, and Edit and Delete on each card.
  */
 export default function DepartmentFaculty() {
-  const { admin, department, rows } = useFacultyEditor();
+  const { admin, department, ranks, rows } = useFacultyEditor();
   const [adding, setAdding] = useState(false);
   const faculty = rows.filter((f) => f.department === department).sort((a, b) => a.sort_order - b.sort_order);
   const hod = faculty.find((f) => f.is_hod);
   const others = faculty.filter((f) => f !== hod);
-  const groups = [...FACULTY_RANKS, null].map((rank) => ({
+  const groups = [...ranks, null].map((rank) => ({
     title: rank ? PLURAL[rank] ?? rank : "Faculty",
-    people: others.filter((f) => (rank ? f.designation === rank : !FACULTY_RANKS.includes(f.designation ?? ""))),
+    people: others.filter((f) => (rank ? f.designation === rank : !ranks.includes(f.designation ?? ""))),
   }));
   const nextOrder = faculty.reduce((n, f) => Math.max(n, f.sort_order), 0) + 1;
 
