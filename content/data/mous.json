@@ -191,7 +191,7 @@
     "signed_on": null,
     "valid_until": null,
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/mitron-technologies-and-innovations.png",
     "sort_order": 15
   },
   {
@@ -217,7 +217,7 @@
     "signed_on": null,
     "valid_until": null,
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/enterprise-building-training-solutions.png",
     "sort_order": 17
   },
   {
@@ -295,7 +295,7 @@
     "signed_on": null,
     "valid_until": null,
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/colt-assist-and-utility-technologies.png",
     "sort_order": 23
   },
   {
@@ -308,7 +308,7 @@
     "signed_on": null,
     "valid_until": null,
     "document_url": null,
-    "logo_url": null,
+    "logo_url": "/images/mous/vigameq-consultancy-services.png",
     "sort_order": 24
   }
 ]

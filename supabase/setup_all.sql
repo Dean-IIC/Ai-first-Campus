@@ -1034,16 +1034,16 @@ insert into public.mous (slug, partner, association, academic_year, partner_type
   ('quantumx', 'QuantumX', 'HKBKCE', null, 'Industry', null, '2026-11-17', null, null, '/images/mous/quantumx.jpg', 12),
   ('ust', 'UST', 'HKBKCE', null, 'Industry', null, '2021-04-04', null, null, '/images/mous/ust.png', 13),
   ('karunadu-technologies', 'Karunadu Technologies Pvt Ltd', null, 'AY 2023-26', 'Industry', null, null, null, null, '/images/mous/karunadu-technologies.png', 14),
-  ('mitron-technologies-and-innovations', 'Mitron Technologies and Innovations', null, 'AY 2023-26', 'Industry', null, null, null, null, null, 15),
+  ('mitron-technologies-and-innovations', 'Mitron Technologies and Innovations', null, 'AY 2023-26', 'Industry', null, null, null, null, '/images/mous/mitron-technologies-and-innovations.png', 15),
   ('prodevans-technologies', 'Prodevans Technologies', null, 'AY 2023-26', 'Industry', null, null, null, null, '/images/mous/prodevans-technologies.png', 16),
-  ('enterprise-building-training-solutions', 'Enterprise Building Training Solutions', null, 'AY 2023-26', 'Industry', null, null, null, null, null, 17),
+  ('enterprise-building-training-solutions', 'Enterprise Building Training Solutions', null, 'AY 2023-26', 'Industry', null, null, null, null, '/images/mous/enterprise-building-training-solutions.png', 17),
   ('cranes-varsity', 'Cranes Varsity', null, 'AY 2023-26', 'Industry', null, null, null, null, '/images/mous/cranes-varsity.png', 18),
   ('reverse-engineering-infosec', 'Reverse Engineering Infosec Pvt Ltd', null, 'AY 2024-26', 'Industry', null, null, null, null, '/images/mous/reverse-engineering-infosec.jpg', 19),
   ('brain-o-vision', 'Brain O Vision', null, 'AY 2023-25', 'Industry', null, null, null, null, '/images/mous/brain-o-vision.png', 20),
   ('krish-tec', 'Krish Tec', null, 'AY 2025-26', 'Industry', null, null, null, null, '/images/mous/krish-tec.png', 21),
   ('wspl-hosting-solutions', 'WSPL Hosting Solutions (OPC) Pvt Ltd', null, 'AY 2024-25', 'Industry', null, null, null, null, '/images/mous/wspl-hosting-solutions.png', 22),
-  ('colt-assist-and-utility-technologies', 'Colt Assist and Utility Technologies Pvt Ltd', null, 'AY 2024-25', 'Industry', null, null, null, null, null, 23),
-  ('vigameq-consultancy-services', 'Vigameq Consultancy Services Pvt Ltd', null, 'AY 2023-24', 'Industry', null, null, null, null, null, 24)
+  ('colt-assist-and-utility-technologies', 'Colt Assist and Utility Technologies Pvt Ltd', null, 'AY 2024-25', 'Industry', null, null, null, null, '/images/mous/colt-assist-and-utility-technologies.png', 23),
+  ('vigameq-consultancy-services', 'Vigameq Consultancy Services Pvt Ltd', null, 'AY 2023-24', 'Industry', null, null, null, null, '/images/mous/vigameq-consultancy-services.png', 24)
 on conflict (slug) do update set partner = excluded.partner, association = excluded.association, academic_year = excluded.academic_year, partner_type = excluded.partner_type, purpose = excluded.purpose, signed_on = excluded.signed_on, valid_until = excluded.valid_until, document_url = excluded.document_url, logo_url = excluded.logo_url, sort_order = excluded.sort_order;
 insert into public.news_items (slug, kind, title, summary, published_on, event_date, link_url, is_sample) values
   ('sample-ai-first-launch', 'event', 'AI First campus launch week', 'Talks, demos of the campus assistant and open sessions in the Quantum Lab for students, parents and industry guests.', '2026-10-01', '2026-11-16', null, true),
