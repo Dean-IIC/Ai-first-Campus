@@ -1,35 +1,28 @@
 import Link from "next/link";
 import { SectionHeading } from "@/components/features/content/bits";
-import ContentTabs from "@/components/features/content/content-tabs";
+import EventList from "@/components/features/events/event-list";
+import EventsEditorProvider from "@/components/features/events/events-editor";
 import type { NewsItem } from "@/lib/types";
 import { linkText, shell } from "@/lib/ui";
-import NewsList from "./news-list";
 
-/** Latest news and events in tabs. */
+/** Events on the home page: the next three upcoming events, or the latest three past ones. */
 export default function NoticesSection({ news }: { news: NewsItem[] }) {
-  const newsOnly = news.filter((n) => n.kind === "news").slice(0, 4);
-  const events = news.filter((n) => n.kind === "event").slice(0, 4);
   return (
     <section className={`${shell} pt-14`}>
       <SectionHeading
-        title="Notices and events"
+        title="Events"
         tone="rose"
         intro="Latest from the campus."
         action={
-          <Link href="/news" className={linkText}>
-            All news and events
+          <Link href="/events" className={linkText}>
+            All events
           </Link>
         }
       />
       <div className="mt-6">
-        <ContentTabs
-          label="Notices and events"
-          tone="rose"
-          items={[
-            { id: "home-news", label: "News", content: <NewsList items={newsOnly} /> },
-            { id: "home-events", label: "Events", content: <NewsList items={events} /> },
-          ]}
-        />
+        <EventsEditorProvider items={news}>
+          <EventList home />
+        </EventsEditorProvider>
       </div>
     </section>
   );

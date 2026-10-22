@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/portals", destination: "/initiatives", permanent: true },
+      // News is no longer shown; the page lists events only.
+      { source: "/news", destination: "/events", permanent: true },
       // A message removed on 2026-10-14: its old address opens the AI First Campus page.
       // AI First Campus and Quantum Ready Campus are sections of the AI & Quantum Campus page.
       { source: "/ai-quantum/ai-first", destination: "/ai-quantum#ai-first-campus", permanent: true },

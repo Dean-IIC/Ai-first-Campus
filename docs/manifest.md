@@ -38,6 +38,7 @@ Components used by a route may load more data (for example the home page section
 | `/consultancy` | Static | 300s | `table:consultancy_projects`, `table:departments`, `page:consultancy` | `app/consultancy/page.tsx` |
 | `/contact` | Static | 300s | `page:contact` | `app/contact/page.tsx` |
 | `/corporate-training` | Static | 300s | `table:training_programs`, `page:corporate-training` | `app/corporate-training/page.tsx` |
+| `/events` | Static | - | `table:news_items`, `page:news` | `app/events/page.tsx` |
 | `/houses` | Static | 300s | `table:houses`, `page:houses` | `app/houses/page.tsx` |
 | `/ieee` | Static | 300s | `page:ieee` | `app/ieee/page.tsx` |
 | `/initiatives` | Static | 300s | `table:portals`, `page:initiatives` | `app/initiatives/page.tsx` |
@@ -46,7 +47,6 @@ Components used by a route may load more data (for example the home page section
 | `/leadership` | Static | 300s | - | `app/leadership/page.tsx` |
 | `/leadership/[slug]` | Dynamic (pre-rendered) | 300s | - | `app/leadership/[slug]/page.tsx` |
 | `/mous` | Static | - | `table:mous`, `table:key_figures`, `table:departments`, `page:mous` | `app/mous/page.tsx` |
-| `/news` | Static | 300s | `table:news_items`, `page:news` | `app/news/page.tsx` |
 | `/placements` | Static | 300s | `table:key_figures`, `page:placements` | `app/placements/page.tsx` |
 | `/programmes` | Static | 300s | `table:departments`, `page:programmes` | `app/programmes/page.tsx` |
 | `/research` | Static | 300s | `table:research_projects`, `page:research` | `app/research/page.tsx` |
@@ -56,7 +56,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (107 files)
+## Components (111 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -86,6 +86,11 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/departments/department-research.tsx` | 35 | Server | The department's research centre and its research areas. |
 | `components/features/departments/department-vision-mission.tsx` | 53 | Server | One statement, or several as a numbered list. When every point starts with its own label |
 | `components/features/departments/statement-tile.tsx` | 55 | Server | A highlighted statement card (department vision or mission). |
+| `components/features/events/event-card-form.tsx` | 136 | Client | An event as a form, for Add and Edit: title, dates, time, venue, category, description, link and |
+| `components/features/events/event-card-view.tsx` | 61 | Server | One event: the calendar date badge (month in the red strip, day below), category, title, dates, |
+| `components/features/events/event-card.tsx` | 64 | Client | One event in a list. Visitors see the event. The signed-in admin also sees Edit and Delete |
+| `components/features/events/event-list.tsx` | 82 | Client | Events with the admin's "Add event" button at the top. On the home page (`home`): the next three |
+| `components/features/events/events-editor.tsx` | 70 | Client | Holds the whole news_items list (old news rows included, untouched) for the event cards' Add, |
 | `components/features/forms/enquiry-form.tsx` | 108 | Client | Enquiry form posting to the `submitEnquiry` Server Action. Works before JavaScript loads. |
 | `components/features/forms/extra-field-input.tsx` | 37 | Server | Renders one form-specific field; its value is saved in the enquiry's `details`. |
 | `components/features/forms/form-field.tsx` | 42 | Server | Label, optional marker, hint and error message around one form control. |
@@ -108,8 +113,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/home/journey-timeline.tsx` | 138 | Client | The timeline. Visitors see the months that have content, as the server sent them. A signed-in |
 | `components/features/home/key-figures.tsx` | 62 | Server | Figures the site already knows, so they never drift out of date. |
 | `components/features/home/leadership-section.tsx` | 20 | Server | All leadership messages in full, one below the other, in the featured message design. |
-| `components/features/home/news-list.tsx` | 24 | Server | News or events in two columns, each with a calendar-style date. |
-| `components/features/home/notices-section.tsx` | 37 | Server | Latest news and events in tabs. |
+| `components/features/home/notices-section.tsx` | 30 | Server | Events on the home page: the next three upcoming events, or the latest three past ones. |
 | `components/features/home/quick-access.tsx` | 41 | Server | Colour-coded shortcut tiles to the most-used pages. |
 | `components/features/home/use-journey-drag.ts` | 47 | Client | Drag to reorder for the editor's timeline. Dragging starts from the card's text, not from its |
 | `components/features/home/visit-strip.tsx` | 29 | Server | Closing call to visit or contact the college. |

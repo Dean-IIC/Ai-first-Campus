@@ -14,7 +14,7 @@ const ROUTES = [
   "/consultancy",
   "/corporate-training",
   "/ieee",
-  "/news",
+  "/events",
   "/initiatives",
   "/houses",
   "/placements",

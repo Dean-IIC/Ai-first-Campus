@@ -48,7 +48,7 @@ export function buildFooterColumns(menu: MenuSection[]): FooterColumn[] {
         { label: "IEEE Student Branch", href: "/ieee" },
         ...IEEE_CHAPTERS.map((c) => ({ label: IEEE_SHORT[c.id] ?? c.label, href: `/ieee#${c.id}` })),
         { label: "Houses", href: "/houses" },
-        { label: "News and events", href: "/news" },
+        { label: "Events", href: "/events" },
       ],
     },
     {

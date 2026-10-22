@@ -74,7 +74,7 @@ docs/                 this documentation set
 | `/ai-quantum/quantum-lab` | Permanent redirect to `/ai-quantum#quantum-ready-campus` | - |
 | `/ai-quantum/dashboards` | Permanent redirect to `/ai-quantum#ai-first-campus` (dashboards are not shown for now; data and editor kept) | - |
 | `/iqac` | IQAC tabs | page `iqac` |
-| `/news` | News and events tabs | `news_items`, page `news` |
+| `/events` | Events: upcoming (soonest first), then past events; on-card editing for the admin. `/news` redirects here | `news_items` (events only), page `news` |
 | `/contact` | Address, map, contact form | page `contact` |
 | `/api/revalidate` | POST with `x-revalidate-secret`; refreshes all pages | none |
 | `/portals` | Permanent redirect to `/initiatives` | none |

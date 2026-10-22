@@ -178,6 +178,16 @@
       ]
     },
     {
+      "route": "/events",
+      "file": "app/events/page.tsx",
+      "kind": "Static",
+      "revalidate": null,
+      "data": [
+        "table:news_items",
+        "page:news"
+      ]
+    },
+    {
       "route": "/houses",
       "file": "app/houses/page.tsx",
       "kind": "Static",
@@ -248,16 +258,6 @@
         "table:key_figures",
         "table:departments",
         "page:mous"
-      ]
-    },
-    {
-      "route": "/news",
-      "file": "app/news/page.tsx",
-      "kind": "Static",
-      "revalidate": "300",
-      "data": [
-        "table:news_items",
-        "page:news"
       ]
     },
     {
@@ -478,6 +478,36 @@
       "summary": "A highlighted statement card (department vision or mission)."
     },
     {
+      "file": "components/features/events/event-card-form.tsx",
+      "lines": 136,
+      "client": true,
+      "summary": "An event as a form, for Add and Edit: title, dates, time, venue, category, description, link and"
+    },
+    {
+      "file": "components/features/events/event-card-view.tsx",
+      "lines": 61,
+      "client": false,
+      "summary": "One event: the calendar date badge (month in the red strip, day below), category, title, dates,"
+    },
+    {
+      "file": "components/features/events/event-card.tsx",
+      "lines": 64,
+      "client": true,
+      "summary": "One event in a list. Visitors see the event. The signed-in admin also sees Edit and Delete"
+    },
+    {
+      "file": "components/features/events/event-list.tsx",
+      "lines": 82,
+      "client": true,
+      "summary": "Events with the admin's \"Add event\" button at the top. On the home page (`home`): the next three"
+    },
+    {
+      "file": "components/features/events/events-editor.tsx",
+      "lines": 70,
+      "client": true,
+      "summary": "Holds the whole news_items list (old news rows included, untouched) for the event cards' Add,"
+    },
+    {
       "file": "components/features/forms/enquiry-form.tsx",
       "lines": 108,
       "client": true,
@@ -610,16 +640,10 @@
       "summary": "All leadership messages in full, one below the other, in the featured message design."
     },
     {
-      "file": "components/features/home/news-list.tsx",
-      "lines": 24,
-      "client": false,
-      "summary": "News or events in two columns, each with a calendar-style date."
-    },
-    {
       "file": "components/features/home/notices-section.tsx",
-      "lines": 37,
+      "lines": 30,
       "client": false,
-      "summary": "Latest news and events in tabs."
+      "summary": "Events on the home page: the next three upcoming events, or the latest three past ones."
     },
     {
       "file": "components/features/home/quick-access.tsx",

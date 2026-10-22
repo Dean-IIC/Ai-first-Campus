@@ -82,7 +82,7 @@ Write the body in Markdown: `## Heading`, `- bullet`, `1. numbered step`, `**bol
 | Research projects | `research_projects` | `content/data/research_projects.json` |
 | Consultancy projects | `consultancy_projects` | `content/data/consultancy_projects.json` |
 | Training programmes | `training_programs` | `content/data/training_programs.json` |
-| News and events | `news_items` | `content/data/news_items.json` |
+| Events (news rows are kept but not shown) | `news_items` | `content/data/news_items.json` |
 
 When a dashboard is ready, set its `url` and change `status` to `Live`. The **Open dashboard** link appears on the next refresh.
 
