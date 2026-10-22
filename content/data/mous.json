@@ -2,7 +2,7 @@
   {
     "slug": "shinawatra-university",
     "partner": "Shinawatra University",
-    "association": "MIT Square Services Private Limited and HKBKCE",
+    "association": "HKBKCE",
     "academic_year": "AY 2025-27",
     "partner_type": "Academic",
     "purpose": null,
@@ -11,6 +11,19 @@
     "document_url": null,
     "logo_url": "/images/mous/shinawatra-university.jpg",
     "sort_order": 1
+  },
+  {
+    "slug": "mit-square-services",
+    "partner": "MIT Square Services Pvt Ltd",
+    "association": "HKBKCE",
+    "academic_year": "AY 2025-27",
+    "partner_type": "Industry",
+    "purpose": null,
+    "signed_on": null,
+    "valid_until": null,
+    "document_url": null,
+    "logo_url": "/images/mous/mit-square-services.png",
+    "sort_order": 2
   },
   {
     "slug": "citriot",
@@ -23,7 +36,7 @@
     "valid_until": "2028-05-12",
     "document_url": null,
     "logo_url": "/images/mous/citriot.png",
-    "sort_order": 2
+    "sort_order": 3
   },
   {
     "slug": "vtu",
@@ -36,7 +49,7 @@
     "valid_until": "2029-10-16",
     "document_url": null,
     "logo_url": "/images/mous/vtu.png",
-    "sort_order": 3
+    "sort_order": 4
   },
   {
     "slug": "dsedify",
@@ -49,7 +62,7 @@
     "valid_until": "2031-01-22",
     "document_url": null,
     "logo_url": "/images/mous/dsedify.png",
-    "sort_order": 4
+    "sort_order": 5
   },
   {
     "slug": "rollnumber-technologies",
@@ -62,7 +75,7 @@
     "valid_until": "2028-03-10",
     "document_url": null,
     "logo_url": "/images/mous/rollnumber-technologies.png",
-    "sort_order": 5
+    "sort_order": 6
   },
   {
     "slug": "v-inspire",
@@ -75,7 +88,7 @@
     "valid_until": "2031-01-01",
     "document_url": null,
     "logo_url": "/images/mous/v-inspire.png",
-    "sort_order": 6
+    "sort_order": 7
   },
   {
     "slug": "gleamator-technologies",
@@ -88,7 +101,7 @@
     "valid_until": "2029-07-24",
     "document_url": null,
     "logo_url": "/images/mous/gleamator-technologies.png",
-    "sort_order": 7
+    "sort_order": 8
   },
   {
     "slug": "dyashin-technosoft",
@@ -101,7 +114,7 @@
     "valid_until": "2031-01-22",
     "document_url": null,
     "logo_url": "/images/mous/dyashin-technosoft.png",
-    "sort_order": 8
+    "sort_order": 9
   },
   {
     "slug": "ubuntu-consortium",
@@ -114,7 +127,7 @@
     "valid_until": "2029-05-04",
     "document_url": null,
     "logo_url": "/images/mous/ubuntu-consortium.png",
-    "sort_order": 9
+    "sort_order": 10
   },
   {
     "slug": "chiac",
@@ -127,7 +140,7 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/chiac.png",
-    "sort_order": 10
+    "sort_order": 11
   },
   {
     "slug": "medini-technologies",
@@ -140,7 +153,7 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/medini-technologies.png",
-    "sort_order": 11
+    "sort_order": 12
   },
   {
     "slug": "quantumx",
@@ -153,7 +166,7 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/quantumx.jpg",
-    "sort_order": 12
+    "sort_order": 13
   },
   {
     "slug": "ust",
@@ -166,12 +179,12 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/ust.png",
-    "sort_order": 13
+    "sort_order": 14
   },
   {
     "slug": "karunadu-technologies",
     "partner": "Karunadu Technologies Pvt Ltd",
-    "association": null,
+    "association": "HKBKCE",
     "academic_year": "AY 2023-26",
     "partner_type": "Industry",
     "purpose": null,
@@ -179,12 +192,12 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/karunadu-technologies.png",
-    "sort_order": 14
+    "sort_order": 15
   },
   {
     "slug": "mitron-technologies-and-innovations",
     "partner": "Mitron Technologies and Innovations",
-    "association": null,
+    "association": "HKBKCE",
     "academic_year": "AY 2023-26",
     "partner_type": "Industry",
     "purpose": null,
@@ -192,12 +205,12 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/mitron-technologies-and-innovations.png",
-    "sort_order": 15
+    "sort_order": 16
   },
   {
     "slug": "prodevans-technologies",
     "partner": "Prodevans Technologies",
-    "association": null,
+    "association": "HKBKCE",
     "academic_year": "AY 2023-26",
     "partner_type": "Industry",
     "purpose": null,
@@ -205,12 +218,12 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/prodevans-technologies.png",
-    "sort_order": 16
+    "sort_order": 17
   },
   {
     "slug": "enterprise-building-training-solutions",
     "partner": "Enterprise Building Training Solutions",
-    "association": null,
+    "association": "HKBKCE",
     "academic_year": "AY 2023-26",
     "partner_type": "Industry",
     "purpose": null,
@@ -218,12 +231,12 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/enterprise-building-training-solutions.png",
-    "sort_order": 17
+    "sort_order": 18
   },
   {
     "slug": "cranes-varsity",
     "partner": "Cranes Varsity",
-    "association": null,
+    "association": "HKBKCE",
     "academic_year": "AY 2023-26",
     "partner_type": "Industry",
     "purpose": null,
@@ -231,12 +244,12 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/cranes-varsity.png",
-    "sort_order": 18
+    "sort_order": 19
   },
   {
     "slug": "reverse-engineering-infosec",
     "partner": "Reverse Engineering Infosec Pvt Ltd",
-    "association": null,
+    "association": "HKBKCE",
     "academic_year": "AY 2024-26",
     "partner_type": "Industry",
     "purpose": null,
@@ -244,12 +257,12 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/reverse-engineering-infosec.jpg",
-    "sort_order": 19
+    "sort_order": 20
   },
   {
     "slug": "brain-o-vision",
     "partner": "Brain O Vision",
-    "association": null,
+    "association": "HKBKCE",
     "academic_year": "AY 2023-25",
     "partner_type": "Industry",
     "purpose": null,
@@ -257,12 +270,12 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/brain-o-vision.png",
-    "sort_order": 20
+    "sort_order": 21
   },
   {
     "slug": "krish-tec",
     "partner": "Krish Tec",
-    "association": null,
+    "association": "HKBKCE",
     "academic_year": "AY 2025-26",
     "partner_type": "Industry",
     "purpose": null,
@@ -270,12 +283,12 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/krish-tec.png",
-    "sort_order": 21
+    "sort_order": 22
   },
   {
     "slug": "wspl-hosting-solutions",
     "partner": "WSPL Hosting Solutions (OPC) Pvt Ltd",
-    "association": null,
+    "association": "HKBKCE",
     "academic_year": "AY 2024-25",
     "partner_type": "Industry",
     "purpose": null,
@@ -283,12 +296,12 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/wspl-hosting-solutions.png",
-    "sort_order": 22
+    "sort_order": 23
   },
   {
     "slug": "colt-assist-and-utility-technologies",
     "partner": "Colt Assist and Utility Technologies Pvt Ltd",
-    "association": null,
+    "association": "HKBKCE",
     "academic_year": "AY 2024-25",
     "partner_type": "Industry",
     "purpose": null,
@@ -296,12 +309,12 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/colt-assist-and-utility-technologies.png",
-    "sort_order": 23
+    "sort_order": 24
   },
   {
     "slug": "vigameq-consultancy-services",
     "partner": "Vigameq Consultancy Services Pvt Ltd",
-    "association": null,
+    "association": "HKBKCE",
     "academic_year": "AY 2023-24",
     "partner_type": "Industry",
     "purpose": null,
@@ -309,6 +322,6 @@
     "valid_until": null,
     "document_url": null,
     "logo_url": "/images/mous/vigameq-consultancy-services.png",
-    "sort_order": 24
+    "sort_order": 25
   }
 ]
