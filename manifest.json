@@ -75,7 +75,8 @@
       "kind": "Dynamic (pre-rendered)",
       "revalidate": "300",
       "data": [
-        "table:departments"
+        "table:departments",
+        "table:faculty"
       ]
     },
     {
@@ -448,16 +449,52 @@
       "summary": "College vision and mission, from the `vision-mission` page (Supabase or content/pages/vision-mission.md)."
     },
     {
+      "file": "components/features/departments/department-achievements.tsx",
+      "lines": 45,
+      "client": false,
+      "summary": "The department's achievements: a framed photo (an empty frame until one is uploaded) beside the text."
+    },
+    {
+      "file": "components/features/departments/department-careers.tsx",
+      "lines": 63,
+      "client": false,
+      "summary": "Icon for a scope card, chosen from words in its heading."
+    },
+    {
+      "file": "components/features/departments/department-curriculum.tsx",
+      "lines": 35,
+      "client": false,
+      "summary": "The curriculum as one card per semester: its scheme and its subjects."
+    },
+    {
       "file": "components/features/departments/department-facts.tsx",
-      "lines": 40,
+      "lines": 45,
       "client": false,
       "summary": "Three small information tiles above the department tabs."
     },
     {
-      "file": "components/features/departments/department-overview.tsx",
-      "lines": 22,
+      "file": "components/features/departments/department-faculty.tsx",
+      "lines": 64,
+      "client": true,
+      "summary": "The department's faculty: the head of department first, then everyone else grouped by"
+    },
+    {
+      "file": "components/features/departments/department-history.tsx",
+      "lines": 37,
       "client": false,
-      "summary": "Key facts about a department."
+      "summary": "The programme's year-by-year history as a table (academic year and milestone)."
+    },
+    {
+      "file": "components/features/departments/department-outcomes.tsx",
+      "lines": 32,
+      "client": false,
+      "summary": "Programme educational objectives, programme specific outcomes and programme outcomes."
+    },
+    {
+      "file": "components/features/departments/department-overview.tsx",
+      "lines": 35,
+      "client": false,
+      "summary": "Key facts about a department, then the programme's history when it has one. A department"
     },
     {
       "file": "components/features/departments/department-research.tsx",
@@ -467,9 +504,33 @@
     },
     {
       "file": "components/features/departments/department-vision-mission.tsx",
-      "lines": 53,
+      "lines": 58,
       "client": false,
       "summary": "One statement, or several as a numbered list. When every point starts with its own label"
+    },
+    {
+      "file": "components/features/departments/faculty-card-form.tsx",
+      "lines": 120,
+      "client": true,
+      "summary": "A faculty member as a form, for Add and Edit: name, designation, qualification, head of the"
+    },
+    {
+      "file": "components/features/departments/faculty-card.tsx",
+      "lines": 62,
+      "client": true,
+      "summary": "One faculty member. Visitors see the card. The signed-in admin also sees Edit and Delete;"
+    },
+    {
+      "file": "components/features/departments/faculty-editor.tsx",
+      "lines": 72,
+      "client": true,
+      "summary": "Holds the whole faculty list (every department) for the Faculty tab's Add, Edit and Delete."
+    },
+    {
+      "file": "components/features/departments/faculty-view.tsx",
+      "lines": 60,
+      "client": false,
+      "summary": "Shown before any faculty member is added: one empty portrait frame and a note."
     },
     {
       "file": "components/features/departments/statement-tile.tsx",
@@ -970,6 +1031,12 @@
       "summary": ""
     },
     {
+      "file": "components/ui/table.tsx",
+      "lines": 41,
+      "client": false,
+      "summary": ""
+    },
+    {
       "file": "components/ui/tabs.tsx",
       "lines": 39,
       "client": true,
@@ -1055,7 +1122,7 @@
     },
     {
       "file": "lib/cms/schema.ts",
-      "lines": 136,
+      "lines": 157,
       "summary": "`hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`."
     },
     {
@@ -1075,13 +1142,18 @@
     },
     {
       "file": "lib/content.ts",
-      "lines": 197,
+      "lines": 198,
       "summary": "A value the admin saved in the content editor (see lib/cms/schema.ts), if any."
     },
     {
       "file": "lib/database.types.ts",
-      "lines": 777,
+      "lines": 849,
       "summary": "Supabase database types for the HKBK website."
+    },
+    {
+      "file": "lib/department-sections.ts",
+      "lines": 57,
+      "summary": "A leading code such as M1, PEO1, PSO2 or PO12."
     },
     {
       "file": "lib/editor.ts",
@@ -1140,7 +1212,7 @@
     },
     {
       "file": "lib/site.ts",
-      "lines": 109,
+      "lines": 113,
       "summary": "The Training and Placement Portal (staff sign-in), linked from the Placements page."
     },
     {
@@ -1165,7 +1237,7 @@
     },
     {
       "file": "lib/types.ts",
-      "lines": 48,
+      "lines": 50,
       "summary": "Event fields kept only in the admin content store (list:news_items), set with the on-card editor."
     },
     {
@@ -1264,7 +1336,9 @@
       "supabase/migrations/20261014020000_august_entry_client.sql",
       "supabase/migrations/20261015000000_api_grants.sql",
       "supabase/migrations/20261019120000_mou_association.sql",
-      "supabase/migrations/20261022120000_mou_academic_year.sql"
+      "supabase/migrations/20261022120000_mou_academic_year.sql",
+      "supabase/migrations/20261023000000_department_sections.sql",
+      "supabase/migrations/20261023010000_faculty.sql"
     ],
     "tables": {
       "pages": [
@@ -1298,6 +1372,17 @@
         "mission",
         "has_research_centre",
         "research_areas",
+        "show_research_tile",
+        "history",
+        "approvals",
+        "peos",
+        "psos",
+        "pos",
+        "curriculum",
+        "employment_scope",
+        "career_roles",
+        "achievements",
+        "achievements_image",
         "sort_order",
         "updated_at"
       ],
@@ -1491,6 +1576,18 @@
         "id",
         "failed_attempts",
         "locked_until"
+      ],
+      "faculty": [
+        "id",
+        "slug",
+        "department",
+        "name",
+        "is_hod",
+        "designation",
+        "qualification",
+        "photo_url",
+        "sort_order",
+        "updated_at"
       ]
     }
   },
@@ -1502,6 +1599,7 @@
       "consultancy_projects": 3,
       "dashboards": 7,
       "departments": 10,
+      "faculty": 0,
       "houses": 5,
       "journey_milestones": 11,
       "key_figures": 11,
@@ -1517,12 +1615,11 @@
     "docs/ADMIN_GUIDE.md",
     "docs/AGENT_SETUP_PROMPT.md",
     "docs/ARCHITECTURE.md",
+    "docs/changelog.md",
     "docs/CONTENT_GUIDE.md",
     "docs/DATABASE.md",
-    "docs/DEPLOYMENT.md",
-    "docs/SETUP.md",
-    "docs/changelog.md",
     "docs/decision.md",
+    "docs/DEPLOYMENT.md",
     "docs/design.md",
     "docs/feature-tickets.md",
     "docs/flow.md",
@@ -1533,6 +1630,7 @@
     "docs/roadmap.md",
     "docs/rules.md",
     "docs/security.md",
+    "docs/SETUP.md",
     "README.md",
     "AGENTS.md"
   ]

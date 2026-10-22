@@ -1,27 +1,32 @@
 import { Eye, Target } from "lucide-react";
+import { LABEL, splitHeading, splitLabel } from "@/lib/department-sections";
 import type { Department } from "@/lib/types";
 import StatementTile from "./statement-tile";
 
 const statement = "font-serif text-[1.1875rem] leading-relaxed text-foreground";
-const LABEL = /^(M\d{1,2}):\s*/;
 
 /**
  * One statement, or several as a numbered list. When every point starts with its own label
- * ("M1: …", "M2: …"), the badge shows that label instead of a number.
+ * ("M1: …", "PEO1: …"), the badge shows that label instead of a number. With `headings`,
+ * a "Heading: text" point shows its heading in bold ("PO1: Engineering knowledge: …").
  */
-function Statements({ points }: { points: string[] }) {
-  if (points.length === 1) return <p className={statement}>{points[0]}</p>;
+export function Statements({ points, headings = false }: { points: string[]; headings?: boolean }) {
+  if (points.length === 1 && !LABEL.test(points[0])) return <p className={statement}>{points[0]}</p>;
   const labelled = points.every((p) => LABEL.test(p));
   return (
     <ol className="space-y-3">
       {points.map((p, i) => {
-        const label = labelled ? (p.match(LABEL)?.[1] ?? String(i + 1)) : String(i + 1);
+        const { label, text } = labelled ? splitLabel(p) : { label: null, text: p };
+        const { heading, text: body } = headings ? splitHeading(text) : { heading: null, text };
         return (
           <li key={p} className="flex gap-3 text-[1.0625rem] leading-relaxed text-foreground">
-            <span className="mt-0.5 grid h-6 min-w-6 shrink-0 place-items-center rounded-full bg-gradient-to-br from-t-teal to-t-blue px-1 text-xs font-bold text-white">
-              {label}
+            <span className="mt-0.5 grid h-6 min-w-6 shrink-0 place-items-center rounded-full bg-gradient-to-br from-t-teal to-t-blue px-1.5 text-xs font-bold text-white">
+              {label ?? i + 1}
             </span>
-            <span>{labelled ? p.replace(LABEL, "") : p}</span>
+            <span>
+              {heading && <strong className="font-semibold text-heading">{heading}: </strong>}
+              {body}
+            </span>
           </li>
         );
       })}
