@@ -366,7 +366,7 @@
     },
     {
       "file": "components/features/cms/content-editor.tsx",
-      "lines": 110,
+      "lines": 111,
       "client": true,
       "summary": "The admin's editor for everything stored as content: pages, leadership messages, every list and the contact details."
     },
@@ -476,7 +476,7 @@
       "file": "components/features/departments/department-faculty.tsx",
       "lines": 64,
       "client": true,
-      "summary": "The department's faculty: the head of department first, then everyone else grouped by"
+      "summary": "Group headings for the usual designations; any other designation is used as written."
     },
     {
       "file": "components/features/departments/department-history.tsx",
@@ -510,7 +510,7 @@
     },
     {
       "file": "components/features/departments/faculty-card-form.tsx",
-      "lines": 147,
+      "lines": 149,
       "client": true,
       "summary": "A faculty member as a form, for Add and Edit: name, designation, qualification, head of the"
     },
@@ -522,9 +522,9 @@
     },
     {
       "file": "components/features/departments/faculty-editor.tsx",
-      "lines": 72,
+      "lines": 74,
       "client": true,
-      "summary": "Holds the whole faculty list (every department) for the Faculty tab's Add, Edit and Delete."
+      "summary": "Designations, highest rank first (Edit content → Faculty designations)."
     },
     {
       "file": "components/features/departments/faculty-view.tsx",
@@ -1134,7 +1134,7 @@
     },
     {
       "file": "lib/cms/schema.ts",
-      "lines": 157,
+      "lines": 168,
       "summary": "`hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`."
     },
     {
@@ -1144,7 +1144,7 @@
     },
     {
       "file": "lib/cms/validate.ts",
-      "lines": 153,
+      "lines": 163,
       "summary": "A photo address the admin may use: one uploaded to our storage, or a file shipped with the site."
     },
     {
@@ -1224,7 +1224,7 @@
     },
     {
       "file": "lib/site-details.ts",
-      "lines": 37,
+      "lines": 45,
       "summary": "Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only."
     },
     {
@@ -1274,7 +1274,7 @@
     },
     {
       "file": "actions/content.ts",
-      "lines": 69,
+      "lines": 70,
       "summary": "Every page and leadership message the content editor can open, with readable names."
     },
     {

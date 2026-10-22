@@ -14,6 +14,7 @@ import DepartmentVisionMission from "@/components/features/departments/departmen
 import PageBanner from "@/components/features/layout/page-banner";
 import { getList } from "@/lib/content";
 import { hasExtendedPage, linesOf } from "@/lib/department-sections";
+import { getFacultyRanks } from "@/lib/site-details";
 import { NO_STATEMENT_KINDS } from "@/lib/site";
 import { shell } from "@/lib/ui";
 
@@ -42,7 +43,7 @@ export default async function DepartmentPage({ params }: Props) {
   const { slug } = await params;
   const { department: d } = await findDepartment(slug);
   if (!d) notFound();
-  const allFaculty = await getList("faculty");
+  const [allFaculty, ranks] = await Promise.all([getList("faculty"), getFacultyRanks()]);
   const faculty = allFaculty.filter((f) => f.department === d.slug);
 
   // Optional tabs appear only when the department has that content, so other departments are unchanged.
@@ -71,7 +72,7 @@ export default async function DepartmentPage({ params }: Props) {
             id: "faculty",
             label: "Faculty",
             content: (
-              <FacultyEditorProvider items={allFaculty} department={d.slug}>
+              <FacultyEditorProvider items={allFaculty} department={d.slug} ranks={ranks}>
                 <DepartmentFaculty />
               </FacultyEditorProvider>
             ),

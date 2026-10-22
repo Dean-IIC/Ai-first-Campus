@@ -1,7 +1,7 @@
 import { serviceBase } from "@/lib/admin/service";
 import { CAROUSEL_KEY, MAX_SLIDES } from "@/lib/carousel";
 import { MOU_DOCUMENT_PATH } from "@/lib/mous";
-import { ALERT_FIELDS, LINK_FIELDS, LIST_SPECS, MESSAGE_FIELDS, PAGE_FIELDS, SITE_FIELDS, fieldShown, isListTable, type Field } from "./schema";
+import { ALERT_FIELDS, LINK_FIELDS, LIST_SPECS, MESSAGE_FIELDS, PAGE_FIELDS, RANK_FIELDS, SITE_FIELDS, fieldShown, isListTable, type Field } from "./schema";
 
 /*
  * Everything the admin saves is checked here before it reaches the database. Text is
@@ -133,6 +133,15 @@ function cleanCarousel(value: unknown): { src: string; alt: string; title: strin
   });
 }
 
+/** Faculty designations, highest rank first: at least one, each once, at most 20. */
+function cleanRanks(value: unknown): { designations: string[] } {
+  const { designations } = cleanRecord(RANK_FIELDS, value) as { designations: string[] };
+  const unique = [...new Set(designations.map((d) => d.slice(0, 80)))];
+  if (unique.length === 0) throw new Error("Add at least one designation.");
+  if (unique.length > 20) throw new Error("Keep the list to 20 designations or fewer.");
+  return { designations: unique };
+}
+
 /** Checks a value for its kind of content and returns the cleaned value to store. */
 export function cleanValue(key: string, value: unknown): unknown {
   if (key.startsWith("text:")) return cleanText(value, 1000, false);
@@ -146,6 +155,7 @@ export function cleanValue(key: string, value: unknown): unknown {
   if (key === "site:details") return cleanRecord(SITE_FIELDS, value);
   if (key === "site:links") return cleanRecord(LINK_FIELDS, value);
   if (key === "site:alerts") return cleanRecord(ALERT_FIELDS, value);
+  if (key === "site:ranks") return cleanRanks(value);
   if (key.startsWith("list:")) return cleanList(key.slice(5), value);
   if (key === CAROUSEL_KEY) return cleanCarousel(value);
   throw new Error("This content cannot be edited.");

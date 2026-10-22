@@ -66,6 +66,17 @@ export const LINK_FIELDS: Field[] = [
   { key: "placement_portal_link", label: "Placement Portal Link", kind: "link", placeholder: "https://placements.hkbkce.in", hint: "Paste the full address of the Placement Portal. Leave empty to show the Placement page on this site." },
 ];
 
+/** site:ranks — the faculty designations, highest rank first; the Faculty tab groups people in this order. */
+export const RANK_FIELDS: Field[] = [
+  {
+    key: "designations",
+    label: "Faculty designations (one per line, highest rank first)",
+    kind: "lines",
+    required: true,
+    hint: "The Faculty tab groups people in this order, after the head of the department. To add a designation, type it on its own line where it ranks, for example between Professor and Associate Professor.",
+  },
+];
+
 export const ALERT_FIELDS: Field[] = [
   { key: "consultancy", label: "Consultancy form → email", kind: "email", hint: "Who is emailed when someone sends a consultancy request." },
   { key: "corporate_training", label: "Corporate training form → email", kind: "email", hint: "Who is emailed when someone sends a training enquiry." },
@@ -94,7 +105,7 @@ export const LIST_SPECS: Record<ListTable, ListSpec> = {
     t("name", "Name", { required: true }),
     { key: "department", label: "Department", kind: "choice", options: DEPARTMENT_SLUGS, required: true, hint: "aiml is Artificial Intelligence & Machine Learning, cse is Computer Science and so on." },
     { key: "is_hod", label: "Head of the department", kind: "bool", hint: "Shown first, in a larger card. Tick it for one person per department." },
-    { key: "designation", label: "Designation", kind: "choice", options: FACULTY_RANKS, required: true, hint: "Faculty are grouped by designation, highest rank first." },
+    t("designation", "Designation", { required: true, hint: `Type it exactly as in Edit content → Faculty designations (for example ${FACULTY_RANKS[2]}); faculty are grouped in that order.` }),
     t("qualification", "Qualification", { hint: "For example: M.Tech, Ph.D." }),
     { key: "photo_url", label: "Photo", kind: "image", hint: "A portrait photo works best." },
     { key: "sort_order", label: "Card number", kind: "number", hint: "Order of the card within its designation, starting at 1." },

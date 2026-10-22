@@ -22,10 +22,12 @@ const plainPill = cn(adminPill, "border border-border bg-card text-foreground ho
  */
 export default function FacultyCardForm({ person, nextOrder, onDone }: { person?: Faculty; nextOrder: number; onDone: () => void }) {
   const { uploadImage } = useAdmin();
-  const { saveFaculty } = useFacultyEditor();
+  const { saveFaculty, ranks } = useFacultyEditor();
+  // The rank list, plus this person's designation if it was removed from the list since.
+  const options = person?.designation && !ranks.includes(person.designation) ? [...ranks, person.designation] : ranks;
   const [d, setD] = useState<FacultyDraft>(() => ({
     name: person?.name ?? "",
-    designation: person?.designation ?? FACULTY_RANKS[2],
+    designation: person?.designation ?? (ranks.includes(FACULTY_RANKS[2]) ? FACULTY_RANKS[2] : ranks[0] ?? ""),
     qualification: person?.qualification ?? "",
     is_hod: person?.is_hod ?? false,
     photo_url: person?.photo_url ?? null,
@@ -71,7 +73,7 @@ export default function FacultyCardForm({ person, nextOrder, onDone }: { person?
       <label htmlFor={`${id}-rank`} className="grid gap-1 text-xs font-medium text-muted-foreground">
         Designation *
         <NativeSelect id={`${id}-rank`} value={d.designation ?? ""} onChange={(e) => set({ designation: e.target.value })} className="min-h-9 py-1.5 text-sm">
-          {FACULTY_RANKS.map((r) => <option key={r}>{r}</option>)}
+          {options.map((r) => <option key={r}>{r}</option>)}
         </NativeSelect>
       </label>
       <Input aria-label="Qualification" placeholder="Qualification, e.g. M.Tech, Ph.D." value={d.qualification ?? ""} onChange={(e) => set({ qualification: e.target.value })} maxLength={300} className={field} />
