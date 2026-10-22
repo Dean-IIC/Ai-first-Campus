@@ -103,7 +103,7 @@ function cleanList(table: string, value: unknown): Record<string, unknown>[] {
 }
 
 /** Home page carousel: up to MAX_SLIDES photos, each an allowed image with alt text and an optional badge. */
-function cleanCarousel(value: unknown): { src: string; alt: string; title: string; subtitle: string }[] {
+function cleanCarousel(value: unknown): { src: string; alt: string; title: string; subtitle: string; fit: "cover" | "contain" }[] {
   if (!Array.isArray(value) || value.length === 0) throw new Error("Add at least one photo.");
   if (value.length > MAX_SLIDES) throw new Error(`The carousel can hold at most ${MAX_SLIDES} photos.`);
   return value.map((raw, i) => {
@@ -112,7 +112,7 @@ function cleanCarousel(value: unknown): { src: string; alt: string; title: strin
     if (!src || !isAllowedImage(src)) throw new Error(`Photo ${i + 1}: upload the picture here instead of pasting an address.`);
     const alt = cleanText(s.alt ?? "", 300);
     if (!alt) throw new Error(`Photo ${i + 1}: describe the photo in the alt text.`);
-    return { src, alt, title: cleanText(s.title ?? "", 80), subtitle: cleanText(s.subtitle ?? "", 120) };
+    return { src, alt, title: cleanText(s.title ?? "", 80), subtitle: cleanText(s.subtitle ?? "", 120), fit: s.fit === "contain" ? "contain" : "cover" };
   });
 }
 

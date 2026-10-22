@@ -72,7 +72,7 @@ Click **Enquiries** in the dark bar (the number shows how many are New). Every c
 | Area | How |
 | --- | --- |
 | Home page headline and intro paragraph; section headings and intro lines | **Edit page** on, then click the text |
-| Home page photo carousel (up to 10 photos, each with a badge title, subtitle and alt text) | **Edit content** → Home page carousel: **Add photo**, upload, drag or use the arrows to reorder, delete, then **Save changes**. Leave the badge title and subtitle empty to hide the badge on that photo. With one photo there are no arrows or dots |
+| Home page photo carousel (up to 10 photos, each with a badge title, subtitle and alt text) | **Edit content** → Home page carousel: **Add photo**, upload, drag or use the arrows to reorder, delete, then **Save changes**. Leave the badge title and subtitle empty to hide the badge on that photo. Set **Fit** to *Full poster* for posters and certificates so nothing is cropped, or *Fill frame* for campus and event photos. With one photo there are no arrows or dots |
 | Title, summary and full text of every page | **Edit content** → Page text |
 | Leadership messages (name, designation, photo, message) | **Edit content** → Leadership messages |
 | Departments, news and events, MoUs, AI Champions, key figures, houses, centres and initiatives, dashboards, research and consultancy projects, training programmes, UHV activities, the AI First journey | **Edit content** → Lists: open an item to change it, add, delete or reorder, then **Save changes** |

@@ -5,7 +5,8 @@ import { ArrowDown, ArrowUp, GripVertical, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { MAX_SLIDES, type HeroSlide } from "@/lib/carousel";
+import { NativeSelect } from "@/components/ui/native-select";
+import { MAX_SLIDES, type HeroSlide, type SlideFit } from "@/lib/carousel";
 import { cn } from "@/lib/utils";
 import ImageField from "./image-field";
 import SaveBar from "./save-bar";
@@ -98,6 +99,13 @@ export default function CarouselForm({ initial, onSave }: { initial: HeroSlide[]
               </div>
             </div>
             <div className="grid gap-1.5">
+              <Label htmlFor={`c-fit-${i}`}>Fit</Label>
+              <NativeSelect id={`c-fit-${i}`} value={s.fit} onChange={(e) => set(i, { fit: e.target.value as SlideFit })}>
+                <option value="cover">Fill frame (photos; edges may be cropped)</option>
+                <option value="contain">Full poster (shows the whole image, nothing cropped)</option>
+              </NativeSelect>
+            </div>
+            <div className="grid gap-1.5">
               <Label htmlFor={`c-alt-${i}`}>
                 Alt text <span className="text-destructive">*</span>
               </Label>
@@ -106,7 +114,7 @@ export default function CarouselForm({ initial, onSave }: { initial: HeroSlide[]
           </li>
         ))}
       </ol>
-      <Button type="button" variant="outline" className="justify-self-start" disabled={slides.length >= MAX_SLIDES} onClick={() => update([...slides, { src: "", alt: "", title: "", subtitle: "" }])}>
+      <Button type="button" variant="outline" className="justify-self-start" disabled={slides.length >= MAX_SLIDES} onClick={() => update([...slides, { src: "", alt: "", title: "", subtitle: "", fit: "cover" }])}>
         <Plus aria-hidden="true" />
         {slides.length >= MAX_SLIDES ? `${MAX_SLIDES} photos is the most` : "Add photo"}
       </Button>

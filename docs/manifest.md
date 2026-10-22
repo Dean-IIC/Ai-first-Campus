@@ -55,7 +55,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (101 files)
+## Components (102 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -65,7 +65,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/admin/enquiries/enquiry-filters.tsx` | 48 | Server | Filter by form and status, and search by name, email or organisation. A plain GET form. |
 | `components/features/admin/history-panel.tsx` | 51 | Client | The last 30 changes. Restoring one puts back the text, photo or list it set. |
 | `components/features/admin/login-form.tsx` | 42 | Client | Email and password for the single admin account. Errors are shown in one generic message. |
-| `components/features/cms/carousel-form.tsx` | 118 | Client | The home page carousel in Edit content: upload photos (shrunk to 1600 px and compressed before |
+| `components/features/cms/carousel-form.tsx` | 126 | Client | The home page carousel in Edit content: upload photos (shrunk to 1600 px and compressed before |
 | `components/features/cms/content-editor.tsx` | 110 | Client | The admin's editor for everything stored as content: pages, leadership messages, every list and the contact details. |
 | `components/features/cms/editable-text.tsx` | 85 | Client | Text that the admin can change on the page. Visitors see the text exactly as before. In |
 | `components/features/cms/field-input.tsx` | 66 | Client | One field of the content editor, edited with the control that suits its kind. |
@@ -93,8 +93,9 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/home/count-up.tsx` | 47 | Client | Counts from 0 to `value` once the number scrolls into view. The final number |
 | `components/features/home/departments-panel.tsx` | 38 | Server | Grid of all departments, each linking to its page. |
 | `components/features/home/explore-section.tsx` | 37 | Server | Research and industry panels. |
-| `components/features/home/hero-carousel-parts.tsx` | 56 | Server | Previous and next buttons on the photo: shown on hover with a mouse, always on touch screens. |
-| `components/features/home/hero-carousel.tsx` | 106 | Client | The home page photo carousel, in the frame the single campus photo used. Slides every five |
+| `components/features/home/hero-card.tsx` | 73 | Server | Where a card sits in the deck: 0 is the front photo; 1 and 2 peek out on the right (smaller and |
+| `components/features/home/hero-carousel-parts.tsx` | 62 | Server | Previous and next arrows with one dot per photo, under the deck. |
+| `components/features/home/hero-carousel.tsx` | 120 | Client | The home page photos as a stacked deck: the front photo with the next two peeking out on the |
 | `components/features/home/hero.tsx` | 49 | Server | Opening section: headline, key facts and the photo carousel with a frosted location badge. |
 | `components/features/home/journey-bullets.tsx` | 43 | Client | The bullet points of one month: edit, reorder, remove, and add. |
 | `components/features/home/journey-edit-button.tsx` | 70 | Client | Edit (filled months) or Add (empty months), plus move up and down. Shown only to signed-in editors. |
@@ -174,7 +175,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/ai-people.ts` | 24 | The two groups in the AI programme; values match ai_people.role. |
 | `lib/areas.tsx` | 177 | - |
 | `lib/carousel-server.ts` | 15 | The home page carousel photos the admin saved, or the campus photo when none are saved. Server only. |
-| `lib/carousel.ts` | 14 | One photo in the home page carousel. An empty title and subtitle hide the badge for that photo. |
+| `lib/carousel.ts` | 19 | One photo in the home page carousel. An empty title and subtitle hide the badge for that photo. |
 | `lib/champion-image.ts` | 64 | Geometry for the photo crop: a square crop box, a zoom level and a pan offset, all in pixels. |
 | `lib/cms/client-image.ts` | 29 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
 | `lib/cms/paths.ts` | 25 | - |
