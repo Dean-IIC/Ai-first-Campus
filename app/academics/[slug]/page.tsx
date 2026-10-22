@@ -7,7 +7,7 @@ import DepartmentResearch from "@/components/features/departments/department-res
 import DepartmentVisionMission from "@/components/features/departments/department-vision-mission";
 import PageBanner from "@/components/features/layout/page-banner";
 import { getList } from "@/lib/content";
-import { SCIENCES_KIND } from "@/lib/site";
+import { NO_STATEMENT_KINDS } from "@/lib/site";
 import { shell } from "@/lib/ui";
 
 export const revalidate = 300;
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const { department } = await findDepartment(slug);
   if (!department) return { title: "Department not found" };
-  return { title: `Department of ${department.name}`, description: (department.kind !== SCIENCES_KIND && department.vision) || department.description || undefined };
+  return { title: `Department of ${department.name}`, description: (!NO_STATEMENT_KINDS.includes(department.kind) && department.vision) || department.description || undefined };
 }
 
 export default async function DepartmentPage({ params }: Props) {
@@ -37,8 +37,8 @@ export default async function DepartmentPage({ params }: Props) {
   if (!d) notFound();
 
   const items = [
-    // Basic sciences and humanities departments have no vision and mission tab.
-    ...(d.kind !== SCIENCES_KIND ? [{ id: "vision-mission", label: "Vision and mission", content: <DepartmentVisionMission department={d} /> }] : []),
+    // Basic sciences and humanities, and sports, have no vision and mission tab.
+    ...(!NO_STATEMENT_KINDS.includes(d.kind) ? [{ id: "vision-mission", label: "Vision and mission", content: <DepartmentVisionMission department={d} /> }] : []),
     { id: "overview", label: "Overview", content: <DepartmentOverview department={d} /> },
     ...(d.has_research_centre ? [{ id: "research-centre", label: "Research centre", content: <DepartmentResearch department={d} /> }] : []),
   ];
@@ -56,7 +56,8 @@ export default async function DepartmentPage({ params }: Props) {
       <div className={`${shell} pt-8 lg:pt-10`}>
         <div className="min-w-0 space-y-6">
           <DepartmentFacts department={d} />
-          <ContentTabs label={`Department of ${d.name}`} tone="green" items={items} />
+          {/* With only one section (Overview), show it directly instead of a single lonely tab. */}
+          {items.length > 1 ? <ContentTabs label={`Department of ${d.name}`} tone="green" items={items} /> : <section aria-label={items[0].label} className="rounded-xl border border-border bg-card p-5 sm:p-7">{items[0].content}</section>}
         </div>
       </div>
     </>

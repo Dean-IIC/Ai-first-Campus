@@ -1,5 +1,5 @@
 import { AI_ROLES } from "@/lib/ai-people";
-import { SCIENCES_KIND } from "@/lib/site";
+import { NO_STATEMENT_KINDS } from "@/lib/site";
 import type { ListTable } from "@/lib/types";
 
 /*
@@ -15,18 +15,18 @@ import type { ListTable } from "@/lib/types";
  */
 
 export type FieldKind = "text" | "long" | "markdown" | "number" | "bool" | "lines" | "image" | "link" | "date" | "choice" | "email";
-/** `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field equals `equals`. */
-export type Field = { key: string; label: string; kind: FieldKind; hint?: string; placeholder?: string; options?: readonly string[]; required?: boolean; hideWhen?: { key: string; equals: string } };
+/** `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`. */
+export type Field = { key: string; label: string; kind: FieldKind; hint?: string; placeholder?: string; options?: readonly string[]; required?: boolean; hideWhen?: { key: string; in: readonly string[] } };
 export type ListSpec = { label: string; item: string; title: string; fields: Field[] };
 
 const t = (key: string, label: string, extra: Partial<Field> = {}): Field => ({ key, label, kind: "text", ...extra });
 
 /** False when the field is hidden for this row (see `hideWhen`). */
 export function fieldShown(f: Field, row: Record<string, unknown>): boolean {
-  return !f.hideWhen || String(row[f.hideWhen.key] ?? "").trim() !== f.hideWhen.equals;
+  return !f.hideWhen || !f.hideWhen.in.includes(String(row[f.hideWhen.key] ?? "").trim());
 }
 
-const noStatements = { hideWhen: { key: "kind", equals: SCIENCES_KIND } };
+const noStatements = { hideWhen: { key: "kind", in: NO_STATEMENT_KINDS } };
 const long = (key: string, label: string, hint?: string): Field => ({ key, label, kind: "long", hint });
 const sample: Field = { key: "is_sample", label: "Placeholder entry (shows a “Sample entry” tag)", kind: "bool" };
 const year: Field = { key: "year", label: "Year", kind: "number" };

@@ -4,6 +4,9 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Changed (Sports department)
+- Physical Education and Sports (`/academics/sports`): the "Vision and mission" tab is removed and its vision and mission were cleared through the saved departments list (History). Its Vision and Mission fields are hidden in Edit content and always saved empty (`NO_STATEMENT_KINDS` in `lib/site.ts`, `hideWhen.in`). A department page with only one section (Sports, Humanities) now shows the Overview directly in its panel, without a single tab. Other departments and the college vision and mission are unchanged.
+
 ### Changed (MoU partners)
 - MoUs page (`/mous`): MIT Square Services Pvt Ltd is listed as its own MoU (AY 2025-27, HKBKCE), right after Shinawatra University, with its logo from mitsquare.com. Shinawatra University's association is now "HKBKCE" (it was "MIT Square Services Private Limited and HKBKCE").
 - Every MoU now shows the "HKBKCE" association (Gleamator Technologies keeps "VTU and HKBKCE"); the 11 MoUs added by academic year had none.

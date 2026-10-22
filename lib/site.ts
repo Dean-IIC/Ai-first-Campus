@@ -41,6 +41,8 @@ export type NavItem = {
 };
 /** Departments of this kind (Mathematics, Physics, Chemistry, Humanities) show no vision and mission. */
 export const SCIENCES_KIND = "Basic sciences and humanities";
+/** Department kinds whose pages show no vision and mission: basic sciences and humanities, and sports. */
+export const NO_STATEMENT_KINDS: readonly string[] = [SCIENCES_KIND, "Physical education"];
 
 export const INITIATIVES_LABEL = "Centres & Initiatives";
 
