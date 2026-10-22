@@ -29,7 +29,8 @@ function MouLogo({ mou }: { mou: Mou }) {
 
 /** One MoU: logo, partner name, signed date, academic year and association, centred in a card. */
 export default function MouCard({ mou }: { mou: Mou }) {
-  const signed = formatDate(mou.signed_on);
+  // The academic year replaces the signing date on the card when both are set.
+  const signed = mou.academic_year ? "" : formatDate(mou.signed_on);
   return (
     <Card className="h-full border-t-[3px] border-t-t-amber transition-shadow hover:shadow-md">
       <CardContent className="flex h-full flex-col items-center gap-2.5 text-center">
