@@ -2,7 +2,7 @@ import { toneForCategory } from "./portals";
 import { images, initiativeItems, isActiveItem, type NavItem } from "./site";
 import type { Tone } from "./ui";
 
-/** A dropdown column. With `href` the heading is a link; `icon` shows before the heading. A column with `href` and no links is shown as one direct link. */
+/** A dropdown column. With `href` the heading is a link; `icon` shows before the heading. */
 export type MenuColumn = { title: string; links: NavItem[]; href?: string; icon?: "cpu" | "atom" };
 
 /** A full web address on another site. HKBK's own sites (*.hkbkce.in) open in the same tab. */
@@ -40,6 +40,14 @@ export const IEEE_CHAPTERS = [
   { id: "wie", label: "Women in Engineering (WIE)" },
   { id: "information-theory", label: "Information Theory Society" },
   { id: "education-society", label: "Education Society" },
+];
+
+/** The sections of the AI & Quantum Campus page, listed in the footer (the menu item is one link to the page). */
+export const AI_QUANTUM_LINKS: NavItem[] = [
+  { label: "AI First Campus", href: "/ai-quantum#ai-first-campus" },
+  { label: "AI Champions and Ambassadors", href: "/ai-quantum#champions" },
+  { label: "Dashboards", href: "/ai-quantum#ai-first-campus" },
+  { label: "Quantum Ready Campus", href: "/ai-quantum#quantum-ready-campus" },
 ];
 
 /** The top menu, in the order requested by the college. */
@@ -223,22 +231,8 @@ export function buildMenu({
     {
       label: "AI & Quantum Campus",
       tone: "teal",
+      href: "/ai-quantum",
       match: ["/ai-quantum", "/ai-quantum/ai-first", "/ai-quantum/champions", "/ai-quantum/dashboards", "/ai-quantum/quantum-lab"],
-      columns: [
-        {
-          title: "AI First Campus",
-          href: "/ai-quantum/ai-first",
-          icon: "cpu",
-          links: [],
-        },
-        {
-          title: "Quantum Ready Campus",
-          href: "/ai-quantum/quantum-lab",
-          icon: "atom",
-          links: [],
-        },
-      ],
-      footerLink: { label: "Overview of AI and quantum", href: "/ai-quantum" },
     },
     {
       label: "IDEA Lab",
@@ -251,16 +245,9 @@ export function buildMenu({
   ];
 }
 
-/** True for a column that is one direct link (its heading) rather than a list. */
-export const isDirectColumn = (col: MenuColumn) => Boolean(col.href) && col.links.length === 0;
-
-/** True when every column is a direct link, so the dropdown is a short compact list. */
-export const isCompactSection = (section: MenuSection) => Boolean(section.columns?.length) && section.columns!.every(isDirectColumn);
-
-/** Every link inside a section, in order. A direct-link column counts as its heading's link. */
+/** Every link inside a section, in order. */
 export function sectionLinks(section: MenuSection): NavItem[] {
-  if (!section.columns) return section.href ? [{ label: section.label, href: section.href, external: section.external }] : [];
-  return section.columns.flatMap((c) => (isDirectColumn(c) ? [{ label: c.title, href: c.href! }] : c.links));
+  return section.columns ? section.columns.flatMap((c) => c.links) : section.href ? [{ label: section.label, href: section.href, external: section.external }] : [];
 }
 
 /** True when `path` is the section's own page or one of its links. */

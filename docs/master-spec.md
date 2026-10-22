@@ -68,11 +68,11 @@ docs/                 this documentation set
 | `/houses` | Five houses (tabs) | `houses`, page `houses` |
 | `/placements` | Placement figures and preparation | `key_figures`, page `placements` |
 | `/mous` | MoU count, scope and directory | `mous`, `key_figures`, page `mous` |
-| `/ai-quantum` | AI and quantum overview with dashboards chart | `dashboards`, page `ai-quantum` |
-| `/ai-quantum/ai-first` | AI First Campus page | page `ai-first` |
-| `/ai-quantum/champions` | Permanent redirect to `/ai-quantum/ai-first#champions` (the AI Champions and Ambassadors content is on the AI First Campus page) | - |
-| `/ai-quantum/quantum-lab` | Quantum Ready Campus: lab, steps, quantum-safe timeline | page `quantum-lab` |
-| `/ai-quantum/dashboards` | Permanent redirect to `/ai-quantum/ai-first` (dashboards are not shown for now; data and editor kept) | - |
+| `/ai-quantum` | AI & Quantum Campus: overview text, AI First Campus section (`#ai-first-campus`: picture, page text, Champions summary and grids `#champions`, journey `#journey`) and Quantum Ready Campus section (`#quantum-ready-campus`) | pages `ai-quantum`, `ai-first`, `ai-champions`, `quantum-lab`; `ai_people`, `journey_milestones` |
+| `/ai-quantum/ai-first` | Permanent redirect to `/ai-quantum#ai-first-campus` | - |
+| `/ai-quantum/champions` | Permanent redirect to `/ai-quantum#champions` | - |
+| `/ai-quantum/quantum-lab` | Permanent redirect to `/ai-quantum#quantum-ready-campus` | - |
+| `/ai-quantum/dashboards` | Permanent redirect to `/ai-quantum#ai-first-campus` (dashboards are not shown for now; data and editor kept) | - |
 | `/iqac` | IQAC tabs | page `iqac` |
 | `/news` | News and events tabs | `news_items`, page `news` |
 | `/contact` | Address, map, contact form | page `contact` |
@@ -97,7 +97,7 @@ Defined once in `buildMenu()` (`lib/menu.ts`); loaded by `getMenu()` (`lib/menu-
 | 7 | Houses | violet | Five houses ("Name coming soon" for placeholders) |
 | 8 | Placements | blue | `/placements` |
 | 9 | MoUs | amber | `/mous` |
-| 10 | AI & Quantum Campus | teal | Two columns with clickable headings: AI First Campus (CPU icon; AI First Campus only: the AI First Campus page links to AI Champions and Ambassadors and Dashboards with two cards) and Quantum Ready Campus (atom icon; `/ai-quantum/quantum-lab`). Bottom link: Overview of AI and quantum (`/ai-quantum`). No feature card |
+| 10 | AI & Quantum Campus | teal | Plain link to `/ai-quantum` (no dropdown) |
 | 11 | IDEA Lab | amber | Subdomain when live, else `/initiatives/idea-lab` |
 | 12 | IQAC | blue | `/iqac` |
 

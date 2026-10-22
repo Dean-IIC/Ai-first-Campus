@@ -3,10 +3,9 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, ExternalLink, FlaskConical, HeartHandshake } from "lucide-react";
-import { isCompactSection, sectionFor, type MenuSection } from "@/lib/menu";
+import { sectionFor, type MenuSection } from "@/lib/menu";
 import { cn } from "@/lib/utils";
 import { barWidth } from "@/lib/ui";
-import CompactMenu from "./compact-menu";
 import MegaMenu from "./mega-menu";
 import NavLink from "./nav-link";
 
@@ -73,9 +72,8 @@ export default function MainNav({ menu }: { menu: MenuSection[] }) {
             }
 
             const isOpen = openMenu === section.label;
-            const compact = isCompactSection(section);
             return (
-              <li key={section.label} data-open={isOpen ? "" : undefined} className={cn("group flex", compact && "relative")}>
+              <li key={section.label} data-open={isOpen ? "" : undefined} className="group flex">
                 <button
                   type="button"
                   aria-haspopup="true"
@@ -87,13 +85,8 @@ export default function MainNav({ menu }: { menu: MenuSection[] }) {
                   <ChevronDown aria-hidden="true" className="size-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-data-[open]:rotate-180" />
                   {underline}
                 </button>
-                <div
-                  className={cn(
-                    "invisible absolute top-full z-50 translate-y-1 opacity-0 transition-all duration-150 max-xl:group-data-[open]:visible max-xl:group-data-[open]:translate-y-0 max-xl:group-data-[open]:opacity-100 xl:group-focus-within:visible xl:group-focus-within:translate-y-0 xl:group-focus-within:opacity-100 xl:group-hover:visible xl:group-hover:translate-y-0 xl:group-hover:opacity-100",
-                    compact ? "right-0" : "inset-x-2 sm:inset-x-4 lg:inset-x-6",
-                  )}
-                >
-                  {compact ? <CompactMenu section={section} pathname={pathname} /> : <MegaMenu section={section} pathname={pathname} />}
+                <div className="invisible absolute inset-x-2 top-full z-50 translate-y-1 opacity-0 transition-all duration-150 max-xl:group-data-[open]:visible max-xl:group-data-[open]:translate-y-0 max-xl:group-data-[open]:opacity-100 sm:inset-x-4 lg:inset-x-6 xl:group-focus-within:visible xl:group-focus-within:translate-y-0 xl:group-focus-within:opacity-100 xl:group-hover:visible xl:group-hover:translate-y-0 xl:group-hover:opacity-100">
+                  <MegaMenu section={section} pathname={pathname} />
                 </div>
               </li>
             );

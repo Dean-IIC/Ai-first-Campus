@@ -1,4 +1,4 @@
-import { IEEE_CHAPTERS, sectionLinks, type MenuSection } from "@/lib/menu";
+import { AI_QUANTUM_LINKS, IEEE_CHAPTERS, sectionLinks, type MenuSection } from "@/lib/menu";
 import type { NavItem } from "@/lib/site";
 
 export type FooterColumn = { title: string; links: NavItem[] };
@@ -53,12 +53,9 @@ export function buildFooterColumns(menu: MenuSection[]): FooterColumn[] {
     },
     {
       title: "AI and quantum",
+      // Sections of the AI & Quantum Campus page (the menu item is a single link to it).
       links: [
-        ...(ai ? sectionLinks(ai).slice(0, 1) : []),
-        // Reached from the AI First Campus page rather than the menu; kept in the footer.
-        { label: "AI Champions and Ambassadors", href: "/ai-quantum/champions" },
-        { label: "Dashboards", href: "/ai-quantum/dashboards" },
-        ...(ai ? sectionLinks(ai).slice(1) : []),
+        ...(ai ? AI_QUANTUM_LINKS : []),
         ...single("IDEA Lab"),
       ],
     },

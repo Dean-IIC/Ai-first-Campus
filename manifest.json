@@ -96,29 +96,9 @@
       "route": "/ai-quantum",
       "file": "app/ai-quantum/page.tsx",
       "kind": "Static",
-      "revalidate": "300",
-      "data": [
-        "page:ai-quantum"
-      ]
-    },
-    {
-      "route": "/ai-quantum/ai-first",
-      "file": "app/ai-quantum/ai-first/page.tsx",
-      "kind": "Static",
       "revalidate": null,
       "data": [
-        "table:journey_milestones",
-        "page:ai-champions",
-        "page:ai-first"
-      ]
-    },
-    {
-      "route": "/ai-quantum/quantum-lab",
-      "file": "app/ai-quantum/quantum-lab/page.tsx",
-      "kind": "Static",
-      "revalidate": "300",
-      "data": [
-        "page:quantum-lab"
+        "page:ai-quantum"
       ]
     },
     {
@@ -668,6 +648,12 @@
       "summary": "Numbered steps; in a row with arrows on wide screens, or a 2-column grid."
     },
     {
+      "file": "components/features/initiatives/ai-first-section.tsx",
+      "lines": 42,
+      "client": false,
+      "summary": "The AI First Campus section of the AI & Quantum Campus page (#ai-first-campus): the picture,"
+    },
+    {
       "file": "components/features/initiatives/dashboards-section.tsx",
       "lines": 97,
       "client": false,
@@ -678,6 +664,12 @@
       "lines": 37,
       "client": false,
       "summary": "Banner at the top of a page whose initiative has (or will have) its own site: UHV, R&D, IEEE."
+    },
+    {
+      "file": "components/features/initiatives/quantum-section.tsx",
+      "lines": 53,
+      "client": false,
+      "summary": "The Quantum Ready Campus section of the AI & Quantum Campus page (#quantum-ready-campus): the"
     },
     {
       "file": "components/features/layout/content-page.tsx",
@@ -693,7 +685,7 @@
     },
     {
       "file": "components/features/layout/footer-columns.ts",
-      "lines": 67,
+      "lines": 64,
       "client": false,
       "summary": "Research pages kept in the footer, since the R&D menu item may point to the research portal."
     },
@@ -746,14 +738,8 @@
       "summary": "Every MoU in one grid, in the order set by sort_order, or an empty state until the list is added."
     },
     {
-      "file": "components/features/navigation/compact-menu.tsx",
-      "lines": 55,
-      "client": false,
-      "summary": "A short dropdown for a menu item whose columns are all direct links (for example AI & Quantum"
-    },
-    {
       "file": "components/features/navigation/main-nav.tsx",
-      "lines": 106,
+      "lines": 99,
       "client": true,
       "summary": "The main menu bar. Every item is always visible: on wide screens dropdowns"
     },
@@ -771,7 +757,7 @@
     },
     {
       "file": "components/features/navigation/mobile-menu-item.tsx",
-      "lines": 140,
+      "lines": 117,
       "client": true,
       "summary": "One item of the mobile menu: a full-width link, or an accordion (About, Programmes, ...)"
     },
@@ -989,7 +975,7 @@
     },
     {
       "file": "lib/cms/paths.ts",
-      "lines": 29,
+      "lines": 25,
       "summary": ""
     },
     {
@@ -1059,8 +1045,8 @@
     },
     {
       "file": "lib/menu.ts",
-      "lines": 282,
-      "summary": "A dropdown column. With `href` the heading is a link; `icon` shows before the heading. A column with `href` and no links is shown as one direct link."
+      "lines": 269,
+      "summary": "A dropdown column. With `href` the heading is a link; `icon` shows before the heading."
     },
     {
       "file": "lib/portals.tsx",

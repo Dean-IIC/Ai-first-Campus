@@ -4,10 +4,6 @@
  */
 const PAGE_FOR_PATH: Record<string, string> = {
   "/research/centres": "research-centres",
-  "/ai-quantum/champions": "ai-champions",
-  "/ai-quantum/ai-first": "ai-first",
-  "/ai-quantum/quantum-lab": "quantum-lab",
-  "/ai-quantum/dashboards": "dashboards",
 };
 
 const LIST_FOR_PATH: Record<string, string> = {

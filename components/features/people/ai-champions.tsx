@@ -11,14 +11,14 @@ export default function AiChampions() {
       count: aiProgramme.facultyChampions,
       icon: Users,
       text: "Faculty members who lead AI adoption in their departments.",
-      href: "/ai-quantum/ai-first#faculty-champions",
+      href: "/ai-quantum#faculty-champions",
     },
     {
       title: "AI Student Ambassadors",
       count: aiProgramme.studentAmbassadors,
       icon: UserRound,
       text: "Students who help classmates use AI tools well and responsibly.",
-      href: "/ai-quantum/ai-first#student-ambassadors",
+      href: "/ai-quantum#student-ambassadors",
     },
   ];
   return (

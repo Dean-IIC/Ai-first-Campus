@@ -16,7 +16,7 @@ Inventory of the HKBK College of Engineering website, generated from the source 
 | @supabase/ssr | ^0.12.7 |
 | next-themes | ^0.4.6 |
 
-## Routes (32)
+## Routes (30)
 
 Components used by a route may load more data (for example the home page sections); see the components table.
 
@@ -28,9 +28,7 @@ Components used by a route may load more data (for example the home page section
 | `/academics/[slug]` | Dynamic (pre-rendered) | 300s | `table:departments` | `app/academics/[slug]/page.tsx` |
 | `/admin/enquiries` | Static | - | - | `app/admin/enquiries/page.tsx` |
 | `/admin/login` | Static | - | - | `app/admin/login/page.tsx` |
-| `/ai-quantum` | Static | 300s | `page:ai-quantum` | `app/ai-quantum/page.tsx` |
-| `/ai-quantum/ai-first` | Static | - | `table:journey_milestones`, `page:ai-champions`, `page:ai-first` | `app/ai-quantum/ai-first/page.tsx` |
-| `/ai-quantum/quantum-lab` | Static | 300s | `page:quantum-lab` | `app/ai-quantum/quantum-lab/page.tsx` |
+| `/ai-quantum` | Static | - | `page:ai-quantum` | `app/ai-quantum/page.tsx` |
 | `/alumni` | Static | 300s | `page:alumni` | `app/alumni/page.tsx` |
 | `/api/admin/enquiries/csv` | API | - | - | `app/api/admin/enquiries/csv/route.ts` |
 | `/api/admin/session` | API | - | - | `app/api/admin/session/route.ts` |
@@ -57,7 +55,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (99 files)
+## Components (100 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -117,11 +115,13 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/infographics/index.ts` | 4 | Server | - |
 | `components/features/infographics/milestone-timeline.tsx` | 25 | Server | Horizontal timeline on wide screens, vertical on phones. |
 | `components/features/infographics/process-steps.tsx` | 39 | Server | Numbered steps; in a row with arrows on wide screens, or a 2-column grid. |
+| `components/features/initiatives/ai-first-section.tsx` | 42 | Server | The AI First Campus section of the AI & Quantum Campus page (#ai-first-campus): the picture, |
 | `components/features/initiatives/dashboards-section.tsx` | 97 | Server | The dashboards content (intro text from the "dashboards" page, the chart, the status counts |
 | `components/features/initiatives/initiative-callout.tsx` | 37 | Server | Banner at the top of a page whose initiative has (or will have) its own site: UHV, R&D, IEEE. |
+| `components/features/initiatives/quantum-section.tsx` | 53 | Server | The Quantum Ready Campus section of the AI & Quantum Campus page (#quantum-ready-campus): the |
 | `components/features/layout/content-page.tsx` | 70 | Server | Standard inner page: banner, then the content at full width. |
 | `components/features/layout/footer-brand.tsx` | 64 | Server | Logo, motto, address and contact links at the start of the footer. |
-| `components/features/layout/footer-columns.ts` | 67 | Server | Research pages kept in the footer, since the R&D menu item may point to the research portal. |
+| `components/features/layout/footer-columns.ts` | 64 | Server | Research pages kept in the footer, since the R&D menu item may point to the research portal. |
 | `components/features/layout/logo.tsx` | 7 | Server | The HKBK College of Engineering crest. Pass `className` to size it some other way (for example to fill a frame). |
 | `components/features/layout/page-banner.tsx` | 71 | Server | Page banner: breadcrumb, title and summary on the section's tint. |
 | `components/features/layout/site-footer.tsx` | 61 | Server | Site footer: brand and contact block, six link columns, and a slim bottom bar. |
@@ -130,11 +130,10 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/layout/theme-toggle.tsx` | 27 | Client | Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash. |
 | `components/features/mous/mou-card.tsx` | 60 | Server | Initials for a partner without a logo: "VTU", "CITRIOT" → "CI", "Dyashin Technosoft Pvt Ltd" → "DT". |
 | `components/features/mous/mou-directory.tsx` | 30 | Server | Every MoU in one grid, in the order set by sort_order, or an empty state until the list is added. |
-| `components/features/navigation/compact-menu.tsx` | 55 | Server | A short dropdown for a menu item whose columns are all direct links (for example AI & Quantum |
-| `components/features/navigation/main-nav.tsx` | 106 | Client | The main menu bar. Every item is always visible: on wide screens dropdowns |
+| `components/features/navigation/main-nav.tsx` | 99 | Client | The main menu bar. Every item is always visible: on wide screens dropdowns |
 | `components/features/navigation/mega-menu.tsx` | 105 | Server | A column heading: plain text, or a link (with its icon) when the column has its own page. |
 | `components/features/navigation/mobile-header.tsx` | 50 | Client | The header on screens narrower than 1024px: one compact sticky row with the crest, the |
-| `components/features/navigation/mobile-menu-item.tsx` | 140 | Client | One item of the mobile menu: a full-width link, or an accordion (About, Programmes, ...) |
+| `components/features/navigation/mobile-menu-item.tsx` | 117 | Client | One item of the mobile menu: a full-width link, or an accordion (About, Programmes, ...) |
 | `components/features/navigation/mobile-menu-panel.tsx` | 106 | Client | The slide-in menu for phones and tablets: a navy panel from the right over a dimmed page. |
 | `components/features/navigation/nav-link.tsx` | 20 | Server | A menu link: internal pages use next/link; live initiative sites open in a new tab. |
 | `components/features/people/add-person-card.tsx` | 54 | Client | The "Add new" card at the end of a grid, for people beyond the numbered cards. Admin only. |
@@ -177,7 +176,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/carousel.ts` | 14 | One photo in the home page carousel. An empty title and subtitle hide the badge for that photo. |
 | `lib/champion-image.ts` | 64 | Geometry for the photo crop: a square crop box, a zoom level and a pan offset, all in pixels. |
 | `lib/cms/client-image.ts` | 29 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
-| `lib/cms/paths.ts` | 29 | - |
+| `lib/cms/paths.ts` | 25 | - |
 | `lib/cms/read.ts` | 25 | - |
 | `lib/cms/schema.ts` | 127 | `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field equals `equals`. |
 | `lib/cms/store.ts` | 26 | - |
@@ -191,7 +190,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/journey-model.ts` | 73 | Shared rules for the AI Transformation Journey timeline (visitors and editors). |
 | `lib/markdown.ts` | 16 | Splits markdown into sections at each "## Heading". Text before the first heading is the intro. |
 | `lib/menu-server.ts` | 16 | Loads everything the menu needs and builds it. Server components only. |
-| `lib/menu.ts` | 282 | A dropdown column. With `href` the heading is a link; `icon` shows before the heading. A column with `href` and no links is shown as one direct link. |
+| `lib/menu.ts` | 269 | A dropdown column. With `href` the heading is a link; `icon` shows before the heading. |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
 | `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
 | `lib/site.ts` | 106 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |

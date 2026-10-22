@@ -9,8 +9,6 @@ const ROUTES = [
   "/programmes",
   "/uhv",
   "/ai-quantum",
-  "/ai-quantum/ai-first",
-  "/ai-quantum/quantum-lab",
   "/research",
   "/research/centres",
   "/consultancy",

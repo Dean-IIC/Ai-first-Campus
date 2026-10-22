@@ -118,7 +118,7 @@ Re-running `supabase/setup_all.sql` does not overwrite timeline entries that wer
 
 **Faculty champions** come from `content/champions.json`: 15 objects, one per card, with `id`, `name`, `designation`, `department`, `photo` (a file name such as `ravi-kumar.jpg`) and `linkedin` (optional, an `https://linkedin.com/` address). An empty `name` shows the card as "Faculty Champion N, Coming soon". Put the photos in `public/images/champions/`.
 
-**To update a card without touching code**, add `?edit=1` to the Champions page address (for example `/ai-quantum/ai-first?edit=1`). Each card gets fields for name, designation, department and LinkedIn, and a photo button that opens a circular crop. When you are done, choose **Export update (.zip)**. Unzip the file, copy its `content` and `public` folders into the project, run `npm run build`, then commit and push. Edits stay in the browser until you export, and nothing is saved to the website itself. Visitors never see the editor.
+**To update a card without touching code**, add `?edit=1` to the Champions page address (for example `/ai-quantum?edit=1`). Each card gets fields for name, designation, department and LinkedIn, and a photo button that opens a circular crop. When you are done, choose **Export update (.zip)**. Unzip the file, copy its `content` and `public` folders into the project, run `npm run build`, then commit and push. Edits stay in the browser until you export, and nothing is saved to the website itself. Visitors never see the editor.
 
 **Student ambassadors** are added by the signed-in site admin, using **Add**, **Edit** or **Delete** on each card (see ADMIN_GUIDE.md).
 
@@ -128,7 +128,7 @@ The cards come from `content/champions.json`, one object per card, in display or
 
 **Who can edit.** Visitors see no edit controls. Edit mode opens in either of two ways:
 - the signed-in site admin uses **Edit** or **Add** on the cards;
-- anyone with the address `?edit=1` added to the page address (for example `https://your-site/ai-quantum/ai-first?edit=1`).
+- anyone with the address `?edit=1` added to the page address (for example `https://your-site/ai-quantum?edit=1`).
 
 ### Edit a card
 1. Open the page in edit mode and find the card.
@@ -179,7 +179,7 @@ All three come from the `departments` table. Each department row holds its `visi
 
 ## AI Faculty Champions and AI Student Ambassadors
 
-The home page (under AI-First Campus) and the AI First Campus page (`/ai-quantum/ai-first#champions`) show the same 15 faculty champion cards, from `content/champions.json`. Cards without a name show as numbered placeholders. The 50 student ambassador cards come from the `ai_people` table, with numbered placeholders up to the programme size set in `lib/site.ts`.
+The home page (under AI-First Campus) and the AI & Quantum Campus page (`/ai-quantum#champions`) show the same 15 faculty champion cards, from `content/champions.json`. Cards without a name show as numbered placeholders. The 50 student ambassador cards come from the `ai_people` table, with numbered placeholders up to the programme size set in `lib/site.ts`.
 
 ## Centres & Initiatives
 

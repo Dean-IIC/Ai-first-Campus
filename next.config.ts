@@ -13,10 +13,13 @@ const nextConfig: NextConfig = {
     return [
       { source: "/portals", destination: "/initiatives", permanent: true },
       // A message removed on 2026-10-14: its old address opens the AI First Campus page.
-      // The Champions content sits on the AI First Campus page; dashboards are not shown for now.
-      { source: "/ai-quantum/champions", destination: "/ai-quantum/ai-first#champions", permanent: true },
-      { source: "/ai-quantum/dashboards", destination: "/ai-quantum/ai-first", permanent: true },
-      { source: "/leadership/chief-ai-quantum-officer", destination: "/ai-quantum/ai-first", permanent: true },
+      // AI First Campus and Quantum Ready Campus are sections of the AI & Quantum Campus page.
+      { source: "/ai-quantum/ai-first", destination: "/ai-quantum#ai-first-campus", permanent: true },
+      { source: "/ai-quantum/quantum-lab", destination: "/ai-quantum#quantum-ready-campus", permanent: true },
+      { source: "/ai-quantum/champions", destination: "/ai-quantum#champions", permanent: true },
+      // Dashboards are not shown for now.
+      { source: "/ai-quantum/dashboards", destination: "/ai-quantum#ai-first-campus", permanent: true },
+      { source: "/leadership/chief-ai-quantum-officer", destination: "/ai-quantum#ai-first-campus", permanent: true },
     ];
   },
 };

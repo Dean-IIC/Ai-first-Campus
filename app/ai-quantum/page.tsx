@@ -1,19 +1,31 @@
 import ContentPage, { pageMetadata } from "@/components/features/layout/content-page";
-import ImageFeature from "@/components/features/content/image-feature";
-import { AREAS } from "@/lib/areas";
-import { images } from "@/lib/site";
+import Panel from "@/components/features/content/panel";
+import AiFirstSection from "@/components/features/initiatives/ai-first-section";
+import QuantumSection from "@/components/features/initiatives/quantum-section";
 
-export const revalidate = 300;
-export const generateMetadata = () => pageMetadata("ai-quantum", "AI and quantum at HKBK");
+// Rendered on each request: the faculty and ambassador cards and the journey are edited on this
+// page, and a cached copy would show the previous version for a few seconds after every save.
+export const dynamic = "force-dynamic";
+export const generateMetadata = () => pageMetadata("ai-quantum", "AI & Quantum Campus");
 
-/** The AI and quantum overview: the AI First campus and Quantum Lab picture cards. The dashboards chart is not shown for now. */
+/**
+ * The AI & Quantum Campus page: the overview text, then the AI First Campus section
+ * (#ai-first-campus) and the Quantum Ready Campus section (#quantum-ready-campus). The old
+ * /ai-quantum/ai-first, /quantum-lab, /champions and /dashboards addresses redirect here.
+ */
 export default function AiQuantumPage() {
   return (
-    <ContentPage slug="ai-quantum" fallbackTitle="AI and quantum at HKBK" current="/ai-quantum">
-      <div className="grid gap-6 md:grid-cols-2">
-        <ImageFeature src={images.ai.src} alt={images.ai.alt} title={AREAS.aiFirst.title} text={AREAS.aiFirst.text} href={AREAS.aiFirst.href} linkLabel="Open AI First campus" priority />
-        <ImageFeature src={images.quantum.src} alt={images.quantum.alt} title={AREAS.quantumLab.title} text={AREAS.quantumLab.text} href={AREAS.quantumLab.href} linkLabel="Open the Quantum Lab" priority />
-      </div>
-    </ContentPage>
+    <ContentPage
+      slug="ai-quantum"
+      fallbackTitle="AI & Quantum Campus"
+      current="/ai-quantum"
+      layout={(body) => (
+        <>
+          {body && <Panel>{body}</Panel>}
+          <AiFirstSection />
+          <QuantumSection />
+        </>
+      )}
+    />
   );
 }

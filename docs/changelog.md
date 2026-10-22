@@ -4,6 +4,9 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Changed (AI & Quantum Campus page)
+- "AI & Quantum Campus" in the menu (desktop and mobile) is now a plain link to `/ai-quantum`, with no dropdown. That page (title "AI & Quantum Campus", saved through Edit content and in History) shows the overview text, then the AI First Campus section (`#ai-first-campus`: picture, page text, Champions summary and grids `#champions`, journey `#journey`) and the Quantum Ready Campus section (`#quantum-ready-campus`), reusing the same components and data. The two picture cards on the overview are removed. Old addresses redirect permanently: `/ai-quantum/ai-first`, `/quantum-lab`, `/champions`, `/dashboards`. Sitemap lists `/ai-quantum` only; the footer keeps its AI and quantum links (`AI_QUANTUM_LINKS` in `lib/menu.ts`). Dashboards stay hidden. The compact dropdown from the previous change is removed.
+
 ### Changed (AI & Quantum menu and journey)
 - AI & Quantum Campus dropdown: a compact list sized to its content (under the menu item) with two direct links, "AI First Campus" (CPU icon) and "Quantum Ready Campus" (atom icon), plus "Overview of AI and quantum →"; the duplicate links under each heading are removed. Same in the mobile menu. A menu column with `href` and no links is now a direct link (`isDirectColumn`, `isCompactSection` in `lib/menu.ts`, `compact-menu.tsx`); the footer and breadcrumbs are unchanged.
 - AI First Campus page: the AI First journey timeline (same component and data as the home page, editable in the same way) is added after the AI Champions and Ambassadors content, at `/ai-quantum/ai-first#journey`. It stays on the home page too.

@@ -121,7 +121,7 @@ export const AREAS: Record<string, Area> = {
   },
   dashboards: {
     key: "dashboards",
-    href: "/ai-quantum/dashboards",
+    href: "/ai-quantum#ai-first-campus",
     title: "AI and quantum dashboards",
     short: "Dashboards",
     text: "Live views of how AI and quantum computing are used across the campus.",
@@ -130,7 +130,7 @@ export const AREAS: Record<string, Area> = {
   },
   aiFirst: {
     key: "aiFirst",
-    href: "/ai-quantum/ai-first",
+    href: "/ai-quantum#ai-first-campus",
     title: "AI First campus",
     short: "AI First",
     text: "AI Faculty Champions, AI Student Ambassadors, AI in every programme, and clear rules for safe and fair AI.",
@@ -139,7 +139,7 @@ export const AREAS: Record<string, Area> = {
   },
   aiChampions: {
     key: "aiChampions",
-    href: "/ai-quantum/champions",
+    href: "/ai-quantum#champions",
     title: "AI Champions and Ambassadors",
     short: "AI Champions",
     text: "Fifteen AI Faculty Champions and fifty AI Student Ambassadors.",
@@ -148,7 +148,7 @@ export const AREAS: Record<string, Area> = {
   },
   quantumLab: {
     key: "quantumLab",
-    href: "/ai-quantum/quantum-lab",
+    href: "/ai-quantum#quantum-ready-campus",
     title: "Quantum Lab",
     short: "Quantum Lab",
     text: "Learning tracks, circuit simulators, real quantum hardware and quantum-safe security.",
