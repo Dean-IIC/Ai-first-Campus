@@ -55,7 +55,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (100 files)
+## Components (101 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -95,7 +95,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/home/explore-section.tsx` | 37 | Server | Research and industry panels. |
 | `components/features/home/hero-carousel-parts.tsx` | 56 | Server | Previous and next buttons on the photo: shown on hover with a mouse, always on touch screens. |
 | `components/features/home/hero-carousel.tsx` | 106 | Client | The home page photo carousel, in the frame the single campus photo used. Slides every five |
-| `components/features/home/hero.tsx` | 41 | Server | Opening section: headline, key facts and the photo carousel with a frosted location badge. |
+| `components/features/home/hero.tsx` | 49 | Server | Opening section: headline, key facts and the photo carousel with a frosted location badge. |
 | `components/features/home/journey-bullets.tsx` | 43 | Client | The bullet points of one month: edit, reorder, remove, and add. |
 | `components/features/home/journey-edit-button.tsx` | 70 | Client | Edit (filled months) or Add (empty months), plus move up and down. Shown only to signed-in editors. |
 | `components/features/home/journey-edit-form.tsx` | 138 | Client | The fields of one month. Its photos and badge are kept as they are. |
@@ -119,20 +119,21 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/initiatives/dashboards-section.tsx` | 97 | Server | The dashboards content (intro text from the "dashboards" page, the chart, the status counts |
 | `components/features/initiatives/initiative-callout.tsx` | 37 | Server | Banner at the top of a page whose initiative has (or will have) its own site: UHV, R&D, IEEE. |
 | `components/features/initiatives/quantum-section.tsx` | 53 | Server | The Quantum Ready Campus section of the AI & Quantum Campus page (#quantum-ready-campus): the |
+| `components/features/layout/anniversary-badge.tsx` | 21 | Server | The "30 Years of Excellence" badge (1997–2027), on a transparent background so it suits light |
 | `components/features/layout/content-page.tsx` | 70 | Server | Standard inner page: banner, then the content at full width. |
-| `components/features/layout/footer-brand.tsx` | 64 | Server | Logo, motto, address and contact links at the start of the footer. |
+| `components/features/layout/footer-brand.tsx` | 66 | Server | Logo, motto, address and contact links at the start of the footer. |
 | `components/features/layout/footer-columns.ts` | 64 | Server | Research pages kept in the footer, since the R&D menu item may point to the research portal. |
 | `components/features/layout/logo.tsx` | 7 | Server | The HKBK College of Engineering crest. Pass `className` to size it some other way (for example to fill a frame). |
 | `components/features/layout/page-banner.tsx` | 71 | Server | Page banner: breadcrumb, title and summary on the section's tint. |
 | `components/features/layout/site-footer.tsx` | 61 | Server | Site footer: brand and contact block, six link columns, and a slim bottom bar. |
-| `components/features/layout/site-header.tsx` | 53 | Server | Main menu bar at the very top, then the logo row with contact details and the theme toggle. |
+| `components/features/layout/site-header.tsx` | 55 | Server | Main menu bar at the very top, then the logo row with contact details and the theme toggle. |
 | `components/features/layout/theme-provider.tsx` | 13 | Client | Light and dark mode via a `dark` class on <html>, following the visitor's system setting by default. |
 | `components/features/layout/theme-toggle.tsx` | 27 | Client | Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash. |
 | `components/features/mous/mou-card.tsx` | 60 | Server | Initials for a partner without a logo: "VTU", "CITRIOT" → "CI", "Dyashin Technosoft Pvt Ltd" → "DT". |
 | `components/features/mous/mou-directory.tsx` | 30 | Server | Every MoU in one grid, in the order set by sort_order, or an empty state until the list is added. |
 | `components/features/navigation/main-nav.tsx` | 99 | Client | The main menu bar. Every item is always visible: on wide screens dropdowns |
 | `components/features/navigation/mega-menu.tsx` | 105 | Server | A column heading: plain text, or a link (with its icon) when the column has its own page. |
-| `components/features/navigation/mobile-header.tsx` | 50 | Client | The header on screens narrower than 1024px: one compact sticky row with the crest, the |
+| `components/features/navigation/mobile-header.tsx` | 54 | Client | The header on screens narrower than 1024px: one compact sticky row with the crest, the |
 | `components/features/navigation/mobile-menu-item.tsx` | 117 | Client | One item of the mobile menu: a full-width link, or an accordion (About, Programmes, ...) |
 | `components/features/navigation/mobile-menu-panel.tsx` | 106 | Client | The slide-in menu for phones and tablets: a navy panel from the right over a dimmed page. |
 | `components/features/navigation/nav-link.tsx` | 20 | Server | A menu link: internal pages use next/link; live initiative sites open in a new tab. |
@@ -193,7 +194,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/menu.ts` | 269 | A dropdown column. With `href` the heading is a link; `icon` shows before the heading. |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
 | `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
-| `lib/site.ts` | 106 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
+| `lib/site.ts` | 107 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
 | `lib/supabase/client.ts` | 13 | Browser client from @supabase/ssr, for Client Components that need live data or auth. |
 | `lib/supabase/env.ts` | 14 | Supabase URL and public key from the environment, or null when the project is not connected yet. |
 | `lib/supabase/public.ts` | 18 | Cookie-free client for public content (pages, departments, news...). |

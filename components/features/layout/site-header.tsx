@@ -7,6 +7,7 @@ import { site } from "@/lib/site";
 import { getSiteDetails } from "@/lib/site-details";
 import { cn } from "@/lib/utils";
 import { barWidth } from "@/lib/ui";
+import AnniversaryBadge from "./anniversary-badge";
 import Logo from "./logo";
 import ThemeToggle from "./theme-toggle";
 
@@ -27,6 +28,7 @@ export default async function SiteHeader({ menu }: { menu: MenuSection[] }) {
             </span>
           </Link>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
+            <AnniversaryBadge link className="h-16" />
             <p className="hidden leading-tight lg:block">
               <span className="block font-semibold text-heading">{site.affiliation}</span>
               <span className="block">{site.approval}</span>

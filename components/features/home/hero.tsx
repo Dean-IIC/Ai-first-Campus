@@ -1,12 +1,14 @@
-import { Award, Building2, CalendarDays, GraduationCap } from "lucide-react";
+import { Award, Building2, GraduationCap, type LucideIcon } from "lucide-react";
+import AnniversaryBadge from "@/components/features/layout/anniversary-badge";
 import { site } from "@/lib/site";
 import { getHeroSlides } from "@/lib/carousel-server";
 import HeroCarousel from "./hero-carousel";
 import EditableText from "@/components/features/cms/editable-text";
 import { shell } from "@/lib/ui";
 
-const FACTS = [
-  { icon: CalendarDays, label: `Established ${site.established}` },
+// The first point shows the 30 Years of Excellence badge instead of an icon.
+const FACTS: { icon?: LucideIcon; label: string }[] = [
+  { label: `Established ${site.established}` },
   { icon: Building2, label: "Affiliated to VTU, Belagavi" },
   { icon: Award, label: "Approved by AICTE, New Delhi" },
   { icon: GraduationCap, label: "Five BE programmes, six research centres" },
@@ -25,9 +27,15 @@ export default async function Hero() {
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {FACTS.map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center gap-3 text-[0.9375rem] font-medium text-foreground">
-                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-brand-tint text-primary">
-                  <Icon aria-hidden="true" className="size-[1.125rem]" />
-                </span>
+                {Icon ? (
+                  <span className="grid size-9 shrink-0 place-items-center rounded-full bg-brand-tint text-primary">
+                    <Icon aria-hidden="true" className="size-[1.125rem]" />
+                  </span>
+                ) : (
+                  <span className="grid size-9 shrink-0 place-items-center">
+                    <AnniversaryBadge small className="h-9 max-w-none" />
+                  </span>
+                )}
                 {label}
               </li>
             ))}

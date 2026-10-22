@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin, Navigation, Phone, Send } from "lucide-react";
 import { site } from "@/lib/site";
 import { getSiteDetails } from "@/lib/site-details";
+import AnniversaryBadge from "./anniversary-badge";
 import Logo from "./logo";
 
 /** Logo, motto, address and contact links at the start of the footer. */
@@ -18,6 +19,7 @@ export default async function FooterBrand() {
           <p className="text-sm font-bold leading-tight text-white">{site.name}</p>
           <p className="mt-0.5 text-xs italic text-gold">Pursuit of knowledge is eternal</p>
         </div>
+        <AnniversaryBadge small className="h-12" />
       </div>
       <ul className="mt-5 space-y-2.5 text-xs leading-relaxed text-white/75">
         <li className="flex gap-2.5">

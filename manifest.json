@@ -529,7 +529,7 @@
     },
     {
       "file": "components/features/home/hero.tsx",
-      "lines": 41,
+      "lines": 49,
       "client": false,
       "summary": "Opening section: headline, key facts and the photo carousel with a frosted location badge."
     },
@@ -672,6 +672,12 @@
       "summary": "The Quantum Ready Campus section of the AI & Quantum Campus page (#quantum-ready-campus): the"
     },
     {
+      "file": "components/features/layout/anniversary-badge.tsx",
+      "lines": 21,
+      "client": false,
+      "summary": "The \"30 Years of Excellence\" badge (1997–2027), on a transparent background so it suits light"
+    },
+    {
       "file": "components/features/layout/content-page.tsx",
       "lines": 70,
       "client": false,
@@ -679,7 +685,7 @@
     },
     {
       "file": "components/features/layout/footer-brand.tsx",
-      "lines": 64,
+      "lines": 66,
       "client": false,
       "summary": "Logo, motto, address and contact links at the start of the footer."
     },
@@ -709,7 +715,7 @@
     },
     {
       "file": "components/features/layout/site-header.tsx",
-      "lines": 53,
+      "lines": 55,
       "client": false,
       "summary": "Main menu bar at the very top, then the logo row with contact details and the theme toggle."
     },
@@ -751,7 +757,7 @@
     },
     {
       "file": "components/features/navigation/mobile-header.tsx",
-      "lines": 50,
+      "lines": 54,
       "client": true,
       "summary": "The header on screens narrower than 1024px: one compact sticky row with the crest, the"
     },
@@ -1060,7 +1066,7 @@
     },
     {
       "file": "lib/site.ts",
-      "lines": 106,
+      "lines": 107,
       "summary": "The Training and Placement Portal (staff sign-in), linked from the Placements page."
     },
     {

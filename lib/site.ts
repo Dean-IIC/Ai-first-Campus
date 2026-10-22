@@ -92,6 +92,7 @@ export const fullAddress = [
 // Images in /public/images. campus.webp is a photograph of the college building;
 // the AI and quantum images are original illustrations. Keep alt text accurate.
 export const images = {
+  anniversary: { src: "/images/30-years-badge.webp", srcSm: "/images/30-years-badge-sm.webp", alt: "Celebrating 30 years of excellence, 1997–2027", width: 225, height: 192 },
   campus: { src: "/images/campus.webp", alt: "HKBK College of Engineering building, with the I love HKBK sign on the front lawn" },
   ai: { src: "/images/ai-network.webp", alt: "Illustration of a brain drawn as a glowing neural network" },
   quantum: { src: "/images/quantum-computer.webp", alt: "Illustration of a superconducting quantum computer with gold cooling stages" },

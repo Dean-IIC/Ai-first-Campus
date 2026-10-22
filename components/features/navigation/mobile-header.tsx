@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
+import AnniversaryBadge from "@/components/features/layout/anniversary-badge";
 import Logo from "@/components/features/layout/logo";
 import ThemeToggle from "@/components/features/layout/theme-toggle";
 import type { MenuSection } from "@/lib/menu";
@@ -30,6 +31,9 @@ export default function MobileHeader({ menu, name }: { menu: MenuSection[]; name
             <span className="hidden truncate text-xs text-muted-foreground min-[400px]:block">Nagawara, Bengaluru</span>
           </span>
         </Link>
+        <span className="hidden min-[440px]:block">
+          <AnniversaryBadge link small className="h-10" />
+        </span>
         <ThemeToggle className="size-11" />
         <button
           ref={trigger}

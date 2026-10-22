@@ -4,6 +4,9 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Added (30 Years of Excellence badge)
+- "30 Years of Excellence" badge (transparent background: `public/images/30-years-badge.webp`, `-sm.webp`, PNG master) in the desktop header before the VTU/AICTE text (64 px), in the compact header next to the dark-mode toggle (40 px, from 440 px wide so the college name is never cut), in the hero instead of the calendar icon beside "Established 1997", and in the footer next to the college name (48 px). Tooltip and alt text: "Celebrating 30 years of excellence, 1997–2027"; the header badge opens the About page. Component `components/features/layout/anniversary-badge.tsx`, image data in `images.anniversary` (`lib/site.ts`).
+
 ### Changed (AI & Quantum Campus page)
 - "AI & Quantum Campus" in the menu (desktop and mobile) is now a plain link to `/ai-quantum`, with no dropdown. That page (title "AI & Quantum Campus", saved through Edit content and in History) shows the overview text, then the AI First Campus section (`#ai-first-campus`: picture, page text, Champions summary and grids `#champions`, journey `#journey`) and the Quantum Ready Campus section (`#quantum-ready-campus`), reusing the same components and data. The two picture cards on the overview are removed. Old addresses redirect permanently: `/ai-quantum/ai-first`, `/quantum-lab`, `/champions`, `/dashboards`. Sitemap lists `/ai-quantum` only; the footer keeps its AI and quantum links (`AI_QUANTUM_LINKS` in `lib/menu.ts`). Dashboards stay hidden. The compact dropdown from the previous change is removed.
 
