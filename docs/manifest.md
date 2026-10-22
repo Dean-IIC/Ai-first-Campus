@@ -16,7 +16,7 @@ Inventory of the HKBK College of Engineering website, generated from the source 
 | @supabase/ssr | ^0.12.7 |
 | next-themes | ^0.4.6 |
 
-## Routes (30)
+## Routes (31)
 
 Components used by a route may load more data (for example the home page sections); see the components table.
 
@@ -33,6 +33,7 @@ Components used by a route may load more data (for example the home page section
 | `/api/admin/enquiries/csv` | API | - | - | `app/api/admin/enquiries/csv/route.ts` |
 | `/api/admin/session` | API | - | - | `app/api/admin/session/route.ts` |
 | `/api/admin/upload` | API | - | - | `app/api/admin/upload/route.ts` |
+| `/api/mous/document` | API | - | `table:mous` | `app/api/mous/document/route.ts` |
 | `/api/revalidate` | API | - | - | `app/api/revalidate/route.ts` |
 | `/consultancy` | Static | 300s | `table:consultancy_projects`, `table:departments`, `page:consultancy` | `app/consultancy/page.tsx` |
 | `/contact` | Static | 300s | `page:contact` | `app/contact/page.tsx` |
@@ -44,7 +45,7 @@ Components used by a route may load more data (for example the home page section
 | `/iqac` | Static | 300s | `page:iqac` | `app/iqac/page.tsx` |
 | `/leadership` | Static | 300s | - | `app/leadership/page.tsx` |
 | `/leadership/[slug]` | Dynamic (pre-rendered) | 300s | - | `app/leadership/[slug]/page.tsx` |
-| `/mous` | Static | 300s | `table:mous`, `table:key_figures`, `page:mous` | `app/mous/page.tsx` |
+| `/mous` | Static | - | `table:mous`, `table:key_figures`, `table:departments`, `page:mous` | `app/mous/page.tsx` |
 | `/news` | Static | 300s | `table:news_items`, `page:news` | `app/news/page.tsx` |
 | `/placements` | Static | 300s | `table:key_figures`, `page:placements` | `app/placements/page.tsx` |
 | `/programmes` | Static | 300s | `table:departments`, `page:programmes` | `app/programmes/page.tsx` |
@@ -55,7 +56,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (102 files)
+## Components (107 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -122,7 +123,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/initiatives/quantum-section.tsx` | 53 | Server | The Quantum Ready Campus section of the AI & Quantum Campus page (#quantum-ready-campus): the |
 | `components/features/layout/anniversary-badge.tsx` | 21 | Server | The "30 Years of Excellence" badge (1997–2027), on a transparent background so it suits light |
 | `components/features/layout/content-page.tsx` | 70 | Server | Standard inner page: banner, then the content at full width. |
-| `components/features/layout/footer-brand.tsx` | 66 | Server | Logo, motto, address and contact links at the start of the footer. |
+| `components/features/layout/footer-brand.tsx` | 69 | Server | Logo, motto, address and contact links at the start of the footer. |
 | `components/features/layout/footer-columns.ts` | 64 | Server | Research pages kept in the footer, since the R&D menu item may point to the research portal. |
 | `components/features/layout/logo.tsx` | 7 | Server | The HKBK College of Engineering crest. Pass `className` to size it some other way (for example to fill a frame). |
 | `components/features/layout/page-banner.tsx` | 71 | Server | Page banner: breadcrumb, title and summary on the section's tint. |
@@ -130,8 +131,13 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/layout/site-header.tsx` | 55 | Server | Main menu bar at the very top, then the logo row with contact details and the theme toggle. |
 | `components/features/layout/theme-provider.tsx` | 13 | Client | Light and dark mode via a `dark` class on <html>, following the visitor's system setting by default. |
 | `components/features/layout/theme-toggle.tsx` | 27 | Client | Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash. |
-| `components/features/mous/mou-card.tsx` | 60 | Server | Initials for a partner without a logo: "VTU", "CITRIOT" → "CI", "Dyashin Technosoft Pvt Ltd" → "DT". |
-| `components/features/mous/mou-directory.tsx` | 30 | Server | Every MoU in one grid, in the order set by sort_order, or an empty state until the list is added. |
+| `components/features/mous/mou-card-form.tsx` | 132 | Client | Small labelled field on the card form. |
+| `components/features/mous/mou-card-view.tsx` | 95 | Server | Initials for a partner without a logo: "VTU", "CITRIOT" → "CI", "Dyashin Technosoft Pvt Ltd" → "DT". |
+| `components/features/mous/mou-card.tsx` | 65 | Client | One MoU card. Visitors see the MoU. The signed-in admin also sees Edit and Delete at the |
+| `components/features/mous/mou-directory.tsx` | 101 | Client | Every MoU as a card, under "MoUs (N)", with filters by type and status and a search box. The |
+| `components/features/mous/mou-document-field.tsx` | 97 | Client | Sends the PDF straight to the private bucket with the one-time ticket from the server. |
+| `components/features/mous/mou-editor.tsx` | 90 | Client | Holds every MoU for the cards' Add, Edit, Delete, drag-to-reorder and sort. Each change saves |
+| `components/features/mous/mou-filters.tsx` | 35 | Client | Filters for visitors: type, status and a search box over partner, purpose and departments. |
 | `components/features/navigation/main-nav.tsx` | 99 | Client | The main menu bar. Every item is always visible: on wide screens dropdowns |
 | `components/features/navigation/mega-menu.tsx` | 105 | Server | A column heading: plain text, or a link (with its icon) when the column has its own page. |
 | `components/features/navigation/mobile-header.tsx` | 54 | Client | The header on screens narrower than 1024px: one compact sticky row with the crest, the |
@@ -162,7 +168,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/ui/tabs.tsx` | 39 | Client | - |
 | `components/ui/textarea.tsx` | 18 | Server | - |
 
-## Modules, actions and scripts (47)
+## Modules, actions and scripts (51)
 
 | File | Lines | Purpose |
 | --- | --- | --- |
@@ -177,30 +183,32 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/carousel-server.ts` | 15 | The home page carousel photos the admin saved, or the campus photo when none are saved. Server only. |
 | `lib/carousel.ts` | 19 | One photo in the home page carousel. An empty title and subtitle hide the badge for that photo. |
 | `lib/champion-image.ts` | 64 | Geometry for the photo crop: a square crop box, a zoom level and a pan offset, all in pixels. |
-| `lib/cms/client-image.ts` | 29 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
+| `lib/cms/client-image.ts` | 67 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
 | `lib/cms/paths.ts` | 25 | - |
 | `lib/cms/read.ts` | 25 | - |
-| `lib/cms/schema.ts` | 127 | `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field equals `equals`. |
+| `lib/cms/schema.ts` | 136 | `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`. |
 | `lib/cms/store.ts` | 26 | - |
-| `lib/cms/validate.ts` | 136 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
+| `lib/cms/validate.ts` | 153 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
 | `lib/cms/write.ts` | 69 | Saves a value (null removes it), and records the change. |
 | `lib/content.ts` | 197 | A value the admin saved in the content editor (see lib/cms/schema.ts), if any. |
-| `lib/database.types.ts` | 774 | Supabase database types for the HKBK website. |
+| `lib/database.types.ts` | 777 | Supabase database types for the HKBK website. |
 | `lib/editor.ts` | 84 | True when a signed-in editor is viewing the page. Checked once per page load. |
 | `lib/enquiry.ts` | 61 | Per-field messages, used to mark the matching input as invalid. |
+| `lib/events.ts` | 41 | Today's date in India (YYYY-MM-DD), so an event becomes "past" after its last day on campus. |
 | `lib/format.ts` | 28 | Formats an ISO date (YYYY-MM-DD) as "3 Oct 2026" without timezone shifts. |
 | `lib/journey-model.ts` | 73 | Shared rules for the AI Transformation Journey timeline (visitors and editors). |
 | `lib/markdown.ts` | 16 | Splits markdown into sections at each "## Heading". Text before the first heading is the intro. |
 | `lib/menu-server.ts` | 16 | Loads everything the menu needs and builds it. Server components only. |
 | `lib/menu.ts` | 269 | A dropdown column. With `href` the heading is a link; `icon` shows before the heading. |
+| `lib/mous.ts` | 31 | An uploaded MoU document's path in the private "mou-documents" bucket. |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
 | `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
-| `lib/site.ts` | 107 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
+| `lib/site.ts` | 109 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
 | `lib/supabase/client.ts` | 13 | Browser client from @supabase/ssr, for Client Components that need live data or auth. |
 | `lib/supabase/env.ts` | 14 | Supabase URL and public key from the environment, or null when the project is not connected yet. |
 | `lib/supabase/public.ts` | 18 | Cookie-free client for public content (pages, departments, news...). |
 | `lib/supabase/server.ts` | 31 | Server client from @supabase/ssr for Server Actions, Route Handlers and |
-| `lib/types.ts` | 44 | - |
+| `lib/types.ts` | 48 | Event fields kept only in the admin content store (list:news_items), set with the on-card editor. |
 | `lib/ui.ts` | 112 | Wider container for the menu bar and logo row. |
 | `lib/utils.ts` | 8 | Merges Tailwind classes, letting later classes override earlier ones. |
 | `actions/admin.ts` | 100 | Compares two strings in constant time, so the check does not reveal how much matched. |
@@ -208,11 +216,13 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `actions/enquiries.ts` | 30 | Number of New enquiries, for the badge in the admin bar. Visitors get 0. |
 | `actions/enquiry.ts` | 80 | Extra fields each form may send; anything else is ignored. |
 | `actions/journey.ts` | 166 | A Supabase client for a signed-in editor, or a message explaining why not. |
+| `actions/mous.ts` | 50 | A one-time upload address for a new MoU document. |
 | `scripts/build-manifest.mjs` | 149 | Generates docs/manifest.md and manifest.json: an inventory of the project |
 | `scripts/build-setup-sql.mjs` | 91 | Builds supabase/setup_all.sql: every migration plus all content from /content, |
 | `scripts/check-invariants.mjs` | 163 | Verifies the automatable invariants in docs/invariants.md. |
 | `scripts/hash-admin-password.mjs` | 26 | Creates the bcrypt hash for ADMIN_PASSWORD_HASH. Usage: npm run admin:hash |
 | `scripts/seed.mjs` | 91 | Uploads everything in /content to Supabase. |
+| `scripts/setup-mou-documents.mjs` | 22 | Creates (or updates) the private "mou-documents" storage bucket for MoU PDFs. |
 
 ## Database
 
@@ -241,6 +251,7 @@ Migrations, applied in order:
 - `supabase/migrations/20261014020000_august_entry_client.sql`
 - `supabase/migrations/20261015000000_api_grants.sql`
 - `supabase/migrations/20261019120000_mou_association.sql`
+- `supabase/migrations/20261022120000_mou_academic_year.sql`
 
 | Table | Columns | Column names |
 | --- | --- | --- |
@@ -259,7 +270,7 @@ Migrations, applied in order:
 | `ai_people` | 9 | `id`, `slug`, `name`, `role`, `department`, `bio`, `photo_url`, `sort_order`, `updated_at` |
 | `key_figures` | 7 | `id`, `slug`, `label`, `value`, `suffix`, `sort_order`, `updated_at` |
 | `houses` | 9 | `id`, `slug`, `name`, `namesake`, `about`, `motto`, `is_placeholder`, `sort_order`, `updated_at` |
-| `mous` | 12 | `id`, `slug`, `partner`, `association`, `partner_type`, `purpose`, `signed_on`, `valid_until`, `document_url`, `logo_url`, `sort_order`, `updated_at` |
+| `mous` | 13 | `id`, `slug`, `partner`, `association`, `academic_year`, `partner_type`, `purpose`, `signed_on`, `valid_until`, `document_url`, `logo_url`, `sort_order`, `updated_at` |
 | `journey_milestones` | 14 | `id`, `slug`, `period`, `title`, `summary`, `points`, `badge`, `icon`, `inline_photo`, `layer`, `photos`, `sort_order`, `status`, `updated_at` |
 | `editors` | 4 | `user_id`, `email`, `role`, `created_at` |
 | `site_content` | 3 | `key`, `value`, `updated_at` |
@@ -277,7 +288,7 @@ Migrations, applied in order:
 - `content/data/houses.json`: 5 row(s)
 - `content/data/journey_milestones.json`: 11 row(s)
 - `content/data/key_figures.json`: 11 row(s)
-- `content/data/mous.json`: 13 row(s)
+- `content/data/mous.json`: 25 row(s)
 - `content/data/news_items.json`: 4 row(s)
 - `content/data/portals.json`: 7 row(s)
 - `content/data/research_projects.json`: 3 row(s)

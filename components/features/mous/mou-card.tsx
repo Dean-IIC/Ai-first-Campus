@@ -1,66 +1,64 @@
-/* eslint-disable @next/next/no-img-element */
-import { CalendarDays, ExternalLink, GraduationCap } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { formatDate } from "@/lib/format";
+"use client";
+
+import { useState } from "react";
 import type { Mou } from "@/lib/types";
+import { adminPill as pill, navyPill, redPill } from "@/lib/ui";
+import { cn } from "@/lib/utils";
+import MouCardForm from "./mou-card-form";
+import MouCardView from "./mou-card-view";
+import { useMouEditor } from "./mou-editor";
 
-const SUFFIXES = /^(pvt|private|ltd|limited|llp|inc|co)$/i;
-
-/** Initials for a partner without a logo: "VTU", "CITRIOT" → "CI", "Dyashin Technosoft Pvt Ltd" → "DT". */
-function partnerInitials(name: string): string {
-  const words = name.split(/[\s-]+/).filter((w) => w && !SUFFIXES.test(w));
-  if (words.length === 0) return "?";
-  if (words.length === 1) return words[0].length <= 4 ? words[0].toUpperCase() : words[0].slice(0, 2).toUpperCase();
-  return (words[0][0] + words[1][0]).toUpperCase();
-}
-
-/** The partner's logo, or its initials until a logo is added. */
-function MouLogo({ mou }: { mou: Mou }) {
-  if (mou.logo_url) {
-    return <img src={mou.logo_url} alt={`${mou.partner} logo`} className="size-16 rounded-xl bg-white object-contain p-1.5 ring-1 ring-border" />;
-  }
-  return (
-    <span aria-hidden="true" className="grid size-16 place-items-center rounded-xl bg-t-amber-tint text-lg font-semibold text-t-amber dark:text-t-amber-light">
-      {partnerInitials(mou.partner)}
-    </span>
-  );
-}
-
-/** One MoU: logo, partner name, signed date, academic year and association, centred in a card. */
+/**
+ * One MoU card. Visitors see the MoU. The signed-in admin also sees Edit and Delete at the
+ * top-right; Edit turns the card itself into a form, and Delete asks for confirmation first.
+ */
 export default function MouCard({ mou }: { mou: Mou }) {
-  // The academic year replaces the signing date on the card when both are set.
-  const signed = mou.academic_year ? "" : formatDate(mou.signed_on);
+  const { admin, deleteMou } = useMouEditor();
+  const [mode, setMode] = useState<"view" | "edit" | "delete">("view");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+
+  if (admin && mode === "edit") return <MouCardForm mou={mou} onDone={() => setMode("view")} />;
+
   return (
-    <Card className="h-full border-t-[3px] border-t-t-amber transition-shadow hover:shadow-md">
-      <CardContent className="flex h-full flex-col items-center gap-2.5 text-center">
-        <MouLogo mou={mou} />
-        <h3 className="mt-1 font-semibold leading-snug text-heading">{mou.partner}</h3>
-        {signed && (
-          <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
-            <CalendarDays aria-hidden="true" className="size-4" />
-            Signed on {signed}
-          </p>
-        )}
-        {mou.academic_year && (
-          <p className="flex items-center gap-1.5 text-sm font-medium text-t-amber dark:text-t-amber-light">
-            <GraduationCap aria-hidden="true" className="size-4" />
-            {mou.academic_year}
-          </p>
-        )}
-        {mou.association && (
-          <Badge variant="muted" className="mt-auto whitespace-normal">
-            {mou.association}
-          </Badge>
-        )}
-        {mou.document_url && (
-          <a href={mou.document_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
-            View MoU
-            <ExternalLink aria-hidden="true" className="size-3.5" />
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
-        )}
-      </CardContent>
-    </Card>
+    <MouCardView mou={mou} admin={admin}>
+      {admin && (
+        <>
+          <div className="absolute right-1.5 top-1.5 z-10 flex gap-1">
+            <button type="button" className={navyPill} onClick={() => setMode("edit")} aria-label={`Edit ${mou.partner}`}>
+              <span aria-hidden="true">✏️</span> Edit
+            </button>
+            <button type="button" className={redPill} onClick={() => setMode("delete")} aria-label={`Delete ${mou.partner}`}>
+              <span aria-hidden="true">🗑️</span> Delete
+            </button>
+          </div>
+          {mode === "delete" && (
+            <div role="alertdialog" aria-label="Delete this MoU?" className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-2 rounded-[inherit] bg-card/95 p-3 text-center backdrop-blur-sm">
+              <p className="text-sm font-semibold text-heading">Delete the MoU with {mou.partner}?</p>
+              <div className="flex gap-1.5">
+                <button
+                  type="button"
+                  className={redPill}
+                  disabled={busy}
+                  onClick={async () => {
+                    setBusy(true);
+                    const problem = await deleteMou(mou.slug);
+                    setBusy(false);
+                    if (problem) return setError(problem);
+                    setMode("view");
+                  }}
+                >
+                  {busy ? "Deleting…" : "Confirm"}
+                </button>
+                <button type="button" className={cn(pill, "border border-border bg-card text-foreground hover:bg-muted")} disabled={busy} onClick={() => setMode("view")}>
+                  Cancel
+                </button>
+              </div>
+              {error && <p role="alert" className="text-xs font-medium text-destructive">{error}</p>}
+            </div>
+          )}
+        </>
+      )}
+    </MouCardView>
   );
 }

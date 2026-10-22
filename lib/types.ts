@@ -15,12 +15,16 @@ export type UhvActivity = Content<"uhv_activities">;
 export type ResearchProject = Content<"research_projects">;
 export type ConsultancyProject = Content<"consultancy_projects">;
 export type TrainingProgram = Content<"training_programs">;
-export type NewsItem = Content<"news_items">;
+/** Event fields kept only in the admin content store (list:news_items), set with the on-card editor. */
+export type EventExtras = { end_date?: string | null; event_time?: string | null; venue?: string | null; category?: string | null; poster_url?: string | null };
+export type NewsItem = Content<"news_items"> & EventExtras;
 export type Portal = Content<"portals">;
 export type AiPerson = Content<"ai_people">;
 export type KeyFigure = Content<"key_figures">;
 export type House = Content<"houses">;
-export type Mou = Content<"mous">;
+/** MoU fields kept only in the admin content store (list:mous), set with the on-card editor. */
+export type MouExtras = { departments?: string | null; document_path?: string | null; document_public?: boolean | null; status?: "Automatic" | "Active" | "Expired" | null };
+export type Mou = Content<"mous"> & MouExtras;
 export type JourneyMilestone = Content<"journey_milestones">;
 export type JourneyPhoto = { src: string; alt: string; fit?: "cover" | "contain" };
 

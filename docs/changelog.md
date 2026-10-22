@@ -4,6 +4,9 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Added (MoU editor)
+- MoUs page: on-card editing for the signed-in admin, using the same Add/Edit/Delete card system as the AI Champions (✏️ Edit and 🗑️ Delete on each card, ➕ Add MoU, drag to reorder, Sort by date signed). Fields: partner, logo (JPG/PNG/WebP/SVG up to 5 MB, converted to PNG, shown on white without cropping), type (Industry, Academic, Research, Government, Other), department(s), association, academic year, date signed, valid until, purpose, status (Automatic/Active/Expired) and an MoU document (PDF up to 10 MB in the private `mou-documents` bucket, uploaded straight from the browser with a one-time signed URL and checked to be a PDF; served by `/api/mous/document` to visitors only when "Show download link to visitors" is ticked). Every change saves `list:mous` through the admin store, so it appears in Undo and History. Visitors get "MoUs (N)", filters by type and status, a search box, and "MoUs will be listed here soon." when empty. The page now renders on each request. New: `lib/mous.ts`, `actions/mous.ts`, `components/features/mous/mou-editor.tsx`, `mou-card-view.tsx`, `mou-card-form.tsx`, `mou-document-field.tsx`, `mou-filters.tsx`, `scripts/setup-mou-documents.mjs`.
+
 ### Fixed (footer logo)
 - Footer logo: it was squeezed into an oval on desktop (the brand column is 240 px wide). It now sits in a true white circle (72 px on larger screens, 60 px on phones, 6 px padding, soft shadow), using the header's logo file with object-contain, centred with the college name and motto 16 px away. The 30 Years of Excellence badge matches the circle's height beside the name on phones and tablets, and sits just below the name (48 px) in the narrow desktop column. Header and sign-in logos were already round and are unchanged.
 

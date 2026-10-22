@@ -132,6 +132,15 @@
       "data": []
     },
     {
+      "route": "/api/mous/document",
+      "file": "app/api/mous/document/route.ts",
+      "kind": "API",
+      "revalidate": null,
+      "data": [
+        "table:mous"
+      ]
+    },
+    {
       "route": "/api/revalidate",
       "file": "app/api/revalidate/route.ts",
       "kind": "API",
@@ -233,10 +242,11 @@
       "route": "/mous",
       "file": "app/mous/page.tsx",
       "kind": "Static",
-      "revalidate": "300",
+      "revalidate": null,
       "data": [
         "table:mous",
         "table:key_figures",
+        "table:departments",
         "page:mous"
       ]
     },
@@ -691,7 +701,7 @@
     },
     {
       "file": "components/features/layout/footer-brand.tsx",
-      "lines": 66,
+      "lines": 69,
       "client": false,
       "summary": "Logo, motto, address and contact links at the start of the footer."
     },
@@ -738,16 +748,46 @@
       "summary": "Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash."
     },
     {
-      "file": "components/features/mous/mou-card.tsx",
-      "lines": 60,
+      "file": "components/features/mous/mou-card-form.tsx",
+      "lines": 132,
+      "client": true,
+      "summary": "Small labelled field on the card form."
+    },
+    {
+      "file": "components/features/mous/mou-card-view.tsx",
+      "lines": 95,
       "client": false,
       "summary": "Initials for a partner without a logo: \"VTU\", \"CITRIOT\" → \"CI\", \"Dyashin Technosoft Pvt Ltd\" → \"DT\"."
     },
     {
+      "file": "components/features/mous/mou-card.tsx",
+      "lines": 65,
+      "client": true,
+      "summary": "One MoU card. Visitors see the MoU. The signed-in admin also sees Edit and Delete at the"
+    },
+    {
       "file": "components/features/mous/mou-directory.tsx",
-      "lines": 30,
-      "client": false,
-      "summary": "Every MoU in one grid, in the order set by sort_order, or an empty state until the list is added."
+      "lines": 101,
+      "client": true,
+      "summary": "Every MoU as a card, under \"MoUs (N)\", with filters by type and status and a search box. The"
+    },
+    {
+      "file": "components/features/mous/mou-document-field.tsx",
+      "lines": 97,
+      "client": true,
+      "summary": "Sends the PDF straight to the private bucket with the one-time ticket from the server."
+    },
+    {
+      "file": "components/features/mous/mou-editor.tsx",
+      "lines": 90,
+      "client": true,
+      "summary": "Holds every MoU for the cards' Add, Edit, Delete, drag-to-reorder and sort. Each change saves"
+    },
+    {
+      "file": "components/features/mous/mou-filters.tsx",
+      "lines": 35,
+      "client": true,
+      "summary": "Filters for visitors: type, status and a search box over partner, purpose and departments."
     },
     {
       "file": "components/features/navigation/main-nav.tsx",
@@ -982,7 +1022,7 @@
     },
     {
       "file": "lib/cms/client-image.ts",
-      "lines": 29,
+      "lines": 67,
       "summary": "Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload."
     },
     {
@@ -997,8 +1037,8 @@
     },
     {
       "file": "lib/cms/schema.ts",
-      "lines": 127,
-      "summary": "`hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field equals `equals`."
+      "lines": 136,
+      "summary": "`hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field is one of `in`."
     },
     {
       "file": "lib/cms/store.ts",
@@ -1007,7 +1047,7 @@
     },
     {
       "file": "lib/cms/validate.ts",
-      "lines": 136,
+      "lines": 153,
       "summary": "A photo address the admin may use: one uploaded to our storage, or a file shipped with the site."
     },
     {
@@ -1022,7 +1062,7 @@
     },
     {
       "file": "lib/database.types.ts",
-      "lines": 774,
+      "lines": 777,
       "summary": "Supabase database types for the HKBK website."
     },
     {
@@ -1034,6 +1074,11 @@
       "file": "lib/enquiry.ts",
       "lines": 61,
       "summary": "Per-field messages, used to mark the matching input as invalid."
+    },
+    {
+      "file": "lib/events.ts",
+      "lines": 41,
+      "summary": "Today's date in India (YYYY-MM-DD), so an event becomes \"past\" after its last day on campus."
     },
     {
       "file": "lib/format.ts",
@@ -1061,6 +1106,11 @@
       "summary": "A dropdown column. With `href` the heading is a link; `icon` shows before the heading."
     },
     {
+      "file": "lib/mous.ts",
+      "lines": 31,
+      "summary": "An uploaded MoU document's path in the private \"mou-documents\" bucket."
+    },
+    {
       "file": "lib/portals.tsx",
       "lines": 42,
       "summary": "A portal is clickable once it has an address and is marked Live."
@@ -1072,7 +1122,7 @@
     },
     {
       "file": "lib/site.ts",
-      "lines": 107,
+      "lines": 109,
       "summary": "The Training and Placement Portal (staff sign-in), linked from the Placements page."
     },
     {
@@ -1097,8 +1147,8 @@
     },
     {
       "file": "lib/types.ts",
-      "lines": 44,
-      "summary": ""
+      "lines": 48,
+      "summary": "Event fields kept only in the admin content store (list:news_items), set with the on-card editor."
     },
     {
       "file": "lib/ui.ts",
@@ -1136,6 +1186,11 @@
       "summary": "A Supabase client for a signed-in editor, or a message explaining why not."
     },
     {
+      "file": "actions/mous.ts",
+      "lines": 50,
+      "summary": "A one-time upload address for a new MoU document."
+    },
+    {
       "file": "scripts/build-manifest.mjs",
       "lines": 149,
       "summary": "Generates docs/manifest.md and manifest.json: an inventory of the project"
@@ -1159,6 +1214,11 @@
       "file": "scripts/seed.mjs",
       "lines": 91,
       "summary": "Uploads everything in /content to Supabase."
+    },
+    {
+      "file": "scripts/setup-mou-documents.mjs",
+      "lines": 22,
+      "summary": "Creates (or updates) the private \"mou-documents\" storage bucket for MoU PDFs."
     }
   ],
   "database": {
@@ -1185,7 +1245,8 @@
       "supabase/migrations/20261014010000_remove_ai_first_message.sql",
       "supabase/migrations/20261014020000_august_entry_client.sql",
       "supabase/migrations/20261015000000_api_grants.sql",
-      "supabase/migrations/20261019120000_mou_association.sql"
+      "supabase/migrations/20261019120000_mou_association.sql",
+      "supabase/migrations/20261022120000_mou_academic_year.sql"
     ],
     "tables": {
       "pages": [
@@ -1363,6 +1424,7 @@
         "slug",
         "partner",
         "association",
+        "academic_year",
         "partner_type",
         "purpose",
         "signed_on",
@@ -1425,7 +1487,7 @@
       "houses": 5,
       "journey_milestones": 11,
       "key_figures": 11,
-      "mous": 13,
+      "mous": 25,
       "news_items": 4,
       "portals": 7,
       "research_projects": 3,

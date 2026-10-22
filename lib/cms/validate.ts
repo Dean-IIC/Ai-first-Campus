@@ -1,5 +1,6 @@
 import { serviceBase } from "@/lib/admin/service";
 import { CAROUSEL_KEY, MAX_SLIDES } from "@/lib/carousel";
+import { MOU_DOCUMENT_PATH } from "@/lib/mous";
 import { ALERT_FIELDS, LINK_FIELDS, LIST_SPECS, MESSAGE_FIELDS, PAGE_FIELDS, SITE_FIELDS, fieldShown, isListTable, type Field } from "./schema";
 
 /*
@@ -80,14 +81,30 @@ function cleanRecord(fields: Field[], value: unknown): Record<string, unknown> {
 
 const SLUG = /^[a-z0-9][a-z0-9-]{0,80}$/;
 
+/** MoUs saved before Type and Status were editable get the defaults, so older rows still save. */
+function withMouDefaults(raw: unknown): unknown {
+  if (!raw || typeof raw !== "object") return raw;
+  const r = raw as Record<string, unknown>;
+  return { ...r, partner_type: r.partner_type || "Industry", status: r.status || "Automatic", document_path: r.document_path || "" };
+}
+
+/** Rows saved before Category was editable get "Other"; an event without a publish date uses its start date. */
+function withEventDefaults(raw: unknown): unknown {
+  if (!raw || typeof raw !== "object") return raw;
+  const r = raw as Record<string, unknown>;
+  return { ...r, kind: r.kind || "event", category: r.category || "Other", published_on: r.published_on || r.event_date };
+}
+
 /** A list in display order. Each row keeps its slug; new rows get one from their title. */
 function cleanList(table: string, value: unknown): Record<string, unknown>[] {
   if (!isListTable(table)) throw new Error("This list cannot be edited.");
   if (!Array.isArray(value) || value.length > 300) throw new Error("The list could not be read.");
   const spec = LIST_SPECS[table];
   const seen = new Set<string>();
-  return value.map((row, i) => {
+  return value.map((raw, i) => {
+    const row = table === "mous" ? withMouDefaults(raw) : table === "news_items" ? withEventDefaults(raw) : raw;
     const clean = cleanRecord(spec.fields, row);
+    if (table === "mous" && clean.document_path && !MOU_DOCUMENT_PATH.test(String(clean.document_path))) throw new Error(`Row ${i + 1}: the uploaded document could not be recognised. Upload it again.`);
     // Fields hidden for this row (e.g. vision and mission for basic sciences) are always saved empty.
     for (const f of spec.fields) if (!fieldShown(f, clean)) clean[f.key] = cleanField(f, null);
     const given = String((row as Record<string, unknown>).slug ?? "");

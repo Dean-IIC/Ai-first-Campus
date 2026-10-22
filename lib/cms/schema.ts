@@ -1,4 +1,6 @@
 import { AI_ROLES } from "@/lib/ai-people";
+import { EVENT_CATEGORIES } from "@/lib/events";
+import { MOU_STATUSES, MOU_TYPES } from "@/lib/mous";
 import { NO_STATEMENT_KINDS } from "@/lib/site";
 import type { ListTable } from "@/lib/types";
 
@@ -77,13 +79,20 @@ export const LIST_SPECS: Record<ListTable, ListSpec> = {
     { key: "has_research_centre", label: "Has a VTU research centre", kind: "bool" }, { key: "research_areas", label: "Research areas (one per line)", kind: "lines" },
   ] },
   news_items: { label: "News and events", item: "news item", title: "title", fields: [
-    t("title", "Title", { required: true }), { key: "kind", label: "Type", kind: "choice", options: ["news", "event"] }, long("summary", "Summary"),
-    { key: "published_on", label: "Published on", kind: "date", required: true }, { key: "event_date", label: "Event date", kind: "date" }, { key: "link_url", label: "Link", kind: "link" }, sample,
+    t("title", "Title", { required: true }), { key: "kind", label: "Type", kind: "choice", options: ["news", "event"], hint: "Only events are shown on the website." }, long("summary", "Summary"),
+    { key: "published_on", label: "Published on", kind: "date", required: true }, { key: "event_date", label: "Event date (start)", kind: "date" }, { key: "end_date", label: "End date", kind: "date" },
+    t("event_time", "Time", { hint: "For example: 10:00 am – 1:00 pm" }), t("venue", "Venue", { hint: "For example: Seminar Hall, Online" }),
+    { key: "category", label: "Category", kind: "choice", options: EVENT_CATEGORIES, required: true }, { key: "poster_url", label: "Poster or photo", kind: "image" },
+    { key: "link_url", label: "Registration or details link", kind: "link" }, sample,
   ] },
   mous: { label: "MoUs", item: "MoU", title: "partner", fields: [
-    t("partner", "Partner", { required: true }), t("association", "Association", { hint: "Who signed with the partner, for example: HKBKCE or VTU and HKBKCE" }), t("academic_year", "Academic year", { hint: "Academic years the MoU covers, for example: AY 2023-24 or AY 2023-26" }), t("partner_type", "Partner type", { hint: "For example: Industry, University" }), long("purpose", "Purpose"),
+    t("partner", "Partner", { required: true }), { key: "partner_type", label: "Type", kind: "choice", options: MOU_TYPES, required: true },
+    t("departments", "Department(s) involved", { hint: "For example: CSE, ISE, or Institution-wide" }), t("association", "Association", { hint: "Who signed with the partner, for example: HKBKCE or VTU and HKBKCE" }),
+    t("academic_year", "Academic year", { hint: "Academic years the MoU covers, for example: AY 2023-24 or AY 2023-26" }), long("purpose", "Purpose", "Two or three lines."),
     { key: "signed_on", label: "Signed on", kind: "date" }, { key: "valid_until", label: "Valid until", kind: "date" },
-    { key: "document_url", label: "Document link", kind: "link" }, { key: "logo_url", label: "Logo", kind: "image" },
+    { key: "status", label: "Status", kind: "choice", options: MOU_STATUSES, required: true, hint: "Automatic: Expired once Valid until has passed." },
+    { key: "logo_url", label: "Logo", kind: "image" }, { key: "document_url", label: "Document link", kind: "link" },
+    t("document_path", "Uploaded document", { hint: "Set by Upload PDF on the MoU card." }), { key: "document_public", label: "Show download link to visitors", kind: "bool" },
   ] },
   ai_people: { label: "AI Champions and Ambassadors", item: "person", title: "name", fields: [
     t("name", "Name", { required: true }), { key: "role", label: "Role", kind: "choice", options: AI_ROLES, required: true }, t("department", "Department"), t("bio", "Designation or year"), { key: "photo_url", label: "Photo", kind: "image" },

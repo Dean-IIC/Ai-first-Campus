@@ -3,14 +3,17 @@ import ContentPage, { pageMetadata } from "@/components/features/layout/content-
 import Markdown from "@/components/features/content/markdown";
 import Panel from "@/components/features/content/panel";
 import MouDirectory from "@/components/features/mous/mou-directory";
+import MouEditorProvider from "@/components/features/mous/mou-editor";
 import { getList, getPage } from "@/lib/content";
 import { splitSections } from "@/lib/markdown";
 
-export const revalidate = 300;
+// Rendered on each request: MoUs are edited on this page, and a cached copy would show the
+// previous card for a few seconds after every save.
+export const dynamic = "force-dynamic";
 export const generateMetadata = () => pageMetadata("mous", "MoUs");
 
 export default async function MousPage() {
-  const [mous, figures, page] = await Promise.all([getList("mous"), getList("key_figures"), getPage("mous")]);
+  const [mous, figures, page, departments] = await Promise.all([getList("mous"), getList("key_figures"), getPage("mous"), getList("departments")]);
   // The count matches the cards shown; the key figure is used only until the list is added.
   const total = mous.length > 0 ? mous.length : (figures.find((f) => f.slug === "mous")?.value ?? null);
   const { sections } = splitSections(page?.body_md ?? "");
@@ -39,7 +42,9 @@ export default async function MousPage() {
               </Panel>
             )}
           </div>
-          <MouDirectory mous={mous} total={total} />
+          <MouEditorProvider mous={mous} departments={departments.map((d) => d.name)}>
+            <MouDirectory />
+          </MouEditorProvider>
         </>
       )}
     />
