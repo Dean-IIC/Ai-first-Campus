@@ -4,6 +4,9 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Changed (MoU academic years)
+- MoUs page (`/mous`): the 13 MoUs with a signing date now show an academic year from the signing year to 2027 instead of "Signed on" (for example UST, signed 4 Apr 2021, shows "AY 2021-27"; Shinawatra University, signed 10 Aug 2025, shows "AY 2025-27"). The signing dates are kept in `signed_on`; the card shows "Signed on" only when no academic year is set.
+
 ### Added (MoUs by academic year)
 - MoUs page (`/mous`): 11 MoUs from the AY 2023-24, 2024-25 and 2025-26 lists are added, each with the academic years it covers under the name: Karunadu Technologies, Mitron Technologies and Innovations, Prodevans Technologies, Enterprise Building Training Solutions and Cranes Varsity (AY 2023-26); Reverse Engineering Infosec (AY 2024-26); Brain O Vision (AY 2023-25); Krish Tec (AY 2025-26); WSPL Hosting Solutions and Colt Assist and Utility Technologies (AY 2024-25); Vigameq Consultancy Services (AY 2023-24). The page now lists 24 MoUs and the "MoUs signed" key figure is 24.
 - New `academic_year` column (migration `20261022120000_mou_academic_year.sql`), an Academic year field in **Edit content** → MoUs, and an academic-year line on the MoU card.
