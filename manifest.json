@@ -648,7 +648,7 @@
     },
     {
       "file": "components/features/home/hero.tsx",
-      "lines": 49,
+      "lines": 58,
       "client": false,
       "summary": "Opening section: headline, key facts and the photo carousel with a frosted location badge."
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "file": "lib/site.ts",
-      "lines": 113,
+      "lines": 115,
       "summary": "The Training and Placement Portal (staff sign-in), linked from the Placements page."
     },
     {
@@ -1632,11 +1632,12 @@
     "docs/ADMIN_GUIDE.md",
     "docs/AGENT_SETUP_PROMPT.md",
     "docs/ARCHITECTURE.md",
-    "docs/changelog.md",
     "docs/CONTENT_GUIDE.md",
     "docs/DATABASE.md",
-    "docs/decision.md",
     "docs/DEPLOYMENT.md",
+    "docs/SETUP.md",
+    "docs/changelog.md",
+    "docs/decision.md",
     "docs/design.md",
     "docs/feature-tickets.md",
     "docs/flow.md",
@@ -1647,7 +1648,6 @@
     "docs/roadmap.md",
     "docs/rules.md",
     "docs/security.md",
-    "docs/SETUP.md",
     "README.md",
     "AGENTS.md"
   ]

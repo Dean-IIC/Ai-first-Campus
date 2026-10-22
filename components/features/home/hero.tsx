@@ -1,18 +1,25 @@
-import { Award, Building2, GraduationCap, type LucideIcon } from "lucide-react";
+/* eslint-disable @next/next/no-img-element */
+import { GraduationCap, type LucideIcon } from "lucide-react";
 import AnniversaryBadge from "@/components/features/layout/anniversary-badge";
-import { site } from "@/lib/site";
+import { images, site } from "@/lib/site";
 import { getHeroSlides } from "@/lib/carousel-server";
 import HeroCarousel from "./hero-carousel";
 import EditableText from "@/components/features/cms/editable-text";
 import { shell } from "@/lib/ui";
 
-// The first point shows the 30 Years of Excellence badge instead of an icon.
-const FACTS: { icon?: LucideIcon; label: string }[] = [
+type Logo = { src: string; alt: string; width: number; height: number };
+
+// The first three points show the 30 Years of Excellence badge and the VTU and AICTE logos
+// (56 px, on transparent backgrounds); the last keeps its icon. Every mark sits in the same slot
+// width, so the four labels line up.
+const FACTS: { icon?: LucideIcon; logo?: Logo; label: string }[] = [
   { label: `Established ${site.established}` },
-  { icon: Building2, label: "Affiliated to VTU, Belagavi" },
-  { icon: Award, label: "Approved by AICTE, New Delhi" },
+  { logo: images.vtu, label: "Affiliated to VTU, Belagavi" },
+  { logo: images.aicte, label: "Approved by AICTE, New Delhi" },
   { icon: GraduationCap, label: "Five BE programmes, six research centres" },
 ];
+
+const slot = "grid h-14 w-[4.25rem] shrink-0 place-items-center";
 
 /** Opening section: headline, key facts and the photo carousel with a frosted location badge. */
 export default async function Hero() {
@@ -25,17 +32,19 @@ export default async function Hero() {
           <EditableText as="h1" id="home.hero.title" className="text-4xl font-bold leading-[1.1] text-heading sm:text-5xl lg:text-[3.25rem]">Engineering education for the age of AI and quantum computing</EditableText>
           <EditableText as="p" id="home.hero.intro" className="mt-5 max-w-[56ch] text-lg leading-relaxed text-muted-foreground">{`${site.name} has educated engineers in Nagawara, Bengaluru since ${site.established}, directly opposite Manyata Tech Park. Every programme now teaches students to build with AI, and our Quantum Lab prepares them for what comes next.`}</EditableText>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {FACTS.map(({ icon: Icon, label }) => (
+            {FACTS.map(({ icon: Icon, logo, label }) => (
               <li key={label} className="flex items-center gap-3 text-[0.9375rem] font-medium text-foreground">
-                {Icon ? (
-                  <span className="grid size-9 shrink-0 place-items-center rounded-full bg-brand-tint text-primary">
-                    <Icon aria-hidden="true" className="size-[1.125rem]" />
-                  </span>
-                ) : (
-                  <span className="grid size-9 shrink-0 place-items-center">
-                    <AnniversaryBadge small className="h-9 max-w-none" />
-                  </span>
-                )}
+                <span className={slot}>
+                  {Icon ? (
+                    <span className="grid size-9 place-items-center rounded-full bg-brand-tint text-primary">
+                      <Icon aria-hidden="true" className="size-[1.125rem]" />
+                    </span>
+                  ) : logo ? (
+                    <img src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} className="h-14 w-auto max-w-none object-contain" />
+                  ) : (
+                    <AnniversaryBadge className="h-14 max-w-none" />
+                  )}
+                </span>
                 {label}
               </li>
             ))}
