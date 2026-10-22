@@ -96,7 +96,7 @@ The menu at the top shows these items in this order: Home, About, Programmes, De
 
 ## MoUs
 
-The MoUs page (`/mous`) shows how many MoUs are listed and every MoU from the `mous` table in one grid (no tabs), in `sort_order`. Each card shows the partner's logo (or its initials until `logo_url` is set), the partner name, "Signed on" with `signed_on`, and the `association` (who signed with the partner, for example `HKBKCE` or `VTU and HKBKCE`). If the signing date or association is not known yet, leave it empty; the card then shows only the logo and name. Add one row per MoU: `partner`, `association`, `signed_on`, `valid_until`, `partner_type` (`Industry`, `Academic`, `Research` or `Government`, not shown on the card), and optionally `purpose`, `document_url` (a link to the signed PDF, shown as "View MoU") and `logo_url`. Until rows are added, the page shows "Partner list coming soon" with the number from `key_figures` (slug `mous`). The "What our MoUs cover" panel is in `content/pages/mous.md`.
+The MoUs page (`/mous`) shows how many MoUs are listed and every MoU from the `mous` table in one grid (no tabs), in `sort_order`. Each card shows the partner's logo (or its initials until `logo_url` is set), the partner name, "Signed on" with `signed_on`, and the `association` (who signed with the partner, for example `HKBKCE` or `VTU and HKBKCE`). For MoUs listed by academic year, put the years in `academic_year` (for example `AY 2023-24` for one year, or `AY 2023-26` for an MoU active from 2023-24 to 2025-26); it is shown under the name. If the signing date, academic year or association is not known yet, leave it empty; the card then shows only what is filled in. Add one row per MoU: `partner`, `association`, `signed_on`, `valid_until`, `partner_type` (`Industry`, `Academic`, `Research` or `Government`, not shown on the card), and optionally `purpose`, `document_url` (a link to the signed PDF, shown as "View MoU") and `logo_url`. Until rows are added, the page shows "Partner list coming soon" with the number from `key_figures` (slug `mous`). The "What our MoUs cover" panel is in `content/pages/mous.md`.
 
 ## AI Transformation Journey timeline (home page, "Our AI Transformation Journey 2026")
 
@@ -167,7 +167,7 @@ To add photos to another month, upload them to `public/images/journey/` (or the 
 
 ## Big numbers (home page)
 
-The band under the home page photo shows eleven figures from the `key_figures` table (or `content/data/key_figures.json`): years of excellence, students (2,500+), faculty (150+), papers published (300+), patents filed (150), patents published (50), patents granted (30), MoUs signed (13), AI Faculty Champions, AI Student Ambassadors and students placed (200).
+The band under the home page photo shows eleven figures from the `key_figures` table (or `content/data/key_figures.json`): years of excellence, students (2,500+), faculty (150+), papers published (300+), patents filed (150), patents published (50), patents granted (30), MoUs signed (24), AI Faculty Champions, AI Student Ambassadors and students placed (200).
 
 - **Years of excellence** is calculated from the founding year (1997), and the **AI Faculty Champions** and **AI Student Ambassadors** figures come from `aiProgramme` in `lib/site.ts`. Leave their `value` empty.
 - For the others, update `value` when the figure changes; `suffix` is shown after it (for example `+`). A figure with no value shows "Figure coming soon".

@@ -711,6 +711,12 @@ grant select on public.editors to authenticated;
 alter table public.mous add column if not exists association text;
 
 -- ============================================================
+-- Migration: 20261022120000_mou_academic_year.sql
+-- ============================================================
+-- Academic years an MoU covers, for example "AY 2023-24" or "AY 2023-26".
+alter table public.mous add column if not exists academic_year text;
+
+-- ============================================================
 -- Content
 -- ============================================================
 insert into public.pages (slug, title, summary, body_md) values
@@ -1008,26 +1014,37 @@ insert into public.key_figures (slug, label, value, suffix, sort_order) values
   ('patents-filed', 'Patents filed', 150, '', 5),
   ('patents-published', 'Patents published', 50, '', 6),
   ('patents-granted', 'Patents granted', 30, '', 7),
-  ('mous', 'MoUs signed', 13, '', 8),
+  ('mous', 'MoUs signed', 24, '', 8),
   ('ai-faculty-champions', 'AI Faculty Champions', null, '', 9),
   ('ai-student-ambassadors', 'AI Student Ambassadors', null, '', 10),
   ('students-placed', 'Students placed', 200, '', 11)
 on conflict (slug) do update set label = excluded.label, value = excluded.value, suffix = excluded.suffix, sort_order = excluded.sort_order;
-insert into public.mous (slug, partner, association, partner_type, purpose, signed_on, valid_until, document_url, logo_url, sort_order) values
-  ('shinawatra-university', 'Shinawatra University', 'MIT Square Services Private Limited and HKBKCE', 'Academic', null, '2025-08-10', '2028-08-10', null, '/images/mous/shinawatra-university.jpg', 1),
-  ('citriot', 'CITRIOT', 'HKBKCE', 'Industry', null, '2025-05-12', '2028-05-12', null, '/images/mous/citriot.png', 2),
-  ('vtu', 'VTU', 'HKBKCE', 'Academic', null, '2024-10-16', '2029-10-16', null, '/images/mous/vtu.png', 3),
-  ('dsedify', 'DSEdify Pvt Ltd', 'HKBKCE', 'Industry', null, '2026-01-22', '2031-01-22', null, '/images/mous/dsedify.png', 4),
-  ('rollnumber-technologies', 'RollNumber Technologies Pvt Ltd', 'HKBKCE', 'Industry', null, '2025-03-10', '2028-03-10', null, '/images/mous/rollnumber-technologies.png', 5),
-  ('v-inspire', 'V-INSPIRE', 'HKBKCE', 'Industry', null, '2026-01-01', '2031-01-01', null, '/images/mous/v-inspire.png', 6),
-  ('gleamator-technologies', 'Gleamator Technologies', 'VTU and HKBKCE', 'Industry', null, '2024-07-24', '2029-07-24', null, '/images/mous/gleamator-technologies.png', 7),
-  ('dyashin-technosoft', 'Dyashin Technosoft Pvt Ltd', 'HKBKCE', 'Industry', null, '2026-01-22', '2031-01-22', null, '/images/mous/dyashin-technosoft.png', 8),
-  ('ubuntu-consortium', 'Ubuntu Consortium', 'HKBKCE', 'Industry', null, '2026-05-04', '2029-05-04', null, '/images/mous/ubuntu-consortium.png', 9),
-  ('chiac', 'Chiac ASI', 'HKBKCE', 'Industry', null, '2026-01-25', null, null, '/images/mous/chiac.png', 10),
-  ('medini-technologies', 'Medini Technologies', 'HKBKCE', 'Industry', null, '2024-05-07', null, null, '/images/mous/medini-technologies.png', 11),
-  ('quantumx', 'QuantumX', 'HKBKCE', 'Industry', null, '2026-11-17', null, null, '/images/mous/quantumx.jpg', 12),
-  ('ust', 'UST', 'HKBKCE', 'Industry', null, '2021-04-04', null, null, '/images/mous/ust.png', 13)
-on conflict (slug) do update set partner = excluded.partner, association = excluded.association, partner_type = excluded.partner_type, purpose = excluded.purpose, signed_on = excluded.signed_on, valid_until = excluded.valid_until, document_url = excluded.document_url, logo_url = excluded.logo_url, sort_order = excluded.sort_order;
+insert into public.mous (slug, partner, association, academic_year, partner_type, purpose, signed_on, valid_until, document_url, logo_url, sort_order) values
+  ('shinawatra-university', 'Shinawatra University', 'MIT Square Services Private Limited and HKBKCE', null, 'Academic', null, '2025-08-10', '2028-08-10', null, '/images/mous/shinawatra-university.jpg', 1),
+  ('citriot', 'CITRIOT', 'HKBKCE', null, 'Industry', null, '2025-05-12', '2028-05-12', null, '/images/mous/citriot.png', 2),
+  ('vtu', 'VTU', 'HKBKCE', null, 'Academic', null, '2024-10-16', '2029-10-16', null, '/images/mous/vtu.png', 3),
+  ('dsedify', 'DSEdify Pvt Ltd', 'HKBKCE', null, 'Industry', null, '2026-01-22', '2031-01-22', null, '/images/mous/dsedify.png', 4),
+  ('rollnumber-technologies', 'RollNumber Technologies Pvt Ltd', 'HKBKCE', null, 'Industry', null, '2025-03-10', '2028-03-10', null, '/images/mous/rollnumber-technologies.png', 5),
+  ('v-inspire', 'V-INSPIRE', 'HKBKCE', null, 'Industry', null, '2026-01-01', '2031-01-01', null, '/images/mous/v-inspire.png', 6),
+  ('gleamator-technologies', 'Gleamator Technologies', 'VTU and HKBKCE', null, 'Industry', null, '2024-07-24', '2029-07-24', null, '/images/mous/gleamator-technologies.png', 7),
+  ('dyashin-technosoft', 'Dyashin Technosoft Pvt Ltd', 'HKBKCE', null, 'Industry', null, '2026-01-22', '2031-01-22', null, '/images/mous/dyashin-technosoft.png', 8),
+  ('ubuntu-consortium', 'Ubuntu Consortium', 'HKBKCE', null, 'Industry', null, '2026-05-04', '2029-05-04', null, '/images/mous/ubuntu-consortium.png', 9),
+  ('chiac', 'Chiac ASI', 'HKBKCE', null, 'Industry', null, '2026-01-25', null, null, '/images/mous/chiac.png', 10),
+  ('medini-technologies', 'Medini Technologies', 'HKBKCE', null, 'Industry', null, '2024-05-07', null, null, '/images/mous/medini-technologies.png', 11),
+  ('quantumx', 'QuantumX', 'HKBKCE', null, 'Industry', null, '2026-11-17', null, null, '/images/mous/quantumx.jpg', 12),
+  ('ust', 'UST', 'HKBKCE', null, 'Industry', null, '2021-04-04', null, null, '/images/mous/ust.png', 13),
+  ('karunadu-technologies', 'Karunadu Technologies Pvt Ltd', null, 'AY 2023-26', 'Industry', null, null, null, null, '/images/mous/karunadu-technologies.png', 14),
+  ('mitron-technologies-and-innovations', 'Mitron Technologies and Innovations', null, 'AY 2023-26', 'Industry', null, null, null, null, null, 15),
+  ('prodevans-technologies', 'Prodevans Technologies', null, 'AY 2023-26', 'Industry', null, null, null, null, '/images/mous/prodevans-technologies.png', 16),
+  ('enterprise-building-training-solutions', 'Enterprise Building Training Solutions', null, 'AY 2023-26', 'Industry', null, null, null, null, null, 17),
+  ('cranes-varsity', 'Cranes Varsity', null, 'AY 2023-26', 'Industry', null, null, null, null, '/images/mous/cranes-varsity.png', 18),
+  ('reverse-engineering-infosec', 'Reverse Engineering Infosec Pvt Ltd', null, 'AY 2024-26', 'Industry', null, null, null, null, '/images/mous/reverse-engineering-infosec.jpg', 19),
+  ('brain-o-vision', 'Brain O Vision', null, 'AY 2023-25', 'Industry', null, null, null, null, '/images/mous/brain-o-vision.png', 20),
+  ('krish-tec', 'Krish Tec', null, 'AY 2025-26', 'Industry', null, null, null, null, '/images/mous/krish-tec.png', 21),
+  ('wspl-hosting-solutions', 'WSPL Hosting Solutions (OPC) Pvt Ltd', null, 'AY 2024-25', 'Industry', null, null, null, null, '/images/mous/wspl-hosting-solutions.png', 22),
+  ('colt-assist-and-utility-technologies', 'Colt Assist and Utility Technologies Pvt Ltd', null, 'AY 2024-25', 'Industry', null, null, null, null, null, 23),
+  ('vigameq-consultancy-services', 'Vigameq Consultancy Services Pvt Ltd', null, 'AY 2023-24', 'Industry', null, null, null, null, null, 24)
+on conflict (slug) do update set partner = excluded.partner, association = excluded.association, academic_year = excluded.academic_year, partner_type = excluded.partner_type, purpose = excluded.purpose, signed_on = excluded.signed_on, valid_until = excluded.valid_until, document_url = excluded.document_url, logo_url = excluded.logo_url, sort_order = excluded.sort_order;
 insert into public.news_items (slug, kind, title, summary, published_on, event_date, link_url, is_sample) values
   ('sample-ai-first-launch', 'event', 'AI First campus launch week', 'Talks, demos of the campus assistant and open sessions in the Quantum Lab for students, parents and industry guests.', '2026-10-01', '2026-11-16', null, true),
   ('sample-quantum-lab-opens', 'news', 'Quantum Lab opens for first-year students', 'First-year students can now run quantum circuits on simulators, with hardware access through faculty-led classroom accounts.', '2026-09-22', null, null, true),

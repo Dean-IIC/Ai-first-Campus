@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { CalendarDays, ExternalLink } from "lucide-react";
+import { CalendarDays, ExternalLink, GraduationCap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { formatDate } from "@/lib/format";
@@ -27,7 +27,7 @@ function MouLogo({ mou }: { mou: Mou }) {
   );
 }
 
-/** One MoU: logo, partner name, signed date and association, centred in a card. */
+/** One MoU: logo, partner name, signed date, academic year and association, centred in a card. */
 export default function MouCard({ mou }: { mou: Mou }) {
   const signed = formatDate(mou.signed_on);
   return (
@@ -39,6 +39,12 @@ export default function MouCard({ mou }: { mou: Mou }) {
           <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
             <CalendarDays aria-hidden="true" className="size-4" />
             Signed on {signed}
+          </p>
+        )}
+        {mou.academic_year && (
+          <p className="flex items-center gap-1.5 text-sm font-medium text-t-amber dark:text-t-amber-light">
+            <GraduationCap aria-hidden="true" className="size-4" />
+            {mou.academic_year}
           </p>
         )}
         {mou.association && (
