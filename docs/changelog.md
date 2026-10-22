@@ -4,6 +4,9 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Fixed (footer logo)
+- Footer logo: it was squeezed into an oval on desktop (the brand column is 240 px wide). It now sits in a true white circle (72 px on larger screens, 60 px on phones, 6 px padding, soft shadow), using the header's logo file with object-contain, centred with the college name and motto 16 px away. The 30 Years of Excellence badge matches the circle's height beside the name on phones and tablets, and sits just below the name (48 px) in the narrow desktop column. Header and sign-in logos were already round and are unchanged.
+
 ### Changed (Sports department)
 - Physical Education and Sports (`/academics/sports`): the "Vision and mission" tab is removed and its vision and mission were cleared through the saved departments list (History). Its Vision and Mission fields are hidden in Edit content and always saved empty (`NO_STATEMENT_KINDS` in `lib/site.ts`, `hideWhen.in`). A department page with only one section (Sports, Humanities) now shows the Overview directly in its panel, without a single tab. Other departments and the college vision and mission are unchanged.
 
