@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight, Atom, ChevronDown, Cpu, ExternalLink, FlaskConical, HeartHandshake } from "lucide-react";
-import type { MenuSection } from "@/lib/menu";
+import { isDirectColumn, type MenuSection } from "@/lib/menu";
 import { isActiveItem } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import NavLink from "./nav-link";
@@ -56,33 +56,37 @@ export default function MobileMenuItem({
         <ChevronDown aria-hidden="true" className={cn("size-5 text-white/70 transition-transform duration-300", expanded && "rotate-180")} />
       </button>
       <div id={panelId} hidden={!expanded} className="bg-black/15 pb-2">
-        {section.columns.map((col) => (
-          <div key={col.title} className="px-5 pt-3">
-            <MobileColumnHeading title={col.title} href={col.href} icon={col.icon} />
-            <ul className="mt-1">
-              {col.links.map((item) => {
-                const current = isActiveItem(item, pathname);
-                return (
-                  <li key={item.href + item.label}>
-                    <NavLink
-                      item={item}
-                      className={cn(
-                        "flex min-h-11 items-center gap-2 border-l-2 py-2 pl-3 text-[0.9375rem] leading-snug transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold",
-                        current ? "border-gold font-semibold text-gold" : "border-white/15 text-white/85",
-                      )}
-                    >
-                      <span className="flex-1">
-                        {item.label}
-                        {item.note && <span className="block text-xs font-normal text-white/55">{item.note}</span>}
-                      </span>
-                      {item.external && <ExternalLink aria-hidden="true" className="size-3.5 shrink-0 text-white/55" />}
-                    </NavLink>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+        {section.columns.map((col) =>
+          isDirectColumn(col) ? (
+            <MobileDirectLink key={col.title} title={col.title} href={col.href!} icon={col.icon} current={col.href === pathname} />
+          ) : (
+            <div key={col.title} className="px-5 pt-3">
+              <MobileColumnHeading title={col.title} href={col.href} icon={col.icon} />
+              <ul className="mt-1">
+                {col.links.map((item) => {
+                  const current = isActiveItem(item, pathname);
+                  return (
+                    <li key={item.href + item.label}>
+                      <NavLink
+                        item={item}
+                        className={cn(
+                          "flex min-h-11 items-center gap-2 border-l-2 py-2 pl-3 text-[0.9375rem] leading-snug transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold",
+                          current ? "border-gold font-semibold text-gold" : "border-white/15 text-white/85",
+                        )}
+                      >
+                        <span className="flex-1">
+                          {item.label}
+                          {item.note && <span className="block text-xs font-normal text-white/55">{item.note}</span>}
+                        </span>
+                        {item.external && <ExternalLink aria-hidden="true" className="size-3.5 shrink-0 text-white/55" />}
+                      </NavLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ),
+        )}
         {section.footerLink && (
           <NavLink
             item={{ label: section.footerLink.label, href: section.footerLink.href }}
@@ -94,6 +98,25 @@ export default function MobileMenuItem({
         )}
       </div>
     </li>
+  );
+}
+
+/** A column shown as one direct link (its heading), with its icon, at the same size as other sub-links. */
+function MobileDirectLink({ title, href, icon, current }: { title: string; href: string; icon?: "cpu" | "atom"; current: boolean }) {
+  const Icon = icon === "cpu" ? Cpu : icon === "atom" ? Atom : null;
+  return (
+    <div className="px-5 pt-2">
+      <NavLink
+        item={{ label: title, href }}
+        className={cn(
+          "flex min-h-11 items-center gap-2.5 border-l-2 py-2 pl-3 text-[0.9375rem] leading-snug transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold",
+          current ? "border-gold font-semibold text-gold" : "border-white/15 text-white/85",
+        )}
+      >
+        {Icon && <Icon aria-hidden="true" className="size-4 shrink-0" />}
+        {title}
+      </NavLink>
+    </div>
   );
 }
 

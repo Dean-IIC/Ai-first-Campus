@@ -1,6 +1,6 @@
 # Manifest
 
-Inventory of the HKBK College of Engineering website, generated from the source files by `npm run docs:manifest` on 2026-10-19. Do not edit by hand. A machine-readable copy is in `manifest.json`.
+Inventory of the HKBK College of Engineering website, generated from the source files by `npm run docs:manifest` on 2026-10-22. Do not edit by hand. A machine-readable copy is in `manifest.json`.
 
 ## Project
 
@@ -29,7 +29,7 @@ Components used by a route may load more data (for example the home page section
 | `/admin/enquiries` | Static | - | - | `app/admin/enquiries/page.tsx` |
 | `/admin/login` | Static | - | - | `app/admin/login/page.tsx` |
 | `/ai-quantum` | Static | 300s | `page:ai-quantum` | `app/ai-quantum/page.tsx` |
-| `/ai-quantum/ai-first` | Static | - | `page:ai-champions`, `page:ai-first` | `app/ai-quantum/ai-first/page.tsx` |
+| `/ai-quantum/ai-first` | Static | - | `table:journey_milestones`, `page:ai-champions`, `page:ai-first` | `app/ai-quantum/ai-first/page.tsx` |
 | `/ai-quantum/quantum-lab` | Static | 300s | `page:quantum-lab` | `app/ai-quantum/quantum-lab/page.tsx` |
 | `/alumni` | Static | 300s | `page:alumni` | `app/alumni/page.tsx` |
 | `/api/admin/enquiries/csv` | API | - | - | `app/api/admin/enquiries/csv/route.ts` |
@@ -57,7 +57,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (98 files)
+## Components (99 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -85,7 +85,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/departments/department-facts.tsx` | 40 | Server | Three small information tiles above the department tabs. |
 | `components/features/departments/department-overview.tsx` | 22 | Server | Key facts about a department. |
 | `components/features/departments/department-research.tsx` | 35 | Server | The department's research centre and its research areas. |
-| `components/features/departments/department-vision-mission.tsx` | 40 | Server | A department's vision and mission as two highlighted tiles; several mission points show as a numbered list. |
+| `components/features/departments/department-vision-mission.tsx` | 53 | Server | One statement, or several as a numbered list. When every point starts with its own label |
 | `components/features/departments/statement-tile.tsx` | 55 | Server | A highlighted statement card (department vision or mission). |
 | `components/features/forms/enquiry-form.tsx` | 108 | Client | Enquiry form posting to the `submitEnquiry` Server Action. Works before JavaScript loads. |
 | `components/features/forms/extra-field-input.tsx` | 37 | Server | Renders one form-specific field; its value is saved in the enquiry's `details`. |
@@ -104,7 +104,7 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/home/journey-entry.tsx` | 135 | Server | Renders **bold** segments in a plain string. |
 | `components/features/home/journey-photo-editor.tsx` | 140 | Client | The photo block for an editor: Replace or Add, Remove, and the caption and alt text. A month |
 | `components/features/home/journey-photo.tsx` | 22 | Server | The photo shown between an entry's first paragraph and its bullet points: centred, at most 400px wide |
-| `components/features/home/journey-section.tsx` | 25 | Server | "Our AI Transformation Journey 2026". Only the months with content are sent to visitors; |
+| `components/features/home/journey-section.tsx` | 26 | Server | "Our AI Transformation Journey 2026". Only the months with content are sent to visitors; |
 | `components/features/home/journey-timeline.tsx` | 138 | Client | The timeline. Visitors see the months that have content, as the server sent them. A signed-in |
 | `components/features/home/key-figures.tsx` | 62 | Server | Figures the site already knows, so they never drift out of date. |
 | `components/features/home/leadership-section.tsx` | 20 | Server | All leadership messages in full, one below the other, in the featured message design. |
@@ -128,12 +128,13 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/layout/site-header.tsx` | 53 | Server | Main menu bar at the very top, then the logo row with contact details and the theme toggle. |
 | `components/features/layout/theme-provider.tsx` | 13 | Client | Light and dark mode via a `dark` class on <html>, following the visitor's system setting by default. |
 | `components/features/layout/theme-toggle.tsx` | 27 | Client | Switches between light and dark mode. Icons swap with CSS, so there is no hydration flash. |
-| `components/features/mous/mou-card.tsx` | 49 | Server | One MoU: partner, type, purpose, dates and a link to the signed document. |
-| `components/features/mous/mou-directory.tsx` | 47 | Server | All MoUs in tabs by partner type, or an empty state until the list is added. |
-| `components/features/navigation/main-nav.tsx` | 99 | Client | The main menu bar. Every item is always visible: on wide screens dropdowns |
+| `components/features/mous/mou-card.tsx` | 60 | Server | Initials for a partner without a logo: "VTU", "CITRIOT" → "CI", "Dyashin Technosoft Pvt Ltd" → "DT". |
+| `components/features/mous/mou-directory.tsx` | 30 | Server | Every MoU in one grid, in the order set by sort_order, or an empty state until the list is added. |
+| `components/features/navigation/compact-menu.tsx` | 55 | Server | A short dropdown for a menu item whose columns are all direct links (for example AI & Quantum |
+| `components/features/navigation/main-nav.tsx` | 106 | Client | The main menu bar. Every item is always visible: on wide screens dropdowns |
 | `components/features/navigation/mega-menu.tsx` | 105 | Server | A column heading: plain text, or a link (with its icon) when the column has its own page. |
 | `components/features/navigation/mobile-header.tsx` | 50 | Client | The header on screens narrower than 1024px: one compact sticky row with the crest, the |
-| `components/features/navigation/mobile-menu-item.tsx` | 117 | Client | One item of the mobile menu: a full-width link, or an accordion (About, Programmes, ...) |
+| `components/features/navigation/mobile-menu-item.tsx` | 140 | Client | One item of the mobile menu: a full-width link, or an accordion (About, Programmes, ...) |
 | `components/features/navigation/mobile-menu-panel.tsx` | 106 | Client | The slide-in menu for phones and tablets: a navy panel from the right over a dimmed page. |
 | `components/features/navigation/nav-link.tsx` | 20 | Server | A menu link: internal pages use next/link; live initiative sites open in a new tab. |
 | `components/features/people/add-person-card.tsx` | 54 | Client | The "Add new" card at the end of a grid, for people beyond the numbered cards. Admin only. |
@@ -178,22 +179,22 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `lib/cms/client-image.ts` | 29 | Shrinks a picture in the browser to fit within maxSide, as a JPEG. Used before every upload. |
 | `lib/cms/paths.ts` | 29 | - |
 | `lib/cms/read.ts` | 25 | - |
-| `lib/cms/schema.ts` | 117 | - |
+| `lib/cms/schema.ts` | 127 | `hideWhen`: the field is not shown, and is saved empty, for rows whose `key` field equals `equals`. |
 | `lib/cms/store.ts` | 26 | - |
-| `lib/cms/validate.ts` | 134 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
+| `lib/cms/validate.ts` | 136 | A photo address the admin may use: one uploaded to our storage, or a file shipped with the site. |
 | `lib/cms/write.ts` | 69 | Saves a value (null removes it), and records the change. |
 | `lib/content.ts` | 197 | A value the admin saved in the content editor (see lib/cms/schema.ts), if any. |
-| `lib/database.types.ts` | 771 | Supabase database types for the HKBK website. |
+| `lib/database.types.ts` | 774 | Supabase database types for the HKBK website. |
 | `lib/editor.ts` | 84 | True when a signed-in editor is viewing the page. Checked once per page load. |
 | `lib/enquiry.ts` | 61 | Per-field messages, used to mark the matching input as invalid. |
 | `lib/format.ts` | 28 | Formats an ISO date (YYYY-MM-DD) as "3 Oct 2026" without timezone shifts. |
 | `lib/journey-model.ts` | 73 | Shared rules for the AI Transformation Journey timeline (visitors and editors). |
 | `lib/markdown.ts` | 16 | Splits markdown into sections at each "## Heading". Text before the first heading is the intro. |
 | `lib/menu-server.ts` | 16 | Loads everything the menu needs and builds it. Server components only. |
-| `lib/menu.ts` | 271 | A dropdown column. With `href` the heading is a link; `icon` shows before the heading. |
+| `lib/menu.ts` | 282 | A dropdown column. With `href` the heading is a link; `icon` shows before the heading. A column with `href` and no links is shown as one direct link. |
 | `lib/portals.tsx` | 42 | A portal is clickable once it has an address and is marked Live. |
 | `lib/site-details.ts` | 37 | Address, phone and email: the values in lib/site.ts, with anything the admin saved laid over them. Server only. |
-| `lib/site.ts` | 103 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
+| `lib/site.ts` | 106 | The Training and Placement Portal (staff sign-in), linked from the Placements page. |
 | `lib/supabase/client.ts` | 13 | Browser client from @supabase/ssr, for Client Components that need live data or auth. |
 | `lib/supabase/env.ts` | 14 | Supabase URL and public key from the environment, or null when the project is not connected yet. |
 | `lib/supabase/public.ts` | 18 | Cookie-free client for public content (pages, departments, news...). |
@@ -238,6 +239,7 @@ Migrations, applied in order:
 - `supabase/migrations/20261014010000_remove_ai_first_message.sql`
 - `supabase/migrations/20261014020000_august_entry_client.sql`
 - `supabase/migrations/20261015000000_api_grants.sql`
+- `supabase/migrations/20261019120000_mou_association.sql`
 
 | Table | Columns | Column names |
 | --- | --- | --- |
@@ -256,7 +258,7 @@ Migrations, applied in order:
 | `ai_people` | 9 | `id`, `slug`, `name`, `role`, `department`, `bio`, `photo_url`, `sort_order`, `updated_at` |
 | `key_figures` | 7 | `id`, `slug`, `label`, `value`, `suffix`, `sort_order`, `updated_at` |
 | `houses` | 9 | `id`, `slug`, `name`, `namesake`, `about`, `motto`, `is_placeholder`, `sort_order`, `updated_at` |
-| `mous` | 11 | `id`, `slug`, `partner`, `partner_type`, `purpose`, `signed_on`, `valid_until`, `document_url`, `logo_url`, `sort_order`, `updated_at` |
+| `mous` | 12 | `id`, `slug`, `partner`, `association`, `partner_type`, `purpose`, `signed_on`, `valid_until`, `document_url`, `logo_url`, `sort_order`, `updated_at` |
 | `journey_milestones` | 14 | `id`, `slug`, `period`, `title`, `summary`, `points`, `badge`, `icon`, `inline_photo`, `layer`, `photos`, `sort_order`, `status`, `updated_at` |
 | `editors` | 4 | `user_id`, `email`, `role`, `created_at` |
 | `site_content` | 3 | `key`, `value`, `updated_at` |
@@ -274,7 +276,7 @@ Migrations, applied in order:
 - `content/data/houses.json`: 5 row(s)
 - `content/data/journey_milestones.json`: 11 row(s)
 - `content/data/key_figures.json`: 11 row(s)
-- `content/data/mous.json`: 0 row(s)
+- `content/data/mous.json`: 13 row(s)
 - `content/data/news_items.json`: 4 row(s)
 - `content/data/portals.json`: 7 row(s)
 - `content/data/research_projects.json`: 3 row(s)

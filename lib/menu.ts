@@ -2,7 +2,7 @@ import { toneForCategory } from "./portals";
 import { images, initiativeItems, isActiveItem, type NavItem } from "./site";
 import type { Tone } from "./ui";
 
-/** A dropdown column. With `href` the heading is a link; `icon` shows before the heading. */
+/** A dropdown column. With `href` the heading is a link; `icon` shows before the heading. A column with `href` and no links is shown as one direct link. */
 export type MenuColumn = { title: string; links: NavItem[]; href?: string; icon?: "cpu" | "atom" };
 
 /** A full web address on another site. HKBK's own sites (*.hkbkce.in) open in the same tab. */
@@ -229,13 +229,13 @@ export function buildMenu({
           title: "AI First Campus",
           href: "/ai-quantum/ai-first",
           icon: "cpu",
-          links: [{ label: "AI First Campus", href: "/ai-quantum/ai-first" }],
+          links: [],
         },
         {
           title: "Quantum Ready Campus",
           href: "/ai-quantum/quantum-lab",
           icon: "atom",
-          links: [{ label: "Quantum Ready Campus", href: "/ai-quantum/quantum-lab" }],
+          links: [],
         },
       ],
       footerLink: { label: "Overview of AI and quantum", href: "/ai-quantum" },
@@ -251,9 +251,16 @@ export function buildMenu({
   ];
 }
 
-/** Every link inside a section, in order. */
+/** True for a column that is one direct link (its heading) rather than a list. */
+export const isDirectColumn = (col: MenuColumn) => Boolean(col.href) && col.links.length === 0;
+
+/** True when every column is a direct link, so the dropdown is a short compact list. */
+export const isCompactSection = (section: MenuSection) => Boolean(section.columns?.length) && section.columns!.every(isDirectColumn);
+
+/** Every link inside a section, in order. A direct-link column counts as its heading's link. */
 export function sectionLinks(section: MenuSection): NavItem[] {
-  return section.columns ? section.columns.flatMap((c) => c.links) : section.href ? [{ label: section.label, href: section.href, external: section.external }] : [];
+  if (!section.columns) return section.href ? [{ label: section.label, href: section.href, external: section.external }] : [];
+  return section.columns.flatMap((c) => (isDirectColumn(c) ? [{ label: c.title, href: c.href! }] : c.links));
 }
 
 /** True when `path` is the section's own page or one of its links. */

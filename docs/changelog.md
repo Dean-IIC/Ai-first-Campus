@@ -4,6 +4,10 @@ All notable changes to the HKBK College of Engineering website. Format based on 
 
 ## [Unreleased]
 
+### Changed (AI & Quantum menu and journey)
+- AI & Quantum Campus dropdown: a compact list sized to its content (under the menu item) with two direct links, "AI First Campus" (CPU icon) and "Quantum Ready Campus" (atom icon), plus "Overview of AI and quantum →"; the duplicate links under each heading are removed. Same in the mobile menu. A menu column with `href` and no links is now a direct link (`isDirectColumn`, `isCompactSection` in `lib/menu.ts`, `compact-menu.tsx`); the footer and breadcrumbs are unchanged.
+- AI First Campus page: the AI First journey timeline (same component and data as the home page, editable in the same way) is added after the AI Champions and Ambassadors content, at `/ai-quantum/ai-first#journey`. It stays on the home page too.
+
 ### Added
 - The Placements menu item (desktop menu, mobile menu and footer) opens the saved Placement Portal Link directly in a new tab (`target="_blank"`, `rel="noopener noreferrer"`), even though it is on *.hkbkce.in; with no link saved it opens the `/placements` page as before. The Placements page and its button are unchanged.
 - Edit content → "Alumni, R&D, UHV and Placement portal links" has a new **Placement Portal Link** field (stored in `site:links` as `placement_portal_link`; placeholder https://placements.hkbkce.in). When it is set, the Placements menu item (header, mobile menu and footer) opens the portal and the Placements page button uses it; when empty, the menu opens `/placements` and the button falls back to `site.placementPortalUrl`. Link fields can now show a placeholder.

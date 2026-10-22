@@ -3,9 +3,10 @@ import ContentPage, { pageMetadata } from "@/components/features/layout/content-
 import Markdown from "@/components/features/content/markdown";
 import Panel from "@/components/features/content/panel";
 import { SectionHeading } from "@/components/features/content/bits";
+import JourneySection from "@/components/features/home/journey-section";
 import AiChampions from "@/components/features/people/ai-champions";
 import AiPeopleGrid from "@/components/features/people/ai-people-grid";
-import { getPage } from "@/lib/content";
+import { getList, getPage } from "@/lib/content";
 import { images } from "@/lib/site";
 
 // Rendered on each request: the faculty and ambassador cards are edited on this page, and a
@@ -16,10 +17,10 @@ export const generateMetadata = () => pageMetadata("ai-first", "AI First campus"
 /**
  * The AI First campus page: the picture, the page text, the Champions summary and the full
  * AI Champions and Ambassadors grids (the old /ai-quantum/champions address redirects to
- * #champions). The dashboards section is not shown for now; its data and editor are unchanged.
+ * #champions), then the AI First journey timeline (#journey), the same one as on the home page. The dashboards section is not shown for now; its data and editor are unchanged.
  */
 export default async function AiFirstPage() {
-  const champions = await getPage("ai-champions");
+  const [champions, journey] = await Promise.all([getPage("ai-champions"), getList("journey_milestones")]);
   return (
     <ContentPage
       slug="ai-first"
@@ -39,6 +40,7 @@ export default async function AiFirstPage() {
             )}
             <AiPeopleGrid />
           </section>
+          <JourneySection milestones={journey} id="journey" embedded />
         </>
       )}
     />
