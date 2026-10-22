@@ -6,6 +6,7 @@ import DepartmentCareers, { hasCareers } from "@/components/features/departments
 import DepartmentCurriculum from "@/components/features/departments/department-curriculum";
 import DepartmentFacts from "@/components/features/departments/department-facts";
 import DepartmentFaculty from "@/components/features/departments/department-faculty";
+import FacultyEditorProvider from "@/components/features/departments/faculty-editor";
 import DepartmentOutcomes, { hasOutcomes } from "@/components/features/departments/department-outcomes";
 import DepartmentOverview from "@/components/features/departments/department-overview";
 import DepartmentResearch from "@/components/features/departments/department-research";
@@ -41,7 +42,8 @@ export default async function DepartmentPage({ params }: Props) {
   const { slug } = await params;
   const { department: d } = await findDepartment(slug);
   if (!d) notFound();
-  const faculty = (await getList("faculty")).filter((f) => f.department === d.slug);
+  const allFaculty = await getList("faculty");
+  const faculty = allFaculty.filter((f) => f.department === d.slug);
 
   // Optional tabs appear only when the department has that content, so other departments are unchanged.
   // An extended page (AIML) shows its overview under the vision and mission, and always has a Faculty tab.
@@ -63,7 +65,19 @@ export default async function DepartmentPage({ params }: Props) {
     ...(hasOutcomes(d) ? [{ id: "outcomes", label: "Outcomes", content: <DepartmentOutcomes department={d} /> }] : []),
     ...(linesOf(d.curriculum).length ? [{ id: "curriculum", label: "Curriculum", content: <DepartmentCurriculum department={d} /> }] : []),
     ...(hasCareers(d) ? [{ id: "careers", label: "Careers", content: <DepartmentCareers department={d} /> }] : []),
-    ...(faculty.length || extended ? [{ id: "faculty", label: "Faculty", content: <DepartmentFaculty faculty={faculty} /> }] : []),
+    ...(faculty.length || extended
+      ? [
+          {
+            id: "faculty",
+            label: "Faculty",
+            content: (
+              <FacultyEditorProvider items={allFaculty} department={d.slug}>
+                <DepartmentFaculty />
+              </FacultyEditorProvider>
+            ),
+          },
+        ]
+      : []),
     ...(hasAchievements(d) ? [{ id: "achievements", label: "Achievements", content: <DepartmentAchievements department={d} /> }] : []),
     ...(d.has_research_centre ? [{ id: "research-centre", label: "Research centre", content: <DepartmentResearch department={d} /> }] : []),
   ];

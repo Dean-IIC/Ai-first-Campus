@@ -474,9 +474,9 @@
     },
     {
       "file": "components/features/departments/department-faculty.tsx",
-      "lines": 96,
-      "client": false,
-      "summary": "Shown before any faculty member is added: one empty portrait frame and a note."
+      "lines": 64,
+      "client": true,
+      "summary": "The department's faculty: the head of department first, then everyone else grouped by"
     },
     {
       "file": "components/features/departments/department-history.tsx",
@@ -507,6 +507,30 @@
       "lines": 58,
       "client": false,
       "summary": "One statement, or several as a numbered list. When every point starts with its own label"
+    },
+    {
+      "file": "components/features/departments/faculty-card-form.tsx",
+      "lines": 120,
+      "client": true,
+      "summary": "A faculty member as a form, for Add and Edit: name, designation, qualification, head of the"
+    },
+    {
+      "file": "components/features/departments/faculty-card.tsx",
+      "lines": 62,
+      "client": true,
+      "summary": "One faculty member. Visitors see the card. The signed-in admin also sees Edit and Delete;"
+    },
+    {
+      "file": "components/features/departments/faculty-editor.tsx",
+      "lines": 72,
+      "client": true,
+      "summary": "Holds the whole faculty list (every department) for the Faculty tab's Add, Edit and Delete."
+    },
+    {
+      "file": "components/features/departments/faculty-view.tsx",
+      "lines": 60,
+      "client": false,
+      "summary": "Shown before any faculty member is added: one empty portrait frame and a note."
     },
     {
       "file": "components/features/departments/statement-tile.tsx",

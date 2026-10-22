@@ -190,7 +190,7 @@ All three come from the `departments` table. Each department row holds its `visi
 | Scope of employment | card | `Higher studies: Preparation for GATE, UGC-NET, CAT ...` |
 | Career roles | role | `Data scientist` |
 
-Achievements is free text beside an uploaded photo; until the photo is uploaded the page shows an empty frame. Untick **Show the research centre tile** to hide the Research centre tile and overview row. **Faculty** have their own list (**Edit content** → Faculty): choose the department (`aiml`, `cse`, ...), then name, designation (Professor, Associate Professor, Assistant Professor or Teaching Assistant), qualification and a portrait photo. Tick **Head of the department** for the HoD, who is shown first in a larger card; everyone else is grouped by designation, highest rank first, and the card number sets the order within each group.
+Achievements is free text beside an uploaded photo; until the photo is uploaded the page shows an empty frame. Untick **Show the research centre tile** to hide the Research centre tile and overview row. **Faculty** are edited on the department's Faculty tab while signed in (**➕ Add faculty**, **✏️ Edit**, **🗑️ Delete**), or in their own list (**Edit content** → Faculty): choose the department (`aiml`, `cse`, ...), then name, designation (Professor, Associate Professor, Assistant Professor or Teaching Assistant), qualification and a portrait photo. Tick **Head of the department** for the HoD, who is shown first in a larger card; everyone else is grouped by designation, highest rank first, and the card number sets the order within each group.
 
 ## AI Faculty Champions and AI Student Ambassadors
 

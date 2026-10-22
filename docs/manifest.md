@@ -56,7 +56,7 @@ Components used by a route may load more data (for example the home page section
 
 Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `app/loading.tsx`, `app/not-found.tsx`, `app/sitemap.ts`, `app/robots.ts`.
 
-## Components (117 files)
+## Components (121 files)
 
 | File | Lines | Runs on | Purpose |
 | --- | --- | --- | --- |
@@ -85,12 +85,16 @@ Also: `app/layout.tsx` (root layout), `app/error.tsx`, `app/global-error.tsx`, `
 | `components/features/departments/department-careers.tsx` | 63 | Server | Icon for a scope card, chosen from words in its heading. |
 | `components/features/departments/department-curriculum.tsx` | 35 | Server | The curriculum as one card per semester: its scheme and its subjects. |
 | `components/features/departments/department-facts.tsx` | 45 | Server | Three small information tiles above the department tabs. |
-| `components/features/departments/department-faculty.tsx` | 96 | Server | Shown before any faculty member is added: one empty portrait frame and a note. |
+| `components/features/departments/department-faculty.tsx` | 64 | Client | The department's faculty: the head of department first, then everyone else grouped by |
 | `components/features/departments/department-history.tsx` | 37 | Server | The programme's year-by-year history as a table (academic year and milestone). |
 | `components/features/departments/department-outcomes.tsx` | 32 | Server | Programme educational objectives, programme specific outcomes and programme outcomes. |
 | `components/features/departments/department-overview.tsx` | 35 | Server | Key facts about a department, then the programme's history when it has one. A department |
 | `components/features/departments/department-research.tsx` | 35 | Server | The department's research centre and its research areas. |
 | `components/features/departments/department-vision-mission.tsx` | 58 | Server | One statement, or several as a numbered list. When every point starts with its own label |
+| `components/features/departments/faculty-card-form.tsx` | 120 | Client | A faculty member as a form, for Add and Edit: name, designation, qualification, head of the |
+| `components/features/departments/faculty-card.tsx` | 62 | Client | One faculty member. Visitors see the card. The signed-in admin also sees Edit and Delete; |
+| `components/features/departments/faculty-editor.tsx` | 72 | Client | Holds the whole faculty list (every department) for the Faculty tab's Add, Edit and Delete. |
+| `components/features/departments/faculty-view.tsx` | 60 | Server | Shown before any faculty member is added: one empty portrait frame and a note. |
 | `components/features/departments/statement-tile.tsx` | 55 | Server | A highlighted statement card (department vision or mission). |
 | `components/features/events/event-card-form.tsx` | 136 | Client | An event as a form, for Add and Edit: title, dates, time, venue, category, description, link and |
 | `components/features/events/event-card-view.tsx` | 61 | Server | One event: the calendar date badge (month in the red strip, day below), category, title, dates, |
